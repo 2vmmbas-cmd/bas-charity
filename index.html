@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html lang="ml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Plus - Shop & Support</title>
+    <title>Charity Plus</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; color: #333; }
-        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 40px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .header h1 { margin: 0; font-size: 2.5em; letter-spacing: 2px; }
-        .header p { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
-        .charity-badge { background: #ff4757; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; font-weight: bold; }
-        
-        .container { max-width: 900px; margin: 30px auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        
-        .card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid #ddd; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .card img { height: 45px; margin-bottom: 15px; object-fit: contain; }
-        
-        .btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; margin-top: 15px; transition: 0.3s; }
-        
-        .card-fk { border-top-color: #2874f0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; text-align: center; color: #333; }
+        .header { background: #1e3c72; color: white; padding: 30px; }
+        .message-box { max-width: 600px; margin: 25px auto; background: white; padding: 25px; border-radius: 15px; border-top: 5px solid #27ae60; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .salam { font-size: 1.5em; color: #1e3c72; font-weight: bold; display: block; margin-bottom: 10px; }
+        .container { max-width: 900px; margin: auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { background: white; width: 260px; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; margin-top: 20px; }
         .btn-fk { background-color: #2874f0; }
-        .card-myntra { border-top-color: #ff3f6c; }
         .btn-myntra { background-color: #ff3f6c; }
-        
-        .footer { text-align: center; padding: 40px; color: #777; font-size: 14px; border-top: 1px solid #ddd; margin-top: 20px; }
+        .footer { padding: 40px; color: #888; font-size: 13px; }
     </style>
 </head>
 <body>
-
-<div class="header">
-    <h1>Charity Plus</h1>
-    <p>നിങ്ങളുടെ പർച്ചേസ് മറ്റൊരാൾക്ക് തണലാകട്ടെ</p>
-    <div class="charity-badge">51% വിഹിതം ചാരിറ്റിക്ക്</div>
-</div>
-
-<div class="container">
-    <div class="card card-fk">
-        <img src="https://logodownload.org/wp-content/uploads/2019/08/flipkart-logo-0.png" alt="Flipkart">
-        <p>ഫ്ലിപ്കാർട്ടിലെ ഓഫറുകൾക്കായി ഇവിടെ ക്ലിക്ക് ചെയ്യൂ.</p>
-        <a href="https://fktr.in/8XlhhFO" class="btn btn-fk" target="_blank">SHOP ON FLIPKART</a>
+    <div class="header">
+        <h1>Charity Plus</h1>
+        <p>51% Profit to Charity</p>
     </div>
-
-    <div class="card card-myntra">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png" alt="Myntra">
-        <p>പുതിയ ഫാഷൻ കളക്ഷനുകൾ മൈന്ത്രയിൽ നിന്ന് വാങ്ങൂ.</p>
-        <a href="https://myntr.it/JmJM5va" class="btn btn-myntra" target="_blank">SHOP ON MYNTRA</a>
+    <div class="message-box">
+        <span class="salam">Assalamu Alaikum</span>
+        <p>Your every purchase is a great help for the needy. 51% of the commission goes to charity.</p>
     </div>
-</div>
-
-<div class="footer">
-    <p>&copy; 2025 Charity Plus - A Family Trust Initiative</p>
-    <p>ലക്ഷ്യം: 550</p>
-</div>
-
+    <div class="container">
+        <div class="card">
+            <img src="https://logodownload.org/wp-content/uploads/2019/08/flipkart-logo-0.png" width="110" alt="Flipkart">
+            <a href="https://fktr.in/8XlhhFO" class="btn btn-fk" target="_blank">SHOP ON FLIPKART</a>
+        </div>
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png" width="100" alt="Myntra">
+            <a href="https://myntr.it/JmJM5va" class="btn btn-myntra" target="_blank">SHOP ON MYNTRA</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Charity Plus | Target: 550</p>
+    </div>
 </body>
 </html>
