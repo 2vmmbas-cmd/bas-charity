@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bas Charity Store</title>
+    <title>Charity Plus - Shop & Support</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f0f2f5; padding: 20px; color: #333; }
-        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0px 4px 20px rgba(0,0,0,0.1); max-width: 450px; margin: auto; }
-        h1 { color: #1a73e8; font-size: 24px; margin-bottom: 10px; }
-        .message-box { background-color: #fff5f5; border: 1px solid #feb2b2; padding: 15px; border-radius: 8px; margin-bottom: 25px; }
-        p { font-size: 16px; line-height: 1.5; margin: 5px 0; }
-        .btn { display: block; width: 90%; margin: 12px auto; padding: 15px; text-decoration: none; color: white; border-radius: 8px; font-weight: bold; font-size: 18px; transition: transform 0.2s; }
-        .btn:active { transform: scale(0.98); }
-        .amazon { background-color: #ff9900; }
-        .flipkart { background-color: #2874f0; }
-        .myntra { background-color: #ff3f6c; }
-        .footer { font-size: 12px; margin-top: 25px; color: #777; font-style: italic; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; color: #333; }
+        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 40px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header h1 { margin: 0; font-size: 2.5em; letter-spacing: 2px; }
+        .header p { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
+        .charity-badge { background: #ff4757; color: white; padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 15px; font-weight: bold; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        
+        .card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid #ddd; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card img { height: 50px; margin-bottom: 15px; }
+        
+        .btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; margin-top: 15px; transition: 0.3s; }
+        
+        /* Brand Colors */
+        .card-fk { border-top-color: #2874f0; }
+        .btn-fk { background-color: #2874f0; }
+        .card-myntra { border-top-color: #ff3f6c; }
+        .btn-myntra { background-color: #ff3f6c; }
+        .card-generic { border-top-color: #27ae60; }
+        .btn-generic { background-color: #27ae60; }
+
+        .footer { text-align: center; padding: 40px; color: #777; font-size: 14px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bas Charity Store</h1>
-        
-        <div class="message-box">
-            <p>നിങ്ങൾ നേടുന്ന അതേ ഓഫറുകളിൽ സാധനങ്ങൾ വാങ്ങുമ്പോൾ തന്നെ മറ്റൊരാളുടെ വിശപ്പടക്കാൻ ഈ ലിങ്കുകൾ സഹായിക്കും.</p>
-        </div>
-        
-        <a href="https://amzn.to/3B4o0WJ" target="_blank" class="btn amazon">Amazon-ൽ ഷോപ്പ് ചെയ്യാൻ</a>
-        <a href="https://fkrt.it/O!F_0zuuuN" target="_blank" class="btn flipkart">Flipkart-ൽ ഷോപ്പ് ചെയ്യാൻ</a>
-        <a href="https://myntr.it/p/XyZ123" target="_blank" class="btn myntra">Myntra-ൽ ഷോപ്പ് ചെയ്യാൻ</a>
 
-        <p class="footer">നിങ്ങളുടെ ഓരോ പർച്ചേസും വിശപ്പടക്കാൻ സഹായിക്കുന്നു. നന്ദി!</p>
+<div class="header">
+    <h1>Charity Plus</h1>
+    <p>നിങ്ങളുടെ പർച്ചേസ് മറ്റൊരാൾക്ക് തണലാകട്ടെ</p>
+    <div class="charity-badge">51% വിഹിതം ചാരിറ്റിക്ക്</div>
+</div>
+
+<div class="container">
+    <div class="card card-fk">
+        <img src="https://logodownload.org/wp-content/uploads/2019/08/flipkart-logo-0.png" alt="Flipkart">
+        <p>ഫ്ലിപ്കാർട്ടിലെ ഓഫറുകൾക്കായി ഇവിടെ ക്ലിക്ക് ചെയ്യൂ.</p>
+        <a href="നിങ്ങളുടെ_FLIPKART_LINK" class="btn btn-fk" target="_blank">SHOP ON FLIPKART</a>
     </div>
+
+    <div class="card card-myntra">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png" alt="Myntra">
+        <p>പുതിയ ഫാഷൻ കളക്ഷനുകൾ മൈന്ത്രയിൽ നിന്ന് വാങ്ങൂ.</p>
+        <a href="https://myntr.it/JmJM5va" class="btn btn-myntra" target="_blank">SHOP ON MYNTRA</a>
+    </div>
+
+    <div class="card card-generic">
+        <h2 style="margin:0; color:#27ae60;">Coming Soon</h2>
+        <p>അടുത്ത 23 സ്റ്റോറുകൾ ഉടൻ ഇവിടെ ലഭ്യമാകും.</p>
+        <a href="#" class="btn btn-generic">STAY TUNED</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Charity Plus - A Family Trust Initiative</p>
+    <p>ലക്ഷ്യം: 550</p>
+</div>
+
 </body>
 </html>
