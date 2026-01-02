@@ -1,54 +1,78 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAS Charity International</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        .top-bar { background: #004466; color: white; padding: 12px; font-weight: bold; font-size: 1.1rem; }
-        .header { padding: 60px 20px; background: white; border-bottom: 2px solid #ddd; }
-        h1 { font-size: 3.5rem; color: #111; margin: 0; }
-        .sub-text { font-size: 1.3rem; color: #555; max-width: 800px; margin: 20px auto 40px; }
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 40px; }
-        .btn { padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
-        .amazon { background: #FF9900; color: black; }
-        .flipkart { background: #2874f0; color: white; }
-        .info-box { background: #e7f3ff; padding: 40px; margin: 40px auto; max-width: 850px; border-radius: 15px; line-height: 1.6; }
-        .founder-section { padding: 50px 20px; }
-        .donation-box { background: #fff3e0; padding: 50px 20px; border-top: 2px solid #ffcc80; }
-        .donate-btn { background: #e65100; color: white; padding: 20px 50px; font-size: 1.5rem; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin: 20px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        .top-bar { background: #004466; color: white; padding: 12px; font-weight: bold; }
+        
+        .header { background: white; padding: 40px 20px; border-bottom: 3px solid #004466; }
+        .logo-placeholder { width: 130px; height: 130px; background: #eee; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; border: 3px solid #004466; overflow: hidden; }
+        .logo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-name { font-size: 2.6rem; font-weight: 800; color: #004466; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+
+        .hero { padding: 50px 20px; background: #fff; }
+        h1 { font-size: 2.8rem; color: #111; margin-bottom: 20px; line-height: 1.2; }
+        .sub-text { font-size: 1.25rem; color: #555; max-width: 750px; margin: 0 auto 40px; line-height: 1.6; }
+
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .btn { padding: 20px 40px; border-radius: 10px; font-weight: bold; font-size: 1.2rem; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .amazon { background: #FF9900; color: #000; }
+        .flipkart { background: #2874f0; color: #fff; }
+
+        .donation-section { background: #fff4e6; padding: 60px 20px; margin-top: 50px; border-top: 1px solid #ffd8a8; }
+        .donate-btn { background: #e65100; color: white; padding: 22px 60px; font-size: 1.6rem; border-radius: 12px; text-decoration: none; display: inline-block; margin: 25px 0; font-weight: bold; }
+
+        .how-we-work { background: white; padding: 35px; max-width: 850px; margin: 30px auto; border-radius: 15px; text-align: left; border-left: 10px solid #004466; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        footer { padding: 40px; color: #555; font-size: 1rem; background: #eee; margin-top: 50px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">Join our charity without spending an extra penny!</div>
+    <div class="top-bar">YOUR PURCHASE SATISFIES A HUNGER</div>
 
     <div class="header">
+        <div class="logo-placeholder">
+            <img src="logo.jpg" alt="BAS Logo / Founder Photo">
+        </div>
+        <h1 class="brand-name">BAS Charity International</h1>
+    </div>
+
+    <div class="hero">
         <h1>YOUR PURCHASE SATISFIES A HUNGER</h1>
-        <p class="sub-text">Keep all your offers and discounts. Shop at the same price and satisfy a hunger in some corner of the world.</p>
-        
+        <p class="sub-text">
+            When you shop through BAS Charity International, it becomes food for someone in a corner of the world. 
+            Enjoy your shopping at the same price while helping others.
+        </p>
+
         <div class="btn-container">
             <a href="നിങ്ങളുടെ_ആമസോൺ_ലിങ്ക്" class="btn amazon">SHOP ON AMAZON</a>
             <a href="നിങ്ങളുടെ_ഫ്ലിപ്കാർട്ട്_ലിങ്ക്" class="btn flipkart">SHOP ON FLIPKART</a>
         </div>
     </div>
 
-    <div class="info-box">
-        <h2>How We Work</h2>
-        <p style="font-size: 1.2rem;">All platform charges, expansion costs, salaries, and operational expenses are fully covered by <b>affiliate marketing revenue</b>. We do not use your direct contributions for our expenses. 100% of your donation reaches the beneficiary.</p>
-    </div>
-
-    <div class="founder-section">
-        <h2>Founder: BAS</h2>
-        <p style="font-size: 1.2rem; font-style: italic;">"Your purchase satisfies a hunger."</p>
-    </div>
-
-    <div class="donation-box">
-        <h3>Donation is purely optional for those who wish to contribute directly.</h3>
+    <div class="donation-section">
+        <h2>Direct Donation (Optional)</h2>
+        <p>100% of your donation reaches the beneficiary.</p>
         <a href="#" class="donate-btn">DONATE NOW</a>
-        <p style="font-size: 0.9rem; color: #888;">Note: Currently, we accept donations only from within India. International licenses are under process.</p>
+
+        <div class="how-we-work">
+            <h3 style="color: #004466; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px;">How We Work & Our Promise</h3>
+            <p style="font-size: 1.15rem; line-height: 1.8;">
+                നിങ്ങൾ നൽകുന്ന സംഭാവനയുടെ <b>100 ശതമാനവും</b> ഗുണഭോക്താക്കളിലേക്ക് നേരിട്ട് എത്തുന്നു എന്ന് ഞങ്ങൾ ഉറപ്പുനൽകുന്നു. 
+                പ്ലാറ്റ്‌ഫോം ചാർജുകൾ, ശമ്പളം, മറ്റ് വിപുലീകരണ ചിലവുകൾ എന്നിവയെല്ലാം <b>അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിൽ</b> നിന്നാണ് ഞങ്ങൾ കണ്ടെത്തുന്നത്.
+                ഈ വിവരങ്ങൾ ഞങ്ങളുടെ പേജിൽ വ്യക്തമായി രേഖപ്പെടുത്തിയിട്ടുണ്ട്.
+            </p>
+        </div>
     </div>
+
+    <footer>
+        <p><b>Founder: BAS</b></p>
+        <p>Stock Market Target: 600</p>
+        <p>© 2026 BAS Charity International. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
