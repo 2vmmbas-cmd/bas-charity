@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,25 +7,37 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
         .top-bar { background: #004466; color: white; padding: 12px; font-weight: bold; }
-        
         .header { background: white; padding: 40px 20px; border-bottom: 3px solid #004466; }
-        .logo-placeholder { width: 130px; height: 130px; background: #eee; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; border: 3px solid #004466; overflow: hidden; }
-        .logo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .brand-name { font-size: 2.6rem; font-weight: 800; color: #004466; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-placeholder { width: 100px; height: 100px; background: #004466; color: white; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: bold; }
+        .brand-name { font-size: 2.4rem; font-weight: 800; color: #004466; margin: 0; text-transform: uppercase; }
 
         .hero { padding: 50px 20px; background: #fff; }
-        h1 { font-size: 2.8rem; color: #111; margin-bottom: 20px; line-height: 1.2; }
+        h1 { font-size: 2.6rem; color: #111; margin-bottom: 20px; line-height: 1.2; }
         .sub-text { font-size: 1.25rem; color: #555; max-width: 750px; margin: 0 auto 40px; line-height: 1.6; }
 
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .btn { padding: 20px 40px; border-radius: 10px; font-weight: bold; font-size: 1.2rem; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 1000px; margin: 0 auto; }
+        .btn { 
+            padding: 15px 35px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1rem; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            min-width: 160px;
+        }
         .amazon { background: #FF9900; color: #000; }
         .flipkart { background: #2874f0; color: #fff; }
+        .myntra { background: #ff3f6c; color: #fff; }
+        .ajio { background: #2c333e; color: #fff; }
+        .meesho { background: #ff44af; color: #fff; }
+        
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
 
         .donation-section { background: #fff4e6; padding: 60px 20px; margin-top: 50px; border-top: 1px solid #ffd8a8; }
-        .donate-btn { background: #e65100; color: white; padding: 22px 60px; font-size: 1.6rem; border-radius: 12px; text-decoration: none; display: inline-block; margin: 25px 0; font-weight: bold; }
+        .donate-btn { background: #e65100; color: white; padding: 20px 60px; font-size: 1.5rem; border-radius: 50px; text-decoration: none; display: inline-block; margin: 25px 0; font-weight: bold; }
 
-        .how-we-work { background: white; padding: 35px; max-width: 850px; margin: 30px auto; border-radius: 15px; text-align: left; border-left: 10px solid #004466; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .how-we-work { background: white; padding: 35px; max-width: 850px; margin: 30px auto; border-radius: 20px; text-align: left; border-left: 10px solid #004466; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         footer { padding: 40px; color: #555; font-size: 1rem; background: #eee; margin-top: 50px; }
     </style>
 </head>
@@ -34,22 +46,23 @@
     <div class="top-bar">YOUR PURCHASE SATISFIES A HUNGER</div>
 
     <div class="header">
-        <div class="logo-placeholder">
-            <img src="logo.jpg" alt="BAS Logo / Founder Photo">
-        </div>
+        <div class="logo-placeholder">B</div>
         <h1 class="brand-name">BAS Charity International</h1>
     </div>
 
     <div class="hero">
         <h1>YOUR PURCHASE SATISFIES A HUNGER</h1>
         <p class="sub-text">
-            When you shop through BAS Charity International, it becomes food for someone in a corner of the world. 
-            Enjoy your shopping at the same price while helping others.
+            നിങ്ങൾ ഷോപ്പ് ചെയ്യുന്ന ഓരോ നിമിഷവും ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിലുള്ള വിശക്കുന്ന വയറുകൾക്ക് ഭക്ഷണമായി മാറും. 
+            ഒരേ വിലയിൽ ഷോപ്പ് ചെയ്യൂ, മറ്റൊരാളെ സഹായിക്കൂ.
         </p>
 
         <div class="btn-container">
-            <a href="നിങ്ങളുടെ_ആമസോൺ_ലിങ്ക്" class="btn amazon">SHOP ON AMAZON</a>
-            <a href="നിങ്ങളുടെ_ഫ്ലിപ്കാർട്ട്_ലിങ്ക്" class="btn flipkart">SHOP ON FLIPKART</a>
+            <a href="https://amzn.to/3W9pXjH" class="btn amazon" target="_blank">AMAZON</a>
+            <a href="https://fkrt.it/your_link" class="btn flipkart" target="_blank">FLIPKART</a>
+            <a href="https://www.myntra.com" class="btn myntra" target="_blank">MYNTRA</a>
+            <a href="https://www.ajio.com" class="btn ajio" target="_blank">AJIO</a>
+            <a href="https://www.meesho.com" class="btn meesho" target="_blank">MEESHO</a>
         </div>
     </div>
 
@@ -59,11 +72,11 @@
         <a href="#" class="donate-btn">DONATE NOW</a>
 
         <div class="how-we-work">
-            <h3 style="color: #004466; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px;">How We Work & Our Promise</h3>
+            <h3 style="color: #004466; margin-top: 0;">How We Work & Our Promise</h3>
             <p style="font-size: 1.15rem; line-height: 1.8;">
-                നിങ്ങൾ നൽകുന്ന സംഭാവനയുടെ <b>100 ശതമാനവും</b> ഗുണഭോക്താക്കളിലേക്ക് നേരിട്ട് എത്തുന്നു എന്ന് ഞങ്ങൾ ഉറപ്പുനൽകുന്നു. 
-                പ്ലാറ്റ്‌ഫോം ചാർജുകൾ, ശമ്പളം, മറ്റ് വിപുലീകരണ ചിലവുകൾ എന്നിവയെല്ലാം <b>അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിൽ</b> നിന്നാണ് ഞങ്ങൾ കണ്ടെത്തുന്നത്.
-                ഈ വിവരങ്ങൾ ഞങ്ങളുടെ പേജിൽ വ്യക്തമായി രേഖപ്പെടുത്തിയിട്ടുണ്ട്.
+                നിങ്ങൾ നൽകുന്ന സംഭാവനയുടെ <b>ഒരു പൈസ പോലും</b> ഞങ്ങൾ ശമ്പളത്തിനോ ഓഫീസ്‌ ചിലവുകൾക്കോ എടുക്കുന്നില്ല. 
+                ഈ ചിലവുകളെല്ലാം ഞങ്ങൾ കണ്ടെത്തുന്നത് അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിൽ നിന്നാണ്.
+                നിങ്ങളുടെ സഹായം 100 ശതമാനവും അർഹരായവരിലേക്ക് നേരിട്ട് എത്തും.
             </p>
         </div>
     </div>
@@ -76,3 +89,4 @@
 
 </body>
 </html>
+ 
