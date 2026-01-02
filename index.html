@@ -1,92 +1,72 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAS Charity International</title>
+    <title>BAS International Charity</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        .top-bar { background: #004466; color: white; padding: 12px; font-weight: bold; }
-        .header { background: white; padding: 40px 20px; border-bottom: 3px solid #004466; }
-        .logo-placeholder { width: 100px; height: 100px; background: #004466; color: white; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: bold; }
-        .brand-name { font-size: 2.4rem; font-weight: 800; color: #004466; margin: 0; text-transform: uppercase; }
-
-        .hero { padding: 50px 20px; background: #fff; }
-        h1 { font-size: 2.6rem; color: #111; margin-bottom: 20px; line-height: 1.2; }
-        .sub-text { font-size: 1.25rem; color: #555; max-width: 750px; margin: 0 auto 40px; line-height: 1.6; }
-
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .btn { 
-            padding: 15px 35px; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            font-size: 1rem; 
-            text-decoration: none; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            min-width: 160px;
-        }
-        .amazon { background: #FF9900; color: #000; }
-        .flipkart { background: #2874f0; color: #fff; }
-        .myntra { background: #ff3f6c; color: #fff; }
-        .ajio { background: #2c333e; color: #fff; }
-        .meesho { background: #ff44af; color: #fff; }
-        
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
-
-        .donation-section { background: #fff4e6; padding: 60px 20px; margin-top: 50px; border-top: 1px solid #ffd8a8; }
-        .donate-btn { background: #e65100; color: white; padding: 20px 60px; font-size: 1.5rem; border-radius: 50px; text-decoration: none; display: inline-block; margin: 25px 0; font-weight: bold; }
-
-        .how-we-work { background: white; padding: 35px; max-width: 850px; margin: 30px auto; border-radius: 20px; text-align: left; border-left: 10px solid #004466; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        footer { padding: 40px; color: #555; font-size: 1rem; background: #eee; margin-top: 50px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .header { text-align: center; background: #1a73e8; color: white; padding: 50px 20px; }
+        .slogan { font-size: 1.8em; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
+        .container { max-width: 900px; margin: 20px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .shopping-section { text-align: center; margin-bottom: 40px; padding: 20px; border: 2px dashed #1a73e8; border-radius: 10px; }
+        .btn { display: inline-block; padding: 15px 25px; margin: 10px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .amazon { background: #ff9900; }
+        .flipkart { background: #2874f0; }
+        .tata { background: #da1c5c; }
+        .btn:hover { opacity: 0.8; transform: scale(1.05); }
+        .charity-photos { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        .charity-photos img { width: 45%; min-width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .policy { background: #e8f0fe; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 5px solid #1a73e8; }
+        .founder-section { background: #fff; padding: 25px; border-radius: 10px; margin-top: 40px; border: 1px solid #ddd; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .founder-img { width: 180px; border-radius: 10px; border: 3px solid #1a73e8; }
+        .founder-info { flex: 1; }
+        h2 { color: #1a73e8; border-bottom: 2px solid #eee; padding-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">YOUR PURCHASE SATISFIES A HUNGER</div>
+<div class="header">
+    <h1>BAS INTERNATIONAL CHARITY</h1>
+    <p class="slogan">YOUR EVERY PURCHASE SATISFIES A HUNGER</p>
+    <p>When you shop through our affiliate links, 100% of the commission feeds the needy.</p>
+</div>
 
-    <div class="header">
-        <div class="logo-placeholder">B</div>
-        <h1 class="brand-name">BAS Charity International</h1>
+<div class="container">
+    <div class="shopping-section">
+        <h2>START YOUR SHOPPING</h2>
+        <p>Choose your favorite store and help us make a difference.</p>
+        <a href="https://www.amazon.in/?&tag=Vmmbaslinks-21" class="btn amazon" target="_blank">Shop on Amazon</a>
+        <a href="https://www.flipkart.com/" class="btn flipkart" target="_blank">Shop on Flipkart</a>
+        <a href="https://www.tatacliq.com/" class="btn tata" target="_blank">Shop on Tata CLiQ</a>
     </div>
 
-    <div class="hero">
-        <h1>YOUR PURCHASE SATISFIES A HUNGER</h1>
-        <p class="sub-text">
-            നിങ്ങൾ ഷോപ്പ് ചെയ്യുന്ന ഓരോ നിമിഷവും ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിലുള്ള വിശക്കുന്ന വയറുകൾക്ക് ഭക്ഷണമായി മാറും. 
-            ഒരേ വിലയിൽ ഷോപ്പ് ചെയ്യൂ, മറ്റൊരാളെ സഹായിക്കൂ.
-        </p>
-
-        <div class="btn-container">
-            <a href="https://amzn.to/3W9pXjH" class="btn amazon" target="_blank">AMAZON</a>
-            <a href="https://fkrt.it/your_link" class="btn flipkart" target="_blank">FLIPKART</a>
-            <a href="https://www.myntra.com" class="btn myntra" target="_blank">MYNTRA</a>
-            <a href="https://www.ajio.com" class="btn ajio" target="_blank">AJIO</a>
-            <a href="https://www.meesho.com" class="btn meesho" target="_blank">MEESHO</a>
+    <div style="text-align: center;">
+        <h2>OUR CHARITY WORK</h2>
+        <div class="charity-photos">
+            <img src="PHOTO_URL_1" alt="Charity Event 1">
+            <img src="PHOTO_URL_2" alt="Charity Event 2">
         </div>
     </div>
 
-    <div class="donation-section">
-        <h2>Direct Donation (Optional)</h2>
-        <p>100% of your donation reaches the beneficiary.</p>
-        <a href="#" class="donate-btn">DONATE NOW</a>
-
-        <div class="how-we-work">
-            <h3 style="color: #004466; margin-top: 0;">How We Work & Our Promise</h3>
-            <p style="font-size: 1.15rem; line-height: 1.8;">
-                നിങ്ങൾ നൽകുന്ന സംഭാവനയുടെ <b>ഒരു പൈസ പോലും</b> ഞങ്ങൾ ശമ്പളത്തിനോ ഓഫീസ്‌ ചിലവുകൾക്കോ എടുക്കുന്നില്ല. 
-                ഈ ചിലവുകളെല്ലാം ഞങ്ങൾ കണ്ടെത്തുന്നത് അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിൽ നിന്നാണ്.
-                നിങ്ങളുടെ സഹായം 100 ശതമാനവും അർഹരായവരിലേക്ക് നേരിട്ട് എത്തും.
-            </p>
-        </div>
+    <div class="policy">
+        <p><strong>Transparency Commitment:</strong> 100% of the donation reaches the beneficiary. All platform charges, salaries, and expansion costs are covered by our affiliate marketing revenue.</p>
     </div>
 
-    <footer>
-        <p><b>Founder: BAS</b></p>
-        <p>Stock Market Target: 600</p>
-        <p>© 2026 BAS Charity International. All rights reserved.</p>
-    </footer>
+    <div class="founder-section">
+        <img src="YOUR_KSEB_PHOTO_URL" alt="Mohammed Basheer" class="founder-img">
+        <div class="founder-info">
+            <h2>About the Founder</h2>
+            <h3>Mohammed Basheer</h3>
+            <p><strong>Retired Assistant Engineer, KSEB</strong></p>
+            <ul>
+                <li>5 Years of International Experience (Saudi Arabia & Muscat)</li>
+                <li>20 Years of Dedicated Service in KSEB</li>
+                <li>40 Years of Committed Social Service</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
- 
