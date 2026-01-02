@@ -1,27 +1,22 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAS International Charity</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
-        .header { text-align: center; background: #1a73e8; color: white; padding: 50px 20px; }
-        .slogan { font-size: 1.8em; font-weight: bold; margin-top: 10px; text-transform: uppercase; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; background-color: #f9f9f9; }
+        .header { text-align: center; background: #1a73e8; color: white; padding: 40px 20px; }
+        .slogan { font-size: 1.6em; font-weight: bold; margin: 10px 0; }
         .container { max-width: 900px; margin: 20px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .shopping-section { text-align: center; margin-bottom: 40px; padding: 20px; border: 2px dashed #1a73e8; border-radius: 10px; }
-        .btn { display: inline-block; padding: 15px 25px; margin: 10px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .amazon { background: #ff9900; }
-        .flipkart { background: #2874f0; }
-        .tata { background: #da1c5c; }
-        .btn:hover { opacity: 0.8; transform: scale(1.05); }
-        .charity-photos { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
-        .charity-photos img { width: 45%; min-width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .policy { background: #e8f0fe; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 5px solid #1a73e8; }
-        .founder-section { background: #fff; padding: 25px; border-radius: 10px; margin-top: 40px; border: 1px solid #ddd; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .founder-img { width: 180px; border-radius: 10px; border: 3px solid #1a73e8; }
-        .founder-info { flex: 1; }
-        h2 { color: #1a73e8; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .shopping-box { text-align: center; border: 2px solid #1a73e8; padding: 25px; border-radius: 10px; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 12px 25px; margin: 8px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .amazon { background: #ff9900; } .flipkart { background: #2874f0; } .tata { background: #da1c5c; }
+        .charity-gallery { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
+        .charity-gallery img { width: 45%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .founder-box { display: flex; align-items: center; gap: 20px; background: #eee; padding: 20px; border-radius: 10px; margin-top: 40px; flex-wrap: wrap; }
+        .founder-img { width: 150px; border-radius: 10px; border: 3px solid #1a73e8; }
+        h2 { color: #1a73e8; text-align: center; }
     </style>
 </head>
 <body>
@@ -29,40 +24,33 @@
 <div class="header">
     <h1>BAS INTERNATIONAL CHARITY</h1>
     <p class="slogan">YOUR EVERY PURCHASE SATISFIES A HUNGER</p>
-    <p>When you shop through our affiliate links, 100% of the commission feeds the needy.</p>
+    <p>Shop through us to feed the needy across the globe.</p>
 </div>
 
 <div class="container">
-    <div class="shopping-section">
-        <h2>START YOUR SHOPPING</h2>
-        <p>Choose your favorite store and help us make a difference.</p>
+    <div class="shopping-box">
+        <h2>START SHOPPING</h2>
         <a href="https://www.amazon.in/?&tag=Vmmbaslinks-21" class="btn amazon" target="_blank">Shop on Amazon</a>
         <a href="https://www.flipkart.com/" class="btn flipkart" target="_blank">Shop on Flipkart</a>
         <a href="https://www.tatacliq.com/" class="btn tata" target="_blank">Shop on Tata CLiQ</a>
+        <p style="font-size: 0.9em; margin-top: 15px;">100% of commissions go to charity.</p>
     </div>
 
-    <div style="text-align: center;">
-        <h2>OUR CHARITY WORK</h2>
-        <div class="charity-photos">
-            <img src="PHOTO_URL_1" alt="Charity Event 1">
-            <img src="PHOTO_URL_2" alt="Charity Event 2">
-        </div>
+    <h2>OUR CHARITY IN ACTION</h2>
+    <div class="charity-gallery">
+        <img src="CHARITY_PHOTO_1_URL" alt="Charity Work 1">
+        <img src="CHARITY_PHOTO_2_URL" alt="Charity Work 2">
     </div>
 
-    <div class="policy">
-        <p><strong>Transparency Commitment:</strong> 100% of the donation reaches the beneficiary. All platform charges, salaries, and expansion costs are covered by our affiliate marketing revenue.</p>
-    </div>
-
-    <div class="founder-section">
+    <div class="founder-box">
         <img src="YOUR_KSEB_PHOTO_URL" alt="Mohammed Basheer" class="founder-img">
-        <div class="founder-info">
-            <h2>About the Founder</h2>
-            <h3>Mohammed Basheer</h3>
+        <div>
+            <h3 style="margin-top:0;">Founder: Mohammed Basheer</h3>
             <p><strong>Retired Assistant Engineer, KSEB</strong></p>
             <ul>
                 <li>5 Years of International Experience (Saudi Arabia & Muscat)</li>
-                <li>20 Years of Dedicated Service in KSEB</li>
-                <li>40 Years of Committed Social Service</li>
+                <li>20 Years of Service in KSEB</li>
+                <li>40 Years of Dedicated Social Service</li>
             </ul>
         </div>
     </div>
