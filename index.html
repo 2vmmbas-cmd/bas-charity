@@ -1,117 +1,98 @@
  <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAS CHARITY INTERNATIONAL</title>
-    <style>
-        :root { --primary-blue: #003366; --gold: #D4AF37; --light-bg: #f8f9fa; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: white; color: #333; text-align: center; }
-        
-        /* Rotating Logo & Header */
-        .header { background: #000; color: white; padding: 40px 20px; border-bottom: 4px solid var(--gold); }
-        .logo-circle {
-            width: 80px; height: 80px; background: radial-gradient(circle, #ffd700, #b8860b);
-            border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;
-            border: 3px solid white; box-shadow: 0 0 15px var(--gold);
-            animation: rotateLogo 8s linear infinite; /* Rotating Emblem */
-        }
-        @keyframes rotateLogo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .logo-text { font-size: 20px; font-weight: bold; color: #000; }
-        .main-title { font-size: 2.2em; margin: 10px 0; letter-spacing: 1px; }
-        .slogan { color: var(--gold); font-weight: bold; font-style: italic; }
+<style>
+  /* പശ്ചാത്തലം കറുപ്പ് */
+  body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
 
-        /* Language Buttons */
-        .lang-bar { background: #eee; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .lang-btn { padding: 5px 15px; border: 1px solid #ccc; border-radius: 20px; font-size: 0.9em; background: white; cursor: pointer; }
+  .scene {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+  }
 
-        .container { max-width: 600px; margin: auto; padding: 20px; }
+  /* ഗോൾഡൻ ഗ്ലോബ് */
+  .globe {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateGlobe 10s linear infinite;
+    background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
+    border-radius: 50%;
+    box-shadow: inset -20px -20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(218,165,32,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        /* Shopping Buttons */
-        .shop-card { background: var(--light-bg); padding: 15px; border-radius: 12px; margin: 15px 0; border: 1px solid #ddd; 
-                     display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #333; transition: 0.3s; }
-        .shop-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn-amazon { border-left: 8px solid #ff9900; }
-        .btn-flipkart { border-left: 8px solid #2874f0; }
-        .btn-meesho { border-left: 8px solid #ff4486; }
-        .btn-myntra { border-left: 8px solid #fe3f6c; }
-        .best-offer { font-size: 0.8em; color: green; font-weight: bold; }
+  /* BAS സിൽവർ അക്ഷരങ്ങൾ - സെന്ററിൽ */
+  .bas-text {
+    position: absolute;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 60px;
+    color: #e0e0e0;
+    text-shadow: 
+      0 0 5px #fff,
+      2px 2px 2px rgba(0,0,0,0.8);
+    transform: translateZ(155px); /* ഗ്ലോബിന് പുറത്ത് വരാൻ */
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
 
-        /* Photo Slideshow (Founder) */
-        .slideshow-container { position: relative; max-width: 100%; height: 350px; margin: 30px 0; overflow: hidden; border-radius: 15px; border: 5px solid #eee; }
-        .mySlides { width: 100%; height: 100%; object-fit: cover; position: absolute; left: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
-        .active { opacity: 1; }
+  /* നവഗ്രഹങ്ങളെ സൂചിപ്പിക്കുന്ന പാതകൾ */
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateOrbit 15s linear infinite;
+  }
 
-        .founder-info { background: #fff8e1; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 10px solid var(--gold); text-align: left; }
-        
-        .donation-box { background: #e3f2fd; padding: 25px; border-radius: 15px; margin-top: 30px; border: 1px dashed #2196f3; }
-        .share-btn { background: #25d366; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
-    </style>
+  /* ചെറിയ ഒരു ഗ്രഹം */
+  .planet {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    box-shadow: 0 0 10px #fff;
+  }
+
+  @keyframes rotateGlobe {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+
+  @keyframes rotateOrbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+</style>
 </head>
 <body>
 
-<div class="header">
-    <div class="logo-circle"><div class="logo-text">BAS</div></div>
-    <h1 class="main-title">BAS CHARITY INTERNATIONAL</h1>
-    <p class="slogan">YOUR PURCHASE SATISFIES A HUNGER</p>
+<div class="scene">
+  <div class="orbit" style="width: 400px; height: 400px; animation-duration: 20s;">
+    <div class="planet" style="background: #ff4500;"></div>
+  </div>
+  
+  <div class="globe">
+    <div class="bas-text">BAS</div>
+  </div>
 </div>
-
-<div class="lang-bar">
-    <span class="lang-btn">English</span> <span class="lang-btn">മലയാളം</span> <span class="lang-btn">Hindi</span> <span class="lang-btn">All Others</span>
-</div>
-
-<div class="container">
-    <p style="font-weight: bold; color: var(--primary-blue); font-size: 1.1em;">
-        നിങ്ങളുടെ ഒരു purchase കൊണ്ട് ലോകത്തിലെ ഏതെങ്കിലും ഒരു കോണിലെ ഒരാൾക്ക് ഭക്ഷണം ലഭിച്ചാലോ?
-    </p>
-
-    <a href="#" class="shop-card btn-amazon"><strong>AMAZON</strong> <span class="best-offer">Best offer today</span></a>
-    <a href="#" class="shop-card btn-flipkart"><strong>FLIPKART</strong> <span class="best-offer">Best offer today</span></a>
-    <a href="#" class="shop-card btn-meesho"><strong>MEESHO</strong> <span class="best-offer">Best offer today</span></a>
-    <a href="#" class="shop-card btn-myntra"><strong>MYNTRA</strong> <span class="best-offer">Best offer today</span></a>
-    <a href="#" class="shop-card"><strong>ALL OTHERS</strong> <span class="best-offer">100s of Shopping Sites</span></a>
-
-    <hr>
-
-    <h3>FOUNDER</h3>
-    <div class="slideshow-container">
-        <img src="FB_IMG_1767261292825.jpg" class="mySlides active">
-        <img src="Screenshot_20260101_140109_Google.jpg" class="mySlides">
-    </div>
-
-    <div class="founder-info">
-        <h3>Mohammed Basheer</h3>
-        <p><strong>Retired Assistant Engineer, KSEB</strong></p>
-        <p>5 Years Int'l Experience | 20 Years KSEB Service | 40 Years Social Service</p>
-    </div>
-
-    <div class="donation-box">
-        <p>വാങ്ങാൻ ഒന്നുമില്ലേ? വിഷമിക്കണ്ട. ഈ ചാരിറ്റിയുടെ ഗുണങ്ങൾ നിങ്ങളുടെ Friends-നും Family-ക്കും ഷെയർ ചെയ്യൂ.</p>
-        <a href="#" class="share-btn">SHARE</a>
-        
-        <h4 style="margin-top:25px;">Donation (Optional)</h4>
-        <p>ഒരാളുടെ ഒരു നേരത്തെ ഭക്ഷണത്തിന് വെറും 10 രൂപ മാത്രം.</p>
-        <p style="font-size: 0.85em; color: #555;">100% നിങ്ങളുടെ Donation ഗുണഭോക്താവിൽ (Victim) എത്തും. ബാക്കി ചിലവുകൾ Affiliate Revenue വഴി കണ്ടെത്തുന്നു.</p>
-    </div>
-
-    <p style="font-size: 0.8em; color: #888; margin-top: 30px;">
-        Partner Institutions: Human Welfare Trust, Peacefully, Vadanappilly Orphanage, ICT of Phone Destitutes.
-    </p>
-</div>
-
-<script>
-    // Photo Changing Logic
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("mySlides");
-    function showSlides() {
-        for (let i = 0; i < slides.length; i++) { slides[i].classList.remove("active"); }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].classList.add("active");
-        setTimeout(showSlides, 4000); // Change every 4 seconds
-    }
-    showSlides();
-</script>
 
 </body>
 </html>
