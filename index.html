@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <title>BAS Charity - Final 3D Logo</title>
+    <title>BAS Charity - Final Logo</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -13,50 +13,48 @@
     <script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // നല്ല വെളിച്ചം വയ്ക്കുന്നു (അക്ഷരങ്ങൾ തിളങ്ങാൻ)
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+        // സ്ട്രോങ്ങ് ലൈറ്റിംഗ്
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
         scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0xffffff, 1.5);
+        const pointLight = new THREE.PointLight(0xffffff, 2);
         pointLight.position.set(10, 10, 10);
         scene.add(pointLight);
 
         const loader = new THREE.TextureLoader();
 
-        // 1. ഗ്ലോബ് (ഭൂമി)
+        // 1. ഭൂമി (Earth)
         const earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
         const earthMaterial = new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.2,
-            roughness: 0.8
+            metalness: 0.3,
+            roughness: 0.7
         });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // 2. BAS അക്ഷരങ്ങൾ (ക്ലിയർ ആയി കാണാൻ)
+        // 2. BAS അക്ഷരങ്ങൾ (ഇത് ഗ്ലോബിന് പുറത്ത് ഉറപ്പിച്ചു നിർത്തുന്നു)
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.width = 1024;
         canvas.height = 256;
-        context.fillStyle = "rgba(0,0,0,0)";
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.font = "Bold 200px Arial";
-        context.fillStyle = "#ffffff"; // വെള്ള (മിറർ ഫിനിഷ്)
+        context.fillStyle = "white"; // അക്ഷരങ്ങൾ വെള്ള നിറത്തിൽ (കൂടുതൽ വ്യക്തതയ്ക്ക്)
+        context.font = "Bold 140px Arial";
         context.textAlign = "center";
-        context.fillText("BAS     BAS     BAS", 512, 180);
+        context.fillText("BAS     BAS     BAS     BAS", 512, 160);
 
         const textTexture = new THREE.CanvasTexture(canvas);
-        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 1, 64, 1, true);
+        // ഗ്ലോബ് 2.0 ആണ്, അക്ഷരങ്ങൾ 2.1-ൽ വെച്ചാൽ അത് കൃത്യമായി പുറത്ത് കാണും
+        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
         const textMat = new THREE.MeshStandardMaterial({ 
             map: textTexture, 
-            transparent: true, 
-            metalness: 1, 
-            roughness: 0.1 
+            transparent: true,
+            side: THREE.DoubleSide
         });
         const textMesh = new THREE.Mesh(textGeo, textMat);
         earthGroup.add(textMesh);
@@ -72,11 +70,8 @@
         let angle = 0;
         function animate() {
             requestAnimationFrame(animate);
-
-            // ഗ്ലോബ് കറങ്ങുന്നു
-            earthGroup.rotation.y += 0.005;
-
-            // ചന്ദ്രൻ ചുറ്റുന്നു (Elliptical Path)
+            earthGroup.rotation.y += 0.005; // ഗ്ലോബും BAS-ഉം കറങ്ങുന്നു
+            
             angle += 0.015;
             moon.position.x = Math.cos(angle) * 5; 
             moon.position.z = Math.sin(angle) * 3; 
