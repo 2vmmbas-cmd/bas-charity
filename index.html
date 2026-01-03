@@ -17,8 +17,8 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // പ്രകാശ സംവിധാനം
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+        // നല്ല വെളിച്ചം വയ്ക്കുന്നു (അക്ഷരങ്ങൾ തിളങ്ങാൻ)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
         scene.add(ambientLight);
         const pointLight = new THREE.PointLight(0xffffff, 1.5);
         pointLight.position.set(10, 10, 10);
@@ -26,32 +26,29 @@
 
         const loader = new THREE.TextureLoader();
 
-        // 1. ഗ്ലോബ് (Earth)
+        // 1. ഗ്ലോബ് (ഭൂമി)
         const earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
-        
-        // ഗോൾഡൻ ഭൂഖണ്ഡങ്ങളും നീല കടലും വരാനുള്ള ടെക്സ്ചർ
         const earthMaterial = new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.4,
-            roughness: 0.5
+            metalness: 0.2,
+            roughness: 0.8
         });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // 2. BAS അക്ഷരങ്ങൾ (3D ഇഫക്റ്റ് വരാൻ)
-        // അക്ഷരങ്ങൾ കൂടുതൽ വ്യക്തമാകാൻ ഒരു സിൽവർ മെറ്റാലിക് ലെയർ ചേർക്കുന്നു
+        // 2. BAS അക്ഷരങ്ങൾ (ക്ലിയർ ആയി കാണാൻ)
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.width = 1024;
         canvas.height = 256;
         context.fillStyle = "rgba(0,0,0,0)";
         context.fillRect(0, 0, canvas.width, canvas.height);
-        context.font = "Bold 180px Arial";
-        context.fillStyle = "#ffffff"; // സിൽവർ വൈറ്റ്
+        context.font = "Bold 200px Arial";
+        context.fillStyle = "#ffffff"; // വെള്ള (മിറർ ഫിനിഷ്)
         context.textAlign = "center";
-        context.fillText("BAS  BAS  BAS", 512, 180);
+        context.fillText("BAS     BAS     BAS", 512, 180);
 
         const textTexture = new THREE.CanvasTexture(canvas);
         const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 1, 64, 1, true);
@@ -66,7 +63,7 @@
 
         // 3. ചന്ദ്രൻ (Moon)
         const moonGeo = new THREE.SphereGeometry(0.4, 32, 32);
-        const moonMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
+        const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
         const moon = new THREE.Mesh(moonGeo, moonMat);
         scene.add(moon);
 
@@ -76,14 +73,13 @@
         function animate() {
             requestAnimationFrame(animate);
 
-            // ഭൂമിയുടെയും BAS-ന്റെയും കറക്കം
+            // ഗ്ലോബ് കറങ്ങുന്നു
             earthGroup.rotation.y += 0.005;
 
-            // ചന്ദ്രന്റെ കൃത്യമായ എലിപ്റ്റിക്കൽ പാത
+            // ചന്ദ്രൻ ചുറ്റുന്നു (Elliptical Path)
             angle += 0.015;
             moon.position.x = Math.cos(angle) * 5; 
             moon.position.z = Math.sin(angle) * 3; 
-            moon.rotation.y += 0.01;
 
             renderer.render(scene, camera);
         }
