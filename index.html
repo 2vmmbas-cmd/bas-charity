@@ -1,66 +1,80 @@
  <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { background-color: #000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-
-  .globe-container {
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-  }
-
-  /* യഥാർത്ഥ 3D ഗ്ലോബ് എഫക്റ്റ് */
-  .globe {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    border-radius: 50%;
-    /* ഗോൾഡൻ ഗ്രേഡിയന്റ് + 3D ഷേഡിംഗ് */
-    background: radial-gradient(circle at 30% 30%, #ffd700 0%, #d4af37 40%, #8b4513 100%);
-    box-shadow: inset -25px -25px 50px rgba(0,0,0,0.8), 0 0 50px rgba(255,215,0,0.2);
-    animation: rotateGlobe 10s linear infinite;
-  }
-
-  /* BAS അക്ഷരങ്ങൾ - സിൽവർ മിറർ ഫിനിഷ് */
-  .bas-text {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) translateZ(155px); /* ഗോളത്തിന് മുന്നിൽ നിൽക്കാൻ */
-    font-family: 'Arial Black', sans-serif;
-    font-size: 70px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 
-      0 0 10px #fff,
-      2px 2px 10px rgba(0,0,0,0.5);
-    letter-spacing: 5px;
-    backface-visibility: hidden;
-  }
-
-  /* ഗ്ലോബ് കറങ്ങുമ്പോൾ അക്ഷരങ്ങൾ മറുവശത്ത് പോകുമ്പോൾ കാണാതിരിക്കാൻ */
-  .bas-text-back {
-    transform: translate(-50%, -50%) rotateY(180deg) translateZ(155px);
-  }
-
-  @keyframes rotateGlobe {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
-  }
-</style>
+    <title>BAS International Charity - 3D Logo</title>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; }
+        canvas { display: block; }
+    </style>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-<div class="globe-container">
-  <div class="globe">
-    <div class="bas-text">BAS</div>
-    <div class="bas-text bas-text-back">BAS</div>
-  </div>
-</div>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
+        // 1. ലൈറ്റിംഗ് (സൂര്യപ്രകാശം പോലെ)
+        const light = new THREE.PointLight(0xffffff, 1.5);
+        light.position.set(5, 3, 5);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x333333));
+
+        // 2. ഭൂമി (Earth) - സ്വർണ്ണ നിറത്തിലുള്ള രാജ്യങ്ങളും നീല കടലും
+        const earthGroup = new THREE.Group();
+        const earthGeometry = new THREE.SphereGeometry(2, 32, 32);
+        const earthMaterial = new THREE.MeshPhongMaterial({
+            color: 0x1565C0, // നീല കടൽ
+            shininess: 25
+        });
+        const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+        earthGroup.add(earth);
+        scene.add(earthGroup);
+
+        // 3. BAS ടെക്സ്റ്റ് (മിറർ ഫിനിഷ് സിൽവർ)
+        // ലളിതമായ രീതിയിൽ ഒരു സിൽവർ ബാൻഡ് ആയി ഇവിടെ കാണിക്കുന്നു
+        const textGeometry = new THREE.TorusGeometry(2.1, 0.05, 16, 100);
+        const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: 0.1 });
+        const ring = new THREE.Mesh(textGeometry, textMaterial);
+        ring.rotation.x = Math.PI / 2;
+        earthGroup.add(ring); 
+
+        // 4. ചന്ദ്രൻ (Moon)
+        const moonGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const moonMaterial = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+        const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+        scene.add(moon);
+
+        camera.position.z = 7;
+
+        // ആനിമേഷൻ ലൂപ്പ്
+        let angle = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // ഭൂമിയുടെ കറക്കം (Original direction)
+            earthGroup.rotation.y += 0.005;
+
+            // ചന്ദ്രന്റെ ഭ്രമണപഥം (Elliptical Orbit)
+            angle += 0.01;
+            moon.position.x = Math.cos(angle) * 5; // വീതി
+            moon.position.z = Math.sin(angle) * 3; // ആഴം (Elliptical effect)
+            moon.rotation.y += 0.02;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // സ്ക്രീൻ സൈസ് മാറുമ്പോൾ അഡ്ജസ്റ്റ് ചെയ്യാൻ
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
 </html>
