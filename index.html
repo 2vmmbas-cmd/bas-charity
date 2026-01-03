@@ -1,8 +1,8 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="ml">
 <head>
+<meta charset="UTF-8">
 <style>
-  /* പശ്ചാത്തലം കറുപ്പ് */
   body {
     background-color: #000;
     display: flex;
@@ -16,7 +16,7 @@
   .scene {
     width: 300px;
     height: 300px;
-    perspective: 1000px;
+    perspective: 1200px;
   }
 
   /* ഗോൾഡൻ ഗ്ലോബ് */
@@ -25,50 +25,52 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotateGlobe 10s linear infinite;
-    background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
+    background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b, #8b4513);
     border-radius: 50%;
-    box-shadow: inset -20px -20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(218,165,32,0.4);
+    box-shadow: inset -15px -15px 40px rgba(0,0,0,0.6), 0 0 40px rgba(218,165,32,0.4);
+    animation: rotateGlobe 12s linear infinite;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* BAS സിൽവർ അക്ഷരങ്ങൾ - സെന്ററിൽ */
+  /* BAS സിൽവർ അക്ഷരങ്ങൾ - കൃത്യം സെന്ററിൽ */
   .bas-text {
     position: absolute;
     font-family: 'Arial Black', sans-serif;
-    font-size: 60px;
-    color: #e0e0e0;
+    font-size: 65px;
+    color: #f0f0f0;
+    /* സിൽവർ മിറർ ഫിനിഷ് തിളക്കം */
     text-shadow: 
-      0 0 5px #fff,
-      2px 2px 2px rgba(0,0,0,0.8);
-    transform: translateZ(155px); /* ഗ്ലോബിന് പുറത്ത് വരാൻ */
+      0 0 10px #fff,
+      0 0 20px #fff,
+      2px 2px 5px rgba(0,0,0,0.8);
+    transform: translateZ(152px); /* ഗ്ലോബിന് തൊട്ടു മുകളിൽ നിൽക്കാൻ */
     font-weight: bold;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+    backface-visibility: visible;
   }
 
-  /* നവഗ്രഹങ്ങളെ സൂചിപ്പിക്കുന്ന പാതകൾ */
+  /* നവഗ്രഹങ്ങളുടെ ഭ്രമണപഥം */
   .orbit {
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: rotateOrbit 15s linear infinite;
+    animation: rotateOrbit 20s linear infinite;
   }
 
-  /* ചെറിയ ഒരു ഗ്രഹം */
   .planet {
-    width: 10px;
-    height: 10px;
-    background: #fff;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fff, #aaa);
     border-radius: 50%;
     position: absolute;
-    top: -5px;
+    top: -6px;
     left: 50%;
-    box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 15px #fff;
   }
 
   @keyframes rotateGlobe {
@@ -85,7 +87,7 @@
 <body>
 
 <div class="scene">
-  <div class="orbit" style="width: 400px; height: 400px; animation-duration: 20s;">
+  <div class="orbit" style="width: 450px; height: 450px; animation-duration: 25s;">
     <div class="planet" style="background: #ff4500;"></div>
   </div>
   
