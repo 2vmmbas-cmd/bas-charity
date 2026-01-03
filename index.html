@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <title>BAS 3D Golden Globe</title>
+    <title>BAS Charity - Final 3D Logo</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -13,41 +13,58 @@
     <script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // പ്രകാശം
-        const sunLight = new THREE.DirectionalLight(0xffffff, 1.2);
-        sunLight.position.set(5, 3, 5);
-        scene.add(sunLight);
-        scene.add(new THREE.AmbientLight(0x444444));
+        // പ്രകാശ സംവിധാനം
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 1.5);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
 
         const loader = new THREE.TextureLoader();
 
-        // ഭൂമിയുടെ ഡിസൈൻ - രാജ്യങ്ങൾ ഗോൾഡൻ ആകാൻ ഈ മാപ്പ് സഹായിക്കും
+        // 1. ഗ്ലോബ് (Earth)
         const earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
         
-        // ഇവിടെ ഒരു യഥാർത്ഥ വേൾഡ് മാപ്പ് ലിങ്ക് ഉപയോഗിക്കുന്നു
-        const earthMaterial = new THREE.MeshPhongMaterial({
+        // ഗോൾഡൻ ഭൂഖണ്ഡങ്ങളും നീല കടലും വരാനുള്ള ടെക്സ്ചർ
+        const earthMaterial = new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            specular: new THREE.Color('goldenrod'),
-            shininess: 10
+            metalness: 0.4,
+            roughness: 0.5
         });
-        
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // BAS അക്ഷരങ്ങൾ (മിറർ സിൽവർ റിംഗ് ആയി തൽക്കാലം കാണിക്കുന്നു)
-        const textRingGeo = new THREE.TorusGeometry(2.05, 0.08, 16, 100);
-        const textRingMat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: 0.1 });
-        const basRing = new THREE.Mesh(textRingGeo, textRingMat);
-        basRing.rotation.x = Math.PI / 2;
-        earthGroup.add(basRing);
+        // 2. BAS അക്ഷരങ്ങൾ (3D ഇഫക്റ്റ് വരാൻ)
+        // അക്ഷരങ്ങൾ കൂടുതൽ വ്യക്തമാകാൻ ഒരു സിൽവർ മെറ്റാലിക് ലെയർ ചേർക്കുന്നു
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = 1024;
+        canvas.height = 256;
+        context.fillStyle = "rgba(0,0,0,0)";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.font = "Bold 180px Arial";
+        context.fillStyle = "#ffffff"; // സിൽവർ വൈറ്റ്
+        context.textAlign = "center";
+        context.fillText("BAS  BAS  BAS", 512, 180);
 
-        // ചന്ദ്രൻ
+        const textTexture = new THREE.CanvasTexture(canvas);
+        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 1, 64, 1, true);
+        const textMat = new THREE.MeshStandardMaterial({ 
+            map: textTexture, 
+            transparent: true, 
+            metalness: 1, 
+            roughness: 0.1 
+        });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
+        earthGroup.add(textMesh);
+
+        // 3. ചന്ദ്രൻ (Moon)
         const moonGeo = new THREE.SphereGeometry(0.4, 32, 32);
         const moonMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
         const moon = new THREE.Mesh(moonGeo, moonMat);
@@ -59,13 +76,13 @@
         function animate() {
             requestAnimationFrame(animate);
 
-            // ഭൂമിയുടെ കറക്കം
-            earthGroup.rotation.y += 0.003;
+            // ഭൂമിയുടെയും BAS-ന്റെയും കറക്കം
+            earthGroup.rotation.y += 0.005;
 
-            // ചന്ദ്രന്റെ എലിപ്റ്റിക്കൽ ഭ്രമണപഥം
-            angle += 0.01;
-            moon.position.x = Math.cos(angle) * 4.5; // വീതി
-            moon.position.z = Math.sin(angle) * 2.5; // ആഴം
+            // ചന്ദ്രന്റെ കൃത്യമായ എലിപ്റ്റിക്കൽ പാത
+            angle += 0.015;
+            moon.position.x = Math.cos(angle) * 5; 
+            moon.position.z = Math.sin(angle) * 3; 
             moon.rotation.y += 0.01;
 
             renderer.render(scene, camera);
