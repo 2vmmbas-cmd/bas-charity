@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <title>BAS International Charity - 3D Logo</title>
+    <title>BAS 3D Golden Globe</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -17,59 +17,61 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // 1. ലൈറ്റിംഗ് (സൂര്യപ്രകാശം പോലെ)
-        const light = new THREE.PointLight(0xffffff, 1.5);
-        light.position.set(5, 3, 5);
-        scene.add(light);
-        scene.add(new THREE.AmbientLight(0x333333));
+        // പ്രകാശം
+        const sunLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        sunLight.position.set(5, 3, 5);
+        scene.add(sunLight);
+        scene.add(new THREE.AmbientLight(0x444444));
 
-        // 2. ഭൂമി (Earth) - സ്വർണ്ണ നിറത്തിലുള്ള രാജ്യങ്ങളും നീല കടലും
+        const loader = new THREE.TextureLoader();
+
+        // ഭൂമിയുടെ ഡിസൈൻ - രാജ്യങ്ങൾ ഗോൾഡൻ ആകാൻ ഈ മാപ്പ് സഹായിക്കും
         const earthGroup = new THREE.Group();
-        const earthGeometry = new THREE.SphereGeometry(2, 32, 32);
+        const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+        
+        // ഇവിടെ ഒരു യഥാർത്ഥ വേൾഡ് മാപ്പ് ലിങ്ക് ഉപയോഗിക്കുന്നു
         const earthMaterial = new THREE.MeshPhongMaterial({
-            color: 0x1565C0, // നീല കടൽ
-            shininess: 25
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+            specular: new THREE.Color('goldenrod'),
+            shininess: 10
         });
+        
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // 3. BAS ടെക്സ്റ്റ് (മിറർ ഫിനിഷ് സിൽവർ)
-        // ലളിതമായ രീതിയിൽ ഒരു സിൽവർ ബാൻഡ് ആയി ഇവിടെ കാണിക്കുന്നു
-        const textGeometry = new THREE.TorusGeometry(2.1, 0.05, 16, 100);
-        const textMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: 0.1 });
-        const ring = new THREE.Mesh(textGeometry, textMaterial);
-        ring.rotation.x = Math.PI / 2;
-        earthGroup.add(ring); 
+        // BAS അക്ഷരങ്ങൾ (മിറർ സിൽവർ റിംഗ് ആയി തൽക്കാലം കാണിക്കുന്നു)
+        const textRingGeo = new THREE.TorusGeometry(2.05, 0.08, 16, 100);
+        const textRingMat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: 0.1 });
+        const basRing = new THREE.Mesh(textRingGeo, textRingMat);
+        basRing.rotation.x = Math.PI / 2;
+        earthGroup.add(basRing);
 
-        // 4. ചന്ദ്രൻ (Moon)
-        const moonGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const moonMaterial = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
-        const moon = new THREE.Mesh(moonGeometry, moonMaterial);
+        // ചന്ദ്രൻ
+        const moonGeo = new THREE.SphereGeometry(0.4, 32, 32);
+        const moonMat = new THREE.MeshStandardMaterial({ color: 0xaaaaaa });
+        const moon = new THREE.Mesh(moonGeo, moonMat);
         scene.add(moon);
 
-        camera.position.z = 7;
+        camera.position.z = 6;
 
-        // ആനിമേഷൻ ലൂപ്പ്
         let angle = 0;
         function animate() {
             requestAnimationFrame(animate);
 
-            // ഭൂമിയുടെ കറക്കം (Original direction)
-            earthGroup.rotation.y += 0.005;
+            // ഭൂമിയുടെ കറക്കം
+            earthGroup.rotation.y += 0.003;
 
-            // ചന്ദ്രന്റെ ഭ്രമണപഥം (Elliptical Orbit)
+            // ചന്ദ്രന്റെ എലിപ്റ്റിക്കൽ ഭ്രമണപഥം
             angle += 0.01;
-            moon.position.x = Math.cos(angle) * 5; // വീതി
-            moon.position.z = Math.sin(angle) * 3; // ആഴം (Elliptical effect)
-            moon.rotation.y += 0.02;
+            moon.position.x = Math.cos(angle) * 4.5; // വീതി
+            moon.position.z = Math.sin(angle) * 2.5; // ആഴം
+            moon.rotation.y += 0.01;
 
             renderer.render(scene, camera);
         }
-
         animate();
 
-        // സ്ക്രീൻ സൈസ് മാറുമ്പോൾ അഡ്ജസ്റ്റ് ചെയ്യാൻ
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
