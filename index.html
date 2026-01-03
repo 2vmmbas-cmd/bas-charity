@@ -5,124 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAS CHARITY INTERNATIONAL</title>
     <style>
-        body { margin: 0; background-color: #000; color: white; font-family: Arial, sans-serif; text-align: center; }
+        body { background-color: black; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
         
-        /* 1. ലോഗോ & ടൈറ്റിൽ */
-        #logo-area { width: 100%; height: 220px; }
-        .title { font-size: 2.5em; color: #FFD700; font-weight: bold; margin-top: -10px; }
-        .tagline { font-size: 1.4em; color: #fff; font-weight: bold; margin: 10px 0; }
+        /* 1. ലോഗോ - പഴയ പോലെ */
+        .emblem { font-size: 50px; font-weight: bold; color: gold; border: 4px solid gold; display: inline-block; padding: 10px 20px; border-radius: 50%; margin-bottom: 10px; }
+        .main-title { font-size: 28px; font-weight: bold; margin-bottom: 5px; }
+        .tagline { font-size: 18px; margin-bottom: 25px; font-weight: bold; }
 
-        /* 2. ഫോട്ടോകൾ (ഫോട്ടോയിൽ ഉള്ളതുപോലെ) */
-        .photo-wrap { display: flex; justify-content: center; gap: 20px; margin: 20px auto; }
-        .img-box { width: 170px; border: 3px solid #FFD700; border-radius: 10px; background: #111; overflow: hidden; }
-        .img-box img { width: 100%; display: block; }
-        .label { background: #FFD700; color: #000; font-weight: bold; padding: 5px; font-size: 0.9em; }
+        /* 2. ഫോട്ടോകൾ - ഇക്ക തന്നത് */
+        .photo-container { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+        .photo-box { width: 160px; border: 2px solid gold; }
+        .photo-box img { width: 100%; height: auto; display: block; }
+        .photo-name { background: gold; color: black; font-weight: bold; font-size: 14px; padding: 5px; }
 
-        /* 3. ലാംഗ്വേജ് ബട്ടൺസ് */
-        .langs { margin: 20px 0; }
-        .btn-l { border: 2px solid white; border-radius: 20px; padding: 6px 15px; margin: 5px; background: none; color: white; }
+        /* 3. ലാംഗ്വേജ് ബാർ */
+        .lang-bar { margin: 20px 0; }
+        .btn { border: 1px solid white; background: none; color: white; padding: 5px 15px; margin: 3px; border-radius: 15px; }
 
-        /* 4. ഡിസ്ക്രിപ്ഷൻ (ഇക്ക എഴുതിയത്) */
-        .main-text { padding: 20px; font-size: 1.3em; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+        /* 4. വിവരണങ്ങൾ */
+        .desc { font-size: 18px; line-height: 1.5; margin: 25px auto; max-width: 600px; }
 
-        /* 5. ഷോപ്പിംഗ് ലിങ്ക്സ് (ഫോട്ടോയിലെ അതേ ക്രമം) */
-        .shop-box { margin: 30px 0; }
-        .s-row { display: flex; align-items: center; justify-content: center; margin: 12px 0; gap: 15px; }
-        .s-btn { border: 2px solid white; border-radius: 25px; padding: 12px 0; width: 180px; font-weight: bold; color: white; text-decoration: none; border-color: #fff; }
-        .s-offer { color: #FFD700; font-style: italic; font-size: 1em; }
+        /* 5. ഷോപ്പിംഗ് ലിങ്ക്സ് - ഫോട്ടോയിലെ ക്രമം */
+        .shop-link { display: flex; align-items: center; justify-content: center; margin: 15px 0; gap: 10px; }
+        .shop-btn { border: 2px solid white; color: white; text-decoration: none; padding: 10px; width: 180px; font-weight: bold; border-radius: 20px; }
+        .offer { color: gold; font-style: italic; }
 
         /* 6. ഡൊണേഷൻ & പാർട്ടണേഴ്സ് */
-        .don-box { border: 1px solid #444; padding: 25px; margin: 30px auto; max-width: 750px; text-align: left; background: #050505; border-radius: 15px; }
-        .don-btn { border: 2px solid white; border-radius: 20px; padding: 5px 20px; font-weight: bold; }
-        .legal { font-size: 0.85em; color: #bbb; margin-top: 15px; border-top: 1px solid #333; padding-top: 10px; }
-        .partners { font-size: 0.95em; color: #777; margin: 40px 0; padding: 20px; border-top: 1px solid #222; }
+        .don-section { border: 1px solid #444; padding: 20px; margin: 30px auto; max-width: 600px; text-align: left; }
+        .donate-label { border: 1px solid white; padding: 3px 15px; border-radius: 10px; font-weight: bold; }
+        .partners { font-size: 14px; color: #888; border-top: 1px solid #333; padding-top: 20px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <div id="logo-area"></div>
-    <div class="title">BAS CHARITY INTERNATIONAL</div>
+    <div class="emblem">BAS</div>
+    <div class="main-title">BAS CHARITY INTERNATIONAL</div>
     <div class="tagline">"Your purchase satisfies a Hunger"</div>
 
-    <div class="photo-wrap">
-        <div class="img-box">
-            <img src="9817.jpg" alt="Founder">
-            <div class="label">FOUNDER</div>
+    <div class="photo-container">
+        <div class="photo-box">
+            <img src="9817.jpg">
+            <div class="photo-name">FOUNDER</div>
         </div>
-        <div class="img-box">
-            <img src="9818.jpg" alt="Charity">
-            <div class="label">CHARITY WORK</div>
+        <div class="photo-box">
+            <img src="9818.jpg">
+            <div class="photo-name">CHARITY</div>
         </div>
     </div>
 
-    <div class="langs">
-        <span class="btn-l">English</span>
-        <span class="btn-l">Malayalam</span>
-        <span class="btn-l">Hindi</span>
-        <span class="btn-l">All Other</span>
+    <div class="lang-bar">
+        <button class="btn">English</button>
+        <button class="btn">Malayalam</button>
+        <button class="btn">Hindi</button>
+        <button class="btn">All Other</button>
     </div>
 
-    <div class="main-text">
+    <div class="desc">
         What if your single purchase could provide a meal for someone in a corner of the world? <br><br>
         Shop at the <b>same price</b> and <b>same offers</b>. Become part of this charity without spending a single extra penny.
     </div>
 
-    <div class="shop-box">
-        <div class="s-row">
-            <a href="https://www.amazon.in/?&tag=basinternationalcharity-21" class="s-btn">AMAZON</a>
-            <span class="s-offer">Best offer today</span>
-        </div>
-        <div class="s-row">
-            <a href="#" class="s-btn">FLIPKART</a>
-            <span class="s-offer">Best offer today</span>
-        </div>
-        <div class="s-row">
-            <a href="#" class="s-btn">MEESHO</a>
-            <span class="s-offer">Best offer today</span>
-        </div>
-        <div class="s-row">
-            <a href="#" class="s-btn">ALL OTHER</a>
-            <span class="s-offer">100s of Sites</span>
-        </div>
+    <div class="shop-link">
+        <a href="https://www.amazon.in/?&tag=basinternationalcharity-21" class="shop-btn">AMAZON</a>
+        <span class="offer">Best offer today</span>
+    </div>
+    <div class="shop-link">
+        <a href="#" class="shop-btn">FLIPKART</a>
+        <span class="offer">Best offer today</span>
+    </div>
+    <div class="shop-link">
+        <a href="#" class="shop-btn">MEESHO</a>
+        <span class="offer">Best offer today</span>
+    </div>
+    <div class="shop-link">
+        <a href="#" class="shop-btn">ALL OTHER</a>
+        <span class="offer">100s of Sites</span>
     </div>
 
-    <div class="don-box">
-        Just 10 Rupees for one person's meal. Are you interested in contributing? <br>
-        <span class="don-btn">Donation</span> (Optional)
-        <div class="legal">
+    <div class="don-section">
+        Just 10 Rupees for one person's meal. Are you interested? <br>
+        <span class="donate-label">Donation</span> (Optional)
+        <p style="font-size: 13px; color: #ccc;">
             100% of your donation reaches the beneficiary. No expenses deducted. <br>
-            All costs are covered from affiliate marketing revenue.
-        </div>
+            All costs covered by affiliate revenue.
+        </p>
     </div>
 
     <div class="partners">
-        <b>Partner Institutions:</b> Human Welfare Trust | Peacefully | Vadanappilly Orphanage | ICT Orphanage | Destitutes
+        Partner Institutions: Human Welfare Trust | Peacefully | Vadanappilly Orphanage | ICT Orphanage | Destitutes
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        const scene = new THREE.Scene();
-        const container = document.getElementById('logo-area');
-        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / 220, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(container.clientWidth, 220);
-        container.appendChild(renderer.domElement);
-
-        const group = new THREE.Group();
-        const ring = new THREE.Mesh(new THREE.TorusGeometry(2, 0.05, 16, 100), new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 1 }));
-        group.add(ring);
-
-        const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
-        canvas.width = 512; canvas.height = 512;
-        ctx.font = "Bold 160px Arial"; ctx.fillStyle = "white"; ctx.textAlign = "center";
-        ctx.fillText("BAS", 256, 300);
-        const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.7, 64, 64), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), metalness: 0.5 }));
-        group.add(sphere);
-        
-        scene.add(group); scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-        camera.position.z = 6;
-        function animate() { requestAnimationFrame(animate); group.rotation.y += 0.01; renderer.render(scene, camera); }
-        animate();
-    </script>
 </body>
 </html>
