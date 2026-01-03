@@ -5,92 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAS CHARITY INTERNATIONAL</title>
     <style>
-        body { background-color: black; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
-        #logo-container { width: 100%; height: 180px; }
-        .site-title { font-size: 24px; color: gold; font-weight: bold; margin: 10px 0; }
-        .sub-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; }
+        body { margin: 0; background-color: #000; color: white; font-family: 'Arial', sans-serif; text-align: center; overflow-x: hidden; }
         
-        /* ഫോട്ടോകൾ */
-        .photo-row { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
-        .p-box { width: 150px; border: 2px solid gold; border-radius: 8px; overflow: hidden; }
-        .p-box img { width: 100%; display: block; }
-        .p-label { background: gold; color: black; font-weight: bold; font-size: 12px; padding: 4px; }
-
-        .btn-bar { margin: 15px 0; }
-        .b { border: 1px solid white; background: none; color: white; padding: 5px 12px; margin: 3px; border-radius: 10px; font-size: 12px; }
-
-        .content { font-size: 17px; line-height: 1.6; max-width: 600px; margin: 0 auto; padding: 15px; }
+        /* ഇക്ക പറഞ്ഞ കറങ്ങുന്ന ഗ്ലോബ് ഏരിയ */
+        #globe-container { width: 100%; height: 250px; margin-bottom: -20px; }
         
-        .s-link { display: flex; align-items: center; justify-content: center; margin: 12px 0; gap: 10px; }
-        .s-btn { border: 1.5px solid white; color: white; text-decoration: none; padding: 10px; width: 160px; font-weight: bold; border-radius: 15px; font-size: 14px; }
-        .offer { color: gold; font-size: 13px; font-style: italic; }
+        .site-title { font-size: 2.2em; color: #FFD700; font-weight: bold; }
+        .sub-title { font-size: 1.3em; margin: 10px 0; color: #fff; font-weight: bold; }
 
-        .don-box { border: 1px solid #333; padding: 20px; margin: 25px auto; max-width: 600px; text-align: left; background: #050505; }
-        .partners { font-size: 13px; color: #777; border-top: 1px solid #222; padding: 20px; margin-top: 30px; }
+        /* ഫോട്ടോകൾ കൃത്യമായി തെളിയാൻ */
+        .photo-section { display: flex; justify-content: center; gap: 15px; margin: 20px auto; }
+        .photo-box { width: 160px; border: 2px solid #FFD700; border-radius: 10px; overflow: hidden; background: #111; }
+        .photo-box img { width: 100%; height: auto; display: block; }
+        .photo-label { font-size: 0.8em; padding: 5px; background: #FFD700; color: #000; font-weight: bold; }
+
+        .lang-bar { margin: 20px 0; }
+        .lang-btn { border: 2px solid white; border-radius: 20px; padding: 5px 15px; margin: 5px; background: none; color: white; cursor: pointer; }
+
+        .content-box { padding: 20px; font-size: 1.3em; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+
+        /* ഷോപ്പിംഗ് ലിങ്കുകൾ */
+        .shop-row { display: flex; align-items: center; justify-content: center; margin: 12px 0; gap: 15px; }
+        .shop-btn { border: 2px solid white; border-radius: 25px; padding: 12px 0; width: 180px; font-weight: bold; text-decoration: none; color: white; background: transparent; }
+        .offer-tag { color: #FFD700; font-style: italic; }
+
+        .donation-box { border: 1px solid #444; padding: 25px; margin: 30px auto; max-width: 750px; background: #0a0a0a; border-radius: 15px; text-align: left; }
+        .donate-highlight { border: 2px solid white; border-radius: 20px; padding: 4px 20px; font-weight: bold; }
+
+        .partners { font-size: 0.9em; color: #777; margin-top: 40px; padding: 20px; border-top: 1px solid #222; text-align: left; }
     </style>
 </head>
 <body>
 
-    <div id="logo-container"></div>
+    <div id="globe-container"></div>
     <div class="site-title">BAS CHARITY INTERNATIONAL</div>
     <div class="sub-title">"Your purchase satisfies a Hunger"</div>
 
-    <div class="photo-row">
-        <div class="p-box"><img src="9817.jpg"><div class="p-label">FOUNDER</div></div>
-        <div class="p-box"><img src="9818.jpg"><div class="p-label">CHARITY</div></div>
+    <div class="photo-section">
+        <div class="photo-box">
+            <img src="9817.jpg" alt="Founder">
+            <div class="photo-label">FOUNDER</div>
+        </div>
+        <div class="photo-box">
+            <img src="9818.jpg" alt="Charity">
+            <div class="photo-label">CHARITY</div>
+        </div>
     </div>
 
-    <div class="btn-bar">
-        <button class="b">English</button><button class="b">Malayalam</button><button class="b">Hindi</button><button class="b">All Other</button>
+    <div class="lang-bar">
+        <span class="lang-btn">English</span>
+        <span class="lang-btn">Malayalam</span>
+        <span class="lang-btn">Hindi</span>
+        <span class="lang-btn">All Other</span>
     </div>
 
-    <div class="content">
+    <div class="content-box">
         What if your single purchase could provide a meal for someone in a corner of the world? <br><br>
-        Shop at the same price and offers. No extra penny needed.
+        Shop at the <b>same price</b> and <b>same offers</b>. Become part of this charity without spending extra money.
     </div>
 
-    <div class="s-link">
-        <a href="https://www.amazon.in/?&tag=basinternationalcharity-21" class="s-btn">AMAZON</a>
-        <span class="offer">Best offer today</span>
+    <div class="shop-row">
+        <a href="https://www.amazon.in/?&tag=basinternationalcharity-21" class="shop-btn">AMAZON</a>
+        <span class="offer-tag">Best offer today</span>
     </div>
-    <div class="s-link">
-        <a href="#" class="s-btn">FLIPKART</a>
-        <span class="offer">Best offer today</span>
+    <div class="shop-row">
+        <a href="#" class="shop-btn">FLIPKART</a>
+        <span class="offer-tag">Best offer today</span>
     </div>
-    <div class="s-link">
-        <a href="#" class="s-btn">MEESHO</a>
-        <span class="offer">Best offer today</span>
+    <div class="shop-row">
+        <a href="#" class="shop-btn">MEESHO</a>
+        <span class="offer-tag">Best offer today</span>
     </div>
 
-    <div class="don-box">
-        Just 10 Rupees for one person's meal. (Optional) <br>
-        100% of your donation reaches the victim. Expenses covered by affiliate revenue.
+    <div class="donation-box">
+        Just 10 Rupees for one person's meal. <br><br>
+        Make a small <span class="donate-highlight">Donation</span> here. (Optional)
+        <p style="font-size: 0.9em; margin-top: 15px; color: #bbb;">
+            100% of your donation reaches the beneficiary. No expenses deducted. <br>
+            All costs covered by affiliate revenue.
+        </p>
     </div>
 
     <div class="partners">
-        Partners: Human Welfare Trust | Peacefully | Vadanappilly Orphanage
+        <b>Partner Institutions:</b> Human Welfare Trust | Peacefully | Vadanappilly Orphanage | ICT Orphanage | Destitutes
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         const scene = new THREE.Scene();
-        const container = document.getElementById('logo-container');
-        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / 180, 0.1, 1000);
+        const container = document.getElementById('globe-container');
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / 250, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(container.clientWidth, 180);
+        renderer.setSize(container.clientWidth, 250);
         container.appendChild(renderer.domElement);
+
         const group = new THREE.Group();
-        const ring = new THREE.Mesh(new THREE.TorusGeometry(2, 0.05, 16, 100), new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 1 }));
+        
+        // Golden Ring
+        const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(2.2, 0.05, 16, 100),
+            new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 1, roughness: 0.1 })
+        );
         group.add(ring);
+
+        // BAS Text Sphere (The Globe)
         const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
         canvas.width = 512; canvas.height = 512;
         ctx.font = "Bold 160px Arial"; ctx.fillStyle = "white"; ctx.textAlign = "center";
         ctx.fillText("BAS", 256, 300);
-        const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.7, 64, 64), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), metalness: 0.5 }));
+        
+        const sphere = new THREE.Mesh(
+            new THREE.SphereGeometry(1.8, 64, 64),
+            new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), metalness: 0.5, roughness: 0.2 })
+        );
         group.add(sphere);
-        scene.add(group); scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-        camera.position.z = 6;
-        function animate() { requestAnimationFrame(animate); group.rotation.y += 0.01; renderer.render(scene, camera); }
+        
+        scene.add(group);
+        scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+        camera.position.z = 7;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            group.rotation.y += 0.015; // കറങ്ങുന്ന വേഗത
+            renderer.render(scene, camera);
+        }
         animate();
     </script>
 </body>
