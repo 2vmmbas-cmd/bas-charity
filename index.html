@@ -1,117 +1,128 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BAS CHARITY INTERNATIONAL</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            padding: 40px 20px;
-        }
-        .logo-area {
-            font-size: 2.5em;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        .tagline {
-            font-size: 1.2em;
-            font-style: italic;
-            background: #fff;
-            color: #d32f2f;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .message-box {
-            background: #fff3e0;
-            border-left: 5px solid #ff9800;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        .highlight {
-            color: #2e7d32;
-            font-weight: bold;
-        }
-        .links-section {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-            color: white;
-        }
-        .amazon { background: #ff9900; }
-        .flipkart { background: #2874f0; }
-        .btn:hover { opacity: 0.8; transform: translateY(-3px); }
-        
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background: #333;
-            color: white;
-            font-size: 0.9em;
-        }
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #000; color: white; overflow-x: hidden; }
+        #logo-header { width: 100%; height: 350px; position: relative; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); }
+        .content { max-width: 900px; margin: -50px auto 50px; position: relative; z-index: 10; padding: 20px; text-align: center; }
+        .main-card { background: rgba(20, 20, 20, 0.95); padding: 40px; border-radius: 20px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { color: #fdbb2d; font-size: 2.8em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 3px; }
+        .tagline { color: #ff5252; font-size: 1.3em; font-style: italic; margin-bottom: 30px; display: block; }
+        .message-box { background: rgba(255, 152, 0, 0.1); border-left: 4px solid #ff9800; padding: 25px; margin-bottom: 30px; text-align: left; line-height: 1.8; font-size: 1.15em; }
+        .highlight { color: #4caf50; font-weight: bold; }
+        .info-list { text-align: left; margin: 20px 0; padding-left: 20px; color: #ccc; }
+        .info-list li { margin-bottom: 12px; }
+        .btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
+        .btn { text-decoration: none; padding: 18px 35px; border-radius: 10px; font-weight: bold; color: white; transition: 0.3s; font-size: 1.1em; }
+        .amazon { background: #ff9900; box-shadow: 0 4px 15px rgba(255,153,0,0.3); }
+        .flipkart { background: #2874f0; box-shadow: 0 4px 15px rgba(40,116,240,0.3); }
+        .btn:hover { transform: translateY(-5px); opacity: 0.9; }
+        footer { padding: 30px; font-size: 0.9em; color: #666; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-area">BAS CHARITY INTERNATIONAL</div>
-    <div class="tagline">"YOUR PURCHASE SATISFIES A HUNGER"</div>
-</header>
+<div id="logo-header"></div>
 
-<div class="container">
-    <div class="message-box">
-        "നിങ്ങളുടെ ഓരോ പർച്ചേസും ഒരാളുടെ വിശപ്പടക്കുന്നു. നിങ്ങൾ <strong>BAS International Charity</strong> വഴി ഷോപ്പിംഗ് നടത്തുമ്പോൾ, അത് ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിലുള്ള പാവപ്പെട്ടവന്റെ ഭക്ഷണമായി മാറുന്നു."
+<div class="content">
+    <div class="main-card">
+        <h1>BAS CHARITY INTERNATIONAL</h1>
+        <span class="tagline">"YOUR PURCHASE SATISFIES A HUNGER"</span>
+
+        <div class="message-box">
+            "നിങ്ങളുടെ ഓരോ പർച്ചേസും ഒരാളുടെ വിശപ്പടക്കുന്നു. നിങ്ങൾ <strong>BAS International Charity</strong> വഴി ഷോപ്പിംഗ് നടത്തുമ്പോൾ, അത് ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിലുള്ള പാവപ്പെട്ടവന്റെ ഭക്ഷണമായി മാറുന്നു."
+        </div>
+
+        <p style="font-size: 1.1em;">ഞങ്ങളുടെ പ്രത്യേകതകൾ:</p>
+        <ul class="info-list">
+            <li>നിങ്ങൾ നൽകുന്ന സംഭാവനകൾ <span class="highlight">100% ഗുണഭോക്താക്കളിലേക്ക്</span> നേരിട്ടെത്തുന്നു.</li>
+            <li>പ്ലാറ്റ്‌ഫോം ചാർജുകൾ, ശമ്പളം, വികസന ചെലവുകൾ എന്നിവ അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിലൂടെയാണ് കണ്ടെത്തുന്നത്.</li>
+            <li>നിങ്ങൾ താഴെ കാണുന്ന ലിങ്കുകൾ വഴി സാധനങ്ങൾ വാങ്ങുമ്പോൾ ഞങ്ങൾക്ക് ലഭിക്കുന്ന വരുമാനം പൂർണ്ണമായും ചാരിറ്റിക്ക് ഉപയോഗിക്കുന്നു.</li>
+        </ul>
+
+        <div class="btn-group">
+            <a href="നിങ്ങളുടെ_ആമസോൺ_ലിങ്ക്" class="btn amazon" target="_blank">Shop on Amazon</a>
+            <a href="നിങ്ങളുടെ_ഫ്ലിപ്കാർട്ട്_ലിങ്ക്" class="btn flipkart" target="_blank">Shop on Flipkart</a>
+        </div>
     </div>
-
-    <h2>ഞങ്ങളുടെ പ്രത്യേകതകൾ</h2>
-    <p>നിങ്ങൾ നൽകുന്ന സംഭാവനകൾ <span class="highlight">100% ഗുണഭോക്താക്കളിലേക്ക്</span> നേരിട്ടെത്തുന്നു. ഞങ്ങളുടെ പ്രവർത്തന ചെലവുകൾ എങ്ങനെ കണ്ടെത്തുന്നു എന്ന് താഴെ നൽകുന്നു:</p>
     
-    <ul style="text-align: left; display: inline-block; line-height: 1.8;">
-        <li>പ്ലാറ്റ്‌ഫോം ചാർജുകൾ, ശമ്പളം, വികസന ചെലവുകൾ എന്നിവ അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിലൂടെയാണ് കണ്ടെത്തുന്നത്.</li>
-        <li>നിങ്ങൾ താഴെ കാണുന്ന ലിങ്കുകൾ വഴി സാധനങ്ങൾ വാങ്ങുമ്പോൾ ഞങ്ങൾക്ക് ലഭിക്കുന്ന കമ്മീഷൻ ചാരിറ്റി പ്രവർത്തനങ്ങൾക്കായി ഉപയോഗിക്കുന്നു.</li>
-        <li>ഇതിലൂടെ നിങ്ങളുടെ പക്കൽ നിന്നും അധികമായി ഒരു രൂപ പോലും ചിലവാകുന്നില്ല.</li>
-    </ul>
-
-    <h3>ഇപ്പോൾ തന്നെ ഷോപ്പിംഗ് ആരംഭിക്കൂ</h3>
-    <div class="links-section">
-        <a href="ഇവിടെ_നിങ്ങളുടെ_ആമസോൺ_ലിങ്ക്" class="btn amazon" target="_blank">Shop on Amazon</a>
-        <a href="ഇവിടെ_നിങ്ങളുടെ_ഫ്ലിപ്കാർട്ട്_ലിങ്ക്" class="btn flipkart" target="_blank">Shop on Flipkart</a>
-    </div>
+    <footer>
+        © 2026 BAS Charity International | ലോകത്തിന്റെ വിശപ്പകറ്റാൻ ഒരു എളിയ പരിശ്രമം.
+    </footer>
 </div>
 
-<footer>
-    © 2026 BAS Charity International | ലോകത്തിന്റെ വിശപ്പകറ്റാൻ ഒരു എളിയ പരിശ്രമം.
-</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    const container = document.getElementById('logo-header');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const light = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(light);
+    const dLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    dLight.position.set(5,3,5);
+    scene.add(dLight);
+
+    const loader = new THREE.TextureLoader();
+    const earthGroup = new THREE.Group();
+    
+    // ഗ്ലോബ്
+    const earthGeo = new THREE.SphereGeometry(2, 64, 64);
+    const earthMat = new THREE.MeshStandardMaterial({
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+        metalness: 0.1, roughness: 0.8
+    });
+    const earth = new THREE.Mesh(earthGeo, earthMat);
+    earthGroup.add(earth);
+
+    // BAS റിംഗ് (തിളക്കമുള്ള വെള്ള നിറത്തിൽ)
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1024; canvas.height = 256;
+    ctx.font = "Bold 160px Arial";
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    ctx.fillText("BAS     BAS     BAS", 512, 160);
+    const textTex = new THREE.CanvasTexture(canvas);
+    const textMesh = new THREE.Mesh(
+        new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true),
+        new THREE.MeshStandardMaterial({ map: textTex, transparent: true, side: THREE.DoubleSide })
+    );
+    earthGroup.add(textMesh);
+    scene.add(earthGroup);
+
+    // ചന്ദ്രൻ
+    const moon = new THREE.Mesh(
+        new THREE.SphereGeometry(0.3, 32, 32),
+        new THREE.MeshStandardMaterial({ color: 0xaaaaaa })
+    );
+    scene.add(moon);
+
+    camera.position.z = 8;
+    let angle = 0;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        earthGroup.rotation.y += 0.005;
+        angle += 0.01;
+        moon.position.x = Math.cos(angle) * 5;
+        moon.position.z = Math.sin(angle) * 3;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+</script>
 
 </body>
 </html>
