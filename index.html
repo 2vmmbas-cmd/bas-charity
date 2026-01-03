@@ -1,54 +1,117 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAS International Charity</title>
+    <title>BAS CHARITY INTERNATIONAL</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; background-color: #f4f4f4; text-align: center; }
-        .header { background: #1a73e8; color: white; padding: 40px 20px; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; padding: 15px 25px; margin: 10px; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.1em; }
-        .amazon { background: #ff9900; }
-        .flipkart { background: #2874f0; }
-        .charity-img { width: 100%; max-width: 500px; border-radius: 10px; margin: 20px 0; border: 2px solid #ddd; }
-        .founder-box { background: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #1a73e8; margin-top: 30px; }
-        .founder-img { width: 200px; border-radius: 15px; border: 3px solid #1a73e8; }
+        :root { --primary-blue: #003366; --gold: #D4AF37; --light-bg: #f8f9fa; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: white; color: #333; text-align: center; }
+        
+        /* Rotating Logo & Header */
+        .header { background: #000; color: white; padding: 40px 20px; border-bottom: 4px solid var(--gold); }
+        .logo-circle {
+            width: 80px; height: 80px; background: radial-gradient(circle, #ffd700, #b8860b);
+            border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; box-shadow: 0 0 15px var(--gold);
+            animation: rotateLogo 8s linear infinite; /* Rotating Emblem */
+        }
+        @keyframes rotateLogo { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .logo-text { font-size: 20px; font-weight: bold; color: #000; }
+        .main-title { font-size: 2.2em; margin: 10px 0; letter-spacing: 1px; }
+        .slogan { color: var(--gold); font-weight: bold; font-style: italic; }
+
+        /* Language Buttons */
+        .lang-bar { background: #eee; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .lang-btn { padding: 5px 15px; border: 1px solid #ccc; border-radius: 20px; font-size: 0.9em; background: white; cursor: pointer; }
+
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+
+        /* Shopping Buttons */
+        .shop-card { background: var(--light-bg); padding: 15px; border-radius: 12px; margin: 15px 0; border: 1px solid #ddd; 
+                     display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #333; transition: 0.3s; }
+        .shop-card:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-amazon { border-left: 8px solid #ff9900; }
+        .btn-flipkart { border-left: 8px solid #2874f0; }
+        .btn-meesho { border-left: 8px solid #ff4486; }
+        .btn-myntra { border-left: 8px solid #fe3f6c; }
+        .best-offer { font-size: 0.8em; color: green; font-weight: bold; }
+
+        /* Photo Slideshow (Founder) */
+        .slideshow-container { position: relative; max-width: 100%; height: 350px; margin: 30px 0; overflow: hidden; border-radius: 15px; border: 5px solid #eee; }
+        .mySlides { width: 100%; height: 100%; object-fit: cover; position: absolute; left: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .active { opacity: 1; }
+
+        .founder-info { background: #fff8e1; padding: 20px; border-radius: 15px; margin: 20px 0; border-left: 10px solid var(--gold); text-align: left; }
+        
+        .donation-box { background: #e3f2fd; padding: 25px; border-radius: 15px; margin-top: 30px; border: 1px dashed #2196f3; }
+        .share-btn { background: #25d366; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>BAS INTERNATIONAL CHARITY</h1>
-    <p><strong>YOUR EVERY PURCHASE SATISFIES A HUNGER</strong></p>
+    <div class="logo-circle"><div class="logo-text">BAS</div></div>
+    <h1 class="main-title">BAS CHARITY INTERNATIONAL</h1>
+    <p class="slogan">YOUR PURCHASE SATISFIES A HUNGER</p>
+</div>
+
+<div class="lang-bar">
+    <span class="lang-btn">English</span> <span class="lang-btn">മലയാളം</span> <span class="lang-btn">Hindi</span> <span class="lang-btn">All Others</span>
 </div>
 
 <div class="container">
-    <h2>START SHOPPING</h2>
-    <a href="https://www.amazon.in/?&tag=Vmmbaslinks-21" class="btn amazon" target="_blank">Shop on Amazon</a>
-    <a href="https://www.flipkart.com/" class="btn flipkart" target="_blank">Shop on Flipkart</a>
-    <p>100% of the commission goes to feed the hungry.</p>
+    <p style="font-weight: bold; color: var(--primary-blue); font-size: 1.1em;">
+        നിങ്ങളുടെ ഒരു purchase കൊണ്ട് ലോകത്തിലെ ഏതെങ്കിലും ഒരു കോണിലെ ഒരാൾക്ക് ഭക്ഷണം ലഭിച്ചാലോ?
+    </p>
+
+    <a href="#" class="shop-card btn-amazon"><strong>AMAZON</strong> <span class="best-offer">Best offer today</span></a>
+    <a href="#" class="shop-card btn-flipkart"><strong>FLIPKART</strong> <span class="best-offer">Best offer today</span></a>
+    <a href="#" class="shop-card btn-meesho"><strong>MEESHO</strong> <span class="best-offer">Best offer today</span></a>
+    <a href="#" class="shop-card btn-myntra"><strong>MYNTRA</strong> <span class="best-offer">Best offer today</span></a>
+    <a href="#" class="shop-card"><strong>ALL OTHERS</strong> <span class="best-offer">100s of Shopping Sites</span></a>
 
     <hr>
 
-    <h2>OUR CHARITY WORK</h2>
-    <img src="Screenshot_20260101_140109_Google.jpg" alt="Charity Work 1" class="charity-img">
-    
-    <img src="9228.jpg" alt="Charity Work 2" class="charity-img">
+    <h3>FOUNDER</h3>
+    <div class="slideshow-container">
+        <img src="FB_IMG_1767261292825.jpg" class="mySlides active">
+        <img src="Screenshot_20260101_140109_Google.jpg" class="mySlides">
+    </div>
 
-    <div class="founder-box">
-        <h3>FOUNDER</h3>
-        <img src="FB_IMG_1767261292825.jpg" alt="Mohammed Basheer" class="founder-img">
+    <div class="founder-info">
         <h3>Mohammed Basheer</h3>
         <p><strong>Retired Assistant Engineer, KSEB</strong></p>
         <p>5 Years Int'l Experience | 20 Years KSEB Service | 40 Years Social Service</p>
     </div>
+
+    <div class="donation-box">
+        <p>വാങ്ങാൻ ഒന്നുമില്ലേ? വിഷമിക്കണ്ട. ഈ ചാരിറ്റിയുടെ ഗുണങ്ങൾ നിങ്ങളുടെ Friends-നും Family-ക്കും ഷെയർ ചെയ്യൂ.</p>
+        <a href="#" class="share-btn">SHARE</a>
+        
+        <h4 style="margin-top:25px;">Donation (Optional)</h4>
+        <p>ഒരാളുടെ ഒരു നേരത്തെ ഭക്ഷണത്തിന് വെറും 10 രൂപ മാത്രം.</p>
+        <p style="font-size: 0.85em; color: #555;">100% നിങ്ങളുടെ Donation ഗുണഭോക്താവിൽ (Victim) എത്തും. ബാക്കി ചിലവുകൾ Affiliate Revenue വഴി കണ്ടെത്തുന്നു.</p>
+    </div>
+
+    <p style="font-size: 0.8em; color: #888; margin-top: 30px;">
+        Partner Institutions: Human Welfare Trust, Peacefully, Vadanappilly Orphanage, ICT of Phone Destitutes.
+    </p>
 </div>
 
-<footer style="margin: 20px; color: #777;">
-    &copy; 2026 BAS International Charity
-</footer>
+<script>
+    // Photo Changing Logic
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("mySlides");
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) { slides[i].classList.remove("active"); }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].classList.add("active");
+        setTimeout(showSlides, 4000); // Change every 4 seconds
+    }
+    showSlides();
+</script>
 
 </body>
 </html>
- 
