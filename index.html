@@ -1,78 +1,107 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAS CHARITY INTERNATIONAL</title>
+    <title>BAS Charity International</title>
     <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
-        #canvas-container { width: 100%; height: 400px; position: relative; } /* ലോഗോയുടെ വലിപ്പം ഇവിടെ നിയന്ത്രിക്കുന്നു */
-        .content-area { text-align: center; padding: 20px; position: relative; z-index: 10; background: #000; }
+        /* ഇക്കയുടെ ലോഗോ സെക്ഷൻ കൃത്യമായി വരാൻ */
+        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; }
+        canvas { display: block; }
+        .scroll-container { height: 100vh; overflow-y: auto; scroll-behavior: smooth; }
+        .section { padding: 60px 20px; text-align: center; background: #000; }
     </style>
 </head>
 <body>
 
-<div id="canvas-container"></div> <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    const container = document.getElementById('canvas-container');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, 400);
-    container.appendChild(renderer.domElement);
+<div class="scroll-container">
 
-    const light = new THREE.AmbientLight(0xffffff, 2); scene.add(light);
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ 
-        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') 
-    }));
-    earthGroup.add(earth); scene.add(earthGroup);
+<div id="logo-area" style="height: 100vh; width: 100vw;"></div>
 
-    const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    ctx.fillStyle = "#FFFFFF"; ctx.font = "Bold 160px Arial"; ctx.textAlign = "center";
-    ctx.fillText("BAS                      BAS", 512, 160);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('logo-area').appendChild(renderer.domElement);
 
-    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.9, 64, 1, true), new THREE.MeshBasicMaterial({ 
-        map: new THREE.CanvasTexture(canvas), transparent: true, side: THREE.DoubleSide 
-    }));
-    earthGroup.add(textMesh); camera.position.z = 6;
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        scene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0xffffff, 2);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
 
-    function animate() { 
-        requestAnimationFrame(animate); 
-        earthGroup.rotation.y += 0.005; 
-        renderer.render(scene, camera); 
-    }
-    animate();
+        const loader = new THREE.TextureLoader();
+        const earthGroup = new THREE.Group();
+        const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+        const earthMaterial = new THREE.MeshStandardMaterial({
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+            metalness: 0.3, roughness: 0.7
+        });
+        const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+        earthGroup.add(earth);
+        scene.add(earthGroup);
 
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 400);
-        camera.aspect = window.innerWidth / 400;
-        camera.updateProjectionMatrix();
-    });
-</script>
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = 1024; canvas.height = 256;
+        context.fillStyle = "#FFFFFF"; 
+        context.font = "Bold 140px Arial";
+        context.textAlign = "center";
+        context.fillText("BAS                      BAS", 512, 160);
 
-<div class="content-area">
-    <h1 style="color: #ffffff; font-family: 'Arial Black', sans-serif; font-size: clamp(30px, 8vw, 55px); font-weight: bold; letter-spacing: 6px; text-transform: uppercase; margin: 0; text-shadow: 0 0 15px rgba(255,255,255,0.6);">
-        BAS CHARITY INTERNATIONAL
-    </h1>
-    <div style="width: 150px; height: 2px; background: #ffffff; margin: 20px auto; opacity: 0.5;"></div>
+        const textTexture = new THREE.CanvasTexture(canvas);
+        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+        const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
+        earthGroup.add(textMesh);
 
-<h2 style="font-size: clamp(18px, 5vw, 24px); letter-spacing: 2px; margin-top: 30px; color: #fff;">
-        YOUR PURCHASE SATISFIES A HUNGER
-    </h2>
-    <p style="color: #ccc; max-width: 600px; margin: 10px auto; line-height: 1.6;">
-        When you shop through BAS International Charity, it becomes food for someone in a corner of the world.
-    </p>
+        const moonGeo = new THREE.SphereGeometry(0.4, 32, 32);
+        const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
+        const moon = new THREE.Mesh(moonGeo, moonMat);
+        scene.add(moon);
 
-<div style="margin-top: 40px;">
-        <a href="https://www.amazon.in/?&tag=bascharity-21" target="_blank" style="background: #FF9900; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; margin: 10px; display: inline-block;">
-            SHOP ON AMAZON
-        </a>
+        camera.position.z = 6;
+        let angle = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            earthGroup.rotation.y += 0.005; 
+            angle += 0.015;
+            moon.position.x = Math.cos(angle) * 5; 
+            moon.position.z = Math.sin(angle) * 3; 
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+<div class="section">
+        <h1 style="font-size: 50px; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px #fff;">
+            BAS CHARITY INTERNATIONAL
+        </h1>
+        <div style="width: 100px; height: 2px; background: #fff; margin: 20px auto;"></div>
+
+<h2 style="font-size: 28px; margin-top: 40px;">YOUR PURCHASE SATISFIES A HUNGER</h2>
+        <p style="font-size: 18px; color: #ccc; max-width: 700px; margin: 20px auto; line-height: 1.6;">
+            When you shop through BAS International Charity, it becomes food for someone in a corner of the world.
+        </p>
+
+<div style="margin-top: 50px;">
+            <a href="https://www.amazon.in/?&tag=bascharity-21" target="_blank" style="background: #fff; color: #000; padding: 15px 40px; text-decoration: none; font-weight: bold; font-size: 20px; border-radius: 5px;">
+                SHOP ON AMAZON
+            </a>
+        </div>
+
+        <p style="margin-top: 80px; font-size: 14px; color: #666;">
+            100% of the donation reaches the beneficiary. <br>
+            Platform charges and costs are covered by affiliate marketing.
+        </p>
     </div>
 
-</div>
-
-</body>
+</div> </body>
 </html>
+ 
