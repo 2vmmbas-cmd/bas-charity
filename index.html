@@ -1,7 +1,7 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>BAS Charity - Final Logo</title>
+    <title>BAS Charity - Silver Mirror Logo</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -17,11 +17,12 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        // വെളിച്ചം കൂട്ടി (സിൽവർ ഫിനിഷ് തെളിയാൻ ഇത് വേണം)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
         scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0xffffff, 2);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
 
         const loader = new THREE.TextureLoader();
 
@@ -36,28 +37,37 @@
         earthGroup.add(earth);
         scene.add(earthGroup);
 
+        // --- സിൽവർ മിറർ ഫിനിഷ് അക്ഷരങ്ങൾ ---
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.width = 1024;
         canvas.height = 256;
-        
-        // ഇക്ക പറഞ്ഞതുപോലെ നല്ല തെളിഞ്ഞ വെളുത്ത നിറം
-        context.fillStyle = "#FFFFFF"; 
-        context.font = "Bold 140px Arial";
+
+        // സിൽവർ/മെറ്റാലിക് ലുക്കിനുള്ള ഗ്രേഡിയന്റ്
+        const gradient = context.createLinearGradient(0, 0, 0, 256);
+        gradient.addColorStop(0, '#ffffff'); // തിളങ്ങുന്ന വൈറ്റ്
+        gradient.addColorStop(0.5, '#c0c0c0'); // സിൽവർ
+        gradient.addColorStop(1, '#808080'); // ഡാർക്ക് സിൽവർ
+
+        context.fillStyle = gradient;
+        context.font = "Bold 150px Arial";
         context.textAlign = "center";
         
-        // BAS - രണ്ട് തവണ മാത്രം (അകലം പാലിച്ച്)
+        // BAS - 2 എണ്ണം മാത്രം (ഇക്ക പറഞ്ഞതുപോലെ)
         context.fillText("BAS                      BAS", 512, 160);
 
         const textTexture = new THREE.CanvasTexture(canvas);
-        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+        const textGeo = new THREE.CylinderGeometry(2.15, 2.15, 0.9, 64, 1, true);
         
-        // ഒരു ആനിമേഷനും ഇല്ലാത്ത പ്യുവർ വൈറ്റ് മെറ്റീരിയൽ
-        const textMat = new THREE.MeshBasicMaterial({ 
+        // സിൽവർ മിറർ ഇഫക്റ്റ് ഇവിടെയാണ് നൽകുന്നത്
+        const textMat = new THREE.MeshStandardMaterial({ 
             map: textTexture, 
             transparent: true,
-            side: THREE.DoubleSide
+            side: THREE.DoubleSide,
+            metalness: 1.0, // ഫുൾ മെറ്റൽ
+            roughness: 0.1  // കണ്ണാടി പോലെ തിളങ്ങാൻ
         });
+        
         const textMesh = new THREE.Mesh(textGeo, textMat);
         earthGroup.add(textMesh);
 
