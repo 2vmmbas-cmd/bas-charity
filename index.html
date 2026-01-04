@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-    <title>BAS Charity - Silver Mirror Logo</title>
+    <title>BAS Charity - White Mirror Logo</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -17,12 +17,12 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // വെളിച്ചം കൂട്ടി (സിൽവർ ഫിനിഷ് തെളിയാൻ ഇത് വേണം)
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+        // വെളിച്ചം നല്ലപോലെ കൂട്ടി (വൈറ്റ് മിറർ തെളിയാൻ)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
         scene.add(ambientLight);
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(5, 5, 5);
-        scene.add(directionalLight);
+        const pointLight = new THREE.PointLight(0xffffff, 1.5);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
 
         const loader = new THREE.TextureLoader();
 
@@ -37,35 +37,30 @@
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // --- സിൽവർ മിറർ ഫിനിഷ് അക്ഷരങ്ങൾ ---
+        // --- ബ്ലാക്ക് മാറ്റി വൈറ്റ് മിറർ അക്ഷരങ്ങൾ ആക്കുന്നു ---
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.width = 1024;
         canvas.height = 256;
 
-        // സിൽവർ/മെറ്റാലിക് ലുക്കിനുള്ള ഗ്രേഡിയന്റ്
-        const gradient = context.createLinearGradient(0, 0, 0, 256);
-        gradient.addColorStop(0, '#ffffff'); // തിളങ്ങുന്ന വൈറ്റ്
-        gradient.addColorStop(0.5, '#c0c0c0'); // സിൽവർ
-        gradient.addColorStop(1, '#808080'); // ഡാർക്ക് സിൽവർ
-
-        context.fillStyle = gradient;
+        // നല്ല കട്ടിയുള്ള വെള്ള നിറം
+        context.fillStyle = "#FFFFFF"; 
         context.font = "Bold 150px Arial";
         context.textAlign = "center";
         
-        // BAS - 2 എണ്ണം മാത്രം (ഇക്ക പറഞ്ഞതുപോലെ)
+        // കറുത്ത അക്ഷരങ്ങൾക്ക് പകരം വെളുത്ത BAS (2 എണ്ണം)
         context.fillText("BAS                      BAS", 512, 160);
 
         const textTexture = new THREE.CanvasTexture(canvas);
-        const textGeo = new THREE.CylinderGeometry(2.15, 2.15, 0.9, 64, 1, true);
+        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.9, 64, 1, true);
         
-        // സിൽവർ മിറർ ഇഫക്റ്റ് ഇവിടെയാണ് നൽകുന്നത്
+        // മിറർ ഫിനിഷ് നൽകുന്ന മെറ്റീരിയൽ
         const textMat = new THREE.MeshStandardMaterial({ 
             map: textTexture, 
             transparent: true,
             side: THREE.DoubleSide,
-            metalness: 1.0, // ഫുൾ മെറ്റൽ
-            roughness: 0.1  // കണ്ണാടി പോലെ തിളങ്ങാൻ
+            metalness: 0.9, 
+            roughness: 0.1 
         });
         
         const textMesh = new THREE.Mesh(textGeo, textMat);
@@ -78,15 +73,9 @@
 
         camera.position.z = 6;
 
-        let angle = 0;
         function animate() {
             requestAnimationFrame(animate);
             earthGroup.rotation.y += 0.005; 
-            
-            angle += 0.015;
-            moon.position.x = Math.cos(angle) * 5; 
-            moon.position.z = Math.sin(angle) * 3; 
-
             renderer.render(scene, camera);
         }
         animate();
