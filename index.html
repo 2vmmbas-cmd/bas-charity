@@ -1,90 +1,118 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
-        #logo-space { width: 100%; height: 380px; }
-        .brand-heading { text-align: center; margin-top: -20px; padding: 20px; }
-        .brand-heading h1 { font-size: clamp(26px, 7vw, 48px); letter-spacing: 6px; text-transform: uppercase; margin: 0; font-weight: bold; }
+        
+        /* ഹെഡർ സെക്ഷൻ - ലോഗോയ്ക്കും പേരിനും വേണ്ടി */
+        .header-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            padding-top: 10px;
+        }
+
+        #logo-space {
+            width: 100%;
+            height: 250px; /* ഉയരം കുറച്ചു, ഗ്ലോബ് ചെറുതാക്കി */
+        }
+
+        .brand-heading {
+            text-align: center;
+            margin-top: -10px;
+            padding: 10px;
+        }
+
+        .brand-heading h1 {
+            font-size: clamp(22px, 6vw, 42px); /* വലിയ ഭാവമുള്ള അക്ഷരങ്ങൾ */
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="header-box">
     <div id="logo-space"></div>
+
     <div class="brand-heading">
         <h1>BAS CHARITY INTERNATIONAL</h1>
-        <div style="width: 80px; height: 2px; background: #fff; margin: 15px auto; opacity: 0.5;"></div>
+        <div style="width: 60px; height: 1.5px; background: #fff; margin: 12px auto; opacity: 0.4;"></div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
+    // ഗ്ലോബ് വളരെ ചെറുതാക്കി കാണാൻ ക്യാമറ സെറ്റിംഗ്സ് പുതുക്കി
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / 250, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 380);
+    renderer.setSize(window.innerWidth, 250);
     document.getElementById('logo-space').appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0xffffff, 2);
     pointLight.position.set(10, 10, 10); scene.add(pointLight);
 
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
     
-    // ഇക്കയുടെ ഒറിജിനൽ ഭൂമി
+    // ഗ്ലോബിന്റെ വലിപ്പം 2-ൽ നിന്ന് 1-ലേക്ക് കുറച്ചു (വളരെ ചെറുതാക്കി)
     const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(2, 64, 64), 
+        new THREE.SphereGeometry(1, 64, 64), 
         new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
+            metalness: 0.2, roughness: 0.8
         })
     );
     earthGroup.add(earth);
     scene.add(earthGroup);
 
-    // ഇക്കയുടെ തെളിഞ്ഞ വെളുത്ത BAS അക്ഷരങ്ങൾ
+    // ഇക്കയുടെ തെളിഞ്ഞ വെളുത്ത BAS അക്ഷരങ്ങൾ - ഗ്ലോബിന് അനുസരിച്ച് വലിപ്പം മാറ്റി
     const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
     context.fillText("BAS                      BAS", 512, 160);
 
     const textTexture = new THREE.CanvasTexture(canvas);
-    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+    // അക്ഷരങ്ങളുടെ വലിപ്പവും ഗ്ലോബിന് മാച്ച് ആക്കി (1.05)
+    const textGeo = new THREE.CylinderGeometry(1.05, 1.05, 0.4, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
     const textMesh = new THREE.Mesh(textGeo, textMat);
     earthGroup.add(textMesh);
 
-    // ആകെ ഒരൊറ്റ ചന്ദ്രൻ മാത്രം
+    // ആകെ ഒരു ചന്ദ്രൻ മാത്രം
     const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 32, 32),
+        new THREE.SphereGeometry(0.2, 32, 32),
         new THREE.MeshStandardMaterial({ color: 0xcccccc })
     );
     scene.add(moon);
 
-    camera.position.z = 8;
+    camera.position.z = 6; 
 
     let angle = 0;
     function animate() {
         requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
+        earthGroup.rotation.y += 0.007; 
         
-        // ചന്ദ്രലേഖ പോലെ ഒരു വശത്തിലൂടെ മാത്രമുള്ള ഭ്രമണം
+        // ചന്ദ്രലേഖ പോലെ ഭ്രമണം
         angle += 0.015;
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
+        moon.position.x = Math.cos(angle) * 3; 
+        moon.position.z = Math.sin(angle) * 2; 
 
         renderer.render(scene, camera);
     }
     animate();
 
     window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
+        renderer.setSize(window.innerWidth, 250);
+        camera.aspect = window.innerWidth / 250;
         camera.updateProjectionMatrix();
     });
 </script>
