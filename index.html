@@ -3,68 +3,58 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        body { margin: 0; background: #000; overflow: hidden; }
-        #logo-display { width: 100%; height: 100vh; }
+        body { margin: 0; background-color: #000; overflow: hidden; }
+        #logo-container { width: 100vw; height: 100vh; }
     </style>
 </head>
 <body>
-    <div id="logo-display"></div>
+
+    <div id="logo-container"></div>
+
     <script>
         const scene = new THREE.Scene();
-        const container = document.getElementById('logo-display');
+        const container = document.getElementById('logo-container');
         const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+        // വെളിച്ചം സെറ്റ് ചെയ്യുന്നു
+        const light = new THREE.PointLight(0xffffff, 1.5);
+        light.position.set(10, 10, 10);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+        scene.add(light);
+
         const group = new THREE.Group();
-        const loader = new THREE.TextureLoader();
 
-        // ഭൂമി
-        const earth = new THREE.Mesh(
-            new THREE.SphereGeometry(2, 64, 64),
-            new THREE.MeshStandardMaterial({ 
-                map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') 
-            })
-        );
+        // 1. ഭൂമി (ചിത്രത്തിന് പകരം നീല നിറം - എവിടെയും വർക്ക് ചെയ്യും)
+        const earthGeo = new THREE.SphereGeometry(2, 64, 64);
+        const earthMat = new THREE.MeshStandardMaterial({ 
+            color: 0x1155ff, 
+            roughness: 0.5,
+            metalness: 0.1
+        });
+        const earth = new THREE.Mesh(earthGeo, earthMat);
         group.add(earth);
-
-        // പൊങ്ങി നിൽക്കുന്ന BAS (Center & Glowing)
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = 1024; canvas.height = 256;
-        ctx.fillStyle = "#FFD700"; 
-        ctx.font = "Bold 100px Arial";
-        ctx.textAlign = "center";
-        ctx.shadowColor = "#FFD700";
-        ctx.shadowBlur = 20;
-        ctx.fillText("BAS     BAS     BAS     BAS", 512, 150);
-
-        const textTexture = new THREE.CanvasTexture(canvas);
-        const textGeo = new THREE.CylinderGeometry(2.3, 2.3, 1.1, 64, 1, true);
-        const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
-        const textMesh = new THREE.Mesh(textGeo, textMat);
-        group.add(textMesh);
-
         scene.add(group);
 
-        // ചന്ദ്രൻ
-        const moon = new THREE.Mesh(
-            new THREE.SphereGeometry(0.35, 32, 32),
-            new THREE.MeshStandardMaterial({ color: 0xcccccc })
-        );
+        // 2. ചന്ദ്രൻ (ചെറിയ ഗോളം)
+        const moonGeo = new THREE.SphereGeometry(0.35, 32, 32);
+        const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
+        const moon = new THREE.Mesh(moonGeo, moonMat);
         scene.add(moon);
 
         camera.position.z = 8;
-        let moonAngle = 0;
+        let angle = 0;
 
         function animate() {
             requestAnimationFrame(animate);
-            group.rotation.y += 0.007; 
-            moonAngle += 0.012;
-            moon.position.x = Math.cos(moonAngle) * 4.8; 
-            moon.position.z = Math.sin(moonAngle) * 4.8; 
+            group.rotation.y += 0.005; // ഭൂമി കറങ്ങുന്നു
+            
+            angle += 0.01;
+            moon.position.x = Math.cos(angle) * 4.5; 
+            moon.position.z = Math.sin(angle) * 4.5; 
+            
             renderer.render(scene, camera);
         }
         animate();
