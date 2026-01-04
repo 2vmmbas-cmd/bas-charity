@@ -6,29 +6,29 @@
     <style>
         body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
         
-        /* ഹെഡർ ബോക്സ് - അകലം പകുതിയാക്കി */
         .brand-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 5px 0; /* മുകളിലെ അകലം കുറച്ചു */
+            padding: 10px 0;
             background: #000;
         }
 
-        /* ഗ്ലോബ് പകുതി വലിപ്പത്തിലേക്ക് മാറ്റാൻ ഉയരം 120px ആക്കി */
+        /* ഗ്ലോബ് സെക്ഷൻ */
         #logo-window {
             width: 100%;
             height: 120px; 
         }
 
+        /* ഹെഡിംഗ് സെക്ഷൻ - ഗ്ലോബുമായി 1cm അകലം (ഏകദേശം 38px) */
         .brand-name-box {
             text-align: center;
-            margin-top: -15px; /* ഗ്ലോബും ഹെഡിംഗും തമ്മിലുള്ള അകലം പകുതിയാക്കി */
+            margin-top: 1cm; /* കൃത്യം 1cm ഗ്യാപ്പ് */
         }
 
         .brand-name-box h1 {
-            font-size: clamp(18px, 5vw, 30px); /* ഹെഡിംഗും അല്പം കൂടി ഒതുക്കി */
+            font-size: clamp(18px, 5vw, 30px);
             letter-spacing: 4px;
             text-transform: uppercase;
             margin: 0;
@@ -43,14 +43,13 @@
 
     <div class="brand-name-box">
         <h1>BAS CHARITY INTERNATIONAL</h1>
-        <div style="width: 40px; height: 1px; background: #fff; margin: 8px auto; opacity: 0.3;"></div>
+        <div style="width: 40px; height: 1px; background: #fff; margin: 10px auto; opacity: 0.3;"></div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
     const scene = new THREE.Scene();
-    // വലിപ്പം കുറച്ച ക്യാമറ സെറ്റിംഗ്സ്
     const camera = new THREE.PerspectiveCamera(35, window.innerWidth / 120, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 120);
@@ -63,7 +62,7 @@
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
     
-    // Globe പകുതി വലിപ്പമാക്കി (0.45)
+    // പകുതി വലിപ്പത്തിലുള്ള ഗ്ലോബ്
     const earth = new THREE.Mesh(
         new THREE.SphereGeometry(0.45, 64, 64), 
         new THREE.MeshStandardMaterial({
@@ -81,7 +80,6 @@
     context.fillText("BAS                      BAS", 512, 160);
 
     const textTexture = new THREE.CanvasTexture(canvas);
-    // അക്ഷരങ്ങൾ ഗ്ലോബിനോട് ചേർന്നു നിൽക്കാൻ (0.48)
     const textGeo = new THREE.CylinderGeometry(0.48, 0.48, 0.15, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
     const textMesh = new THREE.Mesh(textGeo, textMat);
@@ -100,11 +98,9 @@
     function animate() {
         requestAnimationFrame(animate);
         earthGroup.rotation.y += 0.007; 
-        
         angle += 0.015;
         moon.position.x = Math.cos(angle) * 1.5; 
         moon.position.z = Math.sin(angle) * 1.0; 
-
         renderer.render(scene, camera);
     }
     animate();
