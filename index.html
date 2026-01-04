@@ -4,13 +4,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
-        #logo-display { width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        #logo-display { width: 100%; height: 100vh; }
     </style>
 </head>
 <body>
-
     <div id="logo-display"></div>
-
     <script>
         const scene = new THREE.Scene();
         const container = document.getElementById('logo-display');
@@ -19,15 +17,11 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        scene.add(new THREE.AmbientLight(0xffffff, 1.2));
-        const light = new THREE.PointLight(0xffffff, 1.5);
-        light.position.set(10, 10, 10);
-        scene.add(light);
-
+        scene.add(new THREE.AmbientLight(0xffffff, 1.5));
         const group = new THREE.Group();
         const loader = new THREE.TextureLoader();
 
-        // 1. ഭൂമി (Earth)
+        // ഭൂമി
         const earth = new THREE.Mesh(
             new THREE.SphereGeometry(2, 64, 64),
             new THREE.MeshStandardMaterial({ 
@@ -36,7 +30,7 @@
         );
         group.add(earth);
 
-        // 2. BAS അക്ഷരങ്ങൾ (തിളക്കമുള്ളത്)
+        // പൊങ്ങി നിൽക്കുന്ന BAS (Center & Glowing)
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = 1024; canvas.height = 256;
@@ -44,18 +38,18 @@
         ctx.font = "Bold 100px Arial";
         ctx.textAlign = "center";
         ctx.shadowColor = "#FFD700";
-        ctx.shadowBlur = 15;
+        ctx.shadowBlur = 20;
         ctx.fillText("BAS     BAS     BAS     BAS", 512, 150);
 
         const textTexture = new THREE.CanvasTexture(canvas);
-        const textGeo = new THREE.CylinderGeometry(2.3, 2.3, 1, 64, 1, true);
+        const textGeo = new THREE.CylinderGeometry(2.3, 2.3, 1.1, 64, 1, true);
         const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
         const textMesh = new THREE.Mesh(textGeo, textMat);
         group.add(textMesh);
 
         scene.add(group);
 
-        // 3. ചന്ദ്രൻ (Moon)
+        // ചന്ദ്രൻ
         const moon = new THREE.Mesh(
             new THREE.SphereGeometry(0.35, 32, 32),
             new THREE.MeshStandardMaterial({ color: 0xcccccc })
