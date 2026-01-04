@@ -8,9 +8,7 @@
     </style>
 </head>
 <body>
-
     <div id="logo-container"></div>
-
     <script>
         const scene = new THREE.Scene();
         const container = document.getElementById('logo-container');
@@ -19,26 +17,42 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        // വെളിച്ചം സെറ്റ് ചെയ്യുന്നു
-        const light = new THREE.PointLight(0xffffff, 1.5);
+        const light = new THREE.PointLight(0xffffff, 2);
         light.position.set(10, 10, 10);
-        scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+        scene.add(new THREE.AmbientLight(0xffffff, 1));
         scene.add(light);
 
         const group = new THREE.Group();
 
-        // 1. ഭൂമി (ചിത്രത്തിന് പകരം നീല നിറം - എവിടെയും വർക്ക് ചെയ്യും)
+        // 1. ഭൂമി
         const earthGeo = new THREE.SphereGeometry(2, 64, 64);
-        const earthMat = new THREE.MeshStandardMaterial({ 
-            color: 0x1155ff, 
-            roughness: 0.5,
-            metalness: 0.1
-        });
+        const earthMat = new THREE.MeshStandardMaterial({ color: 0x1155ff, roughness: 0.4, metalness: 0.2 });
         const earth = new THREE.Mesh(earthGeo, earthMat);
         group.add(earth);
+
+        // 2. BAS അക്ഷരങ്ങൾ (രണ്ട് തവണ മാത്രം - നല്ല അകലത്തിൽ)
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1024; canvas.height = 256;
+        
+        ctx.fillStyle = "#FFFFFF"; 
+        ctx.font = "Bold 130px Arial"; // അക്ഷരങ്ങൾ കുറച്ചുകൂടി വലുതാക്കി
+        ctx.textAlign = "center";
+        ctx.shadowColor = "#FFFFFF";
+        ctx.shadowBlur = 35; // വൈറ്റ് ഗ്ലോ കൂട്ടി
+        
+        // രണ്ട് വശത്തുമായി BAS (നല്ല ഗ്യാപ്പ് നൽകി)
+        ctx.fillText("BAS                      BAS", 512, 150);
+
+        const textTexture = new THREE.CanvasTexture(canvas);
+        const textGeo = new THREE.CylinderGeometry(2.5, 2.5, 1.3, 64, 1, true);
+        const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
+        group.add(textMesh);
+
         scene.add(group);
 
-        // 2. ചന്ദ്രൻ (ചെറിയ ഗോളം)
+        // 3. ചന്ദ്രൻ
         const moonGeo = new THREE.SphereGeometry(0.35, 32, 32);
         const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
         const moon = new THREE.Mesh(moonGeo, moonMat);
@@ -49,12 +63,10 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            group.rotation.y += 0.005; // ഭൂമി കറങ്ങുന്നു
-            
+            group.rotation.y += 0.006; // കറക്കം പതുക്കെയാക്കി
             angle += 0.01;
             moon.position.x = Math.cos(angle) * 4.5; 
             moon.position.z = Math.sin(angle) * 4.5; 
-            
             renderer.render(scene, camera);
         }
         animate();
