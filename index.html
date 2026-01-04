@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-    <title>BAS Charity - White Mirror Logo</title>
+    <title>BAS Charity - Original White</title>
     <style>
         body { margin: 0; background: #000; overflow: hidden; }
         canvas { display: block; }
@@ -17,56 +17,48 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // വെളിച്ചം നല്ലപോലെ കൂട്ടി (വൈറ്റ് മിറർ തെളിയാൻ)
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 2);
         scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0xffffff, 1.5);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
 
         const loader = new THREE.TextureLoader();
 
         const earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
         const earthMaterial = new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3,
-            roughness: 0.7
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
         });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earthGroup.add(earth);
         scene.add(earthGroup);
 
-        // --- ബ്ലാക്ക് മാറ്റി വൈറ്റ് മിറർ അക്ഷരങ്ങൾ ആക്കുന്നു ---
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.width = 1024;
         canvas.height = 256;
 
-        // നല്ല കട്ടിയുള്ള വെള്ള നിറം
-        context.fillStyle = "#FFFFFF"; 
-        context.font = "Bold 150px Arial";
-        context.textAlign = "center";
+        // ആദ്യത്തെ ആ കറുപ്പ് മാറ്റാൻ കാൻവാസ് ക്ലിയർ ചെയ്യുന്നു
+        context.clearRect(0, 0, canvas.width, canvas.height);
         
-        // കറുത്ത അക്ഷരങ്ങൾക്ക് പകരം വെളുത്ത BAS (2 എണ്ണം)
+        // ഇക്ക ആദ്യം ആഗ്രഹിച്ച വെളുത്ത അക്ഷരങ്ങൾ
+        context.fillStyle = "#FFFFFF"; 
+        context.font = "Bold 160px Arial";
+        context.textAlign = "center";
         context.fillText("BAS                      BAS", 512, 160);
 
         const textTexture = new THREE.CanvasTexture(canvas);
         const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.9, 64, 1, true);
         
-        // മിറർ ഫിനിഷ് നൽകുന്ന മെറ്റീരിയൽ
-        const textMat = new THREE.MeshStandardMaterial({ 
+        // വെളുപ്പ് മാത്രം ഉറപ്പാക്കുന്ന മെറ്റീരിയൽ
+        const textMat = new THREE.MeshBasicMaterial({ 
             map: textTexture, 
             transparent: true,
-            side: THREE.DoubleSide,
-            metalness: 0.9, 
-            roughness: 0.1 
+            side: THREE.DoubleSide
         });
         
         const textMesh = new THREE.Mesh(textGeo, textMat);
         earthGroup.add(textMesh);
 
-        const moonGeo = new THREE.SphereGeometry(0.4, 32, 32);
+        const moonGeo = new THREE.SphereGeometry(0.35, 32, 32);
         const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
         const moon = new THREE.Mesh(moonGeo, moonMat);
         scene.add(moon);
