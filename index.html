@@ -6,30 +6,30 @@
     <style>
         body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
         
-        /* ഹെഡർ ബോക്സ് - അകലം പകുതിയാക്കി */
+        /* ലോഗോയ്ക്കും പേരിനും കൂടി ചെറിയൊരു ബോക്സ് */
         .brand-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 5px 0; /* മുകളിലെ അകലം കുറച്ചു */
+            padding: 10px 0;
             background: #000;
         }
 
-        /* ഗ്ലോബ് പകുതി വലിപ്പത്തിലേക്ക് മാറ്റാൻ ഉയരം 120px ആക്കി */
+        /* ലോഗോയുടെ വലിപ്പം ഇവിടെ 200px ആയി കുറച്ചു */
         #logo-window {
             width: 100%;
-            height: 120px; 
+            height: 200px; 
         }
 
         .brand-name-box {
             text-align: center;
-            margin-top: -15px; /* ഗ്ലോബും ഹെഡിംഗും തമ്മിലുള്ള അകലം പകുതിയാക്കി */
+            margin-top: -10px;
         }
 
         .brand-name-box h1 {
-            font-size: clamp(18px, 5vw, 30px); /* ഹെഡിംഗും അല്പം കൂടി ഒതുക്കി */
-            letter-spacing: 4px;
+            font-size: clamp(20px, 5vw, 36px); /* പേരിന്റെ വലിപ്പം ലോഗോയ്ക്ക് മാച്ച് ആക്കി */
+            letter-spacing: 5px;
             text-transform: uppercase;
             margin: 0;
             font-weight: bold;
@@ -43,17 +43,17 @@
 
     <div class="brand-name-box">
         <h1>BAS CHARITY INTERNATIONAL</h1>
-        <div style="width: 40px; height: 1px; background: #fff; margin: 8px auto; opacity: 0.3;"></div>
+        <div style="width: 50px; height: 1.5px; background: #fff; margin: 10px auto; opacity: 0.4;"></div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
     const scene = new THREE.Scene();
-    // വലിപ്പം കുറച്ച ക്യാമറ സെറ്റിംഗ്സ്
-    const camera = new THREE.PerspectiveCamera(35, window.innerWidth / 120, 0.1, 1000);
+    // Globe ചെറുതാക്കാൻ ക്യാമറ 200px ഉയരത്തിൽ സെറ്റ് ചെയ്തു
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / 200, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 120);
+    renderer.setSize(window.innerWidth, 200);
     document.getElementById('logo-window').appendChild(renderer.domElement);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); scene.add(ambientLight);
@@ -63,9 +63,9 @@
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
     
-    // Globe പകുതി വലിപ്പമാക്കി (0.45)
+    // Globe വളരെ ചെറുതാക്കി (0.8)
     const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(0.45, 64, 64), 
+        new THREE.SphereGeometry(0.8, 64, 64), 
         new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
             metalness: 0.2, roughness: 0.8
@@ -74,27 +74,27 @@
     earthGroup.add(earth);
     scene.add(earthGroup);
 
-    // തെളിഞ്ഞ BAS അക്ഷരങ്ങൾ
+    // ഇക്കയുടെ തെളിഞ്ഞ BAS അക്ഷരങ്ങൾ
     const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     context.fillStyle = "#FFFFFF"; context.font = "Bold 160px Arial"; context.textAlign = "center";
     context.fillText("BAS                      BAS", 512, 160);
 
     const textTexture = new THREE.CanvasTexture(canvas);
-    // അക്ഷരങ്ങൾ ഗ്ലോബിനോട് ചേർന്നു നിൽക്കാൻ (0.48)
-    const textGeo = new THREE.CylinderGeometry(0.48, 0.48, 0.15, 64, 1, true);
+    // അക്ഷരങ്ങൾ ഗ്ലോബിനോട് ചേർന്നു നിൽക്കാൻ (0.85)
+    const textGeo = new THREE.CylinderGeometry(0.85, 0.85, 0.3, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
     const textMesh = new THREE.Mesh(textGeo, textMat);
     earthGroup.add(textMesh);
 
-    // ചന്ദ്രൻ
+    // ഒരൊറ്റ ചന്ദ്രൻ
     const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.08, 32, 32),
+        new THREE.SphereGeometry(0.15, 32, 32),
         new THREE.MeshStandardMaterial({ color: 0xcccccc })
     );
     scene.add(moon);
 
-    camera.position.z = 3.5; 
+    camera.position.z = 5; 
 
     let angle = 0;
     function animate() {
@@ -102,16 +102,16 @@
         earthGroup.rotation.y += 0.007; 
         
         angle += 0.015;
-        moon.position.x = Math.cos(angle) * 1.5; 
-        moon.position.z = Math.sin(angle) * 1.0; 
+        moon.position.x = Math.cos(angle) * 2.5; 
+        moon.position.z = Math.sin(angle) * 1.5; 
 
         renderer.render(scene, camera);
     }
     animate();
 
     window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 120);
-        camera.aspect = window.innerWidth / 120;
+        renderer.setSize(window.innerWidth, 200);
+        camera.aspect = window.innerWidth / 200;
         camera.updateProjectionMatrix();
     });
 </script>
