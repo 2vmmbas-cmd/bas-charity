@@ -1,47 +1,57 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        body { margin: 0; background: #000; overflow: hidden; }
-        #logo-container { width: 100%; height: 500px; }
+        body { margin: 0; background-color: #000; overflow: hidden; }
+        #logo-container { width: 100vw; height: 100vh; }
     </style>
 </head>
 <body>
-
     <div id="logo-container"></div>
-
     <script>
         const scene = new THREE.Scene();
         const container = document.getElementById('logo-container');
-        const camera = new THREE.PerspectiveCamera(50, container.clientWidth / 500, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(container.clientWidth, 500);
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-        
-        const loader = new THREE.TextureLoader();
+        const light = new THREE.PointLight(0xffffff, 2);
+        light.position.set(10, 10, 10);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+        scene.add(light);
+
         const group = new THREE.Group();
 
-        // 1. ഭൂമി (Earth)
-        const earth = new THREE.Mesh(
-            new THREE.SphereGeometry(2, 64, 64),
-            new THREE.MeshStandardMaterial({ 
-                map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') 
-            })
-        );
+        // 1. ഭൂമി (നീല നിറത്തിൽ - ഉടനെ തെളിയും)
+        const earthGeo = new THREE.SphereGeometry(2, 64, 64);
+        const earthMat = new THREE.MeshStandardMaterial({ color: 0x1a75ff });
+        const earth = new THREE.Mesh(earthGeo, earthMat);
         group.add(earth);
 
+        // 2. BAS അക്ഷരങ്ങൾ
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1024; canvas.height = 256;
+        ctx.fillStyle = "#FFD700"; 
+        ctx.font = "Bold 100px Arial";
+        ctx.textAlign = "center";
+        ctx.shadowColor = "#FFD700";
+        ctx.shadowBlur = 20;
+        ctx.fillText("BAS     BAS     BAS     BAS", 512, 150);
+
+        const textTexture = new THREE.CanvasTexture(canvas);
+        const textGeo = new THREE.CylinderGeometry(2.3, 2.3, 1, 64, 1, true);
+        const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
+        group.add(textMesh);
         scene.add(group);
 
-        // 2. ചന്ദ്രൻ (Moon)
-        const moon = new THREE.Mesh(
-            new THREE.SphereGeometry(0.35, 32, 32),
-            new THREE.MeshStandardMaterial({ 
-                map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg')
-            })
-        );
+        // 3. ചന്ദ്രൻ
+        const moonGeo = new THREE.SphereGeometry(0.35, 32, 32);
+        const moonMat = new THREE.MeshStandardMaterial({ color: 0xcccccc });
+        const moon = new THREE.Mesh(moonGeo, moonMat);
         scene.add(moon);
 
         camera.position.z = 8;
@@ -49,20 +59,18 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            group.rotation.y += 0.005; // ഭൂമി കറങ്ങുന്നു
-            
+            group.rotation.y += 0.007; 
             angle += 0.01;
             moon.position.x = Math.cos(angle) * 4.5; 
             moon.position.z = Math.sin(angle) * 4.5; 
-            
             renderer.render(scene, camera);
         }
         animate();
 
         window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / 500;
+            camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, 500);
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
