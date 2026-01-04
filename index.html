@@ -1,29 +1,78 @@
- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAS CHARITY INTERNATIONAL</title>
+    <style>
+        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
+        #canvas-container { width: 100%; height: 400px; position: relative; } /* ലോഗോയുടെ വലിപ്പം ഇവിടെ നിയന്ത്രിക്കുന്നു */
+        .content-area { text-align: center; padding: 20px; position: relative; z-index: 10; background: #000; }
+    </style>
+</head>
+<body>
+
+<div id="canvas-container"></div> <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+    const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, 400); 
-    document.body.appendChild(renderer.domElement);
+    renderer.setSize(window.innerWidth, 400);
+    container.appendChild(renderer.domElement);
+
     const light = new THREE.AmbientLight(0xffffff, 2); scene.add(light);
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') }));
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ 
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') 
+    }));
     earthGroup.add(earth); scene.add(earthGroup);
+
     const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     ctx.fillStyle = "#FFFFFF"; ctx.font = "Bold 160px Arial"; ctx.textAlign = "center";
     ctx.fillText("BAS                      BAS", 512, 160);
-    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.9, 64, 1, true), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, side: THREE.DoubleSide }));
+
+    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.9, 64, 1, true), new THREE.MeshBasicMaterial({ 
+        map: new THREE.CanvasTexture(canvas), transparent: true, side: THREE.DoubleSide 
+    }));
     earthGroup.add(textMesh); camera.position.z = 6;
-    function animate() { requestAnimationFrame(animate); earthGroup.rotation.y += 0.005; renderer.render(scene, camera); }
+
+    function animate() { 
+        requestAnimationFrame(animate); 
+        earthGroup.rotation.y += 0.005; 
+        renderer.render(scene, camera); 
+    }
     animate();
+
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, 400);
+        camera.aspect = window.innerWidth / 400;
+        camera.updateProjectionMatrix();
+    });
 </script>
 
-<div style="text-align: center; padding: 40px 20px; background: #000;">
-    <h1 style="color: #ffffff; font-family: 'Arial Black', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: 6px; text-transform: uppercase; margin: 0; text-shadow: 0 0 15px rgba(255,255,255,0.6);">
+<div class="content-area">
+    <h1 style="color: #ffffff; font-family: 'Arial Black', sans-serif; font-size: clamp(30px, 8vw, 55px); font-weight: bold; letter-spacing: 6px; text-transform: uppercase; margin: 0; text-shadow: 0 0 15px rgba(255,255,255,0.6);">
         BAS CHARITY INTERNATIONAL
     </h1>
     <div style="width: 150px; height: 2px; background: #ffffff; margin: 20px auto; opacity: 0.5;"></div>
+
+<h2 style="font-size: clamp(18px, 5vw, 24px); letter-spacing: 2px; margin-top: 30px; color: #fff;">
+        YOUR PURCHASE SATISFIES A HUNGER
+    </h2>
+    <p style="color: #ccc; max-width: 600px; margin: 10px auto; line-height: 1.6;">
+        When you shop through BAS International Charity, it becomes food for someone in a corner of the world.
+    </p>
+
+<div style="margin-top: 40px;">
+        <a href="https://www.amazon.in/?&tag=bascharity-21" target="_blank" style="background: #FF9900; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; margin: 10px; display: inline-block;">
+            SHOP ON AMAZON
+        </a>
+    </div>
+
 </div>
 
+</body>
+</html>
