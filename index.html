@@ -9,15 +9,15 @@
         #logo-space { width: 100%; height: 380px; }
         .brand-heading { text-align: center; margin-top: -20px; padding: 20px; }
         
-        /* ഇക്ക പറഞ്ഞതുപോലെ അക്ഷരങ്ങൾ നല്ല ഡബിൾ കനത്തിൽ ആക്കി */
+        /* ഹെഡിംഗ് - പരമാവധി കട്ടിയിൽ, എന്നാൽ മുട്ടാത്ത രീതിയിൽ */
         .brand-heading h1 { 
             font-size: clamp(26px, 7vw, 48px); 
-            letter-spacing: 6px; 
+            letter-spacing: 5px; /* അക്ഷരങ്ങൾ മുട്ടാതിരിക്കാൻ ഉള്ള വിടവ് */
             text-transform: uppercase; 
             margin: 0; 
-            font-weight: 900; /* പരമാവധി കട്ടി */
-            -webkit-text-stroke: 1.5px white; /* ഡബിൾ കനം നൽകാൻ */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 950; /* പരമാവധി ബോൾഡ് */
+            -webkit-text-stroke: 2px white; /* ഡബിൾ കനം ഉറപ്പാക്കാൻ */
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.2);
         }
     </style>
 </head>
@@ -56,12 +56,18 @@
     earthGroup.add(earth);
     scene.add(earthGroup);
 
-    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
+    // ഗ്ലോബിൽ രണ്ട് BAS കൃത്യമായി എതിർവശങ്ങളിൽ വരാൻ
+    const canvas = document.createElement('canvas'); 
+    const context = canvas.getContext('2d');
+    canvas.width = 1024; 
+    canvas.height = 256;
     context.fillStyle = "#FFFFFF"; 
     context.font = "Bold 140px Arial"; 
     context.textAlign = "center";
-    context.fillText("BAS                      BAS", 512, 160);
+    
+    // ഇവിടെ കൃത്യം 512 വിത്യാസത്തിൽ രണ്ട് BAS നൽകി (Opposite position)
+    context.fillText("BAS", 256, 160);
+    context.fillText("BAS", 768, 160);
 
     const textTexture = new THREE.CanvasTexture(canvas);
     const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
