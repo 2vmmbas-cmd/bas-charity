@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        
+        /* ഗൂഗിൾ ട്രാൻസ്‌ലേറ്റ് ബോക്സ് മുകളിൽ വൃത്തിയായി വരാൻ */
+        #google_translate_element {
+            text-align: center;
+            padding: 10px;
+            background: #111;
+        }
+
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
         #logo-space { width: 100%; height: 350px; }
         .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
@@ -14,6 +22,7 @@
 
         .dedication { font-size: 13px; color: #888; font-style: italic; margin: 15px auto; text-align: center; line-height: 1.6; max-width: 85%; }
 
+        /* ഭാഷാ ബട്ടണുകൾ */
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
@@ -23,7 +32,7 @@
 
         .shop-container { margin-top: 25px; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
 
-        /* ബ്രാൻഡ് കളറിലുള്ള ബട്ടണുകൾ */
+        /* ഒറിജിനൽ ബ്രാൻഡ് കളറുകൾ */
         .shop-btn {
             width: 90%; max-width: 400px; padding: 16px; margin: 8px 0;
             text-decoration: none; border-radius: 12px; font-weight: 800; font-size: 15px;
@@ -32,22 +41,22 @@
             transition: 0.2s; border: none;
         }
 
-        .btn-amz { background: #FF9900; color: #000; } /* Amazon */
-        .btn-fk { background: #2874f0; color: #fff; } /* Flipkart */
-        .btn-ajio { background: #313131; color: #fff; } /* Ajio */
-        .btn-myntra { background: linear-gradient(90deg, #fe3f6c, #ff5f35); color: #fff; } /* Myntra */
-        .btn-shopsy { background: #ff4d29; color: #fff; } /* Shopsy */
-        .btn-tatacliq { background: #da1c5c; color: #fff; } /* Tata Cliq */
+        .btn-amz { background: #FF9900; color: #000; }
+        .btn-fk { background: #2874f0; color: #fff; }
+        .btn-ajio { background: #313131; color: #fff; }
+        .btn-myntra { background: linear-gradient(90deg, #fe3f6c, #ff5f35); color: #fff; }
+        .btn-shopsy { background: #ff4d29; color: #fff; }
 
-        /* പ്രൈസ് കമ്പാരിസൺ ബോക്സ് */
+        /* സെർച്ച് ഏരിയ */
         .search-area { background: #111; width: 90%; max-width: 450px; margin: 25px auto; padding: 25px; border-radius: 20px; border: 1px solid #FFD700; box-sizing: border-box; }
         .search-input { width: 90%; padding: 12px; border-radius: 10px; border: 1px solid #444; background: #000; color: white; margin-bottom: 15px; outline: none; }
         .comp-btn { padding: 10px 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 13px; margin: 5px; }
 
-        #google_translate_element { display: none; }
     </style>
 </head>
 <body>
+
+<div id="google_translate_element"></div>
 
 <div class="header-box">
     <div id="logo-space"></div>
@@ -61,7 +70,7 @@
             <button class="lang-btn" onclick="updateLang('en')">English</button>
             <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
             <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-            <button class="lang-btn" onclick="changeLang('ar')">Other Language</button>
+            <button class="lang-btn" onclick="changeLang('ar')">Arabic</button>
         </div>
 
         <div class="impact-box">
@@ -69,11 +78,11 @@
         </div>
 
         <div class="shop-container">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-btn btn-amz">🛒 AMAZON - BEST OFFER TODAY</a>
-            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-btn btn-fk">🛒 FLIPKART - BEST OFFER TODAY</a>
-            <a href="https://ajiio.in/05PVCEi" target="_blank" class="shop-btn btn-ajio">🛒 AJIO - BEST OFFER TODAY</a>
-            <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-btn btn-myntra">🛒 MYNTRA - BEST OFFER TODAY</a>
-            <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-btn btn-shopsy">🛒 SHOPSY - BEST OFFER TODAY</a>
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" rel="noopener noreferrer" class="shop-btn btn-amz">🛒 AMAZON - BEST OFFER TODAY</a>
+            <a href="https://fktr.in/V5wq6Bc" target="_blank" rel="noopener noreferrer" class="shop-btn btn-fk">🛒 FLIPKART - BEST OFFER TODAY</a>
+            <a href="https://ajiio.in/05PVCEi" target="_blank" rel="noopener noreferrer" class="shop-btn btn-ajio">🛒 AJIO - BEST OFFER TODAY</a>
+            <a href="https://myntr.it/CuqylqS" target="_blank" rel="noopener noreferrer" class="shop-btn btn-myntra">🛒 MYNTRA - BEST OFFER TODAY</a>
+            <a href="https://bitli.in/03kNE3S" target="_blank" rel="noopener noreferrer" class="shop-btn btn-shopsy">🛒 SHOPSY - BEST OFFER TODAY</a>
 
             <div class="search-area">
                 <b style="display:block; margin-bottom:12px; color:#FFD700; font-size: 18px;">OFFER COMPARE PRICE</b>
@@ -81,20 +90,15 @@
                 <div style="display:flex; justify-content:center; flex-wrap:wrap;">
                     <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900; color:#000;">Amazon Price</button>
                     <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:#fff;">Flipkart Price</button>
-                    <button onclick="qSearch('ajio')" class="comp-btn" style="background:#fff; color:#000;">Ajio Price</button>
                 </div>
             </div>
-
-            <a href="https://bitli.in/kTAOv36" target="_blank" class="shop-btn btn-tatacliq">🛒 TATA CLIQ - BEST OFFER TODAY</a>
-            
-            </div>
+        </div>
     </div>
 </div>
 
-<div id="google_translate_element"></div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+    // Language and Search Logic
     function updateLang(lang) {
         const hText = document.getElementById('hunger-text');
         const dText = document.getElementById('dedication-text');
@@ -114,28 +118,29 @@
         }
     }
 
-    function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
-    function changeLang(c) { 
-        var s = document.querySelector(".goog-te-combo"); 
-        if (s) { s.value = c; s.dispatchEvent(new Event('change')); } 
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
+
+    function changeLang(c) {
+        var s = document.querySelector(".goog-te-combo");
+        if (s) { s.value = c; s.dispatchEvent(new Event('change')); }
+    }
+
     function qSearch(p) {
         var v = document.getElementById('pSearch').value;
         if(!v) return;
         if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
-        if(p=='ajio') window.open('https://www.ajio.com/search/?text='+v, '_blank');
     }
 
-    // Globe Animation
+    // Globe logic (same as original)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 350);
     document.getElementById('logo-space').appendChild(renderer.domElement);
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
     const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
