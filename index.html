@@ -16,7 +16,7 @@
             text-transform: uppercase;
             margin-bottom: 8px;
             font-weight: bold;
-            opacity: 0.9;
+            min-height: 20px;
         }
 
         .brand-heading h1 { 
@@ -26,22 +26,39 @@
             margin: 0; 
             font-weight: 950; 
             -webkit-text-stroke: 1.8px white;
-            line-height: 1.1;
         }
 
-        /* ലോകത്തുള്ള എല്ലാവരുടെയും മാതാപിതാക്കൾക്ക് വേണ്ടിയുള്ള സമർപ്പണം */
+        .lang-container {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
+
         .dedication {
             font-size: 14px;
             color: #bbb;
             font-style: italic;
-            margin-top: 25px;
+            margin-top: 20px;
             text-align: center;
             border-top: 1px solid #333;
             padding: 20px 15px;
             line-height: 1.6;
-            letter-spacing: 1px;
             max-width: 85%;
-            margin: 0 auto;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -50,10 +67,17 @@
 <div class="header-box">
     <div id="logo-space"></div>
     <div class="brand-heading">
-        <div class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
+        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
-        <div class="dedication">
+        <div class="lang-container">
+            <button class="lang-btn" onclick="updateLang('en')">English</button>
+            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
+            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
+            <button class="lang-btn" onclick="googleTranslate()">Others</button>
+        </div>
+
+        <div id="dedication-text" class="dedication">
             "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
         </div>
     </div>
@@ -61,6 +85,28 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+    // ഭാഷ മാറ്റാനുള്ള കൃത്യമായ ഫങ്ക്ഷൻ
+    function updateLang(lang) {
+        const hText = document.getElementById('hunger-text');
+        const dText = document.getElementById('dedication-text');
+
+        if(lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
+        } else if(lang === 'hi') {
+            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
+            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
+        }
+    }
+
+    function googleTranslate() {
+        window.open('https://translate.google.com/translate?sl=en&tl=ar&u=' + encodeURIComponent(window.location.href));
+    }
+
+    // --- ഗ്ലോബ് കോഡ് ---
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -106,7 +152,6 @@
     scene.add(moon);
 
     camera.position.z = 8;
-
     let angle = 0;
     function animate() {
         requestAnimationFrame(animate);
