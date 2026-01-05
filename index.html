@@ -4,61 +4,92 @@
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
-        #logo-space { width: 100%; height: 380px; }
-        .brand-heading { text-align: center; margin-top: -35px; padding: 20px; }
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
+        #logo-space { width: 100%; height: 350px; }
+        .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
         
         .hunger-message {
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 3px;
             color: #FFD700; 
             text-transform: uppercase;
             margin-bottom: 8px;
             font-weight: bold;
-            min-height: 20px;
         }
 
         .brand-heading h1 { 
-            font-size: clamp(32px, 8.5vw, 60px); 
-            letter-spacing: 6px; 
+            font-size: clamp(30px, 8vw, 55px); 
+            letter-spacing: 5px; 
             text-transform: uppercase; 
             margin: 0; 
-            font-weight: 950; 
-            -webkit-text-stroke: 1.8px white;
+            font-weight: 900; 
+            -webkit-text-stroke: 1.5px white;
         }
 
+        /* സമർപ്പണം ഹെഡിംഗിന് താഴെ */
+        .dedication {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            margin: 15px auto;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 85%;
+        }
+
+        /* ഭാഷാ ബട്ടണുകൾ സമർപ്പണത്തിന് താഴെ */
         .lang-container {
             margin: 20px 0;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
         }
 
         .lang-btn {
             background: transparent;
             color: #fff;
-            border: 1px solid #555;
-            padding: 5px 12px;
+            border: 1px solid #444;
+            padding: 4px 12px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 10px;
             transition: 0.3s;
         }
 
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
-        .dedication {
-            font-size: 14px;
-            color: #bbb;
-            font-style: italic;
-            margin-top: 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-            padding: 20px 15px;
-            line-height: 1.6;
-            max-width: 85%;
+        .impact-box {
             margin: 20px auto;
+            max-width: 85%;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px dashed #FFD700;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        #impact-text {
+            font-size: 17px;
+            color: #FFD700;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .shop-container { margin-top: 25px; margin-bottom: 40px; }
+
+        .amazon-btn {
+            background: #FF9900;
+            color: #000;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
         }
     </style>
 </head>
@@ -70,102 +101,96 @@
         <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
+        <div id="dedication-text" class="dedication">
+            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
+        </div>
+
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
             <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
             <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-            <button class="lang-btn" onclick="googleTranslate()">Others</button>
         </div>
 
-        <div id="dedication-text" class="dedication">
-            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
+        <div class="impact-box">
+            <div id="impact-text">
+                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
+            </div>
+        </div>
+
+        <div class="shop-container">
+            <a id="shop-btn" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">
+                🛒 SHOP ON AMAZON
+            </a>
         </div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // ഭാഷ മാറ്റാനുള്ള കൃത്യമായ ഫങ്ക്ഷൻ
     function updateLang(lang) {
         const hText = document.getElementById('hunger-text');
         const dText = document.getElementById('dedication-text');
+        const iText = document.getElementById('impact-text');
+        const sBtn = document.getElementById('shop-btn');
 
         if(lang === 'ml') {
             hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
             dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
+            sBtn.innerHTML = "🛒 ആമസോണിൽ ഷോപ്പ് ചെയ്യൂ";
         } else if(lang === 'hi') {
             hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
+            iText.innerHTML = `"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफर पर BAS Charity International के माध्यम से आपकी खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे तो...?"`;
             dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
+            sBtn.innerHTML = "🛒 अमेज़न पर खरीदारी करें";
         } else {
             hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?\"";
             dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
+            sBtn.innerHTML = "🛒 SHOP ON AMAZON";
         }
     }
 
-    function googleTranslate() {
-        window.open('https://translate.google.com/translate?sl=en&tl=ar&u=' + encodeURIComponent(window.location.href));
-    }
-
-    // --- ഗ്ലോബ് കോഡ് ---
+    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ ഇവിടെയും തുടരുന്നു)
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 380);
+    renderer.setSize(window.innerWidth, 350);
     document.getElementById('logo-space').appendChild(renderer.domElement);
-
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0xffffff, 2);
     pointLight.position.set(10, 10, 10); scene.add(pointLight);
-
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
-    
-    const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(2, 64, 64), 
-        new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
-        })
-    );
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+        metalness: 0.3, roughness: 0.7
+    }));
     earthGroup.add(earth);
     scene.add(earthGroup);
-
-    const canvas = document.createElement('canvas'); 
-    const context = canvas.getContext('2d');
+    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; 
-    context.font = "Bold 140px Arial"; 
-    context.textAlign = "center";
-    context.fillText("BAS", 256, 160);
-    context.fillText("BAS", 768, 160);
-
+    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
+    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
     const textTexture = new THREE.CanvasTexture(canvas);
     const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
-    const textMesh = new THREE.Mesh(textGeo, textMat);
-    earthGroup.add(textMesh);
-
-    const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 32, 32),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc })
-    );
+    earthGroup.add(new THREE.Mesh(textGeo, textMat));
+    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
     scene.add(moon);
-
     camera.position.z = 8;
     let angle = 0;
     function animate() {
         requestAnimationFrame(animate);
         earthGroup.rotation.y += 0.005; 
         angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
+        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
         renderer.render(scene, camera);
     }
     animate();
-
     window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
+        renderer.setSize(window.innerWidth, 350);
+        camera.aspect = window.innerWidth / 350;
         camera.updateProjectionMatrix();
     });
 </script>
