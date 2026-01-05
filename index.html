@@ -1,23 +1,102 @@
- <div class="shop-container">
-    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" rel="noopener noreferrer" class="shop-btn btn-amz">🛒 AMAZON - BEST OFFER TODAY</a>
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* വെർട്ടിക്കൽ ഡിസൈൻ - ഡെസ്‌ക്ടോപ്പിലും മൊബൈലിലും ഒരുപോലെ */
+        .vertical-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .shop-btn {
+            width: 100%;
+            padding: 18px;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 15px;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+        }
+
+        /* ഓരോ സൈറ്റിനും വ്യത്യസ്ത നിറങ്ങൾ */
+        .btn-amazon { background: #FF9900; color: #000; }
+        .btn-flipkart { background: #2874f0; }
+        .btn-ajio { background: #313131; }
+        .btn-tatacliq { background: #da1c5c; }
+        .btn-myntra { background: #fe3f6c; }
+
+        .shop-btn:hover { transform: scale(1.02); border-color: #fff; }
+
+        /* കംപാരിസൺ സെക്ഷൻ */
+        .compare-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border: 2px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .comp-mini-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="vertical-menu">
+    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" rel="noopener noreferrer" class="shop-btn btn-amazon">🛒 AMAZON - BEST OFFER TODAY</a>
     
-    <a href="https://fktr.in/V5wq6Bc" target="_blank" rel="noopener noreferrer" class="shop-btn btn-fk">🛒 FLIPKART - BEST OFFER TODAY</a>
+    <a href="https://fktr.in/V5wq6Bc" target="_blank" rel="noopener noreferrer" class="shop-btn btn-flipkart">🛒 FLIPKART - BEST OFFER TODAY</a>
     
     <a href="https://ajiio.in/05PVCEi" target="_blank" rel="noopener noreferrer" class="shop-btn btn-ajio">🛒 AJIO - BEST OFFER TODAY</a>
     
-    <a href="https://myntr.it/CuqylqS" target="_blank" rel="noopener noreferrer" class="shop-btn btn-myntra">🛒 MYNTRA - BEST OFFER TODAY</a>
-    
-    <a href="https://bitli.in/03kNE3S" target="_blank" rel="noopener noreferrer" class="shop-btn btn-shopsy">🛒 SHOPSY - BEST OFFER TODAY</a>
+    <a href="https://www.tatacliq.com/" target="_blank" rel="noopener noreferrer" class="shop-btn btn-tatacliq">🛒 TATA CLIQ - BEST OFFER TODAY</a>
 
-    <div class="search-area">
-        <b style="display:block; margin-bottom:12px; color:#FFD700; font-size: 18px;">COMPARE LOWEST PRICE</b>
-        <input type="text" id="pSearch" class="search-input" placeholder="Search product name...">
-        <div style="display:flex; justify-content:center; flex-wrap:wrap; gap: 10px;">
-            <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900; color:#000;">Amazon</button>
-            <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:#fff;">Flipkart</button>
-            <button onclick="qSearch('ajio')" class="comp-btn" style="background:#313131; color:#fff;">Ajio</button>
-            <button onclick="qSearch('myntra')" class="comp-btn" style="background:#fe3f6c; color:#fff;">Myntra</button>
-            <button onclick="qSearch('jiomart')" class="comp-btn" style="background:#003087; color:#fff;">JioMart</button>
+    <div class="compare-box">
+        <h3 style="color: #333; margin-top: 0; text-align: center;">COMPARE LOWEST PRICE</h3>
+        <input type="text" id="pSearch" class="search-input" placeholder="Enter Product Name (eg: iPhone 15)">
+        
+        <div class="comp-grid">
+            <button onclick="qSearch('amz')" class="comp-mini-btn" style="background:#FF9900;">Amazon Price</button>
+            <button onclick="qSearch('fk')" class="comp-mini-btn" style="background:#2874f0; color:white;">Flipkart Price</button>
+            <button onclick="qSearch('ajio')" class="comp-mini-btn" style="background:#313131; color:white;">Ajio Price</button>
+            <button onclick="qSearch('myntra')" class="comp-mini-btn" style="background:#fe3f6c; color:white;">Myntra Price</button>
         </div>
     </div>
 </div>
@@ -25,12 +104,14 @@
 <script>
     function qSearch(p) {
         var v = document.getElementById('pSearch').value;
-        if(!v) { alert("Please enter a product name"); return; }
+        if(!v) { alert("Please enter a product name to compare!"); return; }
         
         if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
         if(p=='ajio') window.open('https://www.ajio.com/search/?text='+v, '_blank');
         if(p=='myntra') window.open('https://www.myntra.com/'+v, '_blank');
-        if(p=='jiomart') window.open('https://www.jiomart.com/search/'+v, '_blank');
     }
 </script>
+
+</body>
+</html>
