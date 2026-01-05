@@ -4,105 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #0f172a; font-family: 'Segoe UI', sans-serif; color: white; text-align: center; }
-        .container { padding: 15px; max-width: 450px; margin: 0 auto; }
+        body { margin: 0; background: #000; font-family: sans-serif; color: white; text-align: center; }
+        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
         
-        /* ബസ് (BUS) ഹെഡർ */
-        .bus-card {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000; padding: 20px; border-radius: 20px;
-            font-weight: 900; font-size: 28px; margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-            border: 3px solid #fff;
+        .main-header {
+            background: #FFD700; color: #000; padding: 15px; border-radius: 12px;
+            font-weight: 900; font-size: 20px; margin-bottom: 20px;
         }
 
-        /* ഓരോ സൈറ്റിനും വേണ്ടിയുള്ള കാർഡ് ഡിസൈൻ */
         .shop-card {
-            background: #1e293b; border-radius: 20px; padding: 15px;
-            margin-bottom: 20px; display: flex; align-items: center;
-            border: 2px solid transparent; transition: 0.3s;
-            text-decoration: none; color: white;
+            background: #1a1a1a; border-radius: 12px; padding: 10px;
+            margin-bottom: 10px; display: flex; align-items: center;
+            text-decoration: none; color: white; border: 1px solid #333;
         }
 
-        .card-amz { border-left: 8px solid #FF9900; }
-        .card-fk { border-left: 8px solid #2874f0; }
-        .card-myntra { border-left: 8px solid #fe3f6c; }
-        .card-shopsy { border-left: 8px solid #9c27b0; }
+        .c-amz { border-left: 5px solid #FF9900; }
+        .c-fk { border-left: 5px solid #2874f0; }
+        .c-samsung { border-left: 5px solid #1428a0; }
+        .c-myntra { border-left: 5px solid #fe3f6c; }
+        .c-jio { border-left: 5px solid #003087; }
+        .c-tata { border-left: 5px solid #da1c5c; }
+        .c-shopsy { border-left: 5px solid #9c27b0; }
+        .c-reliance { border-left: 5px solid #ed1c24; }
+        .c-croma { border-left: 5px solid #00e9bf; }
+        .c-nykaa { border-left: 5px solid #fc2779; }
 
-        .logo-img { width: 60px; height: 60px; border-radius: 12px; margin-right: 15px; }
+        .logo { width: 45px; height: 45px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
+        .info { text-align: left; flex: 1; }
+        .info h3 { margin: 0; font-size: 16px; }
+        .check-btn { color: #FFD700; font-size: 11px; font-weight: bold; margin-top: 4px; display: block; }
 
-        .info { text-align: left; flex-grow: 1; }
-        .info h3 { margin: 0; font-size: 20px; letter-spacing: 1px; }
-        .check-text { 
-            display: inline-block; background: rgba(255,255,255,0.1);
-            padding: 5px 12px; border-radius: 8px; margin-top: 8px;
-            font-size: 13px; font-weight: bold; color: #FFD700;
-            border: 1px solid #FFD700;
-        }
-
-        /* കംപാരിസൺ ബോക്സ് */
-        .compare-section {
-            background: #1e293b; padding: 20px; border-radius: 20px;
-            border: 1px dashed #FFD700; margin-top: 30px;
-        }
-        .p-input {
-            width: 100%; padding: 15px; border-radius: 12px; border: none;
-            margin-bottom: 15px; box-sizing: border-box; font-size: 16px;
-        }
-        .comp-btn {
-            padding: 12px 20px; border-radius: 10px; border: none;
-            font-weight: bold; cursor: pointer; margin: 5px; width: 45%;
-        }
+        .comp-box { background: #111; padding: 15px; border-radius: 15px; margin-top: 20px; border: 1px dashed #FFD700; }
+        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; box-sizing: border-box; }
+        .btn-g { display: flex; gap: 8px; }
+        .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="bus-card">🚌 ബസ് (BUS) OFFERS</div>
+    <div class="main-header">SHOP BEST OFFERS</div>
 
-    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card card-amz">
-        <img src="https://img.icons8.com/color/96/amazon.png" class="logo-img">
-        <div class="info">
-            <h3>AMAZON</h3>
-            <span class="check-text">CHECK BEST OFFER TODAY</span>
-        </div>
+    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz">
+        <img src="https://www.amazon.in/favicon.ico" class="logo">
+        <div class="info"><h3>AMAZON</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
     </a>
 
-    <a href="https://www.flipkart.com/" target="_blank" class="shop-card card-fk">
-        <img src="https://img.icons8.com/color/96/flipkart.png" class="logo-img">
-        <div class="info">
-            <h3>FLIPKART</h3>
-            <span class="check-text">CHECK BEST OFFER TODAY</span>
-        </div>
+    <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk">
+        <img src="https://www.flipkart.com/favicon.ico" class="logo">
+        <div class="info"><h3>FLIPKART</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
     </a>
 
-    <a href="https://www.myntra.com/" target="_blank" class="shop-card card-myntra">
-        <img src="https://img.icons8.com/color/96/myntra.png" class="logo-img">
-        <div class="info">
-            <h3>MYNTRA</h3>
-            <span class="check-text">CHECK BEST OFFER TODAY</span>
-        </div>
+    <a href="https://www.samsung.com/in/offer/online-shopping-offers/" target="_blank" class="shop-card c-samsung">
+        <img src="https://www.samsung.com/favicon.ico" class="logo">
+        <div class="info"><h3>SAMSUNG</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
     </a>
 
-    <a href="https://www.shopsy.in/" target="_blank" class="shop-card card-shopsy">
-        <img src="https://img.icons8.com/fluent/96/shopping-bag.png" class="logo-img">
-        <div class="info">
-            <h3>SHOPSY</h3>
-            <span class="check-text">CHECK BEST OFFER TODAY</span>
-        </div>
+    <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-card c-myntra">
+        <img src="https://www.myntra.com/favicon.ico" class="logo">
+        <div class="info"><h3>MYNTRA</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
     </a>
 
-    <div class="compare-section">
-        <p style="color:#FFD700; font-weight:bold; margin-top:0;">COMPARE LOWEST PRICE</p>
-        <input type="text" id="pSearch" class="p-input" placeholder="Product name (eg: iPhone)">
-        <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900;">Amazon</button>
-        <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:white;">Flipkart</button>
+    <a href="https://www.jiomart.com/" target="_blank" class="shop-card c-jio">
+        <img src="https://www.jiomart.com/favicon.ico" class="logo">
+        <div class="info"><h3>JIOMART</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <a href="https://www.tatacliq.com/" target="_blank" class="shop-card c-tata">
+        <img src="https://www.tatacliq.com/favicon.ico" class="logo">
+        <div class="info"><h3>TATA CLIQ</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-card c-shopsy">
+        <img src="https://www.shopsy.in/favicon.ico" class="logo">
+        <div class="info"><h3>SHOPSY</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <a href="https://www.reliancedigital.in/" target="_blank" class="shop-card c-reliance">
+        <img src="https://www.reliancedigital.in/favicon.ico" class="logo">
+        <div class="info"><h3>RELIANCE DIGITAL</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <a href="https://www.croma.com/" target="_blank" class="shop-card c-croma">
+        <img src="https://www.croma.com/favicon.ico" class="logo">
+        <div class="info"><h3>CROMA</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <a href="https://www.nykaa.com/" target="_blank" class="shop-card c-nykaa">
+        <img src="https://www.nykaa.com/favicon.ico" class="logo">
+        <div class="info"><h3>NYKAA</h3><span class="check-btn">CHECK BEST OFFER TODAY</span></div>
+    </a>
+
+    <div class="comp-box">
+        <input type="text" id="pS" class="p-in" placeholder="Search product name...">
+        <div class="btn-g">
+            <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
+            <button onclick="q('fk')" class="b" style="background:#2874f0; color:white;">Flipkart</button>
+        </div>
     </div>
 </div>
 
 <script>
-    function qSearch(p) {
-        var v = document.getElementById('pSearch').value;
+    function q(p) {
+        var v = document.getElementById('pS').value;
         if(!v) return;
         if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
