@@ -9,96 +9,40 @@
         #logo-space { width: 100%; height: 350px; }
         .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
         
-        .hunger-message {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #FFD700; 
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+        .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
+        .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
 
-        .brand-heading h1 { 
-            font-size: clamp(30px, 8vw, 55px); 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 900; 
-            -webkit-text-stroke: 1.5px white;
-        }
+        .dedication { font-size: 13px; color: #888; font-style: italic; margin: 15px auto; text-align: center; line-height: 1.6; max-width: 85%; }
 
-        .dedication {
-            font-size: 13px;
-            color: #888;
-            font-style: italic;
-            margin: 15px auto;
-            text-align: center;
-            line-height: 1.6;
-            max-width: 85%;
-        }
-
-        .lang-container {
-            margin: 20px 0;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .lang-btn {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #444;
-            padding: 4px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 10px;
-            transition: 0.3s;
-        }
-
+        .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
-        .impact-box {
-            margin: 20px auto;
-            max-width: 85%;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed #FFD700;
-            padding: 20px;
-            border-radius: 12px;
+        .impact-box { margin: 20px auto; max-width: 85%; background: rgba(255, 215, 0, 0.05); border: 1px dashed #FFD700; padding: 20px; border-radius: 12px; }
+        #impact-text { font-size: 17px; color: #FFD700; line-height: 1.7; font-weight: 500; }
+
+        .shop-container { margin-top: 25px; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
+
+        /* ബ്രാൻഡ് കളറിലുള്ള ബട്ടണുകൾ */
+        .shop-btn {
+            width: 90%; max-width: 400px; padding: 16px; margin: 8px 0;
+            text-decoration: none; border-radius: 12px; font-weight: 800; font-size: 15px;
+            display: flex; justify-content: center; align-items: center;
+            text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.2s; border: none;
         }
 
-        #impact-text {
-            font-size: 17px;
-            color: #FFD700;
-            line-height: 1.7;
-            font-weight: 500;
-        }
-
-        .shop-container { margin-top: 25px; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-
-        /* ആമസോൺ ബട്ടണുകൾ ഒരേ ഷേപ്പിൽ */
-        .amazon-btn {
-            background: #FF9900;
-            color: #000;
-            text-decoration: none;
-            width: 90%;
-            max-width: 400px;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.2);
-        }
+        .btn-amz { background: #FF9900; color: #000; } /* Amazon */
+        .btn-fk { background: #2874f0; color: #fff; } /* Flipkart */
+        .btn-ajio { background: #313131; color: #fff; } /* Ajio */
+        .btn-myntra { background: linear-gradient(90deg, #fe3f6c, #ff5f35); color: #fff; } /* Myntra */
+        .btn-shopsy { background: #ff4d29; color: #fff; } /* Shopsy */
+        .btn-tatacliq { background: #da1c5c; color: #fff; } /* Tata Cliq */
 
         /* പ്രൈസ് കമ്പാരിസൺ ബോക്സ് */
-        .search-area { background: #111; width: 90%; max-width: 450px; margin: 20px auto; padding: 20px; border-radius: 20px; border: 1px solid #333; }
-        .search-input { width: 85%; padding: 12px; border-radius: 10px; border: 1px solid #444; background: #000; color: white; margin-bottom: 15px; }
-        .comp-btn { padding: 10px 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 12px; margin: 0 5px; }
+        .search-area { background: #111; width: 90%; max-width: 450px; margin: 25px auto; padding: 25px; border-radius: 20px; border: 1px solid #FFD700; box-sizing: border-box; }
+        .search-input { width: 90%; padding: 12px; border-radius: 10px; border: 1px solid #444; background: #000; color: white; margin-bottom: 15px; outline: none; }
+        .comp-btn { padding: 10px 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 13px; margin: 5px; }
 
         #google_translate_element { display: none; }
     </style>
@@ -111,9 +55,7 @@
         <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
-        <div id="dedication-text" class="dedication">
-            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
-        </div>
+        <div id="dedication-text" class="dedication">"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."</div>
 
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
@@ -123,37 +65,34 @@
         </div>
 
         <div class="impact-box">
-            <div id="impact-text">
-                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
-            </div>
+            <div id="impact-text">"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"</div>
         </div>
 
         <div class="shop-container">
-            <a href="https://www.amazon.in/deals?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">🛒 AMAZON BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/mobile-phones/b?node=1389401031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">📱 MOBILES - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/electronics/b?node=976419031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">💻 ELECTRONICS - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/amazon-fashion/b?node=6648217031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">👕 FASHION - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/Home-Kitchen/b?node=976442031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">🍳 KITCHEN - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/gp/browse.html?node=976419031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">🎧 ACCESSORIES - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/beauty/b?node=1355016031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">💄 BEAUTY - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/Shoes/b?node=1983518031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">👟 FOOTWEAR - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/Watches/b?node=1350387031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">⌚ WATCHES - BEST OFFER TODAY</a>
-            <a href="https://www.amazon.in/Appliances/b?node=976442031&tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">📺 APPLIANCES - BEST OFFER TODAY</a>
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-btn btn-amz">🛒 AMAZON - BEST OFFER TODAY</a>
+            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-btn btn-fk">🛒 FLIPKART - BEST OFFER TODAY</a>
+            <a href="https://ajiio.in/05PVCEi" target="_blank" class="shop-btn btn-ajio">🛒 AJIO - BEST OFFER TODAY</a>
+            <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-btn btn-myntra">🛒 MYNTRA - BEST OFFER TODAY</a>
+            <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-btn btn-shopsy">🛒 SHOPSY - BEST OFFER TODAY</a>
 
             <div class="search-area">
-                <b style="display:block; margin-bottom:10px; color:#FFD700;">OFFER COMPARE PRICE</b>
-                <input type="text" id="pSearch" class="search-input" placeholder="Search product...">
-                <div style="display:flex; justify-content:center;">
-                    <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900;">Amazon</button>
-                    <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:white;">Flipkart</button>
+                <b style="display:block; margin-bottom:12px; color:#FFD700; font-size: 18px;">OFFER COMPARE PRICE</b>
+                <input type="text" id="pSearch" class="search-input" placeholder="Search product name...">
+                <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+                    <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900; color:#000;">Amazon Price</button>
+                    <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:#fff;">Flipkart Price</button>
+                    <button onclick="qSearch('ajio')" class="comp-btn" style="background:#fff; color:#000;">Ajio Price</button>
                 </div>
             </div>
 
+            <a href="https://bitli.in/kTAOv36" target="_blank" class="shop-btn btn-tatacliq">🛒 TATA CLIQ - BEST OFFER TODAY</a>
+            
             </div>
     </div>
 </div>
 
 <div id="google_translate_element"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
     function updateLang(lang) {
@@ -175,21 +114,20 @@
         }
     }
 
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-    function changeLang(c) {
-        var s = document.querySelector(".goog-te-combo");
-        if (s) { s.value = c; s.dispatchEvent(new Event('change')); }
+    function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
+    function changeLang(c) { 
+        var s = document.querySelector(".goog-te-combo"); 
+        if (s) { s.value = c; s.dispatchEvent(new Event('change')); } 
     }
     function qSearch(p) {
         var v = document.getElementById('pSearch').value;
         if(!v) return;
         if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+        if(p=='ajio') window.open('https://www.ajio.com/search/?text='+v, '_blank');
     }
 
-    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ)
+    // Globe Animation
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
