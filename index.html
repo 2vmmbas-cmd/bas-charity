@@ -1,199 +1,82 @@
  <!DOCTYPE html>
-<html>
+<html lang="ml">
 <head>
-    <title>BAS Charity International</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAS Charity</title>
     <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
-        #logo-space { width: 100%; height: 350px; }
-        .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; text-align: center; }
+        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 40px 20px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+        .globe { font-size: 65px; animation: spin 15s linear infinite; display: inline-block; margin-bottom: 10px; }
+        @keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+        h1 { margin: 0; font-size: 32px; letter-spacing: 2px; font-weight: bold; }
+        .tagline { font-size: 14px; opacity: 0.9; margin: 10px 0; font-weight: bold; }
+
+        /* ഭാഷാ ബട്ടണുകൾ */
+        .lang-section { margin-top: 15px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; align-items: center; }
+        .lang-btn { background: rgba(255,255,255,0.2); border: 1px solid white; color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; }
+
+        /* പ്രൈസ് കമ്പാരിസൺ */
+        .search-area { background: white; width: 85%; max-width: 500px; margin: -25px auto 25px; padding: 25px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .search-input { width: 85%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; margin-bottom: 10px; }
         
-        .hunger-message {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #FFD700; 
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+        .btn-list { display: flex; flex-direction: column; align-items: center; padding: 10px; }
+        .shop-btn { width: 90%; max-width: 450px; height: 60px; margin: 10px 0; display: flex; align-items: center; justify-content: center; text-decoration: none; border-radius: 18px; font-weight: 900; color: white; box-shadow: 0 6px 15px rgba(0,0,0,0.1); font-size: 16px; }
+        .amz { background: #FF9900; color: black; }
+        .other-btn { background: #333; } /* മറ്റ് സൈറ്റുകൾക്ക് ഉപയോഗിക്കാം */
 
-        .brand-heading h1 { 
-            font-size: clamp(30px, 8vw, 55px); 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 900; 
-            -webkit-text-stroke: 1.5px white;
-        }
-
-        /* സമർപ്പണം ഹെഡിംഗിന് താഴെ */
-        .dedication {
-            font-size: 13px;
-            color: #888;
-            font-style: italic;
-            margin: 15px auto;
-            text-align: center;
-            line-height: 1.6;
-            max-width: 85%;
-        }
-
-        /* ഭാഷാ ബട്ടണുകൾ സമർപ്പണത്തിന് താഴെ */
-        .lang-container {
-            margin: 20px 0;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .lang-btn {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #444;
-            padding: 4px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 10px;
-            transition: 0.3s;
-        }
-
-        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
-
-        .impact-box {
-            margin: 20px auto;
-            max-width: 85%;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed #FFD700;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        #impact-text {
-            font-size: 17px;
-            color: #FFD700;
-            line-height: 1.7;
-            font-weight: 500;
-        }
-
-        .shop-container { margin-top: 25px; margin-bottom: 40px; }
-
-        .amazon-btn {
-            background: #FF9900;
-            color: #000;
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-        }
+        /* ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ഹൈഡ് ചെയ്യാൻ */
+        #google_translate_element { display: none; }
     </style>
 </head>
 <body>
 
-<div class="header-box">
-    <div id="logo-space"></div>
-    <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-        <h1>BAS CHARITY INTERNATIONAL</h1>
-        
-        <div id="dedication-text" class="dedication">
-            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
-        </div>
+    <div class="header">
+        <div class="globe">🌍</div>
+        <h1>BAS CHARITY</h1>
+        <p class="tagline">YOUR PURCHASE SATISFIES A HUNGER</p>
 
-        <div class="lang-container">
-            <button class="lang-btn" onclick="updateLang('en')">English</button>
-            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
-            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-        </div>
-
-        <div class="impact-box">
-            <div id="impact-text">
-                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
-            </div>
-        </div>
-
-        <div class="shop-container">
-            <a id="shop-btn" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">
-                🛒 SHOP ON AMAZON
-            </a>
+        <div class="lang-section">
+            <button class="lang-btn" onclick="changeLang('ml')">മലയാളം</button>
+            <button class="lang-btn" onclick="changeLang('en')">English</button>
+            <button class="lang-btn" onclick="changeLang('hi')">हिन्दी</button>
+            <button class="lang-btn" onclick="changeLang('ar')">العربية</button>
+            <div id="google_translate_element_visible"></div>
         </div>
     </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    function updateLang(lang) {
-        const hText = document.getElementById('hunger-text');
-        const dText = document.getElementById('dedication-text');
-        const iText = document.getElementById('impact-text');
-        const sBtn = document.getElementById('shop-btn');
+    <div class="search-area">
+        <b style="display:block; margin-bottom:10px;">ഏറ്റവും കുറഞ്ഞ വില നോക്കൂ:</b>
+        <input type="text" id="pSearch" class="search-input" placeholder="സാധനത്തിന്റെ പേര് ടൈപ്പ് ചെയ്യുക...">
+        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <button onclick="qSearch('amz')" style="background:#FF9900; border:none; padding:8px 15px; border-radius:8px; font-weight:bold; cursor:pointer;">Amazon</button>
+            <button onclick="qSearch('fk')" style="background:#2874f0; color:white; border:none; padding:8px 15px; border-radius:8px; font-weight:bold; cursor:pointer;">Flipkart</button>
+            <button onclick="qSearch('ajio')" style="background:#313131; color:white; border:none; padding:8px 15px; border-radius:8px; font-weight:bold; cursor:pointer;">Ajio</button>
+        </div>
+    </div>
 
-        if(lang === 'ml') {
-            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
-            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
-            sBtn.innerHTML = "🛒 ആമസോണിൽ ഷോപ്പ് ചെയ്യൂ";
-        } else if(lang === 'hi') {
-            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
-            iText.innerHTML = `"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफर पर BAS Charity International के माध्यम से आपकी खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे तो...?"`;
-            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
-            sBtn.innerHTML = "🛒 अमेज़न पर खरीदारी करें";
-        } else {
-            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?\"";
-            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
-            sBtn.innerHTML = "🛒 SHOP ON AMAZON";
+    <div class="btn-list">
+        <a href="https://www.amazon.in/deals?tag=Vmmbaslinks-21" target="_blank" class="shop-btn amz">🛒 AMAZON - TODAY'S BEST OFFERS</a>
+        
+        </div>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'ml', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element_visible');
         }
-    }
-
-    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ ഇവിടെയും തുടരുന്നു)
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 350);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
-        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-        metalness: 0.3, roughness: 0.7
-    }));
-    earthGroup.add(earth);
-    scene.add(earthGroup);
-    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
-    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
-    const textTexture = new THREE.CanvasTexture(canvas);
-    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
-    const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
-    earthGroup.add(new THREE.Mesh(textGeo, textMat));
-    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon);
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
-        renderer.render(scene, camera);
-    }
-    animate();
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 350);
-        camera.aspect = window.innerWidth / 350;
-        camera.updateProjectionMatrix();
-    });
-</script>
+        function changeLang(c) {
+            var s = document.querySelector(".goog-te-combo");
+            if (s) { s.value = c; s.dispatchEvent(new Event('change')); }
+        }
+        function qSearch(p) {
+            var v = document.getElementById('pSearch').value;
+            if(!v) return;
+            if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+            if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+            if(p=='ajio') window.open('https://www.ajio.com/search/?text='+v, '_blank');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
