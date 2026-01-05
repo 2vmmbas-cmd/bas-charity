@@ -4,11 +4,11 @@
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
+        body { margin: 0; background: #000; color: white; font-family: 'Arial Black', sans-serif; overflow-x: hidden; }
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
         #logo-space { width: 100%; height: 380px; }
         .brand-heading { text-align: center; margin-top: -20px; padding: 20px; }
-        .brand-heading h1 { font-size: clamp(26px, 7vw, 48px); letter-spacing: 6px; text-transform: uppercase; margin: 0; font-weight: 900; }
+        .brand-heading h1 { font-size: clamp(24px, 6vw, 44px); letter-spacing: 15px; text-transform: uppercase; margin: 0; font-weight: 950; }
     </style>
 </head>
 <body>
@@ -16,8 +16,7 @@
 <div class="header-box">
     <div id="logo-space"></div>
     <div class="brand-heading">
-        <h1>BAS CHARITY INTERNATIONAL</h1>
-        <div style="width: 80px; height: 2px; background: #fff; margin: 15px auto; opacity: 0.5;"></div>
+        <h1>B A S</h1>
     </div>
 </div>
 
@@ -29,7 +28,7 @@
     renderer.setSize(window.innerWidth, 380);
     document.getElementById('logo-space').appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0xffffff, 2);
     pointLight.position.set(10, 10, 10); scene.add(pointLight);
 
@@ -40,27 +39,28 @@
         new THREE.SphereGeometry(2, 64, 64), 
         new THREE.MeshStandardMaterial({
             map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
+            metalness: 0.2, roughness: 0.8
         })
     );
     earthGroup.add(earth);
     scene.add(earthGroup);
 
-    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
+    // അക്ഷരങ്ങൾ ഒട്ടിപ്പിടിക്കാതിരിക്കാൻ ഓരോന്നിനും ഇടയിൽ വലിയ ഗ്യാപ്പ് നൽകി
+    const canvas = document.createElement('canvas'); 
+    const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     context.fillStyle = "#FFFFFF"; 
-    context.font = "Bold 140px Arial"; 
+    context.font = "900 120px 'Arial Black'"; 
     context.textAlign = "center";
-    context.fillText("BAS                      BAS", 512, 160);
+    
+    // B, A, S എന്നിവയ്ക്ക് ഇടയിൽ വലിയ സ്ഥലം നൽകി
+    context.fillText("B     A     S", 256, 160);
+    context.fillText("B     A     S", 768, 160);
 
     const textTexture = new THREE.CanvasTexture(canvas);
-    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+    const textGeo = new THREE.CylinderGeometry(2.15, 2.15, 0.8, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
     const textMesh = new THREE.Mesh(textGeo, textMat);
-    
-    // അക്ഷരങ്ങളെ ഗ്ലോബിന്റെ താഴേക്ക് (കാലിന്റെ ഭാഗത്തേക്ക്) മാറ്റി വെച്ചു
-    textMesh.position.y = -0.5; 
-    
     earthGroup.add(textMesh);
 
     const moon = new THREE.Mesh(
@@ -71,22 +71,12 @@
 
     camera.position.z = 8;
 
-    let angle = 0;
     function animate() {
         requestAnimationFrame(animate);
         earthGroup.rotation.y += 0.005; 
-        angle += 0.015;
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
         renderer.render(scene, camera);
     }
     animate();
-
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
-        camera.updateProjectionMatrix();
-    });
 </script>
 
 </body>
