@@ -1,115 +1,111 @@
  <!DOCTYPE html>
-<html>
+<html lang="ml">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* വെർട്ടിക്കൽ ഡിസൈൻ - ഡെസ്‌ക്ടോപ്പിലും മൊബൈലിലും ഒരുപോലെ */
-        .vertical-menu {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 10px;
+        body { margin: 0; background: #0f172a; font-family: 'Segoe UI', sans-serif; color: white; text-align: center; }
+        .container { padding: 15px; max-width: 450px; margin: 0 auto; }
+        
+        /* ബസ് (BUS) ഹെഡർ */
+        .bus-card {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000; padding: 20px; border-radius: 20px;
+            font-weight: 900; font-size: 28px; margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            border: 3px solid #fff;
         }
 
-        .shop-btn {
-            width: 100%;
-            padding: 18px;
-            margin: 10px 0;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 15px;
-            display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: 0.3s;
-            text-transform: uppercase;
-            border: 2px solid transparent;
+        /* ഓരോ സൈറ്റിനും വേണ്ടിയുള്ള കാർഡ് ഡിസൈൻ */
+        .shop-card {
+            background: #1e293b; border-radius: 20px; padding: 15px;
+            margin-bottom: 20px; display: flex; align-items: center;
+            border: 2px solid transparent; transition: 0.3s;
+            text-decoration: none; color: white;
         }
 
-        /* ഓരോ സൈറ്റിനും വ്യത്യസ്ത നിറങ്ങൾ */
-        .btn-amazon { background: #FF9900; color: #000; }
-        .btn-flipkart { background: #2874f0; }
-        .btn-ajio { background: #313131; }
-        .btn-tatacliq { background: #da1c5c; }
-        .btn-myntra { background: #fe3f6c; }
+        .card-amz { border-left: 8px solid #FF9900; }
+        .card-fk { border-left: 8px solid #2874f0; }
+        .card-myntra { border-left: 8px solid #fe3f6c; }
+        .card-shopsy { border-left: 8px solid #9c27b0; }
 
-        .shop-btn:hover { transform: scale(1.02); border-color: #fff; }
+        .logo-img { width: 60px; height: 60px; border-radius: 12px; margin-right: 15px; }
 
-        /* കംപാരിസൺ സെക്ഷൻ */
-        .compare-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 20px;
-            margin-top: 30px;
-            border: 2px solid #ddd;
-            width: 100%;
-            box-sizing: border-box;
+        .info { text-align: left; flex-grow: 1; }
+        .info h3 { margin: 0; font-size: 20px; letter-spacing: 1px; }
+        .check-text { 
+            display: inline-block; background: rgba(255,255,255,0.1);
+            padding: 5px 12px; border-radius: 8px; margin-top: 8px;
+            font-size: 13px; font-weight: bold; color: #FFD700;
+            border: 1px solid #FFD700;
         }
 
-        .search-input {
-            width: 100%;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 15px;
-            font-size: 16px;
-            box-sizing: border-box;
+        /* കംപാരിസൺ ബോക്സ് */
+        .compare-section {
+            background: #1e293b; padding: 20px; border-radius: 20px;
+            border: 1px dashed #FFD700; margin-top: 30px;
         }
-
-        .comp-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+        .p-input {
+            width: 100%; padding: 15px; border-radius: 12px; border: none;
+            margin-bottom: 15px; box-sizing: border-box; font-size: 16px;
         }
-
-        .comp-mini-btn {
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
+        .comp-btn {
+            padding: 12px 20px; border-radius: 10px; border: none;
+            font-weight: bold; cursor: pointer; margin: 5px; width: 45%;
         }
     </style>
 </head>
 <body>
 
-<div class="vertical-menu">
-    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" rel="noopener noreferrer" class="shop-btn btn-amazon">🛒 AMAZON - BEST OFFER TODAY</a>
-    
-    <a href="https://fktr.in/V5wq6Bc" target="_blank" rel="noopener noreferrer" class="shop-btn btn-flipkart">🛒 FLIPKART - BEST OFFER TODAY</a>
-    
-    <a href="https://ajiio.in/05PVCEi" target="_blank" rel="noopener noreferrer" class="shop-btn btn-ajio">🛒 AJIO - BEST OFFER TODAY</a>
-    
-    <a href="https://www.tatacliq.com/" target="_blank" rel="noopener noreferrer" class="shop-btn btn-tatacliq">🛒 TATA CLIQ - BEST OFFER TODAY</a>
+<div class="container">
+    <div class="bus-card">🚌 ബസ് (BUS) OFFERS</div>
 
-    <div class="compare-box">
-        <h3 style="color: #333; margin-top: 0; text-align: center;">COMPARE LOWEST PRICE</h3>
-        <input type="text" id="pSearch" class="search-input" placeholder="Enter Product Name (eg: iPhone 15)">
-        
-        <div class="comp-grid">
-            <button onclick="qSearch('amz')" class="comp-mini-btn" style="background:#FF9900;">Amazon Price</button>
-            <button onclick="qSearch('fk')" class="comp-mini-btn" style="background:#2874f0; color:white;">Flipkart Price</button>
-            <button onclick="qSearch('ajio')" class="comp-mini-btn" style="background:#313131; color:white;">Ajio Price</button>
-            <button onclick="qSearch('myntra')" class="comp-mini-btn" style="background:#fe3f6c; color:white;">Myntra Price</button>
+    <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card card-amz">
+        <img src="https://img.icons8.com/color/96/amazon.png" class="logo-img">
+        <div class="info">
+            <h3>AMAZON</h3>
+            <span class="check-text">CHECK BEST OFFER TODAY</span>
         </div>
+    </a>
+
+    <a href="https://www.flipkart.com/" target="_blank" class="shop-card card-fk">
+        <img src="https://img.icons8.com/color/96/flipkart.png" class="logo-img">
+        <div class="info">
+            <h3>FLIPKART</h3>
+            <span class="check-text">CHECK BEST OFFER TODAY</span>
+        </div>
+    </a>
+
+    <a href="https://www.myntra.com/" target="_blank" class="shop-card card-myntra">
+        <img src="https://img.icons8.com/color/96/myntra.png" class="logo-img">
+        <div class="info">
+            <h3>MYNTRA</h3>
+            <span class="check-text">CHECK BEST OFFER TODAY</span>
+        </div>
+    </a>
+
+    <a href="https://www.shopsy.in/" target="_blank" class="shop-card card-shopsy">
+        <img src="https://img.icons8.com/fluent/96/shopping-bag.png" class="logo-img">
+        <div class="info">
+            <h3>SHOPSY</h3>
+            <span class="check-text">CHECK BEST OFFER TODAY</span>
+        </div>
+    </a>
+
+    <div class="compare-section">
+        <p style="color:#FFD700; font-weight:bold; margin-top:0;">COMPARE LOWEST PRICE</p>
+        <input type="text" id="pSearch" class="p-input" placeholder="Product name (eg: iPhone)">
+        <button onclick="qSearch('amz')" class="comp-btn" style="background:#FF9900;">Amazon</button>
+        <button onclick="qSearch('fk')" class="comp-btn" style="background:#2874f0; color:white;">Flipkart</button>
     </div>
 </div>
 
 <script>
     function qSearch(p) {
         var v = document.getElementById('pSearch').value;
-        if(!v) { alert("Please enter a product name to compare!"); return; }
-        
+        if(!v) return;
         if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
-        if(p=='ajio') window.open('https://www.ajio.com/search/?text='+v, '_blank');
-        if(p=='myntra') window.open('https://www.myntra.com/'+v, '_blank');
     }
 </script>
 
