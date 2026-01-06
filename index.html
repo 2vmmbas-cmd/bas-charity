@@ -3,35 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Page - Founder</title>
+    <title>Charity Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
         
         /* 1. ലാംഗ്വേജ് സെക്ഷൻ */
-        .lang-header { background: #222; padding: 12px; display: flex; justify-content: flex-end; gap: 20px; }
-        .lang-header a { color: #fff; text-decoration: none; font-size: 14px; cursor: pointer; }
-        .lang-header a:hover { color: #00d4ff; }
+        .top-nav { background: #333; padding: 10px; display: flex; justify-content: flex-end; gap: 15px; }
+        .top-nav a { color: white; text-decoration: none; font-size: 14px; cursor: pointer; }
 
-        /* 2. സോഷ്യൽ മീഡിയ സെക്ഷൻ (WhatsApp ഇല്ല) */
-        .social-icons { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #ddd; }
-        .social-icons i { font-size: 26px; margin: 0 15px; color: #444; cursor: pointer; }
-        .social-icons i:hover { color: #007bff; }
+        /* 2. സോഷ്യൽ മീഡിയ (WhatsApp ഒഴിവാക്കി) */
+        .social-icons { background: white; padding: 20px; border-bottom: 1px solid #ddd; }
+        .social-icons i { font-size: 28px; margin: 0 15px; color: #333; cursor: pointer; }
 
         /* 3. ഫൗണ്ടർ സെക്ഷൻ */
-        .founder-container { max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .founder-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #333; text-transform: uppercase; letter-spacing: 1px; }
-        .founder-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff; margin-bottom: 20px; }
+        .founder-box { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .founder-box h2 { text-transform: uppercase; color: #222; margin-bottom: 20px; }
+        .founder-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff; margin-bottom: 20px; }
         .founder-text { font-size: 18px; line-height: 1.6; color: #555; font-style: italic; }
-        .founder-name { font-size: 20px; font-weight: bold; color: #222; margin-top: 15px; display: block; }
+        .founder-name { font-weight: bold; font-size: 20px; margin-top: 15px; display: block; color: #000; }
     </style>
 </head>
 <body>
 
-    <div class="lang-header">
-        <a onclick="alert('മലയാളം സെക്ഷൻ')">മലയാളം</a>
-        <a onclick="alert('Hindi language section is now active')">हिन्दी (Hindi)</a>
-        <a onclick="alert('Online/Other Languages section is now active')">Online Languages Other Languages</a>
+    <div class="top-nav">
+        <a>മലയാളം</a>
+        <a onclick="alert('Hindi Active')">हिन्दी (Hindi)</a>
+        <a onclick="alert('Other Languages Active')">Online Languages Other Languages</a>
     </div>
 
     <div class="social-icons">
@@ -41,10 +39,10 @@
         <i class="fab fa-twitter"></i>
     </div>
 
-    <div class="founder-container">
-        <div class="founder-title">Founder</div>
+    <div class="founder-box">
+        <h2>Founder</h2>
         
-        <img src="https://via.placeholder.com/180" alt="Muhammad M Basheer" class="founder-photo">
+        <img src="founder_photo.jpg" alt="Muhammad M Basheer" class="founder-img">
         
         <div class="founder-text">
             "After 20 years of distinguished service in KSEB and valuable experience abroad, now actively serving the society as a dedicated member of the Ideal Relief Wing (IRW)—a government-recognized organization for relief and social welfare."
