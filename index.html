@@ -5,7 +5,7 @@
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
         #logo-space { width: 100%; height: 350px; }
         .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
@@ -38,7 +38,7 @@
             max-width: 85%;
         }
 
-        .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; }
+        .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 10px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
@@ -53,7 +53,6 @@
 
         #impact-text { font-size: 17px; color: #FFD700; line-height: 1.7; font-weight: 500; }
 
-        /* Transparency Note Style */
         .transparency-note {
             font-size: 12px;
             color: #aaa;
@@ -64,64 +63,35 @@
             padding: 15px;
             border-radius: 8px;
             border-left: 4px solid #FFD700;
+            text-align: left;
         }
 
-        /* All Shop Buttons Grid */
-        .shop-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 20px;
-            max-width: 500px;
-            margin: 0 auto 50px auto;
+        /* Shop Cards Styling */
+        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
+        .main-header {
+            background: #FFD700; color: #000; padding: 15px; border-radius: 12px;
+            font-weight: 900; font-size: 20px; margin-bottom: 20px;
         }
-
         .shop-card {
-            background: #222;
-            border: 1px solid #333;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
+            background: #1a1a1a; border-radius: 12px; padding: 10px;
+            margin-bottom: 10px; display: flex; align-items: center;
+            text-decoration: none; color: white; border: 1px solid #333;
             transition: 0.3s;
-            text-align: center;
         }
-
-        .shop-card:hover { border-color: #FFD700; transform: translateY(-3px); background: #2a2a2a; }
-        .shop-card span { display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; }
-        .shop-card small { font-size: 10px; color: #FFD700; text-transform: uppercase; }
-
-    </style>
-</head>
-<body>
-
-<div class="header-box">
-    <div id="logo-space"></div>
-    <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-        <h1>BAS CHARITY INTERNATIONAL</h1>
+        .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
         
-        <div id="dedication-text" class="dedication">
-            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
-        </div>
+        .c-amz { border-left: 5px solid #FF9900; }
+        .c-fk { border-left: 5px solid #2874f0; }
+        .c-samsung { border-left: 5px solid #1428a0; }
+        .c-myntra { border-left: 5px solid #fe3f6c; }
+        .c-jio { border-left: 5px solid #003087; }
+        .c-tata { border-left: 5px solid #da1c5c; }
+        .c-shopsy { border-left: 5px solid #9c27b0; }
+        .c-reliance { border-left: 5px solid #ed1c24; }
+        .c-croma { border-left: 5px solid #00e9bf; }
+        .c-nykaa { border-left: 5px solid #fc2779; }
 
-        <div class="lang-container">
-            <button class="lang-btn" onclick="updateLang('en')">English</button>
-            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
-            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-        </div>
-
-        <div class="impact-box">
-            <div id="impact-text">
-                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
-            </div>
-        </div>
-
-        <div class="transparency-note" id="transparency-note">
-            * 100% of your donation reaches the beneficiary. Platform charges, salaries, and expansion costs are covered by our affiliate marketing revenue.
-        </div>
-
-        <h3 id="shop-title" style="color: #888; font-size: 14px; letter-spacing: 2px;">SHOP & SUPPORT</h3>
-        
-        <div class="shop-grid">
-            <a href="
+        .logo { width: 45px; height: 45px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
+        .info { text-align: left; flex: 1; }
+        .info h3 { margin: 0; font-size: 16px; }
+        .check-btn { color: #FFD700; font-size:
