@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ml">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; min-height: 350px; }
         #logo-space { width: 100%; height: 350px; position: relative; }
         .brand-heading { text-align: center; margin-top: -30px; padding: 15px; position: relative; z-index: 10; }
         
@@ -24,14 +24,12 @@
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
         .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 25px 0 15px 0; text-transform: uppercase; }
 
-        /* Colorful Working Icons Styling */
         .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
-        .share-text { font-size: 14px; color: #ccc; margin-bottom: 15px; }
+        .share-text { font-size: 14px; color: #ccc; margin-bottom: 15px; line-height: 1.5; }
         .color-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; font-size: 32px; }
-        .color-icons a { text-decoration: none; transition: 0.3s; display: inline-block; }
-        .color-icons a:hover { transform: translateY(-5px); filter: brightness(1.2); }
+        .color-icons a { text-decoration: none; transition: 0.3s; }
+        .color-icons a:hover { transform: translateY(-5px); }
         
-        /* Specific Icon Colors */
         .fa-whatsapp { color: #25D366; }
         .fa-facebook { color: #1877F2; }
         .fa-instagram { color: #E4405F; }
@@ -49,9 +47,10 @@
         .btn-g { display: flex; gap: 8px; }
         .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
 
-        .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
-        .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; }
-        .small-note { font-size: 11px; color: #888; margin-top: 10px; display: block; }
+        .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; text-align: center; }
+        .transparency-msg { font-size: 16px; color: #fff; margin-bottom: 20px; line-height: 1.6; font-weight: 500; display: block; }
+        .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; margin-bottom: 15px; }
+        .small-note { font-size: 11px; color: #888; display: block; line-height: 1.4; }
     </style>
 </head>
 <body>
@@ -96,20 +95,114 @@
 
             <div class="share-box">
                 <div id="share-text" class="share-text">
-                    വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ഈ ചാരിറ്റിയിൽ പങ്കാളികളാകാം.
+                    വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ചാരിറ്റിയിൽ പങ്കാളികളാകാം.
                 </div>
                 <div class="color-icons">
-                    <a href="https://wa.me/?text=Check%20out%20this%20charity%3A%20https%3A%2F%2Fbascharity.com" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fbascharity.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/share/url?url=https%3A%2F%2Fbascharity.com&text=Check%20out%20this%20charity" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fbascharity.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fbascharity.com&text=Check%20out%20this%20charity" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://api.whatsapp.com/send?text=Check%20out%20BAS%20Charity%20International:%20https://bascharity.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://bascharity.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/share/url?url=https://bascharity.com&text=Check%20out%20BAS%20Charity" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://bascharity.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url=https://bascharity.com&text=Check%20out%20BAS%20Charity" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
 
             <div class="final-donation-box">
                 <div id="final-msg" class="transparency-msg">
-                    നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ ഈ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ അല്ലെങ്കിൽ
- 
+                    നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.
+                </div>
+                <button class="donation-btn" onclick="alert('Proceeding...')">DONATE NOW</button>
+                <span id="trans-note" class="small-note">* നിങ്ങളുടെ സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ അഫിലിയേറ്റ് വരുമാനത്തിലൂടെ കണ്ടെത്തുന്നു.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    function updateLang(lang) {
+        const hText = document.getElementById('hunger-text');
+        const iText = document.getElementById('impact-text');
+        const cHead = document.getElementById('comp-header');
+        const sHead = document.getElementById('shop-header');
+        const finalM = document.getElementById('final-msg');
+        const sText = document.getElementById('share-text');
+
+        if(lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
+            cHead.innerText = "വില താരതമ്യം ചെയ്യുക";
+            sHead.innerText = "ഷോപ്പ് & സപ്പോർട്ട്";
+            sText.innerText = "വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ചാരിറ്റിയിൽ പങ്കാളികളാകാം.";
+            finalM.innerText = "നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.";
+        } else if(lang === 'hi') {
+            hText.innerText = "आपकी खरीदारी किसी की भूख मिटाती है";
+            iText.innerText = "\"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उन्हीं ऑफर्स के साथ, क्या होगा यदि आपकी एक खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे...?\"";
+            cHead.innerText = "कीमतों की तुलना करें";
+            sHead.innerText = "खरीदारी और सहायता";
+            finalM.innerText = "गरीबों को भोजन कराने के लिए दान करें।";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?\"";
+            cHead.innerText = "Compare Prices & Search";
+            sHead.innerText = "Shop & Support";
+            finalM.innerText = "Donate for yourself or for your parents to provide food.";
+        }
+    }
+
+    function q(p) {
+        var v = document.getElementById('pS').value;
+        if(!v) return;
+        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+    }
+
+    let scene, camera, renderer, earthGroup;
+    function initEarth() {
+        const container = document.getElementById('logo-space');
+        if(!container) return;
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        scene.add(ambientLight);
+        const loader = new THREE.TextureLoader();
+        earthGroup = new THREE.Group();
+        const earthGeo = new THREE.SphereGeometry(2, 64, 64);
+        const earthMat = new THREE.MeshStandardMaterial({
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+            metalness: 0.3, roughness: 0.7
+        });
+        const earth = new THREE.Mesh(earthGeo, earthMat);
+        earthGroup.add(earth);
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = 1024; canvas.height = 256;
+        context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
+        context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
+        const textTexture = new THREE.CanvasTexture(canvas);
+        const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+        const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+        earthGroup.add(new THREE.Mesh(textGeo, textMat));
+        scene.add(earthGroup);
+        camera.position.z = 8;
+        animate();
+    }
+    function animate() {
+        requestAnimationFrame(animate);
+        if(earthGroup) earthGroup.rotation.y += 0.005;
+        renderer.render(scene, camera);
+    }
+    window.addEventListener('load', initEarth);
+    window.addEventListener('resize', () => {
+        const container = document.getElementById('logo-space');
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+</script>
+</body>
+</html>
