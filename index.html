@@ -6,109 +6,76 @@
     <title>ബാസ് ചാരിറ്റി പോർട്ടൽ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --main-teal: #00695c; --wa-green: #25d366; --fb-blue: #1877f2; --accent-red: #d32f2f; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: #f4f7f6; color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
+        .container { width: 90%; max-width: 800px; margin: auto; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .section { padding: 20px 0; border-bottom: 1px solid #eee; }
+        h2 { color: #004d40; font-size: 1.5rem; }
         
-        /* Header & Container */
-        header { background: linear-gradient(135deg, var(--main-teal), #004d40); color: white; padding: 40px 20px; text-align: center; }
-        .wrapper { width: 95%; max-width: 800px; margin: -30px auto 40px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); }
+        /* Social Icons */
+        .social-icons { display: flex; justify-content: center; gap: 20px; }
+        .social-icons i { font-size: 30px; cursor: pointer; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-facebook { color: #1877F2; }
+        .fa-instagram { color: #E4405F; }
 
-        /* 1. Share Buttons */
-        .social-share { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .btn-share { padding: 10px 18px; border-radius: 50px; color: white; text-decoration: none; font-size: 14px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-        .wa { background: var(--wa-green); }
-        .fb { background: var(--fb-blue); }
-        .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        /* Search Bar */
+        .search-box { background: #e0f2f1; padding: 20px; border-radius: 8px; text-align: center; }
+        .search-input { width: 80%; padding: 12px; border: 1px solid #00796b; border-radius: 4px; }
 
-        /* 2. Search Bar */
-        .search-area { background: #e0f2f1; padding: 20px; border-radius: 12px; margin-bottom: 30px; position: relative; }
-        .search-input { width: 100%; padding: 15px; border: 2px solid #b2dfdb; border-radius: 50px; outline: none; box-sizing: border-box; font-size: 16px; }
-        .search-go { position: absolute; right: 25px; top: 25px; background: var(--main-teal); color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; }
-
-        /* 3 & 4. Profile & Service */
-        .profile-card { background: #f9f9f9; padding: 20px; border-radius: 10px; border-left: 6px solid var(--main-teal); margin-bottom: 25px; }
-        .profile-info h2 { margin: 0; color: var(--main-teal); }
-
-        /* 5. Receipts / Impact */
-        .receipt-box { border: 2px dashed #d32f2f; padding: 15px; border-radius: 10px; margin-bottom: 25px; background: #fff8f8; }
-        .receipt-box h4 { margin: 0 0 10px 0; color: #d32f2f; }
-
-        /* 6. Gallery placeholder */
-        .gallery-space { height: 120px; background: #eee; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; color: #888; }
-
-        /* 7, 8, 9. Charity List */
-        .charity-head { color: #004d40; line-height: 1.4; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .charity-item { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
-        .charity-item strong { color: var(--main-teal); font-size: 1.1em; }
-
-        /* 11. Old Songs Button */
-        .old-songs-btn { display: block; background: #222; color: white; text-align: center; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: bold; margin: 30px 0; transition: 0.3s; }
-        .old-songs-btn:hover { background: #444; }
-
-        /* 10. Slogan */
-        .final-slogan { text-align: center; color: var(--accent-red); font-size: 1.5em; font-weight: 900; letter-spacing: 1px; margin-top: 40px; text-transform: uppercase; }
+        /* Buttons */
+        .btn-old-songs { display: block; background: #004d40; color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 25px 0; }
+        
+        /* Slogan */
+        .slogan { text-align: center; color: #d32f2f; font-size: 24px; font-weight: bold; padding: 20px 0; border-top: 2px solid #eee; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>കാരുണ്യത്തിന്റെ കൈകൾ</h1>
-    <p>നിങ്ങളുടെ ഒരു ക്ലിക്ക്, ഒരാളുടെ വിശപ്പടക്കും</p>
-</header>
-
-<div class="wrapper">
-    <div class="social-share">
-        <a href="whatsapp://send?text=നമസ്കാരം, ഈ പോർട്ടൽ വഴി സാധനങ്ങൾ വാങ്ങുമ്പോൾ അതിന്റെ കമ്മീഷൻ ചാരിറ്റിക്കായി ഉപയോഗിക്കുന്നു. ലിങ്ക് പരിശോധിക്കുമല്ലോ!" class="btn-share wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="#" class="btn-share fb"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="#" class="btn-share ig"><i class="fab fa-instagram"></i> Instagram</a>
+<div class="container">
+    <div class="section social-icons">
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
     </div>
 
-    <div class="search-area">
-        <input type="text" class="search-input" placeholder="എന്താണ് ഇന്ന് വാങ്ങേണ്ടത്?">
-        <button class="search-go" onclick="location.href='old-songs.html'">GO</button>
+    <div class="section search-box">
+        <input type="text" class="search-input" placeholder="നിങ്ങൾക്ക് ആവശ്യമുള്ളത് ഇവിടെ സെർച്ച് ചെയ്യാം...">
     </div>
 
-    <div class="profile-card">
-        <div class="profile-info">
-            <h2>ബാസ് (Mohanlal)</h2>
-            <p style="margin:5px 0;">റിട്ടയേർഡ് അസിസ്റ്റന്റ് എൻജിനീയർ, കെ.എസ്.ഇ.ബി</p>
-            <p style="margin:0; font-size: 13px; font-weight: bold;">20 വർഷത്തെ സേവന പരിചയം | IRW സജീവ അംഗം</p>
-        </div>
+    <div class="section">
+        <h2>ഫൗണ്ടർ പ്രൊഫൈൽ</h2>
+        <p><strong>മുഹമ്മദ് എം ബഷീർ (ബാസ്)</strong></p>
+        <p>റിട്ടയേർഡ് അസിസ്റ്റന്റ് എൻജിനീയർ, കെ.എസ്.ഇ.ബി</p>
     </div>
 
-    <div class="receipt-box">
-        <h4><i class="fa fa-file-invoice-dollar"></i> ഈ മാസത്തെ സഹായ രേഖകൾ</h4>
-        <p style="font-size: 14px; margin-bottom: 10px;">കഴിഞ്ഞ മാസം കൈമാറിയ തുകയുടെ വിവരങ്ങൾ ഇവിടെ കാണാം:</p>
-        <div class="gallery-space">റെസിപ്റ്റുകൾ ഇവിടെ ചേർക്കാം</div>
+    <div class="section">
+        <h2>സർവീസ് ഹിസ്റ്ററി</h2>
+        <p>20 വർഷത്തെ കെ.എസ്.ഇ.ബി സേവനം, ഗൾഫ് എക്സ്പീരിയൻസ്, IRW അംഗത്വം.</p>
     </div>
 
-    <h4 style="margin-bottom:10px;">പ്രവർത്തന ചിത്രങ്ങൾ</h4>
-    <div class="gallery-space">ചാരിറ്റി ഗാലറി ഫോട്ടോകൾ</div>
-
-    <h3 class="charity-head">മാറ്റങ്ങൾക്കായി കൈകോർക്കാം: നിങ്ങളുടെ സഹായങ്ങൾ നേരിട്ട് എത്തിക്കാവുന്ന വിശ്വസ്തരായ സേവന കേന്ദ്രങ്ങളെ ഞങ്ങളിലൂടെ പരിചയപ്പെടാം.</h3>
-
-    <div class="charity-item">
-        <strong>വിഷൻ 2026 (Vision 2026)</strong>
-        <p style="font-size: 14px; margin: 5px 0;">ദേശീയതലത്തിൽ പ്രവർത്തിക്കുന്ന പ്രമുഖ സേവന പ്രസ്ഥാനം.</p>
-    </div>
-    <div class="charity-item">
-        <strong>പീസ് വാലി, കോതമംഗലം</strong>
-        <p style="font-size: 14px; margin: 5px 0;">ഡയാലിസിസ്, പാലിയേറ്റീവ് രംഗത്തെ മാതൃകാ സ്ഥാപനം.</p>
-    </div>
-    <div class="charity-item">
-        <strong>ICT Center for Orphans & Destitutes</strong>
-        <p style="font-size: 14px; margin: 5px 0;">അഗതികൾക്കും കുട്ടികൾക്കുമായുള്ള സുരക്ഷിത കേന്ദ്രം.</p>
-    </div>
-    <div class="charity-item">
-        <strong>വാടാനപ്പള്ളി ഓർഫനേജ്</strong>
-        <p style="font-size: 14px; margin: 5px 0;">വിശ്വാസ്യതയുടെ പര്യായമായ സേവന കേന്ദ്രം.</p>
+    <div class="section">
+        <h2>ഈ മാസത്തെ പ്രവർത്തനങ്ങൾ & റെസിപ്റ്റുകൾ</h2>
+        <p>സുതാര്യതയുടെ തെളിവുകൾ: ഈ മാസം നമ്മൾ നൽകിയ സഹായങ്ങളുടെ റെസിപ്റ്റുകൾ ഇവിടെ കാണാം.</p>
     </div>
 
-    <a href="old-songs.html" class="old-songs-btn">കൂടുതൽ ഷോപ്പുകൾ കാണാൻ (OLD SONGS) <i class="fa fa-shopping-cart"></i></a>
-
-    <div class="final-slogan">
-        YOUR PURCHASE <br> SATISFIES A HUNGER
+    <div class="section">
+        <h2>ഫോട്ടോ ഗാലറി</h2>
+        <p>ചാരിറ്റി പ്രവർത്തനങ്ങളുടെ ചിത്രങ്ങൾ ഇവിടെ കാണാം.</p>
     </div>
+
+    <div class="section">
+        <h3>മാറ്റങ്ങൾക്കായി കൈകോർക്കാം: നിങ്ങളുടെ സഹായങ്ങൾ നേരിട്ട് എത്തിക്കാവുന്ന വിശ്വസ്തരായ സേവന കേന്ദ്രങ്ങളെ ഞങ്ങളിലൂടെ പരിചയപ്പെടാം.</h3>
+    </div>
+
+    <div class="section">
+        <p><strong>വിഷൻ 2026 (Vision 2026):</strong> ഇന്ത്യയുടെ വികസന പദ്ധതികൾക്ക് പിന്തുണ നൽകുന്ന സേവന കേന്ദ്രം.</p>
+        <p><strong>പീസ് വാലി, കോതമംഗലം:</strong> പാലിയേറ്റീവ്, ഡയാലിസിസ് പരിചരണം നൽകുന്ന കേന്ദ്രം.</p>
+        <p><strong>ICT Center & Vadanappally Orphanage:</strong> അനാഥർക്കും അഗതികൾക്കുമുള്ള സംരക്ഷണ കേന്ദ്രങ്ങൾ.</p>
+    </div>
+
+    <a href="old-songs.html" class="btn-old-songs">SHOPS (Old Songs) - കൂടുതൽ ഷോപ്പുകൾ കാണാൻ</a>
+
+    <div class="slogan">YOUR PURCHASE SATISFIES A HUNGER</div>
 </div>
 
 </body>
