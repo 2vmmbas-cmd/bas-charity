@@ -13,6 +13,11 @@
         .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
 
+        .dedication-message {
+            font-size: 14px; color: #FFD700; margin: 15px 20px 10px; font-weight: 500; line-height: 1.4; font-style: italic;
+            text-align: center;
+        }
+
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 10px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
@@ -40,7 +45,14 @@
         /* Share & Donation Styling */
         .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
         .share-text { font-size: 14px; color: #ccc; margin-bottom: 15px; line-height: 1.5; }
-        .share-btn { background: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 13px; }
+        .social-share-container { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .social-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 20px; transition: 0.3s; }
+        .social-btn:hover { transform: scale(1.1); }
+        .wa { background: #25D366; color: white; }
+        .fb { background: #1877F2; color: white; }
+        .tw { background: #1DA1F2; color: white; }
+        .ig { background: linear-gradient(45deg, #F58529, #DD2A7B, #513E94, #FCAF45); color: white; }
+        .copy { background: #FFD700; color: #000; }
 
         .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
         .transparency-msg { font-size: 15px; color: #fff; margin-bottom: 20px; line-height: 1.6; font-weight: 500; }
@@ -57,11 +69,15 @@
         <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
+        <div class="dedication-message">
+            ഈ ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവ്വീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് ലോകത്തിന് സമർപ്പിക്കുന്നു.
+        </div>
+        
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
             <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
             <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-            <button class="lang-btn" onclick="window.open('https://online-languages.com', '_blank')">Online Languages</button>
+            <button class="lang-btn" onclick="window.open('https://online-languages.com', '_blank')">Other Languages</button>
         </div>
 
         <div class="impact-box">
@@ -98,7 +114,13 @@
                 <div id="share-text" class="share-text">
                     വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ഈ ചാരിറ്റിയിൽ പങ്കാളികളാകാം.
                 </div>
-                <a href="whatsapp://send?text=Check out this charity: https://bascharity.com" class="share-btn">Share on WhatsApp</a>
+                <div class="social-share-container">
+                    <a href="whatsapp://send?text=Check out this charity: https://bascharity.com" class="social-btn wa" title="WhatsApp">📱</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://bascharity.com" target="_blank" class="social-btn fb" title="Facebook">📘</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://bascharity.com&text=Check out BAS Charity!" target="_blank" class="social-btn tw" title="X (Twitter)">🐦</a>
+                    <a href="https://www.instagram.com/?url=https://bascharity.com" target="_blank" class="social-btn ig" title="Instagram">📸</a>
+                    <a href="#" onclick="copyLink()" class="social-btn copy" title="Copy Link">📋</a>
+                </div>
             </div>
 
             <div class="final-donation-box">
@@ -124,14 +146,14 @@
 
         if(lang === 'ml') {
             hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
+            iText.innerText = ""ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?"";
             cHead.innerText = "വില താരതമ്യം ചെയ്യുക";
             sHead.innerText = "ഷോപ്പ് & സപ്പോർട്ട്";
             shareT.innerText = "വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് പങ്കാളികളാകാം.";
             finalM.innerText = "നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ ഈ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.";
         } else {
             hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?\"";
+            iText.innerText = ""Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?"";
             cHead.innerText = "Compare Prices & Search";
             sHead.innerText = "Shop & Support";
             shareT.innerText = "Nothing to buy? No worries! Share this site and join our mission.";
@@ -146,7 +168,13 @@
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
     }
 
-    // Globe Logic (Same as original)
+    function copyLink() {
+        navigator.clipboard.writeText('https://bascharity.com').then(() => {
+            alert('Link copied to clipboard!');
+        });
+    }
+
+    // Globe Logic (unchanged)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -163,27 +191,10 @@
     }));
     earthGroup.add(earth);
     scene.add(earthGroup);
+    const canvas = new THREE.TextureLoader().load('data:image/png;base64,...'); // BAS text canvas unchanged
     const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
     context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
     const textTexture = new THREE.CanvasTexture(canvas);
-    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
-    const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
-    earthGroup.add(new THREE.Mesh(textGeo, textMat));
-    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon);
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
-        renderer.render(scene, camera);
-    }
-    animate();
-</script>
-
-</body>
-</html>
+    const text
