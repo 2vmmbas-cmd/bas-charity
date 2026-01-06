@@ -1,7 +1,7 @@
- <!DOCTYPE html>
-<html lang="ml">
+ 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -28,6 +28,7 @@
             -webkit-text-stroke: 1.5px white;
         }
 
+        /* സമർപ്പണം ഹെഡിംഗിന് താഴെ */
         .dedication {
             font-size: 13px;
             color: #888;
@@ -38,6 +39,7 @@
             max-width: 85%;
         }
 
+        /* ഭാഷാ ബട്ടണുകൾ സമർപ്പണത്തിന് താഴെ */
         .lang-container {
             margin: 20px 0;
             display: flex;
@@ -74,44 +76,22 @@
             font-weight: 500;
         }
 
-        /* Charity Transparency Section */
-        .transparency-note {
-            font-size: 12px;
-            color: #aaa;
-            margin: 20px auto;
-            max-width: 80%;
-            line-height: 1.5;
-            border-top: 1px solid #333;
-            padding-top: 15px;
-        }
+        .shop-container { margin-top: 25px; margin-bottom: 40px; }
 
-        .shop-container { 
-            margin-top: 25px; 
-            margin-bottom: 40px; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-            gap: 15px; 
-            width: 90%;
-            max-width: 600px;
-        }
-
-        .shop-link {
-            background: #333;
-            color: #fff;
+        .amazon-btn {
+            background: #FF9900;
+            color: #000;
             text-decoration: none;
-            padding: 12px;
+            padding: 15px 35px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             transition: 0.3s;
-            border: 1px solid #555;
-            display: block;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
         }
-
-        .shop-link:hover { background: #FFD700; color: #000; border-color: #FFD700; }
-        
-        .best-price { color: #00ff00; font-size: 10px; display: block; margin-top: 5px; }
-
     </style>
 </head>
 <body>
@@ -138,27 +118,9 @@
             </div>
         </div>
 
-        <div class="transparency-note" id="transparency-note">
-            * 100% of your donation reaches the beneficiary. Platform charges, salaries, and expansion costs are covered by our affiliate marketing revenue.
-        </div>
-
-        <h3 style="color: #888; font-size: 14px; text-transform: uppercase;">Shop via Our Links</h3>
-        <div class="shop-container" id="links-area">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-link">
-                AMAZON
-                <span class="best-price">Best for Electronics</span>
-            </a>
-            <a href="https://www.flipkart.com/?affid=your_aff_id" target="_blank" class="shop-link">
-                FLIPKART
-                <span class="best-price">Top Deals</span>
-            </a>
-            <a href="https://www.ajio.com/" target="_blank" class="shop-link">
-                AJIO
-                <span class="best-price">Fashion Picks</span>
-            </a>
-            <a href="https://www.myntra.com/" target="_blank" class="shop-link">
-                MYNTRA
-                <span class="best-price">Lifestyle</span>
+        <div class="shop-container">
+            <a id="shop-btn" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">
+                🛒 SHOP ON AMAZON
             </a>
         </div>
     </div>
@@ -170,27 +132,27 @@
         const hText = document.getElementById('hunger-text');
         const dText = document.getElementById('dedication-text');
         const iText = document.getElementById('impact-text');
-        const tNote = document.getElementById('transparency-note');
+        const sBtn = document.getElementById('shop-btn');
 
         if(lang === 'ml') {
             hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
             iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
             dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
-            tNote.innerText = "* നിങ്ങൾ നൽകുന്ന സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ, ശമ്പളം തുടങ്ങിയവ അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിലൂടെയാണ് കണ്ടെത്തുന്നത്.";
+            sBtn.innerHTML = "🛒 ആമസോണിൽ ഷോപ്പ് ചെയ്യൂ";
         } else if(lang === 'hi') {
             hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
             iText.innerHTML = `"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफर पर BAS Charity International के माध्यम से आपकी खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे तो...?"`;
             dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
-            tNote.innerText = "* आपके दान का 100% लाभार्थी तक पहुंचता है। प्लेटफ़ॉर्म शुल्क और अन्य खर्च एफिलिएट मार्केटिंग आय से कवर किए जाते हैं।";
+            sBtn.innerHTML = "🛒 अमेज़न पर खरीदारी करें";
         } else {
             hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
             iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?\"";
             dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
-            tNote.innerText = "* 100% of your donation reaches the beneficiary. Platform charges, salaries, and expansion costs are covered by our affiliate marketing revenue.";
+            sBtn.innerHTML = "🛒 SHOP ON AMAZON";
         }
     }
 
-    // Globe logic (No changes needed here)
+    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ ഇവിടെയും തുടരുന്നു)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
