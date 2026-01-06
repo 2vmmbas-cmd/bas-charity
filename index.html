@@ -1,82 +1,18 @@
- <!DOCTYPE html>
-<html lang="ml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ബാസ് ചാരിറ്റി പോർട്ടൽ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
-        .container { width: 90%; max-width: 800px; margin: auto; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .section { padding: 20px 0; border-bottom: 1px solid #eee; }
-        h2 { color: #004d40; font-size: 1.5rem; }
-        
-        /* Social Icons */
-        .social-icons { display: flex; justify-content: center; gap: 20px; }
-        .social-icons i { font-size: 30px; cursor: pointer; }
-        .fa-whatsapp { color: #25D366; }
-        .fa-facebook { color: #1877F2; }
-        .fa-instagram { color: #E4405F; }
+ <div style="display: flex; justify-content: center; gap: 30px; padding: 20px;">
 
-        /* Search Bar */
-        .search-box { background: #e0f2f1; padding: 20px; border-radius: 8px; text-align: center; }
-        .search-input { width: 80%; padding: 12px; border: 1px solid #00796b; border-radius: 4px; }
+    <a href="whatsapp://send?text=Check this out!" style="text-decoration: none; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width: 45px; height: 45px; display: block;">
+        <span style="font-size: 12px; color: #25D366; font-weight: bold; font-family: sans-serif;">WhatsApp</span>
+    </a>
 
-        /* Buttons */
-        .btn-old-songs { display: block; background: #004d40; color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 25px 0; }
-        
-        /* Slogan */
-        .slogan { text-align: center; color: #d32f2f; font-size: 24px; font-weight: bold; padding: 20px 0; border-top: 2px solid #eee; }
-    </style>
-</head>
-<body>
+    <a href="#" style="text-decoration: none; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 45px; height: 45px; display: block;">
+        <span style="font-size: 12px; color: #1877F2; font-weight: bold; font-family: sans-serif;">Facebook</span>
+    </a>
 
-<div class="container">
-    <div class="section social-icons">
-        <i class="fab fa-whatsapp"></i>
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-instagram"></i>
-    </div>
+    <a href="#" style="text-decoration: none; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 45px; height: 45px; display: block;">
+        <span style="font-size: 12px; color: #E4405F; font-weight: bold; font-family: sans-serif;">Instagram</span>
+    </a>
 
-    <div class="section search-box">
-        <input type="text" class="search-input" placeholder="നിങ്ങൾക്ക് ആവശ്യമുള്ളത് ഇവിടെ സെർച്ച് ചെയ്യാം...">
-    </div>
-
-    <div class="section">
-        <h2>ഫൗണ്ടർ പ്രൊഫൈൽ</h2>
-        <p><strong>മുഹമ്മദ് എം ബഷീർ (ബാസ്)</strong></p>
-        <p>റിട്ടയേർഡ് അസിസ്റ്റന്റ് എൻജിനീയർ, കെ.എസ്.ഇ.ബി</p>
-    </div>
-
-    <div class="section">
-        <h2>സർവീസ് ഹിസ്റ്ററി</h2>
-        <p>20 വർഷത്തെ കെ.എസ്.ഇ.ബി സേവനം, ഗൾഫ് എക്സ്പീരിയൻസ്, IRW അംഗത്വം.</p>
-    </div>
-
-    <div class="section">
-        <h2>ഈ മാസത്തെ പ്രവർത്തനങ്ങൾ & റെസിപ്റ്റുകൾ</h2>
-        <p>സുതാര്യതയുടെ തെളിവുകൾ: ഈ മാസം നമ്മൾ നൽകിയ സഹായങ്ങളുടെ റെസിപ്റ്റുകൾ ഇവിടെ കാണാം.</p>
-    </div>
-
-    <div class="section">
-        <h2>ഫോട്ടോ ഗാലറി</h2>
-        <p>ചാരിറ്റി പ്രവർത്തനങ്ങളുടെ ചിത്രങ്ങൾ ഇവിടെ കാണാം.</p>
-    </div>
-
-    <div class="section">
-        <h3>മാറ്റങ്ങൾക്കായി കൈകോർക്കാം: നിങ്ങളുടെ സഹായങ്ങൾ നേരിട്ട് എത്തിക്കാവുന്ന വിശ്വസ്തരായ സേവന കേന്ദ്രങ്ങളെ ഞങ്ങളിലൂടെ പരിചയപ്പെടാം.</h3>
-    </div>
-
-    <div class="section">
-        <p><strong>വിഷൻ 2026 (Vision 2026):</strong> ഇന്ത്യയുടെ വികസന പദ്ധതികൾക്ക് പിന്തുണ നൽകുന്ന സേവന കേന്ദ്രം.</p>
-        <p><strong>പീസ് വാലി, കോതമംഗലം:</strong> പാലിയേറ്റീവ്, ഡയാലിസിസ് പരിചരണം നൽകുന്ന കേന്ദ്രം.</p>
-        <p><strong>ICT Center & Vadanappally Orphanage:</strong> അനാഥർക്കും അഗതികൾക്കുമുള്ള സംരക്ഷണ കേന്ദ്രങ്ങൾ.</p>
-    </div>
-
-    <a href="old-songs.html" class="btn-old-songs">SHOPS (Old Songs) - കൂടുതൽ ഷോപ്പുകൾ കാണാൻ</a>
-
-    <div class="slogan">YOUR PURCHASE SATISFIES A HUNGER</div>
 </div>
-
-</body>
-</html>
