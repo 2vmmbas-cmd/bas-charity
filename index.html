@@ -14,7 +14,6 @@
         .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
 
-        /* നീ നൽകിയ പുതിയ സന്ദേശത്തിനുള്ള സ്റ്റൈൽ */
         .dedication-msg { font-size: 16px; color: #fff; margin: 20px auto; line-height: 1.6; max-width: 90%; font-weight: 500; }
 
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
@@ -27,25 +26,24 @@
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
         .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 25px 0 15px 0; text-transform: uppercase; }
 
-        .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
-        .color-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; font-size: 32px; }
-        .color-icons a { text-decoration: none; transition: 0.3s; display: inline-block; }
-        
-        .fa-whatsapp { color: #25D366; } .fa-facebook { color: #1877F2; } .fa-instagram { color: #E4405F; }
-        .fa-telegram { color: #0088cc; } .fa-youtube { color: #FF0000; } .fa-linkedin { color: #0077B5; } .fa-twitter { color: #1DA1F2; }
-
-        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
-        .logo { width: 40px; height: 40px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
-        .info h3 { margin: 0; font-size: 15px; }
-
         .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1px dashed #FFD700; margin-bottom: 30px; }
         .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; box-sizing: border-box; }
         .btn-g { display: flex; gap: 8px; }
         .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
 
+        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
+        .logo { width: 40px; height: 40px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
+        .info h3 { margin: 0; font-size: 15px; }
+
+        .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
+        .color-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; font-size: 32px; }
+        .color-icons a { text-decoration: none; transition: 0.3s; }
+        .fa-whatsapp { color: #25D366; } .fa-facebook { color: #1877F2; } .fa-instagram { color: #E4405F; }
+        .fa-telegram { color: #0088cc; } .fa-youtube { color: #FF0000; } .fa-twitter { color: #1DA1F2; }
+
         .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
         .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; }
-        .small-note { font-size: 11px; color: #888; margin-top: 10px; display: block; }
+        .small-note { font-size: 11px; color: #888; margin-top: 10px; display: block; line-height: 1.4; }
     </style>
 </head>
 <body>
@@ -53,7 +51,7 @@
 <div class="header-box">
     <div id="logo-space"></div>
     <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
+        <div class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
         <div class="dedication-msg">
@@ -73,16 +71,16 @@
         </div>
 
         <div class="container">
-            <div class="section-header" id="comp-header">Compare Prices & Search</div>
+            <div class="section-header">Compare Prices & Search</div>
             <div class="comp-box">
-                <input type="text" id="pS" class="p-in" placeholder="Search product name...">
+                <input type="text" id="pS" class="p-in" placeholder="Search product...">
                 <div class="btn-g">
                     <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
                     <button onclick="q('fk')" class="b" style="background:#2874f0; color:white;">Flipkart</button>
                 </div>
             </div>
 
-            <div class="section-header" id="shop-header">Shop & Support</div>
+            <div class="section-header">Shop & Support</div>
             <div id="shop-list">
                 <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
                 <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
@@ -91,21 +89,15 @@
 
             <div class="share-box">
                 <div class="color-icons">
-                    <a href="https://wa.me/?text=Check%20out%20BAS%20Charity%3A%20https://bascharity.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/?text=https://bascharity.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://bascharity.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://t.me/share/url?url=https://bascharity.com" target="_blank"><i class="fab fa-telegram"></i></a>
-                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://twitter.com/intent/tweet?url=https://bascharity.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
 
             <div class="final-donation-box">
-                <div id="final-msg" class="transparency-msg">
-                    നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.
-                </div>
                 <button class="donation-btn">DONATE NOW</button>
-                <span id="trans-note" class="small-note">* നിങ്ങളുടെ സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ അഫിലിയേറ്റ് വരുമാനത്തിലൂടെ കണ്ടെത്തുന്നു.</span>
+                <span class="small-note">* നിങ്ങളുടെ സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ, ശമ്പളം, വിപുലീകരണം തുടങ്ങിയവ അഫിലിയേറ്റ് വരുമാനത്തിലൂടെ കണ്ടെത്തുന്നു.</span>
             </div>
         </div>
     </div>
@@ -113,9 +105,43 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // Earth and Moon Animation
     let scene, camera, renderer, earth, moon, moonPivot;
     function init() {
         const container = document.getElementById('logo-space');
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(50, container.clientWidth/
+        camera = new THREE.PerspectiveCamera(50, container.clientWidth/container.clientHeight, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+        const loader = new THREE.TextureLoader();
+        earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
+        }));
+        scene.add(earth);
+        moon = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), new THREE.MeshStandardMaterial({
+            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg')
+        }));
+        moonPivot = new THREE.Group();
+        moonPivot.add(moon);
+        moon.position.set(4.5, 0, 0); 
+        scene.add(moonPivot);
+        scene.add(new THREE.AmbientLight(0xffffff, 1.3));
+        camera.position.z = 10;
+        animate();
+    }
+    function animate() {
+        requestAnimationFrame(animate);
+        earth.rotation.y += 0.005;
+        moonPivot.rotation.y += 0.008; 
+        renderer.render(scene, camera);
+    }
+    window.onload = init;
+    function q(p) {
+        var v = document.getElementById('pS').value;
+        if(!v) return;
+        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+    }
+</script>
+</body>
+</html>
