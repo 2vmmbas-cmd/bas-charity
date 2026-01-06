@@ -13,16 +13,6 @@
         .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
 
-        .dedication-message {
-            font-size: 14px; 
-            color: #FFD700; 
-            margin: 15px 20px 10px; 
-            font-weight: 500; 
-            line-height: 1.4; 
-            font-style: italic;
-            text-align: center;
-        }
-
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 10px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
@@ -66,10 +56,6 @@
     <div class="brand-heading">
         <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
-        
-        <div class="dedication-message">
-            ഈ ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവ്വീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് ലോകത്തിന് സമർപ്പിക്കുന്നു.
-        </div>
         
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
@@ -138,14 +124,14 @@
 
         if(lang === 'ml') {
             hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            iText.innerText = ""ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?"";
+            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
             cHead.innerText = "വില താരതമ്യം ചെയ്യുക";
             sHead.innerText = "ഷോപ്പ് & സപ്പോർട്ട്";
             shareT.innerText = "വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് പങ്കാളികളാകാം.";
             finalM.innerText = "നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ ഈ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.";
         } else {
             hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            iText.innerText = ""Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?"";
+            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?\"";
             cHead.innerText = "Compare Prices & Search";
             sHead.innerText = "Shop & Support";
             shareT.innerText = "Nothing to buy? No worries! Share this site and join our mission.";
