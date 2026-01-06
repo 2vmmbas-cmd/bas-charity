@@ -34,10 +34,14 @@
         .btn-g { display: flex; gap: 8px; }
         .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
 
+        /* Color Icons & Share Section */
         .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
         .share-text { font-size: 14px; color: #ccc; margin-bottom: 15px; line-height: 1.5; }
-        .share-btn { background: #25D366; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
-        .fa-whatsapp { color: white; font-size: 18px; }
+        .color-icons { display: flex; justify-content: center; gap: 20px; margin-top: 15px; font-size: 28px; }
+        .fa-whatsapp { color: #25D366; }
+        .fa-facebook { color: #1877F2; }
+        .fa-instagram { color: #E4405F; }
+        .fa-youtube { color: #FF0000; }
 
         .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
         .transparency-msg { font-size: 15px; color: #fff; margin-bottom: 20px; line-height: 1.6; font-weight: 500; }
@@ -89,9 +93,12 @@
                 <div id="share-text" class="share-text">
                     വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ഈ ചാരിറ്റിയിൽ പങ്കാളികളാകാം.
                 </div>
-                <a href="whatsapp://send?text=Check out this charity: https://bascharity.com" class="share-btn">
-                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
-                </a>
+                <div class="color-icons">
+                    <a href="whatsapp://send?text=Check out this charity: https://bascharity.com"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
 
             <div class="final-donation-box">
@@ -142,6 +149,7 @@
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
     }
 
+    /* Earth Animation Script */
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
