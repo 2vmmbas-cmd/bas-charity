@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
@@ -13,6 +12,16 @@
         
         .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
+
+        .dedication-message {
+            font-size: 14px; 
+            color: #FFD700; 
+            margin: 15px 20px 10px; 
+            font-weight: 500; 
+            line-height: 1.4; 
+            font-style: italic;
+            text-align: center;
+        }
 
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 10px; transition: 0.3s; }
@@ -26,6 +35,9 @@
         .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 25px 0 15px 0; text-transform: uppercase; }
         
         .shop-card { background: #1a1a1a; border-radius: 12px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
+        .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
+        .c-amz { border-left: 5px solid #FF9900; }
+        .c-fk { border-left: 5px solid #2874f0; }
         .logo { width: 40px; height: 40px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
         .info { text-align: left; flex: 1; }
         .info h3 { margin: 0; font-size: 15px; }
@@ -38,12 +50,12 @@
         /* Share & Donation Styling */
         .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
         .share-text { font-size: 14px; color: #ccc; margin-bottom: 15px; line-height: 1.5; }
-        .share-btn { background: #25D366; color: white; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
-        .share-btn i { font-size: 18px; }
+        .share-btn { background: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 13px; }
 
         .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
         .transparency-msg { font-size: 15px; color: #fff; margin-bottom: 20px; line-height: 1.6; font-weight: 500; }
-        .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; }
+        .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; transition: 0.3s; }
+        .donation-btn:hover { background: #fff; transform: translateY(-3px); }
         .small-note { font-size: 11px; color: #888; margin-top: 10px; display: block; text-align: center; }
     </style>
 </head>
@@ -55,11 +67,15 @@
         <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1>BAS CHARITY INTERNATIONAL</h1>
         
+        <div class="dedication-message">
+            ഈ ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവ്വീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് ലോകത്തിന് സമർപ്പിക്കുന്നു.
+        </div>
+        
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
             <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
             <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-            <button class="lang-btn" onclick="window.open('https://translate.google.com/translate?sl=auto&tl=en&u='+window.location.href, '_blank')">Other Languages</button>
+            <button class="lang-btn" onclick="window.open('https://online-languages.com', '_blank')">Online Languages</button>
         </div>
 
         <div class="impact-box">
@@ -80,27 +96,30 @@
 
             <div class="section-header" id="shop-header">Shop & Support</div>
             <div id="shop-list">
-                <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
-                <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
+                <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
+                <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
                 <a href="https://www.samsung.com/in/offer/online-shopping-offers/" target="_blank" class="shop-card"><img src="https://www.samsung.com/favicon.ico" class="logo"><div class="info"><h3>SAMSUNG</h3></div></a>
                 <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-card"><img src="https://www.myntra.com/favicon.ico" class="logo"><div class="info"><h3>MYNTRA</h3></div></a>
                 <a href="https://www.jiomart.com/" target="_blank" class="shop-card"><img src="https://www.jiomart.com/favicon.ico" class="logo"><div class="info"><h3>JIOMART</h3></div></a>
+                <a href="https://www.tatacliq.com/" target="_blank" class="shop-card"><img src="https://www.tatacliq.com/favicon.ico" class="logo"><div class="info"><h3>TATA CLIQ</h3></div></a>
+                <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-card"><img src="https://www.shopsy.in/favicon.ico" class="logo"><div class="info"><h3>SHOPSY</h3></div></a>
+                <a href="https://www.reliancedigital.in/" target="_blank" class="shop-card"><img src="https://www.reliancedigital.in/favicon.ico" class="logo"><div class="info"><h3>RELIANCE DIGITAL</h3></div></a>
+                <a href="https://www.croma.com/" target="_blank" class="shop-card"><img src="https://www.croma.com/favicon.ico" class="logo"><div class="info"><h3>CROMA</h3></div></a>
+                <a href="https://www.nykaa.com/" target="_blank" class="shop-card"><img src="https://www.nykaa.com/favicon.ico" class="logo"><div class="info"><h3>NYKAA</h3></div></a>
             </div>
 
             <div class="share-box">
                 <div id="share-text" class="share-text">
                     വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് മറ്റുള്ളവരിലേക്ക് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് ഈ ചാരിറ്റിയിൽ പങ്കാളികളാകാം.
                 </div>
-                <a href="whatsapp://send?text=Check out this charity: https://bascharity.com" class="share-btn">
-                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
-                </a>
+                <a href="whatsapp://send?text=Check out this charity: https://bascharity.com" class="share-btn">Share on WhatsApp</a>
             </div>
 
             <div class="final-donation-box">
                 <div id="final-msg" class="transparency-msg">
                     നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ ഈ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ അല്ലെങ്കിൽ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.
                 </div>
-                <button class="donation-btn" onclick="alert('Proceeding...')">DONATE NOW</button>
+                <button class="donation-btn" onclick="alert('Proceeding to Secure Donation Gateway...')">DONATE NOW</button>
                 <span id="trans-note" class="small-note">* നിങ്ങളുടെ സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ അഫിലിയേറ്റ് വരുമാനത്തിലൂടെ കണ്ടെത്തുന്നു.</span>
             </div>
         </div>
@@ -114,26 +133,23 @@
         const iText = document.getElementById('impact-text');
         const cHead = document.getElementById('comp-header');
         const sHead = document.getElementById('shop-header');
+        const shareT = document.getElementById('share-text');
         const finalM = document.getElementById('final-msg');
 
         if(lang === 'ml') {
             hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
+            iText.innerText = ""ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?"";
             cHead.innerText = "വില താരതമ്യം ചെയ്യുക";
             sHead.innerText = "ഷോപ്പ് & സപ്പോർട്ട്";
+            shareT.innerText = "വാങ്ങാൻ ഒന്നുമില്ലെങ്കിലും വിഷമിക്കേണ്ട, ഈ സൈറ്റ് ഷെയർ ചെയ്തുകൊണ്ടും നിങ്ങൾക്ക് പങ്കാളികളാകാം.";
             finalM.innerText = "നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ ഈ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.";
-        } else if(lang === 'hi') {
-            hText.innerText = "आपकी खरीदारी किसी की भूख मिटाती है";
-            iText.innerText = "\"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उन्हीं ऑफर्स के साथ, क्या होगा यदि आपकी एक खरीदारी किसी की भूख मिटा दे...?\"";
-            cHead.innerText = "कीमतों की तुलना करें";
-            sHead.innerText = "खरीदारी और सहायता";
-            finalM.innerText = "गरीबों को भोजन कराने के लिए दान करें।";
         } else {
             hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?\"";
+            iText.innerText = ""Without spending an extra penny, with the same price and the same offers, what if a single purchase satisfies someone's hunger...?"";
             cHead.innerText = "Compare Prices & Search";
             sHead.innerText = "Shop & Support";
-            finalM.innerText = "Donate for yourself or for your parents to provide food.";
+            shareT.innerText = "Nothing to buy? No worries! Share this site and join our mission.";
+            finalM.innerText = "Donate for yourself or for your parents to provide food and support poverty eradication programs.";
         }
     }
 
@@ -144,12 +160,15 @@
         if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
     }
 
+    // Globe Logic (Same as original)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 350);
     document.getElementById('logo-space').appendChild(renderer.domElement);
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 2);
+    pointLight.position.set(10, 10, 10); scene.add(pointLight);
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
     const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
@@ -166,8 +185,17 @@
     const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
     const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
     earthGroup.add(new THREE.Mesh(textGeo, textMat));
+    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+    scene.add(moon);
     camera.position.z = 8;
-    function animate() { requestAnimationFrame(animate); earthGroup.rotation.y += 0.005; renderer.render(scene, camera); }
+    let angle = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        earthGroup.rotation.y += 0.005; 
+        angle -= 0.015; 
+        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
+        renderer.render(scene, camera);
+    }
     animate();
 </script>
 
