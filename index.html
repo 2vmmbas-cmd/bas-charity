@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; min-height: 350px; }
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
         #logo-space { width: 100%; height: 350px; position: relative; }
         .brand-heading { text-align: center; margin-top: -30px; padding: 15px; position: relative; z-index: 10; }
         
         .hunger-message { font-size: 12px; letter-spacing: 3px; color: #FFD700; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
 
-        /* Dedication Message below Heading */
-        .dedication-msg { font-size: 15px; color: #fff; margin: 15px auto; line-height: 1.6; max-width: 90%; font-style: italic; opacity: 0.9; }
+        /* നീ നൽകിയ പുതിയ സന്ദേശത്തിനുള്ള സ്റ്റൈൽ */
+        .dedication-msg { font-size: 16px; color: #fff; margin: 20px auto; line-height: 1.6; max-width: 90%; font-weight: 500; }
 
         .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 10px; transition: 0.3s; }
@@ -29,14 +29,23 @@
 
         .share-box { background: #111; padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid #333; }
         .color-icons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; font-size: 32px; }
-        .color-icons a { text-decoration: none; transition: 0.3s; }
-        .fa-whatsapp { color: #25D366; } .fa-facebook { color: #1877F2; } .fa-telegram { color: #0088cc; } .fa-twitter { color: #1DA1F2; }
+        .color-icons a { text-decoration: none; transition: 0.3s; display: inline-block; }
+        
+        .fa-whatsapp { color: #25D366; } .fa-facebook { color: #1877F2; } .fa-instagram { color: #E4405F; }
+        .fa-telegram { color: #0088cc; } .fa-youtube { color: #FF0000; } .fa-linkedin { color: #0077B5; } .fa-twitter { color: #1DA1F2; }
 
-        .transparency-section { margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.05); border-radius: 15px; border: 1px solid #333; }
-        .trans-main { font-size: 16px; color: #FFD700; font-weight: bold; margin-bottom: 10px; display: block; }
-        .trans-detail { font-size: 13px; color: #bbb; line-height: 1.6; }
+        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 10px; margin-bottom: 10px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
+        .logo { width: 40px; height: 40px; border-radius: 8px; margin-right: 15px; background: #fff; object-fit: contain; }
+        .info h3 { margin: 0; font-size: 15px; }
 
-        .donation-btn { background: #FFD700; color: #000; padding: 18px 40px; border-radius: 35px; border: none; font-weight: 900; font-size: 20px; cursor: pointer; width: 100%; margin-top: 20px; }
+        .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1px dashed #FFD700; margin-bottom: 30px; }
+        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; box-sizing: border-box; }
+        .btn-g { display: flex; gap: 8px; }
+        .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
+
+        .final-donation-box { margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.03); border-radius: 15px; }
+        .donation-btn { background: #FFD700; color: #000; padding: 15px 40px; border-radius: 30px; border: none; font-weight: 900; font-size: 18px; cursor: pointer; width: 100%; }
+        .small-note { font-size: 11px; color: #888; margin-top: 10px; display: block; }
     </style>
 </head>
 <body>
@@ -50,7 +59,7 @@
         <div class="dedication-msg">
             ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവ്വികരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് ലോകത്തിന് സമർപ്പിക്കുന്നു.
         </div>
-
+        
         <div class="lang-container">
             <button class="lang-btn" onclick="updateLang('en')">English</button>
             <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
@@ -59,26 +68,44 @@
 
         <div class="impact-box">
             <div id="impact-text">
-                "ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?"
+                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
             </div>
         </div>
 
         <div class="container">
-            <div class="share-box">
-                <div class="color-icons">
-                    <a href="https://api.whatsapp.com/send?text=Check%20out%20BAS%20Charity%20International:%20https://bascharity.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://bascharity.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://t.me/share/url?url=https://bascharity.com&text=Check%20out%20BAS%20Charity" target="_blank"><i class="fab fa-telegram"></i></a>
-                    <a href="https://twitter.com/intent/tweet?url=https://bascharity.com&text=Check%20out%20BAS%20Charity" target="_blank"><i class="fab fa-twitter"></i></a>
+            <div class="section-header" id="comp-header">Compare Prices & Search</div>
+            <div class="comp-box">
+                <input type="text" id="pS" class="p-in" placeholder="Search product name...">
+                <div class="btn-g">
+                    <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
+                    <button onclick="q('fk')" class="b" style="background:#2874f0; color:white;">Flipkart</button>
                 </div>
             </div>
 
-            <div class="transparency-section">
-                <span class="trans-main">100% of your donation reaches the beneficiary.</span>
-                <p class="trans-detail">
-                    പ്ലാറ്റ്‌ഫോം ചാർജുകൾ, ശമ്പളം, വിപുലീകരണം, പരിപാലനം തുടങ്ങിയ എല്ലാ ചിലവുകളും ഷോപ്പ് ലിങ്കുകളിൽ നിന്നുള്ള അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനം വഴി കണ്ടെത്തുന്നു.
-                </p>
+            <div class="section-header" id="shop-header">Shop & Support</div>
+            <div id="shop-list">
+                <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
+                <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
+                <a href="https://www.samsung.com/in/offer/online-shopping-offers/" target="_blank" class="shop-card"><img src="https://www.samsung.com/favicon.ico" class="logo"><div class="info"><h3>SAMSUNG</h3></div></a>
+            </div>
+
+            <div class="share-box">
+                <div class="color-icons">
+                    <a href="https://wa.me/?text=Check%20out%20BAS%20Charity%3A%20https://bascharity.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://bascharity.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/share/url?url=https://bascharity.com" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url=https://bascharity.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="final-donation-box">
+                <div id="final-msg" class="transparency-msg">
+                    നിങ്ങൾക്ക് വേണ്ടിയോ നിങ്ങളുടെ മാതാപിതാക്കൾക്ക് വേണ്ടിയോ പാവപ്പെട്ടവർക്ക് അന്നം നൽകാനോ മറ്റ് ദാരിദ്ര്യ നിർമ്മാർജ്ജന പരിപാടികൾക്കോ വേണ്ടി ഡൊണേറ്റ് ചെയ്യാം.
+                </div>
                 <button class="donation-btn">DONATE NOW</button>
+                <span id="trans-note" class="small-note">* നിങ്ങളുടെ സഹായത്തിന്റെ 100% ഗുണഭോക്താവിൽ എത്തുന്നു. പ്ലാറ്റ്‌ഫോം ചിലവുകൾ അഫിലിയേറ്റ് വരുമാനത്തിലൂടെ കണ്ടെത്തുന്നു.</span>
             </div>
         </div>
     </div>
@@ -86,45 +113,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+    // Earth and Moon Animation
     let scene, camera, renderer, earth, moon, moonPivot;
     function init() {
         const container = document.getElementById('logo-space');
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(50, container.clientWidth/container.clientHeight, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
-        
-        const loader = new THREE.TextureLoader();
-        
-        // Earth
-        earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
-        }));
-        scene.add(earth);
-
-        // Moon
-        moon = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg')
-        }));
-        
-        moonPivot = new THREE.Group();
-        moonPivot.add(moon);
-        moon.position.set(4.5, 0, 0); 
-        scene.add(moonPivot);
-
-        scene.add(new THREE.AmbientLight(0xffffff, 1.3));
-        camera.position.z = 10;
-        animate();
-    }
-    function animate() {
-        requestAnimationFrame(animate);
-        earth.rotation.y += 0.005;
-        moonPivot.rotation.y += 0.008; 
-        moon.rotation.y += 0.01;
-        renderer.render(scene, camera);
-    }
-    window.onload = init;
-</script>
-</body>
-</html>
+        camera = new THREE.PerspectiveCamera(50, container.clientWidth/
