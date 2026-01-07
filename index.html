@@ -1,58 +1,47 @@
  <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-
-<!-- Prevent site name translation -->
-<meta name="google" content="notranslate">
-
-<title class="notranslate">BAS Charity</title>
-
-<style>
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial, sans-serif;
-}
-
-.lang-box{
-    text-align:center;
-    margin:20px 0;
-}
-
-button{
-    padding:10px 18px;
-    margin:5px;
-    border:none;
-    border-radius:20px;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.en{ background:#007BFF; color:#fff; }
-.hi{ background:#FF9933; color:#000; }
-.ml{ background:#00C853; color:#fff; }
-.all{ background:#FFD700; color:#000; }
-
-#google_translate_element{
-    display:none;
-    text-align:center;
-    margin-top:10px;
-}
-
-/* Hide Google top bar and branding UI */
-.goog-te-banner-frame,
-.goog-logo-link,
-.goog-te-gadget{
-    display:none !important;
-}
-body{ top:0 !important; }
-</style>
+<title>BAS Charity</title>
 </head>
 
-<body>
+<body style="text-align:center; font-family:Arial; margin-top:50px;">
 
 <!-- LANGUAGE BUTTONS -->
-<div class="lang-box">
-    <button class="
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('hi')">Hindi</button>
+<button onclick="setLang('ml')">Malayalam</button>
+
+<hr>
+
+<!-- CONTENT -->
+<h1 id="title">Welcome</h1>
+<p id="text1">This is a sample text</p>
+<p id="text2">Language will change on button click</p>
+
+<script>
+function setLang(lang){
+
+  if(lang === "en"){
+    document.getElementById("title").innerText = "Welcome";
+    document.getElementById("text1").innerText = "This is a sample text";
+    document.getElementById("text2").innerText = "Language will change on button click";
+  }
+
+  if(lang === "hi"){
+    document.getElementById("title").innerText = "स्वागत है";
+    document.getElementById("text1").innerText = "यह एक उदाहरण पाठ है";
+    document.getElementById("text2").innerText = "बटन क्लिक करने पर भाषा बदलती है";
+  }
+
+  if(lang === "ml"){
+    document.getElementById("title").innerText = "സ്വാഗതം";
+    document.getElementById("text1").innerText = "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
+    document.getElementById("text2").innerText = "ബട്ടൺ അമർത്തുമ്പോൾ ഭാഷ മാറും";
+  }
+
+}
+</script>
+
+</body>
+</html>
