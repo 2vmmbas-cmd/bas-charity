@@ -9,35 +9,31 @@
         #logo-space { width: 100%; height: 350px; }
         .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
         
-        /* സമർപ്പണ സന്ദേശം - Dark Sky Blue */
-        .dedication-box { margin: 15px auto; max-width: 90%; }
-        #dedication-text { font-style: italic; font-weight: bold; color: #00BFFF; font-size: 19px; line-height: 1.6; }
+        /* സമർപ്പണ സന്ദേശം - Perfect Matching Blue */
+        .dedication-box { margin: 10px auto; max-width: 85%; }
+        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 15px; line-height: 1.5; letter-spacing: 0.5px; }
 
-        .lang-container { margin: 20px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
-        .lang-btn:hover { border-color: #00BFFF; color: #00BFFF; }
+        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
+        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
-        .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 25px 0 15px 0; text-transform: uppercase; }
         
-        /* Search Box */
-        .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1px dashed #FFD700; margin-bottom: 20px; }
-        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; }
-        .btn-g { display: flex; gap: 8px; }
-        .b { flex: 1; padding: 10px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; color: white; }
+        /* Impact Box - Golden Style */
+        .impact-box { margin: 25px auto; background: rgba(255, 215, 0, 0.05); border: 1px dashed #FFD700; padding: 20px; border-radius: 12px; }
+        #impact-text { font-size: 16px; color: #FFD700; line-height: 1.7; font-weight: 500; font-style: italic; }
 
-        /* Shopping Cards - Old Style */
+        .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 20px 0 15px 0; text-transform: uppercase; }
+        
+        /* Shopping Cards */
         #shop-list { display: flex; flex-direction: column; gap: 10px; }
         .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
-        .shop-card:hover { transform: scale(1.02); border-color: #00BFFF; }
+        .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
         .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 2px; }
-        .info h3 { margin: 0; font-size: 16px; letter-spacing: 1px; }
-
-        /* Brand Colors */
+        
+        /* Brand Left Borders */
         .c-amz { border-left: 5px solid #FF9900; }
         .c-fk { border-left: 5px solid #2874f0; }
-        .c-sm { border-left: 5px solid #1428a0; }
-        .c-mt { border-left: 5px solid #ff3f6c; }
     </style>
 </head>
 <body>
@@ -55,16 +51,13 @@
         <button class="lang-btn" onclick="updateLang('en')">English</button>
         <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
         <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-        <button class="lang-btn" onclick="window.open('https://online-languages.com', '_blank')">Other Languages</button>
+        <button class="lang-btn" onclick="window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank')">Other Languages</button>
     </div>
 
     <div class="container">
-        <div class="section-header">Compare Prices & Search</div>
-        <div class="comp-box">
-            <input type="text" id="pS" class="p-in" placeholder="Search product name...">
-            <div class="btn-g">
-                <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
-                <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
+        <div class="impact-box" id="ID-2-DEDICATION-SECTION">
+            <div id="impact-text">
+                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
             </div>
         </div>
 
@@ -72,36 +65,28 @@
         <div id="shop-list">
             <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
             <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
-            <a href="https://www.samsung.com/in/" target="_blank" class="shop-card c-sm"><img src="https://www.samsung.com/favicon.ico" class="logo"><div class="info"><h3>SAMSUNG</h3></div></a>
-            <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-card c-mt"><img src="https://www.myntra.com/favicon.ico" class="logo"><div class="info"><h3>MYNTRA</h3></div></a>
-            <a href="https://www.jiomart.com/" target="_blank" class="shop-card"><img src="https://www.jiomart.com/favicon.ico" class="logo"><div class="info"><h3>JIOMART</h3></div></a>
-            <a href="https://www.tatacliq.com/" target="_blank" class="shop-card"><img src="https://www.tatacliq.com/favicon.ico" class="logo"><div class="info"><h3>TATA CLIQ</h3></div></a>
-            <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-card"><img src="https://www.shopsy.in/favicon.ico" class="logo"><div class="info"><h3>SHOPSY</h3></div></a>
-            <a href="https://www.reliancedigital.in/" target="_blank" class="shop-card"><img src="https://www.reliancedigital.in/favicon.ico" class="logo"><div class="info"><h3>RELIANCE DIGITAL</h3></div></a>
-            <a href="https://www.croma.com/" target="_blank" class="shop-card"><img src="https://www.croma.com/favicon.ico" class="logo"><div class="info"><h3>CROMA</h3></div></a>
-            <a href="https://www.nykaa.com/" target="_blank" class="shop-card"><img src="https://www.nykaa.com/favicon.ico" class="logo"><div class="info"><h3>NYKAA</h3></div></a>
-        </div>
+            </div>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // ലാംഗ്വേജ് മാറ്റം
     function updateLang(l) {
         const d = document.getElementById('dedication-text');
-        if(l==='ml') d.innerText = '"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."';
-        else if(l==='hi') d.innerText = '"दुनिया के हम सभी के माता-पिता और उनके पूर्वजों की पवित्र स्मृति के लिए समर्पित।"';
-        else d.innerText = '"Dedicated to the sacred memory of our parents and ancestors across the world."';
+        const i = document.getElementById('impact-text');
+        if(l==='ml') {
+            d.innerText = '"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."';
+            i.innerText = '"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിലും അതേ ഓഫറിലും നിങ്ങൾ നടത്തുന്ന ഒരു ചെറിയ വാങ്ങൽ ലോകത്തിന്റെ ഏതോ കോണിലുള്ള ഒരാളുടെ വിശപ്പടക്കിയാലോ...?"';
+        } else if(l==='hi') {
+            d.innerText = '"दुनिया के हम सभी के माता-पिता और उनके पूर्वजों की पवित्र स्मृति के लिए समर्पित।"';
+            i.innerText = '"बिना एक अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफ़र के साथ, क्या आपकी एक खरीदारी किसी की भूख मिटा सकती है...?"';
+        } else {
+            d.innerText = '"Dedicated to the sacred memory of our parents and ancestors across the world."';
+            i.innerText = '"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make satisfies someone\'s hunger...?"';
+        }
     }
 
-    function q(p) {
-        var v = document.getElementById('pS').value;
-        if(!v) return;
-        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
-        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
-    }
-
-    // Three.js Animation (Earth & Moon)
+    // Three.js Animation (ഭൂമിയും ചന്ദ്രനും BAS ഉം ഇവിടെ ഉണ്ടാകും)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
