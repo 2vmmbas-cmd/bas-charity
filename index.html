@@ -1,43 +1,47 @@
-<style>
+ <style>
     .lang-section {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 15px;
-        margin: 30px 0;
+        margin: 40px 0;
     }
     
     .btn-premium {
         background: transparent;
-        color: #FFD700;
-        border: 2px solid #FFD700;
-        padding: 10px 25px;
+        padding: 12px 30px;
         cursor: pointer;
-        border-radius: 30px;
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 1.2px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: 1px;
         text-transform: uppercase;
-        transition: all 0.4s ease;
-        min-width: 120px;
+        transition: all 0.3s ease;
+        border: 2px solid;
     }
 
-    .btn-premium.active {
-        background: #FFD700;
-        color: #000;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    }
+    /* ഓരോ ഭാഷയ്ക്കും ഓരോ കളർ */
+    .en-btn { color: #E0E0E0; border-color: #E0E0E0; }
+    .hi-btn { color: #FF9933; border-color: #FF9933; }
+    .ml-btn { color: #00FF41; border-color: #00FF41; }
+    .ot-btn { color: #FFD700; border-color: #FFD700; }
+
+    /* ആക്റ്റീവ് ആകുമ്പോൾ ഉള്ള ലുക്ക് */
+    .en-btn:hover, .en-btn.active { background: #E0E0E0; color: #000; box-shadow: 0 0 20px #E0E0E0; }
+    .hi-btn:hover, .hi-btn.active { background: #FF9933; color: #000; box-shadow: 0 0 20px #FF9933; }
+    .ml-btn:hover, .ml-btn.active { background: #00FF41; color: #000; box-shadow: 0 0 20px #00FF41; }
+    .ot-btn:hover, .ot-btn.active { background: #FFD700; color: #000; box-shadow: 0 0 20px #FFD700; }
 </style>
 
 <div class="lang-section">
-    <button class="btn-premium active" onclick="updateLang('en', this)">English</button>
-    <button class="btn-premium" onclick="updateLang('hi', this)">Hindi</button>
-    <button class="btn-premium" onclick="updateLang('ml', this)">മലയാളം</button>
-    <button class="btn-premium" onclick="updateLang('all', this)">All Other Languages</button>
+    <button class="btn-premium en-btn active" onclick="updateLang('en', this)">English</button>
+    <button class="btn-premium hi-btn" onclick="updateLang('hi', this)">Hindi</button>
+    <button class="btn-premium ml-btn" onclick="updateLang('ml', this)">മലയാളം</button>
+    <button class="btn-premium ot-btn" onclick="updateLang('all', this)">All Other Languages</button>
 </div>
 
-<div style="text-align: center; color: white; margin-top: 20px; font-size: 24px; font-weight: bold;">
-    <div id="test-display">TEXT FOR TEST</div>
+<div style="text-align: center; color: white; margin-top: 30px;">
+    <h2 id="test-view" style="font-family: sans-serif; letter-spacing: 2px;">TEXT FOR TEST</h2>
 </div>
 
 <script>
@@ -45,8 +49,9 @@
         document.querySelectorAll('.btn-premium').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        const display = document.getElementById('test-display');
+        const display = document.getElementById('test-view');
 
+        // ഭാഷാപരമായ മാറ്റം ഇവിടെ നടക്കുന്നു
         if (lang === 'ml') {
             display.innerText = "TEXT FOR TEST (ML)";
         } else if (lang === 'hi') {
@@ -58,4 +63,3 @@
         }
     }
 </script>
- 
