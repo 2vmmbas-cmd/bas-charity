@@ -20,17 +20,17 @@
         border: 2px solid;
     }
 
-    /* സൂപ്പർ കളറുകൾ */
-    .en-btn { color: #E0E0E0; border-color: #E0E0E0; }
-    .hi-btn { color: #FF9933; border-color: #FF9933; }
-    .ml-btn { color: #00FF41; border-color: #00FF41; }
-    .ot-btn { color: #FFD700; border-color: #FFD700; }
+    /* ബട്ടൺ കളറുകൾ */
+    .en-btn { color: #007BFF; border-color: #007BFF; } /* English - Blue */
+    .hi-btn { color: #FF9933; border-color: #FF9933; } /* Hindi - Orange */
+    .ml-btn { color: #00FF41; border-color: #00FF41; } /* മലയാളം - Green */
+    .ot-btn { color: #FFD700; border-color: #FFD700; } /* Other - Gold */
 
-    /* ആക്റ്റീവ് ആകുമ്പോൾ ഉള്ള തിളക്കം */
-    .en-btn:hover, .en-btn.active { background: #E0E0E0; color: #000; box-shadow: 0 0 20px #E0E0E0; }
-    .hi-btn:hover, .hi-btn.active { background: #FF9933; color: #000; box-shadow: 0 0 20px #FF9933; }
-    .ml-btn:hover, .ml-btn.active { background: #00FF41; color: #000; box-shadow: 0 0 20px #00FF41; }
-    .ot-btn:hover, .ot-btn.active { background: #FFD700; color: #000; box-shadow: 0 0 20px #FFD700; }
+    /* Active ബട്ടൺ ആകുമ്പോൾ */
+    .en-btn.active { background: #007BFF; color: #fff; box-shadow: 0 0 15px #007BFF; }
+    .hi-btn.active { background: #FF9933; color: #000; box-shadow: 0 0 15px #FF9933; }
+    .ml-btn.active { background: #00FF41; color: #000; box-shadow: 0 0 15px #00FF41; }
+    .ot-btn.active { background: #FFD700; color: #000; box-shadow: 0 0 15px #FFD700; }
 </style>
 
 <div class="lang-section">
@@ -40,30 +40,29 @@
     <button class="btn-premium ot-btn" onclick="updateLang('all', this)">All Other Languages</button>
 </div>
 
-<div style="text-align: center; margin-top: 30px; min-height: 50px;">
-    <h2 id="test-view" style="color: white; font-family: sans-serif; display: block;">TEXT FOR TEST (EN)</h2>
+<div style="text-align: center; margin-top: 40px;">
+    <h1 id="test-view" style="color: #8A2BE2; font-family: 'Arial Black', sans-serif; font-size: 40px; text-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
+        TEXT FOR TEST (EN)
+    </h1>
 </div>
 
 <script>
     function updateLang(lang, btn) {
-        // എല്ലാ ബട്ടണുകളിൽ നിന്നും ആക്റ്റീവ് ക്ലാസ് ഒഴിവാക്കുന്നു
         var buttons = document.getElementsByClassName('btn-premium');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove('active');
         }
-        // ക്ലിക്ക് ചെയ്ത ബട്ടൺ ആക്റ്റീവ് ആക്കുന്നു
         btn.classList.add('active');
 
-        // ടെക്സ്റ്റ് മാറ്റുന്നു
         var display = document.getElementById('test-view');
         if (lang === 'ml') {
-            display.innerHTML = "TEXT FOR TEST (ML)";
+            display.innerText = "TEXT FOR TEST (ML)";
         } else if (lang === 'hi') {
-            display.innerHTML = "TEXT FOR TEST (HI)";
+            display.innerText = "TEXT FOR TEST (HI)";
         } else if (lang === 'all') {
-            display.innerHTML = "TEXT FOR TEST (ALL)";
+            display.innerText = "TEXT FOR TEST (ALL)";
         } else {
-            display.innerHTML = "TEXT FOR TEST (EN)";
+            display.innerText = "TEXT FOR TEST (EN)";
         }
     }
 </script>
