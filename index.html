@@ -1,24 +1,35 @@
  <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Language Switch</title>
+
+<!-- Prevent site name translation -->
+<meta name="google" content="notranslate">
+
+<title class="notranslate">BAS Charity</title>
 
 <style>
-body{ margin:0; padding:0; font-family:Arial; }
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
 
 .lang-box{
     text-align:center;
     margin:20px 0;
 }
+
 button{
-    padding:10px 20px;
+    padding:10px 18px;
     margin:5px;
     border:none;
     border-radius:20px;
     font-weight:bold;
     cursor:pointer;
+    font-size:14px;
 }
+
 .en{ background:#007BFF; color:#fff; }
 .hi{ background:#FF9933; color:#000; }
 .ml{ background:#00C853; color:#fff; }
@@ -30,10 +41,10 @@ button{
     margin-top:10px;
 }
 
-/* hide google top bar */
-.goog-te-banner-frame.skiptranslate,
+/* Hide Google top bar and branding UI */
+.goog-te-banner-frame,
 .goog-logo-link,
-.goog-te-gadget span{
+.goog-te-gadget{
     display:none !important;
 }
 body{ top:0 !important; }
@@ -42,41 +53,6 @@ body{ top:0 !important; }
 
 <body>
 
-<!-- BUTTONS -->
+<!-- LANGUAGE BUTTONS -->
 <div class="lang-box">
-    <button class="en" onclick="setLang('en')">English</button>
-    <button class="hi" onclick="setLang('hi')">Hindi</button>
-    <button class="ml" onclick="setLang('ml')">Malayalam</button>
-    <button class="all" onclick="showAll()">All Languages</button>
-</div>
-
-<!-- GOOGLE DROPDOWN -->
-<div id="google_translate_element"></div>
-
-<hr>
-
-<!-- CONTENT -->
-<h1>Welcome</h1>
-<p>This is a sample text</p>
-<p>All texts will change language</p>
-
-<script>
-function googleTranslateElementInit(){
-    new google.translate.TranslateElement({
-        pageLanguage:'en',
-        autoDisplay:false
-    }, 'google_translate_element');
-}
-
-function setLang(lang){
-    const sel = document.querySelector(".goog-te-combo");
-    if(sel){
-        sel.value = lang;
-        sel.dispatchEvent(new Event("change"));
-    }
-}
-
-function showAll(){
-    const box = document.getElementById("google_translate_element");
-    box.style.display = "block";
-    const sel
+    <button class="
