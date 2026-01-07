@@ -1,62 +1,61 @@
- <style>
-    .lang-bar {
+<style>
+    .lang-section {
         display: flex;
         justify-content: center;
-        gap: 12px;
-        margin: 25px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 30px 0;
     }
     
-    .btn-lang {
-        background: none;
+    .btn-premium {
+        background: transparent;
         color: #FFD700;
-        border: 1px solid #FFD700;
-        padding: 8px 16px;
+        border: 2px solid #FFD700;
+        padding: 10px 25px;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 30px;
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        transition: all 0.4s ease;
+        min-width: 120px;
     }
 
-    .btn-lang.active {
+    .btn-premium.active {
         background: #FFD700;
         color: #000;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     }
 </style>
 
-<div class="lang-bar">
-    <button class="btn-lang active" onclick="updateLang('en', this)">English</button>
-    <button class="btn-lang" onclick="updateLang('hi', this)">Hindi</button>
-    <button class="btn-lang" onclick="updateLang('ml', this)">മലയാളം</button>
-    <button class="btn-lang" onclick="updateLang('ot', this)">Other</button>
+<div class="lang-section">
+    <button class="btn-premium active" onclick="updateLang('en', this)">English</button>
+    <button class="btn-premium" onclick="updateLang('hi', this)">Hindi</button>
+    <button class="btn-premium" onclick="updateLang('ml', this)">മലയാളം</button>
+    <button class="btn-premium" onclick="updateLang('all', this)">All Other Languages</button>
 </div>
 
-<div style="text-align: center; margin-top: 20px;">
-    <h3 id="hunger-text">YOUR PURCHASE SATISFIES A HUNGER</h3>
-    <p id="dedication-text">"Dedicated to the sacred memory..."</p>
+<div style="text-align: center; color: white; margin-top: 20px; font-size: 24px; font-weight: bold;">
+    <div id="test-display">TEXT FOR TEST</div>
 </div>
 
 <script>
     function updateLang(lang, btn) {
-        // ബട്ടൺ ആക്റ്റീവ് ആക്കുന്നു
-        document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.btn-premium').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        const hText = document.getElementById('hunger-text');
-        const dText = document.getElementById('dedication-text');
+        const display = document.getElementById('test-display');
 
         if (lang === 'ml') {
-            hText.innerText = "നിങ്ങളുടെ ഓരോ പർച്ചേസും വിശപ്പകറ്റുന്നു";
-            dText.innerText = '"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പാവനമായ ഓർമ്മയ്ക്കായി സമർപ്പിക്കുന്നു."';
+            display.innerText = "TEXT FOR TEST (ML)";
         } else if (lang === 'hi') {
-            hText.innerText = "आपकी खरीद भूख मिटाती है";
-            dText.innerText = '"यह दुनिया में हम में से प्रत्येक के माता-पिता की पवित्र स्मृति को समर्पित है।"';
-        } else if (lang === 'ot') {
-            // നീ പറഞ്ഞ പോലെ ഇവിടെ "Text for Test" എന്ന് മാത്രം
-            hText.innerText = "Text for Test";
-            dText.innerText = "Text for Test";
+            display.innerText = "TEXT FOR TEST (HI)";
+        } else if (lang === 'all') {
+            display.innerText = "TEXT FOR TEST (ALL)";
         } else {
-            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            dText.innerText = '"Dedicated to the sacred memory..."';
+            display.innerText = "TEXT FOR TEST (EN)";
         }
     }
 </script>
+ 
