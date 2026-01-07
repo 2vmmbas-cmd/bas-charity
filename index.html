@@ -5,71 +5,47 @@
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; text-align: center; }
-        #logo-space { width: 100%; height: 350px; }
-        .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
-        
-        /* സമർപ്പണ സന്ദേശം - Sky Blue */
-        .dedication-box { margin: 8px auto; max-width: 85%; }
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; text-align: center; overflow-x: hidden; }
+        #logo-space { width: 100%; height: 350px; position: relative; }
+        .brand-heading h1 { font-size: clamp(25px, 6vw, 45px); letter-spacing: 3px; text-transform: uppercase; margin: 10px 0; font-weight: 900; }
+        .dedication-box { margin: 5px auto 15px; max-width: 85%; }
         #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; }
-
-        /* ഭാഷാ ബട്ടണുകൾ */
-        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; }
-
-        /* ഗൂഗിൾ ബാർ ഒളിക്കാൻ */
+        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 6px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; }
         #google_translate_element, .goog-te-banner-frame { display: none !important; }
         body { top: 0 !important; }
-
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
-        
-        /* Compare Price Box */
         .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1.5px dashed #FFD700; margin-bottom: 25px; }
         .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; outline: none; }
         .btn-g { display: flex; gap: 8px; }
         .b { flex: 1; padding: 12px; border-radius: 8px; border: none; font-weight: bold; color: white; cursor: pointer; }
-
-        /* Impact Box (ഷോപ്പിങ്ങിന് തൊട്ടുമുകളിൽ) */
         .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
         #impact-text { font-size: 15px; color: #FFD700; line-height: 1.7; font-weight: bold; font-style: italic; }
-
-        .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 20px 0 15px 0; text-transform: uppercase; }
-        
+        .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 20px 0 10px 0; text-transform: uppercase; }
         #shop-list { display: flex; flex-direction: column; gap: 10px; }
         .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
         .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 3px; }
-        
-        /* ബ്രാൻഡ് കളറുകൾ */
-        .c-amz { border-left: 5px solid #FF9900; }
-        .c-fk { border-left: 5px solid #2874f0; }
-        .c-sm { border-left: 5px solid #1428a0; }
-        .c-mt { border-left: 5px solid #ff3f6c; }
-        .c-jm { border-left: 5px solid #003873; }
-        .c-tc { border-left: 5px solid #da1c5c; }
-        .c-sh { border-left: 5px solid #ff4200; }
-        .c-rd { border-left: 5px solid #e42528; }
-        .c-cr { border-left: 5px solid #00e9bf; }
-        .c-ny { border-left: 5px solid #fc2779; }
+        .c-amz { border-left: 5px solid #FF9900; } .c-fk { border-left: 5px solid #2874f0; }
+        .c-sm { border-left: 5px solid #1428a0; } .c-mt { border-left: 5px solid #ff3f6c; }
+        .c-jm { border-left: 5px solid #003873; } .c-tc { border-left: 5px solid #da1c5c; }
+        .c-sh { border-left: 5px solid #ff4200; } .c-rd { border-left: 5px solid #e42528; }
+        .c-cr { border-left: 5px solid #00e9bf; } .c-ny { border-left: 5px solid #fc2779; }
     </style>
 </head>
 <body>
-
 <div id="google_translate_element"></div>
 <div id="logo-space"></div>
-
 <div class="brand-heading">
     <h1>BAS CHARITY INTERNATIONAL</h1>
     <div class="dedication-box">
         <p id="dedication-text">"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."</p>
     </div>
-    
     <div class="lang-container">
         <button class="lang-btn" onclick="translatePage('en')">English</button>
         <button class="lang-btn" onclick="translatePage('hi')">हिन्दी</button>
         <button class="lang-btn" onclick="translatePage('ml')">മലയാളം</button>
-        <button class="lang-btn" onclick="window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank')">Other Languages</button>
+        <button class="lang-btn" onclick="translatePage('ar')">Other</button>
     </div>
-
     <div class="container">
         <div class="section-header">Compare Prices & Search</div>
         <div class="comp-box">
@@ -79,13 +55,11 @@
                 <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
             </div>
         </div>
-
         <div class="impact-box">
             <div id="impact-text">
                 "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
             </div>
         </div>
-
         <div class="section-header">Shop & Support</div>
         <div id="shop-list">
             <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><h3>AMAZON</h3></a>
@@ -101,17 +75,11 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
     function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'ml', autoDisplay: false}, 'google_translate_element'); }
     function translatePage(lang) { var el = document.querySelector('.goog-te-combo'); if(el) { el.value = lang; el.dispatchEvent(new Event('change')); } }
-    function q(p) { 
-        var v = document.getElementById('pS').value; 
-        if(!v) return; 
-        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank'); 
-        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank'); 
-    }
+    function q(p) { var v = document.getElementById('pS').value; if(!v) return; if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank'); if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank'); }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -123,13 +91,27 @@
     const loader = new THREE.TextureLoader();
     const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') }));
     scene.add(earth);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
     const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
     scene.add(moon);
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', function(font) {
+        const textGeo = new THREE.TextGeometry('BAS', { font: font, size: 0.8, height: 0.2 });
+        const textMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const textMesh = new THREE.Mesh(textGeo, textMat);
+        scene.add(textMesh);
+        function animate() {
+            requestAnimationFrame(animate);
+            earth.rotation.y += 0.005;
+            let time = Date.now() * 0.001;
+            moon.position.x = Math.cos(time * 0.5) * 5; moon.position.z = Math.sin(time * 0.5) * 3;
+            textMesh.position.x = Math.cos(time) * 3.5; textMesh.position.z = Math.sin(time) * 3.5;
+            textMesh.lookAt(camera.position);
+            renderer.render(scene, camera);
+        }
+        animate();
+    });
     camera.position.z = 8;
-    let a = 0;
-    function animate() { requestAnimationFrame(animate); earth.rotation.y += 0.005; a -= 0.015; moon.position.x = Math.cos(a) * 5; moon.position.z = Math.sin(a) * 3; renderer.render(scene, camera); }
-    animate();
+    const light = new THREE.AmbientLight(0xffffff, 1.5); scene.add(light);
 </script>
 </body>
 </html>
