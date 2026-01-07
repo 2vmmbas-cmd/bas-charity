@@ -1,46 +1,80 @@
  <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>Language Switch</title>
+
+<style>
+.lang-box{
+    text-align:center;
+    margin-top:40px;
+}
+button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+}
+.en{ background:#007BFF; }
+.hi{ background:#FF9933; color:black; }
+.ml{ background:#00C853; }
+.all{ background:#FFD700; color:black; }
+</style>
+</head>
+
 <body>
 
-<!-- Language Buttons -->
-<button onclick="setLang('en')">English</button>
-<button onclick="setLang('hi')">Hindi</button>
-<button onclick="setLang('ml')">Malayalam</button>
+<div class="lang-box">
+    <button class="en" onclick="setLang('en')">English</button>
+    <button class="hi" onclick="setLang('hi')">Hindi</button>
+    <button class="ml" onclick="setLang('ml')">Malayalam</button>
+    <button class="all" onclick="setLang('all')">All Languages</button>
+</div>
 
 <hr>
 
-<!-- Texts (ALL will change) -->
 <h1 data-key="title"></h1>
 <p data-key="para1"></p>
 <p data-key="para2"></p>
 
 <script>
 const content = {
-    en: {
-        title: "Welcome",
-        para1: "This is a sample text",
-        para2: "All texts change together"
+    en:{
+        title:"Welcome",
+        para1:"This is a sample text",
+        para2:"All texts change together"
     },
-    hi: {
-        title: "स्वागत है",
-        para1: "यह एक उदाहरण पाठ है",
-        para2: "सभी टेक्स्ट एक साथ बदलते हैं"
+    hi:{
+        title:"स्वागत है",
+        para1:"यह एक उदाहरण पाठ है",
+        para2:"सभी टेक्स्ट एक साथ बदलते हैं"
     },
-    ml: {
-        title: "സ്വാഗതം",
-        para1: "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്",
-        para2: "എല്ലാ ടെക്സ്റ്റുകളും ഒരുമിച്ച് മാറും"
+    ml:{
+        title:"സ്വാഗതം",
+        para1:"ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്",
+        para2:"എല്ലാ ടെക്സ്റ്റുകളും ഒരുമിച്ച് മാറും"
     }
 };
 
 function setLang(lang){
     document.querySelectorAll("[data-key]").forEach(el=>{
-        const key = el.getAttribute("data-key");
-        el.innerText = content[lang][key];
+        const key = el.dataset.key;
+
+        if(lang === "all"){
+            el.innerHTML =
+                content.en[key] + "<br>" +
+                content.hi[key] + "<br>" +
+                content.ml[key];
+        }else{
+            el.innerText = content[lang][key];
+        }
     });
 }
 
-/* Default language */
+/* default */
 setLang("en");
 </script>
 
