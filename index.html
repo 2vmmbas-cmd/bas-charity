@@ -80,4 +80,67 @@
     <div class="section-header">Shop & Support</div>
     <div id="shop-list">
         <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><h3>AMAZON</h3></a>
-        <a href="
+        <a href="https://fktr.in/V5wq6Bc" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><h3>FLIPKART</h3></a>
+        <a href="https://www.samsung.com/in/" class="shop-card c-sm"><img src="https://www.samsung.com/favicon.ico" class="logo"><h3>SAMSUNG</h3></a>
+        <a href="https://myntr.it/CuqylqS" class="shop-card c-mt"><img src="https://www.myntra.com/favicon.ico" class="logo"><h3>MYNTRA</h3></a>
+        <a href="https://www.jiomart.com/" class="shop-card c-jm"><img src="https://www.jiomart.com/favicon.ico" class="logo"><h3>JIOMART</h3></a>
+        <a href="https://www.tatacliq.com/" class="shop-card c-tc"><img src="https://www.tatacliq.com/favicon.ico" class="logo"><h3>TATA CLIQ</h3></a>
+        <a href="https://bitli.in/03kNE3S" class="shop-card c-sh"><img src="https://www.shopsy.in/favicon.ico" class="logo"><h3>SHOPSY</h3></a>
+        <a href="https://www.reliancedigital.in/" class="shop-card c-rd"><img src="https://www.reliancedigital.in/favicon.ico" class="logo"><h3>RELIANCE DIGITAL</h3></a>
+        <a href="https://www.croma.com/" class="shop-card c-cr"><img src="https://www.croma.com/favicon.ico" class="logo"><h3>CROMA</h3></a>
+        <a href="https://www.nykaa.com/" class="shop-card c-ny"><img src="https://www.nykaa.com/favicon.ico" class="logo"><h3>NYKAA</h3></a>
+    </div>
+
+    <div id="dedication-text" class="dedication">
+        "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    function updateLang(lang) {
+        const hText = document.getElementById('hunger-text');
+        const dText = document.getElementById('dedication-text');
+        if(lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
+        } else if(lang === 'hi') {
+            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
+            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
+        }
+    }
+
+    function q(p) {
+        var v = document.getElementById('pS').value; if(!v) return;
+        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+    }
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, 380);
+    document.getElementById('logo-space').appendChild(renderer.domElement);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 2); pointLight.position.set(10, 10, 10); scene.add(pointLight);
+    const loader = new THREE.TextureLoader();
+    const earthGroup = new THREE.Group();
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'), metalness: 0.3, roughness: 0.7 }));
+    earthGroup.add(earth); scene.add(earthGroup);
+    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
+    canvas.width = 1024; canvas.height = 256;
+    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
+    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
+    const textTexture = new THREE.CanvasTexture(canvas);
+    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true), new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide }));
+    earthGroup.add(textMesh);
+    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+    scene.add(moon); camera.position.z = 8; let angle = 0;
+    function animate() { requestAnimationFrame(animate); earthGroup.rotation.y += 0.005; angle -= 0.015; moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; renderer.render(scene, camera); }
+    animate();
+</script>
+</body>
+</html>
