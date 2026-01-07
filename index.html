@@ -2,18 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Language Switch</title>
+<title>All Google Languages Button</title>
 
 <style>
 .lang-box{
     text-align:center;
-    margin-top:40px;
+    margin:40px 0;
 }
 button{
-    padding:10px 20px;
-    margin:5px;
+    padding:12px 22px;
+    margin:6px;
     border:none;
-    border-radius:20px;
+    border-radius:25px;
     font-weight:bold;
     cursor:pointer;
     color:white;
@@ -27,56 +27,52 @@ button{
 
 <body>
 
+<!-- LANGUAGE BUTTONS -->
 <div class="lang-box">
-    <button class="en" onclick="setLang('en')">English</button>
-    <button class="hi" onclick="setLang('hi')">Hindi</button>
-    <button class="ml" onclick="setLang('ml')">Malayalam</button>
-    <button class="all" onclick="setLang('all')">All Languages</button>
+    <button class="en" onclick="translatePage('en')">English</button>
+    <button class="hi" onclick="translatePage('hi')">Hindi</button>
+    <button class="ml" onclick="translatePage('ml')">Malayalam</button>
+    <button class="all" onclick="showAllLanguages()">All Languages</button>
 </div>
 
 <hr>
 
-<h1 data-key="title"></h1>
-<p data-key="para1"></p>
-<p data-key="para2"></p>
+<!-- SAMPLE CONTENT -->
+<h1>Welcome</h1>
+<p>This is a sample text</p>
+<p>All texts on this page will change language</p>
+
+<!-- GOOGLE TRANSLATE (HIDDEN) -->
+<div id="google_translate_element" style="display:none;"></div>
 
 <script>
-const content = {
-    en:{
-        title:"Welcome",
-        para1:"This is a sample text",
-        para2:"All texts change together"
-    },
-    hi:{
-        title:"स्वागत है",
-        para1:"यह एक उदाहरण पाठ है",
-        para2:"सभी टेक्स्ट एक साथ बदलते हैं"
-    },
-    ml:{
-        title:"സ്വാഗതം",
-        para1:"ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്",
-        para2:"എല്ലാ ടെക്സ്റ്റുകളും ഒരുമിച്ച് മാറും"
-    }
-};
-
-function setLang(lang){
-    document.querySelectorAll("[data-key]").forEach(el=>{
-        const key = el.dataset.key;
-
-        if(lang === "all"){
-            el.innerHTML =
-                content.en[key] + "<br>" +
-                content.hi[key] + "<br>" +
-                content.ml[key];
-        }else{
-            el.innerText = content[lang][key];
-        }
-    });
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
 }
 
-/* default */
-setLang("en");
+/* change language by button */
+function translatePage(lang){
+  const select = document.querySelector(".goog-te-combo");
+  if(select){
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  }
+}
+
+/* All Languages button */
+function showAllLanguages(){
+  const select = document.querySelector(".goog-te-combo");
+  if(select){
+    select.style.display = "inline-block";
+    select.focus();
+  }
+}
 </script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
