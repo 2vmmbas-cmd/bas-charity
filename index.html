@@ -1,121 +1,62 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
-        
-        /* ഗ്ലോബ് നിൽക്കുന്ന സ്ഥലം */
-        #logo-space { width: 100%; height: 380px; }
-
-        .brand-heading { text-align: center; margin-top: -35px; padding: 20px; }
-        
-        .hunger-message {
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: #FFD700; 
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        /* നിനക്ക് വേണ്ട ആ തടിച്ച അക്ഷരങ്ങൾ */
-        .brand-heading h1 { 
-            font-size: clamp(32px, 8.5vw, 60px); 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 950; 
-            -webkit-text-stroke: 1.5px white; /* അക്ഷരങ്ങൾക്ക് ചുറ്റുമുള്ള വെള്ള ബോർഡർ */
-            color: white;
-        }
-    </style>
-</head>
-<body>
-
-<div class="header-box">
-    <div id="logo-space"></div>
+ <style>
+    .lang-bar {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin: 25px 0;
+    }
     
-    <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-        <h1 class="notranslate">BAS CHARITY INTERNATIONAL</h1>
-    </div>
-</div> <div id="dedication-text" style="font-size: 14px; color: #bbb; font-style: italic; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding: 20px 15px; line-height: 1.6;">
-    "ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പാവനമായ ഓർമ്മയ്ക്കും നന്മയ്ക്കുമായി സമർപ്പിക്കുന്നു."
+    .btn-lang {
+        background: none;
+        color: #FFD700;
+        border: 1px solid #FFD700;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .btn-lang.active {
+        background: #FFD700;
+        color: #000;
+    }
+</style>
+
+<div class="lang-bar">
+    <button class="btn-lang active" onclick="updateLang('en', this)">English</button>
+    <button class="btn-lang" onclick="updateLang('hi', this)">Hindi</button>
+    <button class="btn-lang" onclick="updateLang('ml', this)">മലയാളം</button>
+    <button class="btn-lang" onclick="updateLang('ot', this)">Other</button>
 </div>
 
+<div style="text-align: center; margin-top: 20px;">
+    <h3 id="hunger-text">YOUR PURCHASE SATISFIES A HUNGER</h3>
+    <p id="dedication-text">"Dedicated to the sacred memory..."</p>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // --- ഗ്ലോബ്, ചന്ദ്രൻ, BAS കറങ്ങുന്ന ആനിമേഷൻ കോഡ് ---
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 380);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
+    function updateLang(lang, btn) {
+        // ബട്ടൺ ആക്റ്റീവ് ആക്കുന്നു
+        document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
+        const hText = document.getElementById('hunger-text');
+        const dText = document.getElementById('dedication-text');
 
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    
-    // ഭൂമി (Globe)
-    const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(2, 64, 64), 
-        new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
-        })
-    );
-    earthGroup.add(earth);
-    scene.add(earthGroup);
-
-    // BAS എന്ന് കറങ്ങുന്ന ടെക്സ്റ്റ്
-    const canvas = document.createElement('canvas'); 
-    const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; 
-    context.font = "Bold 140px Arial"; 
-    context.textAlign = "center";
-    context.fillText("BAS", 256, 160);
-    context.fillText("BAS", 768, 160);
-
-    const textTexture = new THREE.CanvasTexture(canvas);
-    const textMesh = new THREE.Mesh(
-        new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true),
-        new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide })
-    );
-    earthGroup.add(textMesh);
-
-    // ചന്ദ്രൻ (Moon)
-    const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 32, 32),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc })
-    );
-    scene.add(moon);
-
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
-        renderer.render(scene, camera);
+        if (lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ പർച്ചേസും വിശപ്പകറ്റുന്നു";
+            dText.innerText = '"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പാവനമായ ഓർമ്മയ്ക്കായി സമർപ്പിക്കുന്നു."';
+        } else if (lang === 'hi') {
+            hText.innerText = "आपकी खरीद भूख मिटाती है";
+            dText.innerText = '"यह दुनिया में हम में से प्रत्येक के माता-पिता की पवित्र स्मृति को समर्पित है।"';
+        } else if (lang === 'ot') {
+            // നീ പറഞ്ഞ പോലെ ഇവിടെ "Text for Test" എന്ന് മാത്രം
+            hText.innerText = "Text for Test";
+            dText.innerText = "Text for Test";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            dText.innerText = '"Dedicated to the sacred memory..."';
+        }
     }
-    animate();
-
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
-        camera.updateProjectionMatrix();
-    });
 </script>
-
-</body>
-</html>
