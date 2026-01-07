@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; text-align: center; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
         #logo-space { width: 100%; height: 380px; }
         .brand-heading { text-align: center; margin-top: -35px; padding: 20px; }
         
-        /* തടിച്ച അക്ഷരങ്ങളുള്ള പേര് */
         .brand-heading h1 { 
             font-size: clamp(32px, 8.5vw, 60px); 
             letter-spacing: 4px; 
@@ -31,34 +29,26 @@
         }
 
         .lang-container { margin: 20px 0; display: flex; gap: 10px; justify-content: center; }
-        .lang-btn { background: transparent; color: #fff; border: 1px solid #555; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #555; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 11px; }
 
-        /* കസ്റ്റം കണ്ടെയ്നർ */
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
-        
-        /* സെർച്ച് ബോക്സ് */
         .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1.5px dashed #FFD700; margin-bottom: 25px; }
         .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; outline: none; }
         .btn-g { display: flex; gap: 8px; }
         .b { flex: 1; padding: 12px; border-radius: 8px; border: none; font-weight: bold; color: white; cursor: pointer; }
 
-        /* ഷോപ്പിംഗ് ലിസ്റ്റ് */
         .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 25px 0 10px 0; text-transform: uppercase; }
         #shop-list { display: flex; flex-direction: column; gap: 10px; }
         .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
         .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 3px; }
         
         .c-amz { border-left: 5px solid #FF9900; } .c-fk { border-left: 5px solid #2874f0; }
+        .c-sm { border-left: 5px solid #1428a0; } .c-mt { border-left: 5px solid #ff3f6c; }
+        .c-jm { border-left: 5px solid #003873; } .c-tc { border-left: 5px solid #da1c5c; }
+        .c-sh { border-left: 5px solid #ff4200; } .c-rd { border-left: 5px solid #e42528; }
+        .c-cr { border-left: 5px solid #00e9bf; } .c-ny { border-left: 5px solid #fc2779; }
 
-        .dedication {
-            font-size: 14px;
-            color: #bbb;
-            font-style: italic;
-            margin-top: 20px;
-            border-top: 1px solid #333;
-            padding: 20px 15px;
-            line-height: 1.6;
-        }
+        .dedication { font-size: 14px; color: #bbb; font-style: italic; margin-top: 20px; border-top: 1px solid #333; padding: 20px 15px; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -80,7 +70,7 @@
 <div class="container">
     <div class="section-header">Compare Prices & Search</div>
     <div class="comp-box">
-        <input type="text" id="pS" class="p-in" placeholder="Search product...">
+        <input type="text" id="pS" class="p-in" placeholder="സെർച്ച് ചെയ്യൂ...">
         <div class="btn-g">
             <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
             <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
@@ -90,70 +80,4 @@
     <div class="section-header">Shop & Support</div>
     <div id="shop-list">
         <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><h3>AMAZON</h3></a>
-        <a href="https://fktr.in/V5wq6Bc" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><h3>FLIPKART</h3></a>
-        <a href="https://www.samsung.com/in/" class="shop-card"><img src="https://www.samsung.com/favicon.ico" class="logo"><h3>SAMSUNG</h3></a>
-        <a href="https://myntr.it/CuqylqS" class="shop-card"><img src="https://www.myntra.com/favicon.ico" class="logo"><h3>MYNTRA</h3></a>
-        <a href="https://www.jiomart.com/" class="shop-card"><img src="https://www.jiomart.com/favicon.ico" class="logo"><h3>JIOMART</h3></a>
-    </div>
-
-    <div id="dedication-text" class="dedication">
-        "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    function updateLang(lang) {
-        const hText = document.getElementById('hunger-text');
-        const dText = document.getElementById('dedication-text');
-        if(lang === 'ml') {
-            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
-        } else if(lang === 'hi') {
-            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
-            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
-        } else {
-            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
-        }
-    }
-
-    function q(p) {
-        var v = document.getElementById('pS').value;
-        if(!v) return;
-        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
-        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
-    }
-
-    // --- ഗ്ലോബ് ആനിമേഷൻ (നീ തന്ന അതേ കോഡ്) ---
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 380);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
-
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'), metalness: 0.3, roughness: 0.7 }));
-    earthGroup.add(earth); scene.add(earthGroup);
-
-    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
-    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
-
-    const textTexture = new THREE.CanvasTexture(canvas);
-    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true), new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide }));
-    earthGroup.add(textMesh);
-
-    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon); camera.position.z = 8; let angle = 0;
-    function animate() { requestAnimationFrame(animate); earthGroup.rotation.y += 0.005; angle -= 0.015; moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; renderer.render(scene, camera); }
-    animate();
-</script>
-</body>
-</html>
+        <a href="
