@@ -2,58 +2,109 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>BAS Charity</title>
 
-<!-- Website name lock -->
 <meta name="google" content="notranslate">
-<title class="notranslate">BAS Charity</title>
 
 <style>
 body{
   font-family: Arial, sans-serif;
   text-align:center;
-  margin:30px 0;
+  margin-top:40px;
 }
 
-/* buttons */
-.lang-box{ margin-bottom:15px; }
+.lang-box{
+  margin-bottom:20px;
+}
+
 button{
   padding:10px 18px;
   margin:5px;
   border:none;
-  border-radius:22px;
+  border-radius:20px;
   font-weight:bold;
   cursor:pointer;
   font-size:14px;
 }
+
 .en{background:#007BFF;color:#fff}
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853;color:#fff}
 .all{background:#FFD700;color:#000}
 
-/* google translate container */
-#google_translate_element{ display:none; margin-top:10px; }
+#google_translate_element{
+  display:none;
+  margin-top:10px;
+}
 
-/* hide google top bar */
+/* hide google top bar if injected */
 .goog-te-banner-frame,
 .goog-logo-link,
-.goog-te-gadget span{
-  display:none !important;
+.goog-te-gadget{
+  display:none!important;
 }
-body{ top:0 !important; }
+body{ top:0!important; }
 </style>
 </head>
 
 <body>
 
-<!-- LANGUAGE BUTTONS -->
+<!-- BUTTONS -->
 <div class="lang-box">
-  <button class="en" onclick="changeLang('en')">English</button>
-  <button class="hi" onclick="changeLang('hi')">Hindi</button>
-  <button class="ml" onclick="changeLang('ml')">Malayalam</button>
-  <button class="all" onclick="showAll()">
-    🌐 Google Language | All Languages
-  </button>
+  <button class="en" onclick="setManual('en')">English</button>
+  <button class="hi" onclick="setManual('hi')">Hindi</button>
+  <button class="ml" onclick="setManual('ml')">Malayalam</button>
+
+  <!-- LAST BUTTON -->
+  <button class="all" onclick="showGoogleLang()">🌐 All Languages</button>
 </div>
 
-<!-- GOOGLE LANGUAGE DROPDOWN -->
-<div id="google_translate_element
+<!-- GOOGLE LANGUAGE SELECTOR (ONLY FOR SELECTION) -->
+<div id="google_translate_element"></div>
+
+<hr>
+
+<!-- CONTENT -->
+<h1 id="title" class="notranslate">BAS Charity</h1>
+<p id="p1">This is a sample text</p>
+<p id="p2">Use the buttons above to change language</p>
+
+<script>
+/* ---------- MANUAL LANGUAGE (100% WORKING) ---------- */
+function setManual(lang){
+  if(lang === "en"){
+    title.innerText = "BAS Charity";
+    p1.innerText = "This is a sample text";
+    p2.innerText = "Use the buttons above to change language";
+  }
+
+  if(lang === "hi"){
+    title.innerText = "BAS Charity";
+    p1.innerText = "यह एक उदाहरण पाठ है";
+    p2.innerText = "ऊपर दिए गए बटन से भाषा बदलें";
+  }
+
+  if(lang === "ml"){
+    title.innerText = "BAS Charity";
+    p1.innerText = "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
+    p2.innerText = "മുകളിലെ ബട്ടണുകൾ ഉപയോഗിച്ച് ഭാഷ മാറ്റുക";
+  }
+}
+
+/* ---------- GOOGLE LANGUAGE (SELECTION ONLY) ---------- */
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement(
+    { pageLanguage:'en', autoDisplay:false },
+    'google_translate_element'
+  );
+}
+
+function showGoogleLang(){
+  document.getElementById("google_translate_element").style.display = "block";
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
