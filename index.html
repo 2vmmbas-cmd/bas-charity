@@ -1,65 +1,109 @@
- <style>
-    .lang-section { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
-    
-    .btn-premium {
-        padding: 12px 25px; cursor: pointer; border-radius: 50px;
-        font-size: 14px; font-weight: bold; text-transform: uppercase;
-        border: 2px solid; background: transparent; transition: 0.3s;
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multi Language Switch</title>
+
+<style>
+    .lang-section {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 40px 0;
+        flex-wrap: wrap;
     }
 
-    /* ബട്ടൺ കളറുകൾ */
-    .en-btn { color: #007BFF; border-color: #007BFF; } /* Blue */
-    .hi-btn { color: #FF9933; border-color: #FF9933; } /* Orange */
-    .ml-btn { color: #00FF41; border-color: #00FF41; } /* Green */
-    .ot-btn { color: #FFD700; border-color: #FFD700; } /* Gold */
+    .btn-premium {
+        padding: 12px 25px;
+        cursor: pointer;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 2px solid;
+        background: transparent;
+        transition: 0.3s;
+    }
 
-    /* Active ആകുമ്പോൾ ഉള്ള മാറ്റം */
-    .active-en { background: #007BFF !important; color: white !important; box-shadow: 0 0 15px #007BFF; }
-    .active-hi { background: #FF9933 !important; color: black !important; box-shadow: 0 0 15px #FF9933; }
-    .active-ml { background: #00FF41 !important; color: black !important; box-shadow: 0 0 15px #00FF41; }
-    .active-ot { background: #FFD700 !important; color: black !important; box-shadow: 0 0 15px #FFD700; }
+    .en-btn { color: #007BFF; border-color: #007BFF; }
+    .hi-btn { color: #FF9933; border-color: #FF9933; }
+    .ml-btn { color: #00FF41; border-color: #00FF41; }
+    .ot-btn { color: #FFD700; border-color: #FFD700; }
+
+    .active-en { background:#007BFF; color:#fff; box-shadow:0 0 15px #007BFF; }
+    .active-hi { background:#FF9933; color:#000; box-shadow:0 0 15px #FF9933; }
+    .active-ml { background:#00FF41; color:#000; box-shadow:0 0 15px #00FF41; }
+    .active-ot { background:#FFD700; color:#000; box-shadow:0 0 15px #FFD700; }
+
+    #allLangSelect{
+        padding:10px 20px;
+        font-size:16px;
+        border-radius:25px;
+        border:2px solid #FFD700;
+        display:none;
+        margin-top:20px;
+    }
 </style>
+</head>
+
+<body>
 
 <div class="lang-section">
     <button id="b-en" class="btn-premium en-btn active-en" onclick="doChange('en')">English</button>
     <button id="b-hi" class="btn-premium hi-btn" onclick="doChange('hi')">Hindi</button>
     <button id="b-ml" class="btn-premium ml-btn" onclick="doChange('ml')">മലയാളം</button>
-    <button id="b-ot" class="btn-premium ot-btn" onclick="doChange('all')">All Other Languages</button>
+    <button id="b-ot" class="btn-premium ot-btn" onclick="doChange('all')">All Languages</button>
 </div>
 
-<div style="text-align: center; margin-top: 50px;">
-    <h1 id="main-test-text" style="color: #8A2BE2; font-family: 'Arial Black', sans-serif; font-size: 35px;">
+<div style="text-align:center;">
+    <select id="allLangSelect" onchange="selectLang(this.value)"></select>
+
+    <h1 id="main-test-text"
+        style="margin-top:30px; color:#8A2BE2; font-family:'Arial Black',sans-serif; font-size:32px; line-height:1.6;">
         TEXT FOR TEST ENGLISH
     </h1>
 </div>
 
 <script>
-    function doChange(lang) {
-        // 1. എല്ലാ ബട്ടണുകളെയും പഴയ പടിയാക്കുന്നു
-        const bEn = document.getElementById('b-en');
-        const bHi = document.getElementById('b-hi');
-        const bMl = document.getElementById('b-ml');
-        const bOt = document.getElementById('b-ot');
-        const tView = document.getElementById('main-test-text');
+/* Sample texts */
+const texts = {
+    en:"TEXT FOR TEST ENGLISH",
+    hi:"टेस्ट के लिए हिंदी टेक्स्ट",
+    ml:"പരീക്ഷണത്തിനുള്ള മലയാളം ടെക്സ്റ്റ്",
+    ar:"نص تجريبي باللغة العربية",
+    ta:"சோதனைக்கான தமிழ் உரை",
+    te:"పరీక్ష కోసం తెలుగు వచనం",
+    ur:"آزمائشی اردو متن",
+    fr:"Texte de test en français",
+    de:"Testtext auf Deutsch",
+    es:"Texto de prueba en español",
+    ru:"Тестовый текст на русском",
+    zh:"测试用中文文本",
+    ja:"テスト用日本語テキスト"
+};
 
-        bEn.classList.remove('active-en');
-        bHi.classList.remove('active-hi');
-        bMl.classList.remove('active-ml');
-        bOt.classList.remove('active-ot');
+/* Google supported language list (popular) */
+const googleLanguages = {
+    ar:"Arabic", bn:"Bengali", zh:"Chinese", en:"English",
+    fr:"French", de:"German", hi:"Hindi", it:"Italian",
+    ja:"Japanese", ko:"Korean", ml:"Malayalam", mr:"Marathi",
+    ne:"Nepali", pt:"Portuguese", ru:"Russian", es:"Spanish",
+    ta:"Tamil", te:"Telugu", th:"Thai", tr:"Turkish",
+    ur:"Urdu", vi:"Vietnamese"
+};
 
-        // 2. ഓരോന്നായി കണക്ട് ചെയ്യുന്നു
-        if (lang === 'en') {
-            bEn.classList.add('active-en');
-            tView.innerText = "TEXT FOR TEST ENGLISH";
-        } else if (lang === 'hi') {
-            bHi.classList.add('active-hi');
-            tView.innerText = "TEXT FOR TEST HINDI";
-        } else if (lang === 'ml') {
-            bMl.classList.add('active-ml');
-            tView.innerText = "TEXT FOR TEST MALAYALAM";
-        } else if (lang === 'all') {
-            bOt.classList.add('active-ot');
-            tView.innerText = "TEXT FOR TEST ALL OTHER LANGUAGES";
-        }
-    }
-</script>
+const tView = document.getElementById("main-test-text");
+const selectBox = document.getElementById("allLangSelect");
+
+function resetButtons(){
+    bEn.classList.remove("active-en");
+    bHi.classList.remove("active-hi");
+    bMl.classList.remove("active-ml");
+    bOt.classList.remove("active-ot");
+    selectBox.style.display="none";
+}
+
+function doChange(lang){
+    resetButtons();
+
+    if(lang==="en"){
