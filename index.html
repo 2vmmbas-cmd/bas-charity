@@ -11,38 +11,47 @@
         
         /* സമർപ്പണ സന്ദേശം - Deep Sky Blue & Small Size */
         .dedication-box { margin: 8px auto; max-width: 85%; }
-        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; letter-spacing: 0.3px; }
+        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; }
 
-        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; }
+        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
         .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
         .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
-        /* Google Translate Widget ഒളിപ്പിച്ചു വെക്കാൻ */
+        /* Google Translate hidden settings */
         #google_translate_element { display: none; }
         .goog-te-banner-frame { display: none !important; } 
         body { top: 0 !important; }
 
         .container { padding: 15px; max-width: 480px; margin: 0 auto; }
         
-        /* Impact Box - Golden Style */
-        .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
-        #impact-text { font-size: 16px; color: #FFD700; line-height: 1.7; font-weight: 500; font-style: italic; }
+        /* Price Comparison Box */
+        .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1.5px dashed #FFD700; margin-bottom: 25px; }
+        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; outline: none; }
+        .btn-g { display: flex; gap: 8px; }
+        .b { flex: 1; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; color: white; }
 
-        .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 20px 0 15px 0; text-transform: uppercase; }
+        /* Impact Box - Golden Style (Shopping ന് മുകളിൽ) */
+        .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
+        #impact-text { font-size: 15px; color: #FFD700; line-height: 1.7; font-weight: 500; font-style: italic; }
+
+        .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 20px 0 15px 0; text-transform: uppercase; }
         
         /* Shopping Cards */
         #shop-list { display: flex; flex-direction: column; gap: 10px; }
         .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
         .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
-        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 2px; }
+        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 3px; }
+        
+        /* Border Colors for Icons */
         .c-amz { border-left: 5px solid #FF9900; }
         .c-fk { border-left: 5px solid #2874f0; }
+        .c-sm { border-left: 5px solid #1428a0; }
+        .c-mt { border-left: 5px solid #ff3f6c; }
     </style>
 </head>
 <body>
 
 <div id="google_translate_element"></div>
-
 <div id="logo-space"></div>
 
 <div class="brand-heading">
@@ -56,10 +65,19 @@
         <button class="lang-btn" onclick="translatePage('en')">English</button>
         <button class="lang-btn" onclick="translatePage('hi')">हिन्दी</button>
         <button class="lang-btn" onclick="translatePage('ml')">മലയാളം</button>
-        <button class="lang-btn" onclick="showAllLangs()">Other Languages</button>
+        <button class="lang-btn" onclick="translatePage('ar')">Other Languages</button>
     </div>
 
     <div class="container">
+        <div class="section-header">Compare Prices & Search</div>
+        <div class="comp-box">
+            <input type="text" id="pS" class="p-in" placeholder="Search product name...">
+            <div class="btn-g">
+                <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
+                <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
+            </div>
+        </div>
+
         <div class="impact-box">
             <div id="impact-text">
                 "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
@@ -68,41 +86,38 @@
 
         <div class="section-header">Shop & Support</div>
         <div id="shop-list">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
-            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
-            </div>
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div><h3>AMAZON</h3></div></a>
+            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div><h3>FLIPKART</h3></div></a>
+            <a href="https://www.samsung.com/in/" target="_blank" class="shop-card c-sm"><img src="https://www.samsung.com/favicon.ico" class="logo"><div><h3>SAMSUNG</h3></div></a>
+            <a href="https://myntr.it/CuqylqS" target="_blank" class="shop-card c-mt"><img src="https://www.myntra.com/favicon.ico" class="logo"><div><h3>MYNTRA</h3></div></a>
+            <a href="https://www.jiomart.com/" target="_blank" class="shop-card"><img src="https://www.jiomart.com/favicon.ico" class="logo"><div><h3>JIOMART</h3></div></a>
+            <a href="https://www.tatacliq.com/" target="_blank" class="shop-card"><img src="https://www.tatacliq.com/favicon.ico" class="logo"><div><h3>TATA CLIQ</h3></div></a>
+            <a href="https://bitli.in/03kNE3S" target="_blank" class="shop-card"><img src="https://www.shopsy.in/favicon.ico" class="logo"><div><h3>SHOPSY</h3></div></a>
+            <a href="https://www.reliancedigital.in/" target="_blank" class="shop-card"><img src="https://www.reliancedigital.in/favicon.ico" class="logo"><div><h3>RELIANCE DIGITAL</h3></div></a>
+            <a href="https://www.croma.com/" target="_blank" class="shop-card"><img src="https://www.croma.com/favicon.ico" class="logo"><div><h3>CROMA</h3></div></a>
+            <a href="https://www.nykaa.com/" target="_blank" class="shop-card"><img src="https://www.nykaa.com/favicon.ico" class="logo"><div><h3>NYKAA</h3></div></a>
+        </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    // ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ഇൻബിൽറ്റ് ആയി വർക്ക് ചെയ്യാൻ
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'ml',
-            includedLanguages: 'en,hi,ml,ta,te,kn,ar',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-
-    function translatePage(langCode) {
-        var selectField = document.querySelector(".goog-te-combo");
-        if (selectField) {
-            selectField.value = langCode;
-            selectField.dispatchEvent(new Event('change'));
-        }
-    }
-
-    function showAllLangs() {
-        // മറ്റ് ഭാഷകൾക്കായി ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ലിങ്ക് ഉപയോഗിക്കാം, പക്ഷേ ബാർ വരാതിരിക്കാൻ ശ്രമിക്കാം
-        window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank');
-    }
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // Three.js Animation (Earth, Moon, BAS Text)
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'ml', autoDisplay: false}, 'google_translate_element');
+    }
+    function translatePage(lang) {
+        var el = document.querySelector('.goog-te-combo');
+        if(el) { el.value = lang; el.dispatchEvent(new Event('change')); }
+    }
+    function q(p) {
+        var v = document.getElementById('pS').value;
+        if(!v) return;
+        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+    }
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -127,6 +142,5 @@
     }
     animate();
 </script>
-
 </body>
 </html>
