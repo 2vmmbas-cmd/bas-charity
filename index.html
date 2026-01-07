@@ -1,73 +1,65 @@
  <style>
-    .lang-section {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 40px 0;
-    }
+    .lang-section { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
     
     .btn-premium {
-        padding: 12px 25px;
-        cursor: pointer;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border: 2px solid;
-        background: transparent;
+        padding: 12px 25px; cursor: pointer; border-radius: 50px;
+        font-size: 14px; font-weight: bold; text-transform: uppercase;
+        border: 2px solid; background: transparent; transition: 0.3s;
     }
 
-    /* കളറുകൾ */
+    /* ബട്ടൺ കളറുകൾ */
     .en-btn { color: #007BFF; border-color: #007BFF; } /* Blue */
     .hi-btn { color: #FF9933; border-color: #FF9933; } /* Orange */
     .ml-btn { color: #00FF41; border-color: #00FF41; } /* Green */
     .ot-btn { color: #FFD700; border-color: #FFD700; } /* Gold */
 
-    /* Active ബട്ടൺ ആകുമ്പോൾ */
-    .btn-premium.active { color: white; }
-    .en-btn.active { background: #007BFF; }
-    .hi-btn.active { background: #FF9933; }
-    .ml-btn.active { background: #00FF41; }
-    .ot-btn.active { background: #FFD700; }
+    /* Active ആകുമ്പോൾ ഉള്ള മാറ്റം */
+    .active-en { background: #007BFF !important; color: white !important; box-shadow: 0 0 15px #007BFF; }
+    .active-hi { background: #FF9933 !important; color: black !important; box-shadow: 0 0 15px #FF9933; }
+    .active-ml { background: #00FF41 !important; color: black !important; box-shadow: 0 0 15px #00FF41; }
+    .active-ot { background: #FFD700 !important; color: black !important; box-shadow: 0 0 15px #FFD700; }
 </style>
 
 <div class="lang-section">
-    <button id="btn-en" class="btn-premium en-btn active" onclick="changeLang('en')">English</button>
-    <button id="btn-hi" class="btn-premium hi-btn" onclick="changeLang('hi')">Hindi</button>
-    <button id="btn-ml" class="btn-premium ml-btn" onclick="changeLang('ml')">മലയാളം</button>
-    <button id="btn-ot" class="btn-premium ot-btn" onclick="changeLang('all')">All Other Languages</button>
+    <button id="b-en" class="btn-premium en-btn active-en" onclick="doChange('en')">English</button>
+    <button id="b-hi" class="btn-premium hi-btn" onclick="doChange('hi')">Hindi</button>
+    <button id="b-ml" class="btn-premium ml-btn" onclick="doChange('ml')">മലയാളം</button>
+    <button id="b-ot" class="btn-premium ot-btn" onclick="doChange('all')">All Other Languages</button>
 </div>
 
-<div style="text-align: center; margin-top: 40px;">
-    <h1 id="test-view" style="color: #8A2BE2; font-family: sans-serif; font-size: 35px;">
-        TEXT FOR TEST (EN)
+<div style="text-align: center; margin-top: 50px;">
+    <h1 id="main-test-text" style="color: #8A2BE2; font-family: 'Arial Black', sans-serif; font-size: 35px;">
+        TEXT FOR TEST ENGLISH
     </h1>
 </div>
 
 <script>
-    function changeLang(lang) {
-        // എല്ലാ ബട്ടണുകളിൽ നിന്നും active ക്ലാസ് മാറ്റുന്നു
-        var buttons = document.getElementsByClassName('btn-premium');
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('active');
-        }
+    function doChange(lang) {
+        // 1. എല്ലാ ബട്ടണുകളെയും പഴയ പടിയാക്കുന്നു
+        const bEn = document.getElementById('b-en');
+        const bHi = document.getElementById('b-hi');
+        const bMl = document.getElementById('b-ml');
+        const bOt = document.getElementById('b-ot');
+        const tView = document.getElementById('main-test-text');
 
-        // ക്ലിക്ക് ചെയ്ത ബട്ടൺ ഏതാണെന്ന് നോക്കി അതിനെ active ആക്കുന്നു
-        if(lang === 'en') document.getElementById('btn-en').classList.add('active');
-        if(lang === 'hi') document.getElementById('btn-hi').classList.add('active');
-        if(lang === 'ml') document.getElementById('btn-ml').classList.add('active');
-        if(lang === 'all') document.getElementById('btn-ot').classList.add('active');
+        bEn.classList.remove('active-en');
+        bHi.classList.remove('active-hi');
+        bMl.classList.remove('active-ml');
+        bOt.classList.remove('active-ot');
 
-        // ടെക്സ്റ്റ് മാറ്റുന്നു - ഇതാണ് കണക്ഷൻ
-        var display = document.getElementById('test-view');
-        if (lang === 'ml') {
-            display.innerText = "TEXT FOR TEST (ML)";
+        // 2. ഓരോന്നായി കണക്ട് ചെയ്യുന്നു
+        if (lang === 'en') {
+            bEn.classList.add('active-en');
+            tView.innerText = "TEXT FOR TEST ENGLISH";
         } else if (lang === 'hi') {
-            display.innerText = "TEXT FOR TEST (HI)";
+            bHi.classList.add('active-hi');
+            tView.innerText = "TEXT FOR TEST HINDI";
+        } else if (lang === 'ml') {
+            bMl.classList.add('active-ml');
+            tView.innerText = "TEXT FOR TEST MALAYALAM";
         } else if (lang === 'all') {
-            display.innerText = "TEXT FOR TEST (ALL)";
-        } else {
-            display.innerText = "TEXT FOR TEST (EN)";
+            bOt.classList.add('active-ot');
+            tView.innerText = "TEXT FOR TEST ALL OTHER LANGUAGES";
         }
     }
 </script>
