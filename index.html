@@ -1,109 +1,48 @@
  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Multi Language Switch</title>
-
-<style>
-    .lang-section {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 40px 0;
-        flex-wrap: wrap;
-    }
-
-    .btn-premium {
-        padding: 12px 25px;
-        cursor: pointer;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border: 2px solid;
-        background: transparent;
-        transition: 0.3s;
-    }
-
-    .en-btn { color: #007BFF; border-color: #007BFF; }
-    .hi-btn { color: #FF9933; border-color: #FF9933; }
-    .ml-btn { color: #00FF41; border-color: #00FF41; }
-    .ot-btn { color: #FFD700; border-color: #FFD700; }
-
-    .active-en { background:#007BFF; color:#fff; box-shadow:0 0 15px #007BFF; }
-    .active-hi { background:#FF9933; color:#000; box-shadow:0 0 15px #FF9933; }
-    .active-ml { background:#00FF41; color:#000; box-shadow:0 0 15px #00FF41; }
-    .active-ot { background:#FFD700; color:#000; box-shadow:0 0 15px #FFD700; }
-
-    #allLangSelect{
-        padding:10px 20px;
-        font-size:16px;
-        border-radius:25px;
-        border:2px solid #FFD700;
-        display:none;
-        margin-top:20px;
-    }
-</style>
-</head>
-
+<html>
 <body>
 
-<div class="lang-section">
-    <button id="b-en" class="btn-premium en-btn active-en" onclick="doChange('en')">English</button>
-    <button id="b-hi" class="btn-premium hi-btn" onclick="doChange('hi')">Hindi</button>
-    <button id="b-ml" class="btn-premium ml-btn" onclick="doChange('ml')">മലയാളം</button>
-    <button id="b-ot" class="btn-premium ot-btn" onclick="doChange('all')">All Languages</button>
-</div>
+<!-- Language Buttons -->
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('hi')">Hindi</button>
+<button onclick="setLang('ml')">Malayalam</button>
 
-<div style="text-align:center;">
-    <select id="allLangSelect" onchange="selectLang(this.value)"></select>
+<hr>
 
-    <h1 id="main-test-text"
-        style="margin-top:30px; color:#8A2BE2; font-family:'Arial Black',sans-serif; font-size:32px; line-height:1.6;">
-        TEXT FOR TEST ENGLISH
-    </h1>
-</div>
+<!-- Texts (ALL will change) -->
+<h1 data-key="title"></h1>
+<p data-key="para1"></p>
+<p data-key="para2"></p>
 
 <script>
-/* Sample texts */
-const texts = {
-    en:"TEXT FOR TEST ENGLISH",
-    hi:"टेस्ट के लिए हिंदी टेक्स्ट",
-    ml:"പരീക്ഷണത്തിനുള്ള മലയാളം ടെക്സ്റ്റ്",
-    ar:"نص تجريبي باللغة العربية",
-    ta:"சோதனைக்கான தமிழ் உரை",
-    te:"పరీక్ష కోసం తెలుగు వచనం",
-    ur:"آزمائشی اردو متن",
-    fr:"Texte de test en français",
-    de:"Testtext auf Deutsch",
-    es:"Texto de prueba en español",
-    ru:"Тестовый текст на русском",
-    zh:"测试用中文文本",
-    ja:"テスト用日本語テキスト"
+const content = {
+    en: {
+        title: "Welcome",
+        para1: "This is a sample text",
+        para2: "All texts change together"
+    },
+    hi: {
+        title: "स्वागत है",
+        para1: "यह एक उदाहरण पाठ है",
+        para2: "सभी टेक्स्ट एक साथ बदलते हैं"
+    },
+    ml: {
+        title: "സ്വാഗതം",
+        para1: "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്",
+        para2: "എല്ലാ ടെക്സ്റ്റുകളും ഒരുമിച്ച് മാറും"
+    }
 };
 
-/* Google supported language list (popular) */
-const googleLanguages = {
-    ar:"Arabic", bn:"Bengali", zh:"Chinese", en:"English",
-    fr:"French", de:"German", hi:"Hindi", it:"Italian",
-    ja:"Japanese", ko:"Korean", ml:"Malayalam", mr:"Marathi",
-    ne:"Nepali", pt:"Portuguese", ru:"Russian", es:"Spanish",
-    ta:"Tamil", te:"Telugu", th:"Thai", tr:"Turkish",
-    ur:"Urdu", vi:"Vietnamese"
-};
-
-const tView = document.getElementById("main-test-text");
-const selectBox = document.getElementById("allLangSelect");
-
-function resetButtons(){
-    bEn.classList.remove("active-en");
-    bHi.classList.remove("active-hi");
-    bMl.classList.remove("active-ml");
-    bOt.classList.remove("active-ot");
-    selectBox.style.display="none";
+function setLang(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+        const key = el.getAttribute("data-key");
+        el.innerText = content[lang][key];
+    });
 }
 
-function doChange(lang){
-    resetButtons();
+/* Default language */
+setLang("en");
+</script>
 
-    if(lang==="en"){
+</body>
+</html>
