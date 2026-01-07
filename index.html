@@ -2,77 +2,81 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>All Google Languages Button</title>
+<title>Language Switch</title>
 
 <style>
+body{ margin:0; padding:0; font-family:Arial; }
+
 .lang-box{
     text-align:center;
-    margin:40px 0;
+    margin:20px 0;
 }
 button{
-    padding:12px 22px;
-    margin:6px;
+    padding:10px 20px;
+    margin:5px;
     border:none;
-    border-radius:25px;
+    border-radius:20px;
     font-weight:bold;
     cursor:pointer;
-    color:white;
 }
-.en{ background:#007BFF; }
-.hi{ background:#FF9933; color:black; }
-.ml{ background:#00C853; }
-.all{ background:#FFD700; color:black; }
+.en{ background:#007BFF; color:#fff; }
+.hi{ background:#FF9933; color:#000; }
+.ml{ background:#00C853; color:#fff; }
+.all{ background:#FFD700; color:#000; }
+
+#google_translate_element{
+    display:none;
+    text-align:center;
+    margin-top:10px;
+}
+
+/* hide google top bar */
+.goog-te-banner-frame.skiptranslate,
+.goog-logo-link,
+.goog-te-gadget span{
+    display:none !important;
+}
+body{ top:0 !important; }
 </style>
 </head>
 
 <body>
 
-<!-- LANGUAGE BUTTONS -->
+<!-- BUTTONS -->
 <div class="lang-box">
-    <button class="en" onclick="translatePage('en')">English</button>
-    <button class="hi" onclick="translatePage('hi')">Hindi</button>
-    <button class="ml" onclick="translatePage('ml')">Malayalam</button>
-    <button class="all" onclick="showAllLanguages()">All Languages</button>
+    <button class="en" onclick="setLang('en')">English</button>
+    <button class="hi" onclick="setLang('hi')">Hindi</button>
+    <button class="ml" onclick="setLang('ml')">Malayalam</button>
+    <button class="all" onclick="showAll()">All Languages</button>
 </div>
+
+<!-- GOOGLE DROPDOWN -->
+<div id="google_translate_element"></div>
 
 <hr>
 
-<!-- SAMPLE CONTENT -->
+<!-- CONTENT -->
 <h1>Welcome</h1>
 <p>This is a sample text</p>
-<p>All texts on this page will change language</p>
-
-<!-- GOOGLE TRANSLATE (HIDDEN) -->
-<div id="google_translate_element" style="display:none;"></div>
+<p>All texts will change language</p>
 
 <script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
+function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+        pageLanguage:'en',
+        autoDisplay:false
+    }, 'google_translate_element');
 }
 
-/* change language by button */
-function translatePage(lang){
-  const select = document.querySelector(".goog-te-combo");
-  if(select){
-    select.value = lang;
-    select.dispatchEvent(new Event("change"));
-  }
+function setLang(lang){
+    const sel = document.querySelector(".goog-te-combo");
+    if(sel){
+        sel.value = lang;
+        sel.dispatchEvent(new Event("change"));
+    }
 }
 
-/* All Languages button */
-function showAllLanguages(){
-  const select = document.querySelector(".goog-te-combo");
-  if(select){
-    select.style.display = "inline-block";
-    select.focus();
-  }
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
+function showAll(){
+    const box = document.getElementById("google_translate_element");
+    box.style.display = "block";
+    const sel
