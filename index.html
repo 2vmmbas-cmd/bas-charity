@@ -10,6 +10,8 @@ body{
   text-align:center;
   margin-top:40px;
 }
+
+/* common button */
 .lang-btn{
   height:44px;
   margin:6px;
@@ -19,12 +21,16 @@ body{
   cursor:pointer;
   font-size:14px;
 }
-.en,.hi,.ml{width:140px;}
+
+/* website language buttons */
+.en,.hi,.ml{ width:140px; }
 .en{background:#007BFF;color:#fff}
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853;color:#fff}
+
+/* google translate button */
 .all{
-  width:260px;
+  width:260px;            /* longer button */
   background:#FFD700;
   color:#000;
 }
@@ -33,42 +39,52 @@ body{
 
 <body>
 
+<!-- WEBSITE LANGUAGE (REAL LANGUAGES) -->
 <button class="lang-btn en" onclick="setLang('en')">English</button>
 <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
 <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
 
-<button class="lang-btn all" onclick="openAllLanguages()">
+<!-- GOOGLE TRANSLATE (SEPARATE TOOL) -->
+<button class="lang-btn all" onclick="openGoogleTranslate()">
   🌐 All Other Languages
 </button>
 
 <hr>
 
+<!-- WEBSITE CONTENT -->
 <h1 id="title">Welcome</h1>
 <p id="p1">This is a sample text</p>
-<p id="p2">Language buttons are working</p>
+<p id="p2">Website language buttons are working</p>
 
 <script>
+/* -------- WEBSITE LANGUAGE (MANUAL & STABLE) -------- */
 function setLang(lang){
+
   if(lang==="en"){
-    title.innerText="Welcome";
-    p1.innerText="This is a sample text";
-    p2.innerText="Language buttons are working";
+    title.innerText = "Welcome";
+    p1.innerText    = "This is a sample text";
+    p2.innerText    = "Website language buttons are working";
   }
+
   if(lang==="hi"){
-    title.innerText="स्वागत है";
-    p1.innerText="यह एक उदाहरण पाठ है";
-    p2.innerText="भाषा बटन काम कर रहे हैं";
+    title.innerText = "स्वागत है";
+    p1.innerText    = "यह एक उदाहरण पाठ है";
+    p2.innerText    = "वेबसाइट भाषा बटन काम कर रहे हैं";
   }
+
   if(lang==="ml"){
-    title.innerText="സ്വാഗതം";
-    p1.innerText="ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
-    p2.innerText="ഭാഷ ബട്ടണുകൾ പ്രവർത്തിക്കുന്നു";
+    title.innerText = "സ്വാഗതം";
+    p1.innerText    = "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
+    p2.innerText    = "വെബ്സൈറ്റ് ഭാഷ ബട്ടണുകൾ പ്രവർത്തിക്കുന്നു";
   }
 }
 
-/* AUTO-DETECT GOOGLE LANGUAGE PAGE */
-function openAllLanguages(){
-  window.open("https://translate.google.com/?sl=auto","_blank");
+/* -------- GOOGLE TRANSLATE (HELPER ONLY) -------- */
+function openGoogleTranslate(){
+  window.open(
+    "https://translate.google.com/",
+    "_blank"
+  );
 }
 </script>
 
