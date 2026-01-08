@@ -1,52 +1,86 @@
- <style>
-    .lang-section { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
-    .btn-premium {
-        padding: 12px 25px; cursor: pointer; border-radius: 50px;
-        font-size: 14px; font-weight: bold; text-transform: uppercase;
-        border: 2px solid; background: transparent; transition: 0.3s;
-    }
-    /* ബട്ടൺ കളറുകൾ */
-    .en-btn { color: #007BFF; border-color: #007BFF; }
-    .hi-btn { color: #FF9933; border-color: #FF9933; }
-    .ml-btn { color: #00FF41; border-color: #00FF41; }
-    .ot-btn { color: #FFD700; border-color: #FFD700; }
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BAS Charity</title>
 
-    /* Active States */
-    .en-btn.active { background: #007BFF; color: white; }
-    .hi-btn.active { background: #FF9933; color: black; }
-    .ml-btn.active { background: #00FF41; color: black; }
-    .ot-btn.active { background: #FFD700; color: black; }
+<style>
+body{
+  font-family: Arial, sans-serif;
+  text-align:center;
+  margin-top:40px;
+}
+
+button{
+  padding:10px 18px;
+  margin:6px;
+  border:none;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.en{background:#007BFF;color:#fff}
+.hi{background:#FF9933;color:#000}
+.ml{background:#00C853;color:#fff}
+
+/* link style */
+.translate-link{
+  display:inline-block;
+  margin-top:15px;
+  font-weight:bold;
+  color:#0066cc;
+  text-decoration:none;
+}
+.translate-link:hover{
+  text-decoration:underline;
+}
 </style>
+</head>
 
-<div class="lang-section">
-    <button class="btn-premium en-btn active" data-lang="ENGLISH">English</button>
-    <button class="btn-premium hi-btn" data-lang="HINDI">Hindi</button>
-    <button class="btn-premium ml-btn" data-lang="MALAYALAM">മലയാളം</button>
-    <button class="btn-premium ot-btn" data-lang="ALL OTHER LANGUAGES">All Other Languages</button>
-</div>
+<body>
 
-<div style="text-align: center; margin-top: 50px;">
-    <h1 id="test-view" style="color: #8A2BE2; font-family: sans-serif; font-size: 35px;">TEXT FOR TEST ENGLISH</h1>
-</div>
+<!-- COLOUR LANGUAGE BUTTONS (WORKING) -->
+<button class="en" onclick="setLang('en')">English</button>
+<button class="hi" onclick="setLang('hi')">Hindi</button>
+<button class="ml" onclick="setLang('ml')">Malayalam</button>
+
+<hr>
+
+<!-- CONTENT -->
+<h1 id="title">Welcome</h1>
+<p id="p1">This is a sample text</p>
+<p id="p2">Language buttons are working</p>
+
+<!-- SEARCHABLE GOOGLE LANGUAGE LINK -->
+<a class="translate-link"
+   href="https://translate.google.com/?sl=en&tl=auto&text=Welcome%20to%20BAS%20Charity&op=translate"
+   target="_blank">
+🌐 Google Language (Search & Translate)
+</a>
 
 <script>
-    // എല്ലാ ബട്ടണുകളെയും സെലക്ട് ചെയ്യുന്നു
-    const buttons = document.querySelectorAll('.btn-premium');
-    const display = document.getElementById('test-view');
+function setLang(lang){
 
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 1. പഴയ active മാറ്റുന്നു
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // 2. പുതിയതിലേക്ക് active ചേർക്കുന്നു
-            this.classList.add('active');
-            
-            // 3. ടെക്സ്റ്റ് മാറ്റുന്നു (കണക്ഷൻ)
-            const langName = this.getAttribute('data-lang');
-            display.innerText = "TEXT FOR TEST " + langName;
-            
-            console.log("Language changed to: " + langName);
-        });
-    });
+  if(lang==="en"){
+    title.innerText="Welcome";
+    p1.innerText="This is a sample text";
+    p2.innerText="Language buttons are working";
+  }
+
+  if(lang==="hi"){
+    title.innerText="स्वागत है";
+    p1.innerText="यह एक उदाहरण पाठ है";
+    p2.innerText="भाषा बटन काम कर रहे हैं";
+  }
+
+  if(lang==="ml"){
+    title.innerText="സ്വാഗതം";
+    p1.innerText="ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
+    p2.innerText="ഭാഷ ബട്ടണുകൾ പ്രവർത്തിക്കുന്നു";
+  }
+}
 </script>
+
+</body>
+</html>
