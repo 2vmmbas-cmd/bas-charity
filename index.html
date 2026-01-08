@@ -2,47 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <title class="notranslate">BAS CHARITY INTERNATIONAL</title>
     <style>
-        /* സൂമിംഗും മാറ്റങ്ങളും ഒഴിവാക്കാൻ സ്ഥിരമായ സെറ്റിംഗ്സ് */
-        html, body { 
-            margin: 0; padding: 0; background: #000; color: white; 
-            font-family: Arial, sans-serif; overflow-x: hidden; 
-            top: 0 !important; width: 100%; position: relative;
-        }
+        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; top: 0 !important; }
         
-        /* ഗൂഗിൾ ബാറുകൾ പൂർണ്ണമായും ഒഴിവാക്കി */
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, .goog-te-gadget-simple { display: none !important; }
+        /* ഗൂഗിൾ ബാർ ഹൈഡ് ചെയ്യാൻ */
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
         body { top: 0px !important; }
-        #goog-gt-tt, .goog-tooltip, .goog-tooltip:hover { display: none !important; }
-        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
 
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; width: 100%; }
+        /* Header & Logo */
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; }
         #logo-space { width: 100%; height: 380px; }
         
-        .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; width: 100%; box-sizing: border-box; }
+        .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; }
         .hunger-message { font-size: 13px; letter-spacing: 2px; color: #FFD700; text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
-        
-        /* Heading - Locked */
         .brand-heading h1.notranslate { 
             font-size: clamp(35px, 10vw, 70px); letter-spacing: 1px; text-transform: uppercase; 
             margin: 0; font-weight: 1000; -webkit-text-stroke: 1.5px white; color: white; line-height: 1;
         }
 
-        .dedication-box { text-align: center; padding: 5px 20px 25px 20px; max-width: 450px; margin: 0 auto; box-sizing: border-box; }
+        .dedication-box { text-align: center; padding: 5px 20px 25px 20px; max-width: 450px; margin: 0 auto; }
         #dedication-text { font-size: 15px; color: #bbb; font-style: italic; line-height: 1.6; display: inline-block; }
 
-        /* ലാംഗ്വേജ് ബാർ - സ്ഥിരമായി നിൽക്കാൻ */
-        .top-bar { background: #111; padding: 12px 8px; border-top: 1px solid #333; border-bottom: 1px solid #333; width: 100%; box-sizing: border-box; }
-        .lang-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 400px; margin: 0 auto; }
-        .lang-btn { padding: 8px 5px; border: none; border-radius: 16px; font-size: 12px; font-weight: bold; cursor: pointer; color: #fff; text-align: center; }
-        
+        /* Language Section (Exactly like Code No:3) */
+        .top-bar { background: #111; padding: 12px 8px; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .lang-buttons { display: grid; grid-template-columns: repeat(4, auto); gap: 8px; justify-content: center; }
+        .lang-btn { padding: 6px 14px; border: none; border-radius: 16px; font-size: 13px; font-weight: bold; cursor: pointer; color: #fff; }
         .en{background:#007BFF} .hi{background:#FF9933;color:#000} .ml{background:#00C853} .ar{background:#2E7D32}
         .ta{background:#C62828} .ur{background:#6A1B9A} .es{background:#F4C430;color:#000} .pt{background:#1B5E20}
 
-        #google_translate_element { display: none !important; }
+        .google-row { text-align: center; font-size: 13px; margin-top: 10px; color: #bbb; }
+        #lang-hint { font-size: 12px; color: #888; text-align: center; margin-top: 8px; line-height: 1.4; }
+        
+        /* Customising Google Dropdown Slot */
+        .goog-te-gadget span, .goog-logo-link { display: none !important; }
+        .goog-te-gadget { color: transparent !important; font-size: 0; }
+        #google_translate_element select { 
+            background: #222; color: white; border: 1px solid #444; padding: 4px; border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -75,13 +74,19 @@
         <button class="lang-btn es" onclick="changeLang('es')">Spanish</button>
         <button class="lang-btn pt" onclick="changeLang('pt')">Portuguese</button>
     </div>
-</div>
 
-<div id="google_translate_element"></div>
+    <div class="google-row">
+        🌐 All Languages : <span id="google_translate_element"></span>
+    </div>
+
+    <div id="lang-hint">
+        🌐 To access all languages, please enable Translate in your browser settings
+    </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // Globe Animation
+    // Globe Logic
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -95,7 +100,6 @@
         metalness: 0.3, roughness: 0.7
     }));
     earthGroup.add(earth);
-
     const canvas = document.createElement('canvas'); 
     const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
@@ -118,7 +122,7 @@
     }
     animate();
 
-    // Stable Translation Function
+    // Language Functions
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({ pageLanguage:'ml', autoDisplay:false }, 'google_translate_element');
     }
