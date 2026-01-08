@@ -22,18 +22,15 @@ body{
   font-size:14px;
 }
 
-/* normal buttons width */
-.en, .hi, .ml{
-  width:140px;          /* 👈 normal length */
-}
-
+/* normal buttons */
+.en,.hi,.ml{ width:140px; }
 .en{background:#007BFF;color:#fff}
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853;color:#fff}
 
-/* 4th button – MORE LENGTH */
+/* 4th button – longer */
 .all{
-  width:260px;          /* 👈 EXTRA LENGTH */
+  width:260px;
   background:#FFD700;
   color:#000;
 }
@@ -59,6 +56,7 @@ body{
 <p id="p2">Language buttons are working</p>
 
 <script>
+/* Manual language buttons */
 function setLang(lang){
   if(lang==="en"){
     title.innerText="Welcome";
@@ -77,9 +75,10 @@ function setLang(lang){
   }
 }
 
+/* All Other Languages → Google language list ONLY */
 function openAllLanguages(){
   window.open(
-    "https://translate.google.com/?sl=en&tl=auto&text=Welcome%20to%20BAS%20Charity&op=translate",
+    "https://translate.google.com/",
     "_blank"
   );
 }
