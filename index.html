@@ -1,92 +1,40 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>BAS Charity</title>
-
-<style>
-body{
-  font-family: Arial, sans-serif;
-  text-align:center;
-  margin-top:40px;
+ <style>
+/* Language buttons */
+.lang-buttons{
+  display:grid;
+  grid-template-columns: repeat(4, auto); /* 2 rows × 4 buttons */
+  gap:8px;
+  justify-content:center;
 }
-
-/* common button */
 .lang-btn{
-  height:44px;
-  margin:6px;
+  padding:6px 14px;
   border:none;
-  border-radius:22px;
+  border-radius:16px;
+  font-size:13px;
   font-weight:bold;
   cursor:pointer;
-  font-size:14px;
+  color:#fff;
 }
 
-/* website language buttons */
-.en,.hi,.ml{ width:140px; }
-.en{background:#007BFF;color:#fff}
+/* Colours */
+.en{background:#007BFF}
 .hi{background:#FF9933;color:#000}
-.ml{background:#00C853;color:#fff}
-
-/* google translate button */
-.all{
-  width:260px;            /* longer button */
-  background:#FFD700;
-  color:#000;
-}
+.ml{background:#00C853}
+.ar{background:#2E7D32}
+.ta{background:#C62828}
+.ur{background:#6A1B9A}
+.es{background:#F4C430;color:#000}   /* Spanish */
+.pt{background:#1B5E20}               /* Portuguese */
 </style>
-</head>
 
-<body>
+<div class="lang-buttons">
+  <button class="lang-btn en" onclick="setLang('en')">English</button>
+  <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
+  <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
+  <button class="lang-btn ar" onclick="setLang('ar')">Arabic</button>
 
-<!-- WEBSITE LANGUAGE (REAL LANGUAGES) -->
-<button class="lang-btn en" onclick="setLang('en')">English</button>
-<button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
-<button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
-
-<!-- GOOGLE TRANSLATE (SEPARATE TOOL) -->
-<button class="lang-btn all" onclick="openGoogleTranslate()">
-  🌐 All Other Languages
-</button>
-
-<hr>
-
-<!-- WEBSITE CONTENT -->
-<h1 id="title">Welcome</h1>
-<p id="p1">This is a sample text</p>
-<p id="p2">Website language buttons are working</p>
-
-<script>
-/* -------- WEBSITE LANGUAGE (MANUAL & STABLE) -------- */
-function setLang(lang){
-
-  if(lang==="en"){
-    title.innerText = "Welcome";
-    p1.innerText    = "This is a sample text";
-    p2.innerText    = "Website language buttons are working";
-  }
-
-  if(lang==="hi"){
-    title.innerText = "स्वागत है";
-    p1.innerText    = "यह एक उदाहरण पाठ है";
-    p2.innerText    = "वेबसाइट भाषा बटन काम कर रहे हैं";
-  }
-
-  if(lang==="ml"){
-    title.innerText = "സ്വാഗതം";
-    p1.innerText    = "ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
-    p2.innerText    = "വെബ്സൈറ്റ് ഭാഷ ബട്ടണുകൾ പ്രവർത്തിക്കുന്നു";
-  }
-}
-
-/* -------- GOOGLE TRANSLATE (HELPER ONLY) -------- */
-function openGoogleTranslate(){
-  window.open(
-    "https://translate.google.com/",
-    "_blank"
-  );
-}
-</script>
-
-</body>
-</html>
+  <button class="lang-btn ta" onclick="setLang('ta')">Tamil</button>
+  <button class="lang-btn ur" onclick="setLang('ur')">Urdu</button>
+  <button class="lang-btn es" onclick="setLang('es')">Spanish</button>
+  <button class="lang-btn pt" onclick="setLang('pt')">Portuguese</button>
+</div>
