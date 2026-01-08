@@ -2,53 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- Lock site name / brand -->
 <meta name="google" content="notranslate">
-<title class="notranslate">BAS CHARITY INTERNATIONAL</title>
+<title class="notranslate">BAS Charity</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-}
+body{ margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fdfdfd; }
 
 /* ===== TOP BAR ===== */
-.top-bar{
-  background:#f7f7f7;
-  padding:10px;
-  border-bottom:1px solid #ddd;
-}
+.top-bar{ background:#fff; padding:15px; border-bottom:2px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
-/* Brand */
-.brand{
-  font-size:20px;
-  font-weight:bold;
-  text-align:center;
-}
+.brand{ font-size:26px; font-weight:900; text-align:center; color: #333; letter-spacing: 1px; margin-bottom: 10px; }
 
-/* Language buttons grid */
-.lang-buttons{
-  display:grid;
-  grid-template-columns: repeat(4, auto);
-  gap:8px;
-  justify-content:center;
-  margin-top:8px;
-}
+.lang-buttons{ display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; max-width: 500px; margin:0 auto; }
 
-/* Language button */
-.lang-btn{
-  padding:6px 14px;
-  border:none;
-  border-radius:16px;
-  font-size:13px;
-  font-weight:bold;
-  cursor:pointer;
-  color:#fff;
-}
+.lang-btn{ padding:8px; border:none; border-radius:8px; font-size:12px; font-weight:bold; cursor:pointer; color:#fff; transition: 0.3s; }
+.lang-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
-/* Colours */
-.en{background:#007BFF}
+/* Colours from your code */
+.en{background:#007BFF} /* Blue as you requested */
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853}
 .ar{background:#2E7D32}
@@ -57,136 +28,82 @@ body{
 .es{background:#F4C430;color:#000}
 .pt{background:#1B5E20}
 
-/* Google dropdown row */
-.google-row{
-  text-align:center;
-  font-size:13px;
-  margin-top:6px;
-}
-
-/* Hint */
-#lang-hint{
-  font-size:12px;
-  color:#555;
-  text-align:center;
-  margin-top:6px;
-  line-height:1.4;
-}
+.google-row{ text-align:center; font-size:13px; margin-top:15px; padding-top: 10px; border-top: 1px dashed #ccc; }
+#lang-hint{ font-size:11px; color:#777; text-align:center; margin-top:8px; font-style: italic; }
 
 /* Clean Google widget */
-.goog-logo-link,
-.goog-te-gadget span{
-  display:none!important;
-}
+.goog-logo-link, .goog-te-gadget span{ display:none!important; }
+.goog-te-gadget{ color: transparent!important; }
 body{ top:0!important; }
+
+/* Content Styling */
+.content-area { text-align: center; padding: 40px 20px; }
+.main-quote { font-size: 24px; font-weight: 800; color: #d32f2f; margin-bottom: 20px; }
+.sub-text { font-size: 18px; color: #444; line-height: 1.6; max-width: 600px; margin: 0 auto; }
 </style>
 </head>
 
 <body>
 
-<!-- ===== TOP BAR (BRAND ONLY) ===== -->
 <div class="top-bar">
-  <div class="brand notranslate">BAS CHARITY INTERNATIONAL</div>
-</div>
-
-<!-- ===== SUBMISSION MESSAGE ===== -->
-<div style="padding:20px;">
-  <p>
-    ലോകത്തുള്ള നാമോരോരുത്തരുടെയും ......
-  </p>
-</div>
-
-<!-- ===== LANGUAGE SELECTION (AFTER SUBMISSION MESSAGE) ===== -->
-<div style="background:#f7f7f7;padding:12px 8px;">
+  <div class="brand notranslate">BAS CHARITY</div>
 
   <div class="lang-buttons">
-    <button class="lang-btn en" onclick="setLang('en')">English</button>
-    <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
-    <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
-    <button class="lang-btn ar" onclick="setLang('ar')">Arabic</button>
-
-    <button class="lang-btn ta" onclick="setLang('ta')">Tamil</button>
-    <button class="lang-btn ur" onclick="setLang('ur')">Urdu</button>
-    <button class="lang-btn es" onclick="setLang('es')">Spanish</button>
-    <button class="lang-btn pt" onclick="setLang('pt')">Portuguese</button>
+    <button class="lang-btn en" onclick="setLang('en')">ENGLISH</button>
+    <button class="lang-btn hi" onclick="setLang('hi')">HINDI</button>
+    <button class="lang-btn ml" onclick="setLang('ml')">മലയാളം</button>
+    <button class="lang-btn ar" onclick="setLang('ar')">ARABIC</button>
+    <button class="lang-btn ta" onclick="setLang('ta')">TAMIL</button>
+    <button class="lang-btn ur" onclick="setLang('ur')">URDU</button>
+    <button class="lang-btn es" onclick="setLang('es')">SPANISH</button>
+    <button class="lang-btn pt" onclick="setLang('pt')">PORTUGUESE</button>
   </div>
 
   <div class="google-row">
-    🌐 All Languages :
-    <span id="google_translate_element"></span>
+    🌐 All Other Languages : <span id="google_translate_element"></span>
   </div>
-
-  <div id="lang-hint">
-    🌐 To access all languages, please enable Translate in your browser settings
-  </div>
-
+  <div id="lang-hint">🌐 Select your language for a better experience</div>
 </div>
 
-<!-- ===== REST OF SITE CONTENT ===== -->
-<div style="padding:20px;">
-  <!-- Your real content continues here -->
+<div class="content-area">
+  <h1 id="quote" class="main-quote">YOUR PURCHASE SATISFIES A HUNGER</h1>
+  <p id="desc" class="sub-text">
+    100% of your donation reaches the beneficiary. All our expenses are covered by affiliate marketing revenue.
+  </p>
 </div>
 
 <script>
 function setLang(lang){
-  const hint = document.getElementById("lang-hint");
+  const quote = document.getElementById("quote");
+  const desc = document.getElementById("desc");
 
   if(lang==="en"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings";
+    quote.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+    desc.innerText = "100% of your donation reaches the beneficiary. All our expenses are covered by affiliate marketing revenue.";
   }
-
-  if(lang==="ml"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 എല്ലാ ഭാഷകളും ലഭിക്കാൻ നിങ്ങളുടെ Browser settings-ൽ Translate ON ആക്കുക";
+  else if(lang==="hi"){
+    quote.innerText = "आपकी खरीदारी भूख मिटाती है";
+    desc.innerText = "आपका 100% दान लाभार्थी तक पहुँचता है। हमारे सभी खर्च एफिलिएट मार्केटिंग राजस्व से पूरे होते हैं।";
   }
-
-  if(lang==="hi"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 सभी भाषाएँ पाने के लिए अपने Browser settings में Translate ON करें";
+  else if(lang==="ml"){
+    quote.innerText = "നിങ്ങളുടെ ഓരോ പർച്ചേസും ഒരു വിശപ്പടക്കുന്നു";
+    desc.innerText = "നിങ്ങൾ നൽകുന്ന തുക 100% ഗുണഭോക്താവിലേക്ക് എത്തുന്നു. ഞങ്ങളുടെ ചിലവുകൾ അഫിലിയേറ്റ് മാർക്കറ്റിംഗ് വരുമാനത്തിലൂടെയാണ് കണ്ടെത്തുന്നത്.";
   }
-
-  if(lang==="ar"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 للحصول على جميع اللغات، فعّل الترجمة في إعدادات المتصفح";
+  else if(lang==="ar"){
+    quote.innerText = "مشترياتك تشبع جوعاً";
+    desc.innerText = "100٪ من تبرعك يصل إلى المستفيد. يتم تغطية جميع نفقاتنا من خلال إيرادات التسويق بالعمولة.";
   }
-
-  if(lang==="ta"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 அனைத்து மொழிகளையும் பெற Browser settings-ல் Translate ON செய்யவும்";
+  else if(lang==="ta"){
+    quote.innerText = "உங்கள் கொள்முதல் ஒரு பசியைத் தீர்க்கிறது";
+    desc.innerText = "உங்கள் நன்கொடையில் 100% பயனாளியை சென்றடைகிறது. எங்களின் அனைத்து செலவுகளும் இணை சந்தைப்படுத்தல் வருவாய் மூலம் ஈடுகட்டப்படுகின்றன.";
   }
-
-  if(lang==="ur"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 تمام زبانیں حاصل کرنے کے لیے اپنے براؤزر میں ترجمہ آن کریں";
-  }
-
-  if(lang==="es"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 Para acceder a todos los idiomas, active Traducir en su navegador";
-  }
-
-  if(lang==="pt"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 Para acessar todos os idiomas, ative a tradução no navegador";
-  }
+  // മറ്റ് ഭാഷകളും ഇതുപോലെ ചേർക്കാം...
 }
 
 function googleTranslateElementInit(){
-  new google.translate.TranslateElement(
-    { pageLanguage:'en', autoDisplay:false },
-    'google_translate_element'
-  );
+  new google.translate.TranslateElement({pageLanguage:'en', autoDisplay:false}, 'google_translate_element');
 }
 </script>
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
