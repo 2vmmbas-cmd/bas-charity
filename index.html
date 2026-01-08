@@ -1,307 +1,97 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
-        
-        /* ഗ്ലോബ് നിൽക്കുന്ന സ്ഥലം */
-        #logo-space { width: 100%; height: 380px; }
-
-        .brand-heading { text-align: center; margin-top: -35px; padding: 20px; }
-        
-        .hunger-message {
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: #FFD700; 
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        /* നിനക്ക് വേണ്ട ആ തടിച്ച അക്ഷരങ്ങൾ */
-        .brand-heading h1 { 
-            font-size: clamp(32px, 8.5vw, 60px); 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 950; 
-            -webkit-text-stroke: 1.5px white; /* അക്ഷരങ്ങൾക്ക് ചുറ്റുമുള്ള വെള്ള ബോർഡർ */
-            color: white;
-        }
-    </style>
-</head>
-<body>
-
-<div class="header-box">
-    <div id="logo-space"></div>
-    
-    <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-        <h1 class="notranslate">BAS CHARITY INTERNATIONAL</h1>
-    </div>
-</div> <div id="dedication-text" style="font-size: 14px; color: #bbb; font-style: italic; text-align: center; margin-top: 20px; border-top: 1px solid #333; padding: 20px 15px; line-height: 1.6;">
-    "ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പാവനമായ ഓർമ്മയ്ക്കും നന്മയ്ക്കുമായി സമർപ്പിക്കുന്നു."
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- LOCK BRAND -->
 <meta name="google" content="notranslate">
 <title class="notranslate">BAS CHARITY INTERNATIONAL</title>
 
 <style>
-body{
-  margin:0;
+html, body {
+  margin: 0;
+  background: #000;
+  color: white;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* ===== TOP BAR ===== */
-.top-bar{
-  background:#f7f7f7;
-  padding:10px;
-  border-bottom:1px solid #ddd;
+/* ===== HEADER ===== */
+.header-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000;
+  padding-top: 20px;
 }
 
-/* Brand */
-.brand{
-  font-size:20px;
-  font-weight:bold;
-  text-align:center;
+#logo-space {
+  width: 100%;
+  height: 380px;
 }
 
-/* ===== LANGUAGE BUTTONS ===== */
-.lang-buttons{
-  display:grid;
-  grid-template-columns: repeat(4, auto);
-  gap:8px;
-  justify-content:center;
-  margin-top:8px;
+.brand-heading {
+  text-align: center;
+  margin-top: -35px;
+  padding: 20px;
 }
 
-.lang-btn{
-  padding:6px 14px;
-  border:none;
-  border-radius:16px;
-  font-size:13px;
-  font-weight:bold;
-  cursor:pointer;
-  color:#fff;
+.hunger-message {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #FFD700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-/* Colours */
-.en{background:#007BFF}
-.hi{background:#FF9933;color:#000}
-.ml{background:#00C853}
-.ar{background:#2E7D32}
-.ta{background:#C62828}
-.ur{background:#6A1B9A}
-.es{background:#F4C430;color:#000}
-.pt{background:#1B5E20}
-
-/* Google dropdown */
-.google-row{
-  text-align:center;
-  font-size:13px;
-  margin-top:6px;
+.brand-heading h1 {
+  font-size: clamp(32px, 8.5vw, 60px);
+  letter-spacing: 4px;
+  margin: 0;
+  font-weight: 950;
+  -webkit-text-stroke: 1.5px white;
+  color: white;
 }
 
-/* Hint */
-#lang-hint{
-  font-size:12px;
-  color:#555;
-  text-align:center;
-  margin-top:6px;
-  line-height:1.4;
+/* ===== DEDICATION ===== */
+#dedication-text {
+  font-size: 14px;
+  color: #bbb;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0;
+  border-top: 1px solid #333;
+  padding: 20px 15px;
+  line-height: 1.6;
 }
 
-/* Clean Google widget */
-.goog-logo-link,
-.goog-te-gadget span{
-  display:none!important;
+/* ===== LANGUAGE BLOCK (No:3) ===== */
+.language-block {
+  background: #f7f7f7;
+  color: #000;
+  padding: 16px 12px;
 }
-body{ top:0!important; }
-</style>
-</head>
 
-<body>
+.lang-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 520px;
+  margin: 0 auto;
+}
 
-<!-- ===== TOP BAR (BRAND ONLY) ===== -->
-<div class="top-bar">
-  <div class="brand notranslate">BAS CHARITY INTERNATIONAL</div>
-</div>
-
-<!-- ===== SUBMISSION MESSAGE ===== -->
-<div style="padding:20px;">
-  <p>
-    ലോകത്തുള്ള നാമോരോരുത്തരുടെയും ......
-  </p>
-</div>
-
-<!-- ===== LANGUAGE SELECTION (AFTER MESSAGE) ===== -->
-<div style="background:#f7f7f7;padding:12px 8px;">
-
-  <div class="lang-buttons">
-    <button class="lang-btn en" onclick="setLang('en')">English</button>
-    <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
-    <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
-    <button class="lang-btn ar" onclick="setLang('ar')">Arabic</button>
-
-    <button class="lang-btn ta" onclick="setLang('ta')">Tamil</button>
-    <button class="lang-btn ur" onclick="setLang('ur')">Urdu</button>
-    <button class="lang-btn es" onclick="setLang('es')">Spanish</button>
-    <button class="lang-btn pt" onclick="setLang('pt')">Portuguese</button>
-  </div>
-
-  <div class="google-row">
-    🌐 All Languages :
-    <span id="google_translate_element"></span>
-  </div>
-
-  <div id="lang-hint">
-    🌐 To access all languages, please enable Translate in your browser settings
-  </div>
-
-</div>
-
-<!-- ===== REST OF SITE CONTENT ===== -->
-<div style="padding:20px;">
-  <!-- Your real site content continues here -->
-</div>
-
-<script>
-/* ===== LANGUAGE BUTTON LOGIC (HINT ONLY) ===== */
-function setLang(lang){
-  const hint = document.getElementById("lang-hint");
-
-  if(lang==="en"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings";
-  }
-  if(lang==="ml"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 എല്ലാ ഭാഷകളും ലഭിക്കാൻ നിങ്ങളുടെ Browser settings-ൽ Translate ON ആക്കുക";
-  }
-  if(lang==="hi"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 सभी भाषाएँ पाने के लिए अपने Browser settings में Translate ON करें";
-  }
-  if(lang==="ar"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 للحصول على جميع اللغات، فعّل الترجمة في إعدادات المتصفح";
-  }
-  if(lang==="ta"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 அனைத்து மொழிகளையும் பெற Browser settings-ல் Translate ON செய்யவும்";
-  }
-  if(lang==="ur"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 تمام زبانیں حاصل کرنے کے لیے اپنے براؤزر میں ترجمہ آن کریں";
-  }
-  if(lang==="es"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 Para acceder a todos los idiomas, active Traducir en su navegador";
-  }
-  if(lang==="pt"){
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 Para acessar todos os idiomas, ative a tradução no navegador";
+@media (min-width: 600px) {
+  .lang-buttons {
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
   }
 }
 
-/* ===== GOOGLE ALL LANGUAGES ===== */
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement(
-    { pageLanguage:'en', autoDisplay:false },
-    'google_translate_element'
-  );
-}
-</script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    // --- ഗ്ലോബ്, ചന്ദ്രൻ, BAS കറങ്ങുന്ന ആനിമേഷൻ കോഡ് ---
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 380);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
-
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    
-    // ഭൂമി (Globe)
-    const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(2, 64, 64), 
-        new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
-        })
-    );
-    earthGroup.add(earth);
-    scene.add(earthGroup);
-
-    // BAS എന്ന് കറങ്ങുന്ന ടെക്സ്റ്റ്
-    const canvas = document.createElement('canvas'); 
-    const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; 
-    context.font = "Bold 140px Arial"; 
-    context.textAlign = "center";
-    context.fillText("BAS", 256, 160);
-    context.fillText("BAS", 768, 160);
-
-    const textTexture = new THREE.CanvasTexture(canvas);
-    const textMesh = new THREE.Mesh(
-        new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true),
-        new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide })
-    );
-    earthGroup.add(textMesh);
-
-    // ചന്ദ്രൻ (Moon)
-    const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 32, 32),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc })
-    );
-    scene.add(moon);
-
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
-        camera.updateProjectionMatrix();
-    });
-</script>
-
-</body>
-</html>
+.lang-btn {
+  padding: 5px 12px;
+  border: none;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight 
