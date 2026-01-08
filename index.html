@@ -10,8 +10,6 @@ body{
   text-align:center;
   margin-top:40px;
 }
-
-/* common button */
 .lang-btn{
   height:44px;
   margin:6px;
@@ -21,14 +19,10 @@ body{
   cursor:pointer;
   font-size:14px;
 }
-
-/* normal buttons */
-.en,.hi,.ml{ width:140px; }
+.en,.hi,.ml{width:140px;}
 .en{background:#007BFF;color:#fff}
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853;color:#fff}
-
-/* 4th button – longer */
 .all{
   width:260px;
   background:#FFD700;
@@ -39,7 +33,6 @@ body{
 
 <body>
 
-<!-- 4 COLOUR BUTTONS -->
 <button class="lang-btn en" onclick="setLang('en')">English</button>
 <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
 <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
@@ -50,13 +43,11 @@ body{
 
 <hr>
 
-<!-- CONTENT -->
 <h1 id="title">Welcome</h1>
 <p id="p1">This is a sample text</p>
 <p id="p2">Language buttons are working</p>
 
 <script>
-/* Manual language buttons */
 function setLang(lang){
   if(lang==="en"){
     title.innerText="Welcome";
@@ -75,12 +66,9 @@ function setLang(lang){
   }
 }
 
-/* All Other Languages → Google language list ONLY */
+/* AUTO-DETECT GOOGLE LANGUAGE PAGE */
 function openAllLanguages(){
-  window.open(
-    "https://translate.google.com/",
-    "_blank"
-  );
+  window.open("https://translate.google.com/?sl=auto","_blank");
 }
 </script>
 
