@@ -5,7 +5,7 @@
 
 <!-- Lock site name / brand -->
 <meta name="google" content="notranslate">
-<title class="notranslate">BAS Charity</title>
+<title class="notranslate">BAS CHARITY INTERNATIONAL</title>
 
 <style>
 body{
@@ -30,7 +30,7 @@ body{
 /* Language buttons grid */
 .lang-buttons{
   display:grid;
-  grid-template-columns: repeat(4, auto); /* 2 rows × 4 buttons */
+  grid-template-columns: repeat(4, auto);
   gap:8px;
   justify-content:center;
   margin-top:8px;
@@ -84,13 +84,21 @@ body{ top:0!important; }
 
 <body>
 
-<!-- ===== TOP LANGUAGE AREA ===== -->
+<!-- ===== TOP BAR (BRAND ONLY) ===== -->
 <div class="top-bar">
+  <div class="brand notranslate">BAS CHARITY INTERNATIONAL</div>
+</div>
 
-  <!-- BRAND -->
-  <div class="brand notranslate">BAS Charity</div>
+<!-- ===== SUBMISSION MESSAGE ===== -->
+<div style="padding:20px;">
+  <p>
+    ലോകത്തുള്ള നാമോരോരുത്തരുടെയും ......
+  </p>
+</div>
 
-  <!-- POPULAR LANGUAGE BUTTONS -->
+<!-- ===== LANGUAGE SELECTION (AFTER SUBMISSION MESSAGE) ===== -->
+<div style="background:#f7f7f7;padding:12px 8px;">
+
   <div class="lang-buttons">
     <button class="lang-btn en" onclick="setLang('en')">English</button>
     <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
@@ -103,114 +111,74 @@ body{ top:0!important; }
     <button class="lang-btn pt" onclick="setLang('pt')">Portuguese</button>
   </div>
 
-  <!-- GOOGLE ALL LANGUAGES DROPDOWN -->
   <div class="google-row">
     🌐 All Languages :
     <span id="google_translate_element"></span>
   </div>
 
-  <!-- HINT -->
   <div id="lang-hint">
     🌐 To access all languages, please enable Translate in your browser settings
   </div>
 
 </div>
 
-<!-- ===== SITE CONTENT (TEST TEXT INCLUDED) ===== -->
+<!-- ===== REST OF SITE CONTENT ===== -->
 <div style="padding:20px;">
-  <h2 id="title" class="notranslate">Test Heading</h2>
-
-  <p id="p1">This is test text</p>
-  <p id="p2">Use the language buttons above</p>
+  <!-- Your real content continues here -->
 </div>
 
 <script>
-/* ===== MANUAL SITE LANGUAGES ===== */
 function setLang(lang){
-
   const hint = document.getElementById("lang-hint");
 
   if(lang==="en"){
-    title.innerText = "Test Heading";
-    p1.innerText = "This is test text";
-    p2.innerText = "Use the language buttons above";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings";
   }
 
-  if(lang==="hi"){
-    title.innerText = "परीक्षण";
-    p1.innerText = "यह परीक्षण पाठ है";
-    p2.innerText = "ऊपर दिए गए भाषा बटन का उपयोग करें";
-
-    hint.innerHTML =
-      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
-      "🌐 सभी भाषाएँ पाने के लिए अपने Browser settings में Translate ON करें";
-  }
-
   if(lang==="ml"){
-    title.innerText = "പരിശോധന";
-    p1.innerText = "ഇത് ടെസ്റ്റ് ടെക്സ്റ്റാണ്";
-    p2.innerText = "മുകളിലുള്ള ഭാഷാ ബട്ടണുകൾ ഉപയോഗിക്കുക";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 എല്ലാ ഭാഷകളും ലഭിക്കാൻ നിങ്ങളുടെ Browser settings-ൽ Translate ON ആക്കുക";
   }
 
-  if(lang==="ar"){
-    title.innerText = "اختبار";
-    p1.innerText = "هذا نص تجريبي";
-    p2.innerText = "استخدم أزرار اللغة أعلاه";
+  if(lang==="hi"){
+    hint.innerHTML =
+      "🌐 To access all languages, please enable Translate in your browser settings<br>" +
+      "🌐 सभी भाषाएँ पाने के लिए अपने Browser settings में Translate ON करें";
+  }
 
+  if(lang==="ar"){
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 للحصول على جميع اللغات، فعّل الترجمة في إعدادات المتصفح";
   }
 
   if(lang==="ta"){
-    title.innerText = "சோதனை";
-    p1.innerText = "இது சோதனை உரை";
-    p2.innerText = "மேலுள்ள மொழி பொத்தான்களை பயன்படுத்தவும்";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 அனைத்து மொழிகளையும் பெற Browser settings-ல் Translate ON செய்யவும்";
   }
 
   if(lang==="ur"){
-    title.innerText = "جانچ";
-    p1.innerText = "یہ آزمائشی متن ہے";
-    p2.innerText = "اوپر دیے گئے زبان کے بٹن استعمال کریں";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 تمام زبانیں حاصل کرنے کے لیے اپنے براؤزر میں ترجمہ آن کریں";
   }
 
   if(lang==="es"){
-    title.innerText = "Prueba";
-    p1.innerText = "Este es un texto de prueba";
-    p2.innerText = "Use los botones de idioma de arriba";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 Para acceder a todos los idiomas, active Traducir en su navegador";
   }
 
   if(lang==="pt"){
-    title.innerText = "Teste";
-    p1.innerText = "Este é um texto de teste";
-    p2.innerText = "Use os botões de idioma acima";
-
     hint.innerHTML =
       "🌐 To access all languages, please enable Translate in your browser settings<br>" +
       "🌐 Para acessar todos os idiomas, ative a tradução no navegador";
   }
 }
 
-/* ===== GOOGLE ALL LANGUAGES ===== */
 function googleTranslateElementInit(){
   new google.translate.TranslateElement(
     { pageLanguage:'en', autoDisplay:false },
