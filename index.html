@@ -1,68 +1,39 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAS Charity</title>
+    <meta name="google" content="notranslate">
+    <title class="notranslate">BAS CHARITY INTERNATIONAL</title>
     <style>
-        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
+        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; top: 0 !important; }
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+        body { top: 0px !important; }
+        .goog-te-balloon-frame { display: none !important; }
+
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; }
         #logo-space { width: 100%; height: 380px; }
         
-        .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; background: #000; }
-        
-        /* Hunger Message - ഇത് ലാംഗ്വേജ് ഞെക്കുമ്പോൾ മാറും */
-        .hunger-message {
-            font-size: 13px; letter-spacing: 2px; color: #FFD700; 
-            text-transform: uppercase; margin-bottom: 5px; font-weight: bold;
-        }
-
-        /* പേര് - ഇത് എപ്പോഴും ലോക്ക് ആയിരിക്കും */
+        .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; }
+        .hunger-message { font-size: 13px; letter-spacing: 2px; color: #FFD700; text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
         .brand-heading h1.notranslate { 
-            font-size: clamp(35px, 10vw, 70px);
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 1000;
-            -webkit-text-stroke: 2px white; 
-            color: white;
-            line-height: 1;
+            font-size: clamp(35px, 10vw, 70px); letter-spacing: 1px; text-transform: uppercase; 
+            margin: 0; font-weight: 1000; -webkit-text-stroke: 2px white; color: white; line-height: 1;
         }
 
-        /* സമർപ്പണം - ത്രികോണ രൂപത്തിൽ, ലാംഗ്വേജ് മാറും */
-        .dedication-box {
-            text-align: center;
-            padding: 5px 20px 25px 20px;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-        #dedication-text {
-            font-size: 15px; 
-            color: #bbb; 
-            font-style: italic; 
-            line-height: 1.6;
-            display: inline-block;
-        }
+        .dedication-box { text-align: center; padding: 5px 20px 25px 20px; max-width: 450px; margin: 0 auto; }
+        #dedication-text { font-size: 15px; color: #bbb; font-style: italic; line-height: 1.6; display: inline-block; }
 
-        .top-bar { background: #111; padding: 10px; border-top: 1px solid #333; border-bottom: 1px solid #333; color: white; }
-        .lang-buttons {
-            display: grid; grid-template-columns: repeat(4, auto);
-            gap: 6px; justify-content: center; margin-top: 8px;
-        }
-        .lang-btn {
-            padding: 5px 10px; border: none; border-radius: 4px;
-            font-size: 11px; font-weight: bold; cursor: pointer; color: #fff;
-        }
-        .en{background:#007BFF} .hi{background:#FF9933;color:#000}
-        .ml{background:#00C853} .ar{background:#2E7D32}
-        .ta{background:#C62828} .ur{background:#6A1B9A}
-        .es{background:#F4C430;color:#000} .pt{background:#1B5E20}
+        .top-bar { background: #111; padding: 12px 8px; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .lang-buttons { display: grid; grid-template-columns: repeat(4, auto); gap: 8px; justify-content: center; }
+        .lang-btn { padding: 6px 14px; border: none; border-radius: 16px; font-size: 13px; font-weight: bold; cursor: pointer; color: #fff; }
+        .en{background:#007BFF} .hi{background:#FF9933;color:#000} .ml{background:#00C853} .ar{background:#2E7D32}
+        .ta{background:#C62828} .ur{background:#6A1B9A} .es{background:#F4C430;color:#000} .pt{background:#1B5E20}
 
-        .google-row { text-align: center; font-size: 12px; margin-top: 8px; color: #bbb; }
-        #lang-hint { font-size: 11px; color: #888; text-align: center; margin-top: 6px; line-height: 1.4; padding-bottom: 15px; }
-        
+        .google-row { text-align: center; font-size: 13px; margin-top: 10px; color: #bbb; }
         .goog-logo-link, .goog-te-gadget span { display: none !important; }
         .goog-te-gadget { color: transparent !important; }
+        #google_translate_element { display: none; }
     </style>
 </head>
 <body>
@@ -86,109 +57,68 @@
 
 <div class="top-bar">
     <div class="lang-buttons">
-        <button class="lang-btn en" onclick="setLang('en')">English</button>
-        <button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
-        <button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
-        <button class="lang-btn ar" onclick="setLang('ar')">Arabic</button>
-        <button class="lang-btn ta" onclick="setLang('ta')">Tamil</button>
-        <button class="lang-btn ur" onclick="setLang('ur')">Urdu</button>
-        <button class="lang-btn es" onclick="setLang('es')">Spanish</button>
-        <button class="lang-btn pt" onclick="setLang('pt')">Portuguese</button>
+        <button class="lang-btn en" onclick="changeLang('en')">English</button>
+        <button class="lang-btn hi" onclick="changeLang('hi')">Hindi</button>
+        <button class="lang-btn ml" onclick="changeLang('ml')">Malayalam</button>
+        <button class="lang-btn ar" onclick="changeLang('ar')">Arabic</button>
+        <button class="lang-btn ta" onclick="changeLang('ta')">Tamil</button>
+        <button class="lang-btn ur" onclick="changeLang('ur')">Urdu</button>
+        <button class="lang-btn es" onclick="changeLang('es')">Spanish</button>
+        <button class="lang-btn pt" onclick="changeLang('pt')">Portuguese</button>
     </div>
-    <div class="google-row">
-        🌐 All Languages : <span id="google_translate_element"></span>
-    </div>
-    <div id="lang-hint">
-        🌐 To access all languages, please enable Translate in your browser settings
-    </div>
+    <div id="google_translate_element"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // GLOBE ANIMATION
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 380);
     document.getElementById('logo-space').appendChild(renderer.domElement);
-
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
-    
-    const earth = new THREE.Mesh(
-        new THREE.SphereGeometry(2, 64, 64), 
-        new THREE.MeshStandardMaterial({
-            map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-            metalness: 0.3, roughness: 0.7
-        })
-    );
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+        metalness: 0.3, roughness: 0.7
+    }));
     earthGroup.add(earth);
 
-    // BAS Text on Globe
     const canvas = document.createElement('canvas'); 
     const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; 
-    context.font = "Bold 140px Arial"; 
-    context.textAlign = "center";
-    context.fillText("BAS", 256, 160);
-    context.fillText("BAS", 768, 160);
-
+    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
+    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
     const textTexture = new THREE.CanvasTexture(canvas);
-    const textMesh = new THREE.Mesh(
-        new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true),
-        new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide })
-    );
-    // BAS ഒരിക്കലും മാറില്ലെന്ന് ഉറപ്പാക്കാൻ
-    textMesh.className = "notranslate";
+    const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true), new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide }));
     earthGroup.add(textMesh);
     scene.add(earthGroup);
 
-    const moon = new THREE.Mesh(
-        new THREE.SphereGeometry(0.4, 32, 32),
-        new THREE.MeshStandardMaterial({ color: 0xcccccc })
-    );
+    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
     scene.add(moon);
-
     camera.position.z = 8;
     let angle = 0;
     function animate() {
         requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; 
-        moon.position.z = Math.sin(angle) * 3; 
+        earthGroup.rotation.y += 0.005; angle -= 0.015;
+        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3;
         renderer.render(scene, camera);
     }
     animate();
 
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 380);
-        camera.aspect = window.innerWidth / 380;
-        camera.updateProjectionMatrix();
-    });
-
-    function setLang(lang){
-        const hint = document.getElementById("lang-hint");
-        const translations = {
-            en: "🌐 To access all languages, please enable Translate in your browser settings",
-            ml: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 എല്ലാ ഭാഷകളും ലഭിക്കാൻ നിങ്ങളുടെ Browser settings-ൽ Translate ON ആക്കുക",
-            hi: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 सभी भाषाएँ पाने के लिए अपने Browser settings में Translate ON करें",
-            ar: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 للحصول على جميع اللغات، فعّل الترجمة في إعدادات المتصفح",
-            ta: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 அனைத்து மொழிகளையும் பெற Browser settings-ൽ Translate ON செய்யவும்",
-            ur: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 تمام زبانیں حاصل کرنے کے لیے اپنے براؤزر میں ترجمہ آن کریں",
-            es: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 Para acceder a todos los idiomas, active Traducir en su navegador",
-            pt: "🌐 To access all languages, please enable Translate in your browser settings<br>🌐 Para acessar todos os idiomas, ative a tradução no navegador"
-        };
-        hint.innerHTML = translations[lang] || translations.en;
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({ pageLanguage:'ml', autoDisplay:false }, 'google_translate_element');
     }
 
-    function googleTranslateElementInit(){
-        new google.translate.TranslateElement({ pageLanguage:'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false }, 'google_translate_element');
+    function changeLang(langCode) {
+        var select = document.querySelector('select.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        }
     }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 </body>
 </html>
