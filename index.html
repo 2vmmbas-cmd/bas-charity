@@ -11,39 +11,45 @@ body{
   margin-top:40px;
 }
 
-button{
-  padding:10px 18px;
+/* common button */
+.lang-btn{
+  height:44px;
   margin:6px;
   border:none;
-  border-radius:20px;
+  border-radius:22px;
   font-weight:bold;
   cursor:pointer;
+  font-size:14px;
+}
+
+/* normal buttons width */
+.en, .hi, .ml{
+  width:140px;          /* 👈 normal length */
 }
 
 .en{background:#007BFF;color:#fff}
 .hi{background:#FF9933;color:#000}
 .ml{background:#00C853;color:#fff}
 
-/* link style */
-.translate-link{
-  display:inline-block;
-  margin-top:15px;
-  font-weight:bold;
-  color:#0066cc;
-  text-decoration:none;
-}
-.translate-link:hover{
-  text-decoration:underline;
+/* 4th button – MORE LENGTH */
+.all{
+  width:260px;          /* 👈 EXTRA LENGTH */
+  background:#FFD700;
+  color:#000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- COLOUR LANGUAGE BUTTONS (WORKING) -->
-<button class="en" onclick="setLang('en')">English</button>
-<button class="hi" onclick="setLang('hi')">Hindi</button>
-<button class="ml" onclick="setLang('ml')">Malayalam</button>
+<!-- 4 COLOUR BUTTONS -->
+<button class="lang-btn en" onclick="setLang('en')">English</button>
+<button class="lang-btn hi" onclick="setLang('hi')">Hindi</button>
+<button class="lang-btn ml" onclick="setLang('ml')">Malayalam</button>
+
+<button class="lang-btn all" onclick="openAllLanguages()">
+  🌐 All Other Languages
+</button>
 
 <hr>
 
@@ -52,33 +58,30 @@ button{
 <p id="p1">This is a sample text</p>
 <p id="p2">Language buttons are working</p>
 
-<!-- SEARCHABLE GOOGLE LANGUAGE LINK -->
-<a class="translate-link"
-   href="https://translate.google.com/?sl=en&tl=auto&text=Welcome%20to%20BAS%20Charity&op=translate"
-   target="_blank">
-🌐 Google Language (Search & Translate)
-</a>
-
 <script>
 function setLang(lang){
-
   if(lang==="en"){
     title.innerText="Welcome";
     p1.innerText="This is a sample text";
     p2.innerText="Language buttons are working";
   }
-
   if(lang==="hi"){
     title.innerText="स्वागत है";
     p1.innerText="यह एक उदाहरण पाठ है";
     p2.innerText="भाषा बटन काम कर रहे हैं";
   }
-
   if(lang==="ml"){
     title.innerText="സ്വാഗതം";
     p1.innerText="ഇത് ഒരു ഉദാഹരണ ടെക്സ്റ്റാണ്";
     p2.innerText="ഭാഷ ബട്ടണുകൾ പ്രവർത്തിക്കുന്നു";
   }
+}
+
+function openAllLanguages(){
+  window.open(
+    "https://translate.google.com/?sl=en&tl=auto&text=Welcome%20to%20BAS%20Charity&op=translate",
+    "_blank"
+  );
 }
 </script>
 
