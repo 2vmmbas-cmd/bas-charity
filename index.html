@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title class="notranslate">BAS Charity</title>
+    <title>BAS Charity</title>
     <style>
         body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; }
         .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; }
@@ -12,14 +11,14 @@
         
         .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; background: #000; }
         
-        /* ലാംഗ്വേജ് ഞെക്കുമ്പോൾ ഇത് മാറും */
+        /* Hunger Message - ഇത് ലാംഗ്വേജ് ഞെക്കുമ്പോൾ മാറും */
         .hunger-message {
             font-size: 13px; letter-spacing: 2px; color: #FFD700; 
             text-transform: uppercase; margin-bottom: 5px; font-weight: bold;
         }
 
-        /* പേര് - ഇത് ഒരിക്കലും മാറില്ല */
-        .brand-heading h1 { 
+        /* പേര് - ഇത് എപ്പോഴും ലോക്ക് ആയിരിക്കും */
+        .brand-heading h1.notranslate { 
             font-size: clamp(35px, 10vw, 70px);
             letter-spacing: 1px; 
             text-transform: uppercase; 
@@ -30,18 +29,18 @@
             line-height: 1;
         }
 
-        /* സമർപ്പണ വാചകം - ഹെഡിംഗിനോട് ചേർത്ത് ത്രികോണ രൂപത്തിൽ */
+        /* സമർപ്പണം - ത്രികോണ രൂപത്തിൽ, ലാംഗ്വേജ് മാറും */
         .dedication-box {
             text-align: center;
             padding: 5px 20px 25px 20px;
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
         }
         #dedication-text {
             font-size: 15px; 
             color: #bbb; 
             font-style: italic; 
-            line-height: 1.4;
+            line-height: 1.6;
             display: inline-block;
         }
 
@@ -126,6 +125,7 @@
     );
     earthGroup.add(earth);
 
+    // BAS Text on Globe
     const canvas = document.createElement('canvas'); 
     const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
@@ -140,6 +140,8 @@
         new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true),
         new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide })
     );
+    // BAS ഒരിക്കലും മാറില്ലെന്ന് ഉറപ്പാക്കാൻ
+    textMesh.className = "notranslate";
     earthGroup.add(textMesh);
     scene.add(earthGroup);
 
@@ -167,7 +169,6 @@
         camera.updateProjectionMatrix();
     });
 
-    // LANGUAGE SWITCHER
     function setLang(lang){
         const hint = document.getElementById("lang-hint");
         const translations = {
@@ -184,7 +185,7 @@
     }
 
     function googleTranslateElementInit(){
-        new google.translate.TranslateElement({ pageLanguage:'en', autoDisplay:false }, 'google_translate_element');
+        new google.translate.TranslateElement({ pageLanguage:'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false }, 'google_translate_element');
     }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
