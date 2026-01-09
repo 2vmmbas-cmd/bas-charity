@@ -1,55 +1,46 @@
-<style>
-    .bas-box {
-        width: 100%; max-width: 450px; margin: auto;
-        background: #000; font-family: 'Segoe UI', sans-serif;
-        border-radius: 15px; padding-bottom: 10px;
-    }
+ <style>
+    .bas-box { width: 95%; margin: auto; background: #000; font-family: 'Segoe UI', sans-serif; }
     
-    /* സെർച്ച് ബാർ ലുക്ക് മാറ്റിയത് */
-    .bas-search {
-        width: 90%; margin: 15px auto; display: block;
-        padding: 12px 20px; border: 2px solid #00BFFF;
-        border-radius: 30px; background: #111; color: #fff;
-    }
+    /* സെർച്ച് ബാർ */
+    .bas-search { width: 100%; padding: 14px; border: 2px solid #00BFFF; border-radius: 30px; background: #111; color: #fff; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0,191,255,0.2); }
 
-    /* വരികളുടെ സ്റ്റൈൽ */
-    .row-item {
-        display: flex; align-items: center;
-        padding: 12px 18px; border-bottom: 1px solid #1a1a1a;
-    }
+    /* ഓരോ വരിയും */
+    .item-row { display: flex; align-items: center; padding: 15px; background: #0a0a0a; margin-bottom: 8px; border-radius: 12px; border: 1px solid #1a1a1a; }
+    
+    /* ലോഗോകൾക്കുള്ള സ്പെഷ്യൽ സ്റ്റൈൽ */
+    .logo-img { width: 35px; height: 35px; border-radius: 8px; margin-right: 15px; background: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; overflow: hidden; }
 
-    /* ലോഗോ കൂടുതൽ ഭംഗിയാക്കാൻ */
-    .brand-img {
-        width: 35px; height: 35px;
-        object-fit: contain; /* ലോഗോ കൃത്യമായി വരാൻ */
-        margin-right: 15px;
-        background: #fff; border-radius: 8px; padding: 2px;
-    }
+    .name-col { flex: 2; font-size: 16px; font-weight: 700; }
+    .price-col { flex: 1.5; font-size: 18px; font-weight: 800; text-align: center; color: #fff; }
+    .buy-btn { background: transparent; border: 1.5px solid #00BFFF; color: #00BFFF; padding: 6px 15px; border-radius: 8px; text-decoration: none; font-size: 12px; font-weight: bold; }
 
-    .brand-name { flex: 2; font-weight: 600; font-size: 15px; color: #fff; }
-    .price-tag { flex: 1; font-weight: bold; color: #00BFFF; font-size: 16px; text-align: center; }
-
-    .buy-now {
-        background: transparent; border: 1px solid #00BFFF;
-        color: #00BFFF; padding: 6px 14px; border-radius: 6px;
-        text-decoration: none; font-size: 11px; font-weight: bold;
+    /* ആറാമത്തെ സ്പെഷ്യൽ കമ്പയർ - ഇതിന് കൂടുതൽ കളർ */
+    .special-sixth {
+        background: linear-gradient(135deg, #004d4d 0%, #000 100%);
+        border: 2px solid #00ff00;
+        margin-top: 15px;
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
     }
-
-    /* ആറാമത്തെ സ്പെഷ്യൽ കമ്പാരിസൺ ബോക്സ് */
-    .special-card {
-        margin: 15px; background: linear-gradient(135deg, #001a1a 0%, #003333 100%);
-        border: 2px solid #00ff00; border-radius: 12px; padding: 15px;
-        display: flex; justify-content: space-between; align-items: center;
-        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-    }
-    .special-label { color: #00ff00; font-size: 10px; font-weight: bold; }
-    .special-shop { color: #fff; font-size: 16px; font-weight: bold; margin-top: 2px; }
-    .special-price { color: #00ff00; font-size: 20px; font-weight: bold; }
+    .special-sixth .price-col { color: #00ff00; font-size: 22px; }
 </style>
 
 <div class="bas-box">
-    <input type="text" class="bas-search" placeholder="Search product...">
+    <input type="text" class="bas-search" placeholder="Search Product here...">
 
-    <div class="row-item">
-        
- 
+    <div class="item-row">
+        <div class="logo-img" style="border: 2px solid #ff9900;">A</div>
+        <div class="name-col" style="color: #ff9900;">Amazon</div>
+        <div class="price-col">₹14,999</div>
+        <a href="#" class="buy-btn">BUY</a>
+    </div>
+
+    <div class="item-row">
+        <div class="logo-img" style="border: 2px solid #2874f0;">F</div>
+        <div class="name-col" style="color: #2874f0;">Flipkart</div>
+        <div class="price-col">₹14,490</div>
+        <a href="#" class="buy-btn">BUY</a>
+    </div>
+
+    <div class="item-row special-sixth">
+        <div class="logo-img" style="background: #00ff00; color: #000;">⭐</div>
+        <div class="name-col" style="color: #00ff00
