@@ -1,132 +1,229 @@
- <!DOCTYPE html>
-<html lang="ml">
-<head>
-    <meta charset="UTF-8">
-    <title>BAS Charity International</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
-        #logo-space { width: 100%; height: 350px; }
-        .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
-        
-        /* സമർപ്പണ സന്ദേശം - Deep Sky Blue & Small Size */
-        .dedication-box { margin: 8px auto; max-width: 85%; }
-        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; letter-spacing: 0.3px; }
+ <style>
+    body { margin: 0; padding: 0; background: #000; font-family: sans-serif; }
+    
+    .bas-container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
 
-        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; }
-        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
-        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
+    /* ഹെഡർ ബോക്സ് */
+    .header-card {
+        background: #0a0a0a;
+        border: 1px solid #333;
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .header-card h2 {
+        color: #FFD700;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+    }
+    .search-box {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #444;
+        background: #000;
+        color: #fff;
+    }
 
-        /* Google Translate Widget ഒളിപ്പിച്ചു വെക്കാൻ */
-        #google_translate_element { display: none; }
-        .goog-te-banner-frame { display: none !important; } 
-        body { top: 0 !important; }
+    /* മെയിൻ റോ - നിന്റെ സാമ്പിൾ ഡിസൈൻ */
+    .deal-row {
+        display: flex;
+        background: #111;
+        margin-bottom: 12px;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 70px; /* ബോക്സിന്റെ ഉയരം */
+        border: 1px solid #222;
+    }
 
-        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
-        
-        /* Impact Box - Golden Style */
-        .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
-        #impact-text { font-size: 16px; color: #FFD700; line-height: 1.7; font-weight: 500; font-style: italic; }
+    /* ഇടതുവശത്തെ വലിയ വെള്ള ബോക്സ് (Emblem Area) */
+    .site-emblem {
+        width: 45%; /* പകുതിയോളം വലിപ്പം */
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .site-emblem img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+    }
 
-        .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 20px 0 15px 0; text-transform: uppercase; }
-        
-        /* Shopping Cards */
-        #shop-list { display: flex; flex-direction: column; gap: 10px; }
-        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
-        .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
-        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 2px; }
-        .c-amz { border-left: 5px solid #FF9900; }
-        .c-fk { border-left: 5px solid #2874f0; }
-    </style>
-</head>
-<body>
+    /* വലതുവശത്തെ വിവരങ്ങൾ */
+    .site-info {
+        flex: 1;
+        padding: 8px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+    .site-name {
+        font-size: 12px;
+        font-weight: bold;
+        color: #FFD700;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    .buy-btn {
+        background: #FFD700;
+        color: #000;
+        padding: 4px 12px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: bold;
+        width: fit-content;
+    }
+    .price-tag {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        font-weight: 800;
+        color: #fff;
+    }
 
-<div id="google_translate_element"></div>
+    /* സ്പെഷ്യൽ ബലൂൺ ഡീൽ */
+    .green-deal {
+        background: #00c853;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #000;
+        font-weight: bold;
+    }
 
-<div id="logo-space"></div>
+    .section-title {
+        color: #FFD700;
+        font-size: 10px;
+        text-align: center;
+        margin: 20px 0 10px;
+        letter-spacing: 1px;
+    }
+</style>
 
-<div class="brand-heading">
-    <h1>BAS CHARITY INTERNATIONAL</h1>
-
-    <div class="dedication-box">
-        <p id="dedication-text">"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."</p>
+<div class="bas-container">
+    <div class="header-card">
+        <h2>PRICE COMPARISON</h2>
+        <input type="text" class="search-box" placeholder="Search product name...">
     </div>
 
-    <div class="lang-container">
-        <button class="lang-btn" onclick="translatePage('en')">English</button>
-        <button class="lang-btn" onclick="translatePage('hi')">हिन्दी</button>
-        <button class="lang-btn" onclick="translatePage('ml')">മലയാളം</button>
-        <button class="lang-btn" onclick="showAllLangs()">Other Languages</button>
-    </div>
-
-    <div class="container">
-        <div class="impact-box">
-            <div id="impact-text">
-                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
-            </div>
+    <div class="deal-row">
+        <div class="site-emblem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
         </div>
+        <div class="site-info">
+            <div class="site-name">Amazon</div>
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,999</div>
+        </div>
+    </div>
 
-        <div class="section-header">Shop & Support</div>
-        <div id="shop-list">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
-            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
-            </div>
+    <div class="deal-row">
+        <div class="site-emblem">
+            <img src="https://www.flipkart.com/favicon.ico">
+        </div>
+        <div class="site-info">
+            <div class="site-name">Flipkart</div>
+            <a href="https://fktr.in/V5wq6Bc" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,490</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem">
+            <img src="https://www.samsung.com/favicon.ico">
+        </div>
+        <div class="site-info">
+            <div class="site-name">Samsung</div>
+            <a href="https://www.samsung.com/in/offer/online-shopping-offers/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,500</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem">
+            <img src="https://www.myntra.com/favicon.ico">
+        </div>
+        <div class="site-info">
+            <div class="site-name">Myntra</div>
+            <a href="https://myntr.it/CuqylqS" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,700</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem">
+            <img src="https://www.jiomart.com/favicon.ico">
+        </div>
+        <div class="site-info">
+            <div class="site-name">JioMart</div>
+            <a href="https://www.jiomart.com/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,650</div>
+        </div>
+    </div>
+
+    <div class="green-deal">
+        <div>LOWEST PRICE FOUND<br>₹13,999</div>
+        <a href="#" style="background:#000; color:#fff; padding:5px 15px; border-radius:5px; text-decoration:none; font-size:12px;">VIEW</a>
+    </div>
+
+    <div class="section-title">SHOP ON 100s OF OTHER STORES</div>
+
+    <div class="deal-row">
+        <div class="site-emblem"><img src="https://www.tatacliq.com/favicon.ico"></div>
+        <div class="site-info">
+            <div class="site-name">Tata Cliq</div>
+            <a href="https://www.tatacliq.com/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,850</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem"><img src="https://www.shopsy.in/favicon.ico"></div>
+        <div class="site-info">
+            <div class="site-name">Shopsy</div>
+            <a href="https://bitli.in/03kNE3S" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,400</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem"><img src="https://www.reliancedigital.in/favicon.ico"></div>
+        <div class="site-info">
+            <div class="site-name">Reliance</div>
+            <a href="https://www.reliancedigital.in/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,750</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem"><img src="https://www.croma.com/favicon.ico"></div>
+        <div class="site-info">
+            <div class="site-name">Croma</div>
+            <a href="https://www.croma.com/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,600</div>
+        </div>
+    </div>
+
+    <div class="deal-row">
+        <div class="site-emblem"><img src="https://www.nykaa.com/favicon.ico"></div>
+        <div class="site-info">
+            <div class="site-name">Nykaa</div>
+            <a href="https://www.nykaa.com/" class="buy-btn">BUY</a>
+            <div class="price-tag">₹14,900</div>
+        </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    // ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ഇൻബിൽറ്റ് ആയി വർക്ക് ചെയ്യാൻ
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'ml',
-            includedLanguages: 'en,hi,ml,ta,te,kn,ar',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false
-        }, 'google_translate_element');
-    }
-
-    function translatePage(langCode) {
-        var selectField = document.querySelector(".goog-te-combo");
-        if (selectField) {
-            selectField.value = langCode;
-            selectField.dispatchEvent(new Event('change'));
-        }
-    }
-
-    function showAllLangs() {
-        // മറ്റ് ഭാഷകൾക്കായി ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ലിങ്ക് ഉപയോഗിക്കാം, പക്ഷേ ബാർ വരാതിരിക്കാൻ ശ്രമിക്കാം
-        window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    // Three.js Animation (Earth, Moon, BAS Text)
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 350);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
-    const loader = new THREE.TextureLoader();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
-        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
-    }));
-    scene.add(earth);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon);
-    camera.position.z = 8;
-    let a = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earth.rotation.y += 0.005; 
-        a -= 0.015; 
-        moon.position.x = Math.cos(a) * 5; moon.position.z = Math.sin(a) * 3; 
-        renderer.render(scene, camera);
-    }
-    animate();
-</script>
-
-</body>
-</html>
