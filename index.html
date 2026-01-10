@@ -2,52 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="google" content="notranslate">
-    <title class="notranslate">BAS CHARITY INTERNATIONAL</title>
+    <title>BAS Charity International</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html, body { 
-            margin: 0; padding: 0; background: #000; color: white; 
-            font-family: Arial, sans-serif; overflow-x: hidden; 
-            top: 0 !important; width: 100%;
-        }
-        
-        /* ഗൂഗിൾ ബാറുകൾ ഹൈഡ് ചെയ്യാൻ */
-        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
-        body { top: 0px !important; }
-        #goog-gt-tt, .goog-tooltip { display: none !important; }
-
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; width: 100%; }
+        body { margin: 0; background: #000; color: white; font-family: Arial, sans-serif; overflow-x: hidden; text-align: center; }
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 20px; }
         #logo-space { width: 100%; height: 380px; }
+        .brand-heading { text-align: center; margin-top: -35px; padding: 20px; }
         
-        .brand-heading { text-align: center; margin-top: -35px; padding: 10px 20px; width: 100%; box-sizing: border-box; }
-        .hunger-message { font-size: 13px; letter-spacing: 2px; color: #FFD700; text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
-        
-        .brand-heading h1.notranslate { 
-            font-size: clamp(32px, 9vw, 65px); letter-spacing: 1px; text-transform: uppercase; 
-            margin: 0; font-weight: 1000; -webkit-text-stroke: 1.5px white; color: white; line-height: 1.1;
+        /* തടിച്ച അക്ഷരങ്ങളുള്ള പേര് */
+        .brand-heading h1 { 
+            font-size: clamp(32px, 8.5vw, 60px); 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            font-weight: 950; 
+            -webkit-text-stroke: 1.5px white;
+            color: white;
         }
 
-        .dedication-box { text-align: center; padding: 5px 20px 25px 20px; max-width: 450px; margin: 0 auto; box-sizing: border-box; }
-        #dedication-text { font-size: 15px; color: #bbb; font-style: italic; line-height: 1.6; display: inline-block; }
-
-        /* ലാംഗ്വേജ് സെക്ഷൻ - Code No:3 മോഡൽ */
-        .top-bar { background: #111; padding: 15px 8px; border-top: 1px solid #333; border-bottom: 1px solid #333; width: 100%; box-sizing: border-box; }
-        .lang-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 400px; margin: 0 auto; }
-        .lang-btn { padding: 10px 2px; border: none; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; color: #fff; text-align: center; }
-        
-        .en{background:#007BFF} .hi{background:#FF9933;color:#000} .ml{background:#00C853} .ar{background:#2E7D32}
-        .ta{background:#C62828} .ur{background:#6A1B9A} .es{background:#F4C430;color:#000} .pt{background:#1B5E20}
-
-        /* ഗൂഗിൾ സെലക്ഷൻ ബോക്സ് തിരികെ വെച്ചു */
-        .google-row { text-align: center; font-size: 13px; margin-top: 15px; color: #bbb; }
-        .goog-te-gadget span, .goog-logo-link { display: none !important; }
-        .goog-te-gadget { color: transparent !important; font-size: 0; }
-        #google_translate_element select { 
-            background: #222; color: white; border: 1px solid #444; padding: 6px; border-radius: 6px; font-size: 14px;
+        .hunger-message {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #FFD700; 
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
 
-        #lang-hint { font-size: 11px; color: #888; text-align: center; margin-top: 12px; line-height: 1.4; padding: 0 10px; }
+        .lang-container { margin: 20px 0; display: flex; gap: 10px; justify-content: center; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #555; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 11px; }
+
+        /* കസ്റ്റം കണ്ടെയ്നർ */
+        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
+        
+        /* സെർച്ച് ബോക്സ് */
+        .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1.5px dashed #FFD700; margin-bottom: 25px; }
+        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; outline: none; }
+        .btn-g { display: flex; gap: 8px; }
+        .b { flex: 1; padding: 12px; border-radius: 8px; border: none; font-weight: bold; color: white; cursor: pointer; }
+
+        /* ഷോപ്പിംഗ് ലിസ്റ്റ് */
+        .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 25px 0 10px 0; text-transform: uppercase; }
+        #shop-list { display: flex; flex-direction: column; gap: 10px; }
+        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
+        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 3px; }
+        
+        .c-amz { border-left: 5px solid #FF9900; } .c-fk { border-left: 5px solid #2874f0; }
+
+        .dedication {
+            font-size: 14px;
+            color: #bbb;
+            font-style: italic;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            padding: 20px 15px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -55,350 +66,94 @@
 <div class="header-box">
     <div id="logo-space"></div>
     <div class="brand-heading">
-        <div class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
+        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
         <h1 class="notranslate">BAS CHARITY INTERNATIONAL</h1>
+        
+        <div class="lang-container">
+            <button class="lang-btn" onclick="updateLang('en')">English</button>
+            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
+            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
+        </div>
     </div>
 </div>
 
-<div class="dedication-box">
-    <div id="dedication-text">
-        ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും<br>
-        മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പാവനമായ<br>
-        ഓർമ്മയ്ക്കും നന്മയ്ക്കുമായി<br>
-        സമർപ്പിക്കുന്നു
-    </div>
-</div>
-
-<div class="top-bar">
-    <div class="lang-buttons">
-        <button class="lang-btn en" onclick="changeLang('en')">English</button>
-        <button class="lang-btn hi" onclick="changeLang('hi')">Hindi</button>
-        <button class="lang-btn ml" onclick="changeLang('ml')">Malayalam</button>
-        <button class="lang-btn ar" onclick="changeLang('ar')">Arabic</button>
-        <button class="lang-btn ta" onclick="changeLang('ta')">Tamil</button>
-        <button class="lang-btn ur" onclick="changeLang('ur')">Urdu</button>
-        <button class="lang-btn es" onclick="changeLang('es')">Spanish</button>
-        <button class="lang-btn pt" onclick="changeLang('pt')">Portuguese</button>
-    </div>
-
-    <div class="google-row">
-        🌐 All Languages : <span id="google_translate_element"></span>
-    </div>
-
-    <div id="lang-hint">
-        🌐 To access all languages, please enable Translate in your browser settings
-    </div>
-</div>
-<style>
-    .question-box {
-        margin: 15px auto;
-        width: 85%; /* സൈഡിൽ തട്ടാതിരിക്കാൻ വീതി കുറച്ചു */
-        max-width: 480px;
-        background-color: #000000;
-        color: #00BFFF;
-        padding: 18px;
-        border-radius: 12px;
-        border: 1px solid #00BFFF; /* വണ്ണം 2px-ൽ നിന്ന് 1px ആക്കി കുറച്ചു */
-        text-align: center;
-        font-size: 15px; /* നേരിയ മാറ്റം വരുത്തി */
-        line-height: 1.5;
-    }
-
-    .hunger-message {
-        text-align: center;
-        color: #00BFFF;
-        font-weight: bold;
-        font-size: 13px;
-        margin-top: 8px;
-    }
-</style>
-
-<div class="question-box">
-    "ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ Bas Charity International links വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?"
-</div>
-<div class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search Shops | BAS Charity</title>
-
-<style>
-body{
-  margin:0;
-  background:#000;
-  font-family:Arial, sans-serif;
-  color:#fff;
-  text-align:center;
-}
-.container{
-  max-width:480px;
-  margin:auto;
-  padding:15px;
-}
-
-/* Heading */
-.header{
-  background:#FFD700;
-  color:#000;
-  padding:14px;
-  border-radius:12px;
-  font-weight:900;
-  font-size:20px;
-  margin-bottom:12px;
-}
-
-/* Message */
-.message{
-  font-size:13px;
-  color:#ddd;
-  line-height:1.5;
-  margin-bottom:14px;
-}
-
-/* Compare box */
-.compare{
-  background:#111;
-  border:1px dashed #FFD700;
-  border-radius:12px;
-  padding:14px;
-  margin-bottom:16px;
-}
-.compare h3{
-  margin:0 0 10px;
-  font-size:15px;
-}
-.compare button{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  font-weight:bold;
-  background:#4caf50;
-  cursor:pointer;
-}
-
-/* Recall */
-.recall{
-  background:#1a1a1a;
-  border-left:4px solid #FFD700;
-  padding:12px;
-  font-size:13px;
-  line-height:1.5;
-  margin-bottom:14px;
-}
-
-/* Search */
-.search{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  font-size:15px;
-  margin-bottom:12px;
-}
-
-/* Shop cards */
-.shop{
-  background:#1a1a1a;
-  border-radius:12px;
-  padding:10px;
-  margin-bottom:8px;
-  display:flex;
-  align-items:center;
-  text-decoration:none;
-  color:#fff;
-  border:1px solid #333;
-}
-.logo{
-  width:42px;
-  height:42px;
-  background:#fff;
-  border-radius:8px;
-  margin-right:12px;
-  object-fit:contain;
-}
-.info{text-align:left}
-.info b{font-size:15px}
-.info span{
-  display:block;
-  font-size:11px;
-  color:#FFD700;
-}
-
-/* Colors */
-.amz{border-left:5px solid #ff9900}
-.fk{border-left:5px solid #2874f0}
-.sam{border-left:5px solid #1428a0}
-.myn{border-left:5px solid #fe3f6c}
-.jio{border-left:5px solid #003087}
-.tata{border-left:5px solid #da1c5c}
-.rel{border-left:5px solid #ed1c24}
-.croma{border-left:5px solid #00e9bf}
-.nyk{border-left:5px solid #fc2779}
-.shp{border-left:5px solid #9c27b0}
-</style>
-</head>
-
-<body>
 <div class="container">
+    <div class="section-header">Compare Prices & Search</div>
+    <div class="comp-box">
+        <input type="text" id="pS" class="p-in" placeholder="Search product...">
+        <div class="btn-g">
+            <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
+            <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
+        </div>
+    </div>
 
-<div class="header">Search Shops</div>
+    <div class="section-header">Shop & Support</div>
+    <div id="shop-list">
+        <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><h3>AMAZON</h3></a>
+        <a href="https://fktr.in/V5wq6Bc" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><h3>FLIPKART</h3></a>
+        <a href="https://www.samsung.com/in/" class="shop-card"><img src="https://www.samsung.com/favicon.ico" class="logo"><h3>SAMSUNG</h3></a>
+        <a href="https://myntr.it/CuqylqS" class="shop-card"><img src="https://www.myntra.com/favicon.ico" class="logo"><h3>MYNTRA</h3></a>
+        <a href="https://www.jiomart.com/" class="shop-card"><img src="https://www.jiomart.com/favicon.ico" class="logo"><h3>JIOMART</h3></a>
+    </div>
 
-<!-- MESSAGE -->
-<div class="message">
-ഒന്ന് നോക്കൂ…<br>
-നിങ്ങൾ വില താരതമ്യം ചെയ്യുമ്പോൾ,<br>
-ലോകത്തെവിടെയെങ്കിലും ഒരാൾ<br>
-ഒരു കഷണം ആഹാരത്തിനായി കാത്തിരിക്കുകയാണ്.
+    <div id="dedication-text" class="dedication">
+        "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
+    </div>
 </div>
 
-<!-- COMPARE -->
-<div class="compare">
-  <h3>Compare Price</h3>
-  <button onclick="openCompare()">Compare on trusted sites</button>
-  <div style="font-size:11px;color:#aaa;margin-top:6px;">
-    (Browser അനുസരിച്ച് പുതിയ window അല്ലെങ്കിൽ tab തുറക്കും)
-  </div>
-</div>
-
-<!-- RECALL -->
-<div class="recall">
-വില താരതമ്യം ചെയ്ത് ഏറ്റവും കുറഞ്ഞ വില കണ്ടെത്തി,<br>
-അതേ shop-ൽ അതേ വിലയിൽ താഴെ നൽകിയിരിക്കുന്ന ലിങ്കുകൾ വഴി വാങ്ങുമ്പോൾ,<br>
-നിങ്ങൾയും ഈ ചാരിറ്റിയുടെ ഭാഗമാകുന്നു.<br>
-അതിലൂടെ ഒരാളുടെ വിശപ്പിന് ആശ്വാസമാകാം.
-</div>
-
-<input id="search" class="search" placeholder="Other shops" onkeyup="filter()">
-
-<div id="shops">
-
-<a class="shop amz" data-name="amazon" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank">
-<img class="logo" src="https://www.amazon.in/favicon.ico">
-<div class="info"><b>Amazon</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop fk" data-name="flipkart" href="https://fktr.in/V5wq6Bc" target="_blank">
-<img class="logo" src="https://www.flipkart.com/favicon.ico">
-<div class="info"><b>Flipkart</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop sam" data-name="samsung" href="https://www.samsung.com/in/offer/online-shopping-offers/" target="_blank">
-<img class="logo" src="https://www.samsung.com/favicon.ico">
-<div class="info"><b>Samsung</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop myn" data-name="myntra" href="https://myntr.it/CuqylqS" target="_blank">
-<img class="logo" src="https://www.myntra.com/favicon.ico">
-<div class="info"><b>Myntra</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop jio" data-name="jiomart" href="https://www.jiomart.com/" target="_blank">
-<img class="logo" src="https://www.jiomart.com/favicon.ico">
-<div class="info"><b>JioMart</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop tata" data-name="tatacliq" href="https://www.tatacliq.com/" target="_blank">
-<img class="logo" src="https://www.tatacliq.com/favicon.ico">
-<div class="info"><b>Tata CLiQ</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop rel" data-name="reliance" href="https://www.reliancedigital.in/" target="_blank">
-<img class="logo" src="https://www.reliancedigital.in/favicon.ico">
-<div class="info"><b>Reliance Digital</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop croma" data-name="croma" href="https://www.croma.com/" target="_blank">
-<img class="logo" src="https://www.croma.com/favicon.ico">
-<div class="info"><b>Croma</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop nyk" data-name="nykaa" href="https://www.nykaa.com/" target="_blank">
-<img class="logo" src="https://www.nykaa.com/favicon.ico">
-<div class="info"><b>Nykaa</b><span>Check today’s offer</span></div>
-</a>
-
-<a class="shop shp" data-name="shopsy" href="https://bitli.in/03kNE3S" target="_blank">
-<img class="logo" src="https://www.shopsy.in/favicon.ico">
-<div class="info"><b>Shopsy</b><span>Check today’s offer</span></div>
-</a>
-
-</div>
-</div>
-
-<script>
-function filter(){
-  let q = document.getElementById("search").value.toLowerCase();
-  document.querySelectorAll(".shop").forEach(s=>{
-    s.style.display = s.dataset.name.includes(q) ? "flex" : "none";
-  });
-}
-
-function openCompare(){
-  window.open(
-    "https://www.google.com/shopping",
-    "compareWin",
-    "width=900,height=600,scrollbars=yes,resizable=yes"
-  );
-}
-</script>
-
-</body>
-</html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-    // Globe Animation
+    function updateLang(lang) {
+        const hText = document.getElementById('hunger-text');
+        const dText = document.getElementById('dedication-text');
+        if(lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
+        } else if(lang === 'hi') {
+            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
+            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
+        }
+    }
+
+    function q(p) {
+        var v = document.getElementById('pS').value;
+        if(!v) return;
+        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank');
+        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank');
+    }
+
+    // --- ഗ്ലോബ് ആനിമേഷൻ (നീ തന്ന അതേ കോഡ്) ---
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 380);
     document.getElementById('logo-space').appendChild(renderer.domElement);
+
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 2);
+    pointLight.position.set(10, 10, 10); scene.add(pointLight);
+
     const loader = new THREE.TextureLoader();
     const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
-        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-        metalness: 0.3, roughness: 0.7
-    }));
-    earthGroup.add(earth);
-    const canvas = document.createElement('canvas'); 
-    const context = canvas.getContext('2d');
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'), metalness: 0.3, roughness: 0.7 }));
+    earthGroup.add(earth); scene.add(earthGroup);
+
+    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
     canvas.width = 1024; canvas.height = 256;
     context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
     context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
+
     const textTexture = new THREE.CanvasTexture(canvas);
     const textMesh = new THREE.Mesh(new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true), new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide }));
     earthGroup.add(textMesh);
-    scene.add(earthGroup);
 
     const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon);
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; angle -= 0.015;
-        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3;
-        renderer.render(scene, camera);
-    }
+    scene.add(moon); camera.position.z = 8; let angle = 0;
+    function animate() { requestAnimationFrame(animate); earthGroup.rotation.y += 0.005; angle -= 0.015; moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; renderer.render(scene, camera); }
     animate();
-
-    // Translation Logic
-    function googleTranslateElementInit(){
-        new google.translate.TranslateElement({ pageLanguage:'ml', autoDisplay:false }, 'google_translate_element');
-    }
-
-    function changeLang(langCode) {
-        var select = document.querySelector('select.goog-te-combo');
-        if (select) {
-            select.value = langCode;
-            select.dispatchEvent(new Event('change'));
-        }
-    }
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 </body>
 </html>
