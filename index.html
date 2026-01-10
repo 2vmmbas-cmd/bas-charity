@@ -1,83 +1,115 @@
- <!DOCTYPE html>
-<html lang="ml">
+ 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>BAS Charity International</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; text-align: center; }
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
+        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
         #logo-space { width: 100%; height: 350px; }
-        .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
+        .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
         
-        /* സമർപ്പണ സന്ദേശം - Sky Blue */
-        .dedication-box { margin: 8px auto; max-width: 85%; }
-        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; }
+        .hunger-message {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #FFD700; 
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
 
-        /* ഭാഷാ ബട്ടണുകൾ */
-        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; }
+        .brand-heading h1 { 
+            font-size: clamp(30px, 8vw, 55px); 
+            letter-spacing: 5px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            font-weight: 900; 
+            -webkit-text-stroke: 1.5px white;
+        }
 
-        /* ഗൂഗിൾ ബാർ ഒളിക്കാൻ */
-        #google_translate_element, .goog-te-banner-frame { display: none !important; }
-        body { top: 0 !important; }
+        /* സമർപ്പണം ഹെഡിംഗിന് താഴെ */
+        .dedication {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            margin: 15px auto;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 85%;
+        }
 
-        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
-        
-        /* Compare Price Box */
-        .comp-box { background: #111; padding: 15px; border-radius: 15px; border: 1.5px dashed #FFD700; margin-bottom: 25px; }
-        .p-in { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 10px; background: #222; color: white; outline: none; }
-        .btn-g { display: flex; gap: 8px; }
-        .b { flex: 1; padding: 12px; border-radius: 8px; border: none; font-weight: bold; color: white; cursor: pointer; }
+        /* ഭാഷാ ബട്ടണുകൾ സമർപ്പണത്തിന് താഴെ */
+        .lang-container {
+            margin: 20px 0;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
 
-        /* Impact Box (ഷോപ്പിങ്ങിന് തൊട്ടുമുകളിൽ) */
-        .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
-        #impact-text { font-size: 15px; color: #FFD700; line-height: 1.7; font-weight: bold; font-style: italic; }
+        .lang-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 10px;
+            transition: 0.3s;
+        }
 
-        .section-header { background: #FFD700; color: #000; padding: 10px; border-radius: 10px; font-weight: 900; font-size: 16px; margin: 20px 0 15px 0; text-transform: uppercase; }
-        
-        #shop-list { display: flex; flex-direction: column; gap: 10px; }
-        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; }
-        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 3px; }
-        
-        /* ബ്രാൻഡ് കളറുകൾ */
-        .c-amz { border-left: 5px solid #FF9900; }
-        .c-fk { border-left: 5px solid #2874f0; }
-        .c-sm { border-left: 5px solid #1428a0; }
-        .c-mt { border-left: 5px solid #ff3f6c; }
-        .c-jm { border-left: 5px solid #003873; }
-        .c-tc { border-left: 5px solid #da1c5c; }
-        .c-sh { border-left: 5px solid #ff4200; }
-        .c-rd { border-left: 5px solid #e42528; }
-        .c-cr { border-left: 5px solid #00e9bf; }
-        .c-ny { border-left: 5px solid #fc2779; }
+        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
+
+        .impact-box {
+            margin: 20px auto;
+            max-width: 85%;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px dashed #FFD700;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        #impact-text {
+            font-size: 17px;
+            color: #FFD700;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .shop-container { margin-top: 25px; margin-bottom: 40px; }
+
+        .amazon-btn {
+            background: #FF9900;
+            color: #000;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+        }
     </style>
 </head>
 <body>
 
-<div id="google_translate_element"></div>
-<div id="logo-space"></div>
+<div class="header-box">
+    <div id="logo-space"></div>
+    <div class="brand-heading">
+        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
+        <h1>BAS CHARITY INTERNATIONAL</h1>
+        
+        <div id="dedication-text" class="dedication">
+            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
+        </div>
 
-<div class="brand-heading">
-    <h1>BAS CHARITY INTERNATIONAL</h1>
-    <div class="dedication-box">
-        <p id="dedication-text">"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."</p>
-    </div>
-    
-    <div class="lang-container">
-        <button class="lang-btn" onclick="translatePage('en')">English</button>
-        <button class="lang-btn" onclick="translatePage('hi')">हिन्दी</button>
-        <button class="lang-btn" onclick="translatePage('ml')">മലയാളം</button>
-        <button class="lang-btn" onclick="window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank')">Other Languages</button>
-    </div>
-
-    <div class="container">
-        <div class="section-header">Compare Prices & Search</div>
-        <div class="comp-box">
-            <input type="text" id="pS" class="p-in" placeholder="സെർച്ച് ചെയ്യൂ...">
-            <div class="btn-g">
-                <button onclick="q('amz')" class="b" style="background:#FF9900;">Amazon</button>
-                <button onclick="q('fk')" class="b" style="background:#2874f0;">Flipkart</button>
-            </div>
+        <div class="lang-container">
+            <button class="lang-btn" onclick="updateLang('en')">English</button>
+            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
+            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
         </div>
 
         <div class="impact-box">
@@ -86,50 +118,83 @@
             </div>
         </div>
 
-        <div class="section-header">Shop & Support</div>
-        <div id="shop-list">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><h3>AMAZON</h3></a>
-            <a href="https://fktr.in/V5wq6Bc" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><h3>FLIPKART</h3></a>
-            <a href="https://www.samsung.com/in/" class="shop-card c-sm"><img src="https://www.samsung.com/favicon.ico" class="logo"><h3>SAMSUNG</h3></a>
-            <a href="https://myntr.it/CuqylqS" class="shop-card c-mt"><img src="https://www.myntra.com/favicon.ico" class="logo"><h3>MYNTRA</h3></a>
-            <a href="https://www.jiomart.com/" class="shop-card c-jm"><img src="https://www.jiomart.com/favicon.ico" class="logo"><h3>JIOMART</h3></a>
-            <a href="https://www.tatacliq.com/" class="shop-card c-tc"><img src="https://www.tatacliq.com/favicon.ico" class="logo"><h3>TATA CLIQ</h3></a>
-            <a href="https://bitli.in/03kNE3S" class="shop-card c-sh"><img src="https://www.shopsy.in/favicon.ico" class="logo"><h3>SHOPSY</h3></a>
-            <a href="https://www.reliancedigital.in/" class="shop-card c-rd"><img src="https://www.reliancedigital.in/favicon.ico" class="logo"><h3>RELIANCE DIGITAL</h3></a>
-            <a href="https://www.croma.com/" class="shop-card c-cr"><img src="https://www.croma.com/favicon.ico" class="logo"><h3>CROMA</h3></a>
-            <a href="https://www.nykaa.com/" class="shop-card c-ny"><img src="https://www.nykaa.com/favicon.ico" class="logo"><h3>NYKAA</h3></a>
+        <div class="shop-container">
+            <a id="shop-btn" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">
+                🛒 SHOP ON AMAZON
+            </a>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-    function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'ml', autoDisplay: false}, 'google_translate_element'); }
-    function translatePage(lang) { var el = document.querySelector('.goog-te-combo'); if(el) { el.value = lang; el.dispatchEvent(new Event('change')); } }
-    function q(p) { 
-        var v = document.getElementById('pS').value; 
-        if(!v) return; 
-        if(p=='amz') window.open('https://www.amazon.in/s?k='+v+'&tag=Vmmbaslinks-21', '_blank'); 
-        if(p=='fk') window.open('https://www.flipkart.com/search?q='+v, '_blank'); 
-    }
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+    function updateLang(lang) {
+        const hText = document.getElementById('hunger-text');
+        const dText = document.getElementById('dedication-text');
+        const iText = document.getElementById('impact-text');
+        const sBtn = document.getElementById('shop-btn');
+
+        if(lang === 'ml') {
+            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
+            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
+            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
+            sBtn.innerHTML = "🛒 ആമസോണിൽ ഷോപ്പ് ചെയ്യൂ";
+        } else if(lang === 'hi') {
+            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
+            iText.innerHTML = `"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफर पर BAS Charity International के माध्यम से आपकी खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे तो...?"`;
+            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
+            sBtn.innerHTML = "🛒 अमेज़न पर खरीदारी करें";
+        } else {
+            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
+            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?\"";
+            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
+            sBtn.innerHTML = "🛒 SHOP ON AMAZON";
+        }
+    }
+
+    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ ഇവിടെയും തുടരുന്നു)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, 350);
     document.getElementById('logo-space').appendChild(renderer.domElement);
-    const loader = new THREE.TextureLoader();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({ map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg') }));
-    scene.add(earth);
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xffffff, 2);
+    pointLight.position.set(10, 10, 10); scene.add(pointLight);
+    const loader = new THREE.TextureLoader();
+    const earthGroup = new THREE.Group();
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
+        metalness: 0.3, roughness: 0.7
+    }));
+    earthGroup.add(earth);
+    scene.add(earthGroup);
+    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
+    canvas.width = 1024; canvas.height = 256;
+    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
+    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
+    const textTexture = new THREE.CanvasTexture(canvas);
+    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
+    const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
+    earthGroup.add(new THREE.Mesh(textGeo, textMat));
     const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
     scene.add(moon);
     camera.position.z = 8;
-    let a = 0;
-    function animate() { requestAnimationFrame(animate); earth.rotation.y += 0.005; a -= 0.015; moon.position.x = Math.cos(a) * 5; moon.position.z = Math.sin(a) * 3; renderer.render(scene, camera); }
+    let angle = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        earthGroup.rotation.y += 0.005; 
+        angle -= 0.015; 
+        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
+        renderer.render(scene, camera);
+    }
     animate();
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, 350);
+        camera.aspect = window.innerWidth / 350;
+        camera.updateProjectionMatrix();
+    });
 </script>
+
 </body>
 </html>
