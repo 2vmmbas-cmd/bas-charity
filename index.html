@@ -1,171 +1,197 @@
  <style>
-    /* മൊബൈൽ സ്‌ക്രീനിന് കൃത്യമായി ചേരാൻ (Screen Fit) */
-    .bas-main-container {
+    /* മൊബൈൽ സ്ക്രീനിന്റെ മുഴുനീളത്തിൽ ഫിറ്റ് ആകാൻ */
+    body { margin: 0; padding: 0; background: #000; }
+    
+    .bas-container {
         width: 100%;
-        max-width: 500px;
-        margin: auto;
         background: #000;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Segoe UI', Roboto, sans-serif;
         color: #fff;
-        padding: 10px;
-        box-sizing: border-box;
+        padding: 15px;
+        box-sizing: border-box; /* സ്ക്രീനിന് പുറത്തേക്ക് പോകാതിരിക്കാൻ */
     }
 
-    /* Heading & Search Box മുകളിൽ */
-    .bas-header {
-        text-align: center;
-        padding: 15px 0;
-    }
-    .bas-header h2 {
-        color: #FFD700;
-        font-size: 22px;
-        margin-bottom: 15px;
+    /* ഹെഡിംഗും സെർച്ചും മുകളിൽ */
+    .bas-header-section { text-align: center; margin-bottom: 25px; width: 100%; }
+    .bas-header-section h2 { 
+        color: #FFD700; 
+        font-size: 24px; 
+        letter-spacing: 2px; 
+        margin: 10px 0 20px 0;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        font-weight: 900;
     }
-    .search-wrapper {
-        position: relative;
-        margin-bottom: 25px;
-    }
-    .bas-search-box {
+    .bas-search-bar {
         width: 100%;
-        padding: 12px 15px;
-        border: 2px solid #333;
-        border-radius: 10px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid #333;
         background: #111;
         color: #fff;
-        font-size: 14px;
-        outline: none;
-        transition: 0.3s;
+        font-size: 16px;
         box-sizing: border-box;
-    }
-    .bas-search-box:focus {
-        border-color: #FFD700;
+        outline: none;
     }
 
-    /* Price Comparison Rows */
-    .shop-row {
+    /* ഓരോ സൈറ്റിന്റെയും വരികൾ */
+    .site-row {
         display: flex;
         align-items: center;
-        background: #0a0a0a;
-        margin-bottom: 8px;
-        padding: 10px;
-        border-radius: 12px;
+        background: #0d0d0d;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 15px;
         border: 1px solid #1a1a1a;
+        width: 100%;
+        box-sizing: border-box;
     }
-    .shop-logo {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        margin-right: 12px;
+    .site-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        margin-right: 15px;
         background: #fff;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
         flex-shrink: 0;
     }
-    .shop-logo img { width: 70%; height: 70%; object-fit: contain; }
+    .site-logo img { width: 28px; height: 28px; object-fit: contain; }
 
-    .shop-name {
-        flex: 1;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
+    .site-name { flex: 1; font-weight: 700; font-size: 15px; text-transform: uppercase; }
 
-    .action-area {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    .buy-now-btn {
+    /* ബട്ടണും വിലയും വലതുവശത്ത് */
+    .action-wrap { display: flex; align-items: center; gap: 12px; }
+    .buy-link-btn {
         background: #FFD700;
         color: #000;
-        padding: 6px 14px;
-        border-radius: 6px;
+        padding: 8px 18px;
+        border-radius: 8px;
         text-decoration: none;
-        font-size: 11px;
-        font-weight: bold;
+        font-size: 12px;
+        font-weight: 900;
     }
-    .price-text {
-        font-size: 15px;
-        font-weight: 800;
-        min-width: 75px;
-        text-align: right;
-    }
+    .price-value { font-size: 17px; font-weight: 800; min-width: 85px; text-align: right; color: #fff; }
 
-    /* Lowest Price Balloon */
-    .balloon-deal {
+    /* 6-മത്തെ ഐറ്റം - ബലൂൺ സ്റ്റൈൽ */
+    .special-balloon-deal {
         background: linear-gradient(135deg, #00ff00, #006400);
-        margin: 20px 0;
-        padding: 18px;
-        border-radius: 20px;
+        margin: 25px 0;
+        padding: 22px;
+        border-radius: 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
+        box-sizing: border-box;
         position: relative;
-        box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
     }
-    .balloon-deal::after {
-        content: ''; position: absolute; bottom: -8px; left: 30px;
-        border-left: 8px solid transparent; border-right: 8px solid transparent;
-        border-top: 8px solid #006400;
+    .special-balloon-deal::after {
+        content: ''; position: absolute; bottom: -10px; left: 40px;
+        border-left: 10px solid transparent; border-right: 10px solid transparent;
+        border-top: 10px solid #006400;
     }
-    .balloon-info { color: #000; font-weight: bold; font-size: 12px; line-height: 1.3; }
+    .balloon-info { color: #000; font-weight: bold; font-size: 13px; line-height: 1.3; }
 
-    /* Other Stores Grid */
-    .section-label {
-        font-size: 11px;
+    /* 'Shop On' ലേബൽ */
+    .additional-label {
         color: #FFD700;
-        text-align: center;
-        margin: 20px 0 10px;
-        font-weight: bold;
-        letter-spacing: 2px;
-    }
-    .grid-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-    }
-    .grid-item {
-        display: flex;
-        align-items: center;
-        background: #111;
-        color: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        text-decoration: none;
         font-size: 12px;
-        border: 1px solid #222;
+        font-weight: bold;
+        text-align: center;
+        margin: 30px 0 15px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
     }
-    .grid-item img { width: 18px; height: 18px; margin-right: 8px; border-radius: 3px; }
 </style>
 
-<div class="bas-main-container">
-    <div class="bas-header">
+<div class="bas-container">
+    <div class="bas-header-section">
         <h2>PRICE COMPARISON</h2>
-        <div class="search-wrapper">
-            <input type="text" class="bas-search-box" placeholder="Search product name...">
+        <input type="text" class="bas-search-bar" placeholder="Search product name...">
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #FF9900;">
+        <div class="site-logo"><img src="https://www.amazon.in/favicon.ico"></div>
+        <div class="site-name" style="color: #FF9900;">Amazon</div>
+        <div class="action-wrap">
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="buy-link-btn">BUY</a>
+            <div class="price-value">₹14,999</div>
         </div>
     </div>
 
-    <div class="shop-row" style="border-left: 4px solid #FF9900;">
-        <div class="shop-logo"><img src="https://www.amazon.in/favicon.ico"></div>
-        <div class="shop-name" style="color: #FF9900;">Amazon</div>
-        <div class="action-area">
-            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="buy-now-btn">BUY</a>
-            <div class="price-text">₹14,999</div>
+    <div class="site-row" style="border-left: 5px solid #2874f0;">
+        <div class="site-logo"><img src="https://www.flipkart.com/favicon.ico"></div>
+        <div class="site-name" style="color: #2874f0;">Flipkart</div>
+        <div class="action-wrap">
+            <a href="https://fktr.in/V5wq6Bc" class="buy-link-btn">BUY</a>
+            <div class="price-value">₹14,490</div>
         </div>
     </div>
 
-    <div class="shop-row" style="border-left: 4px solid #2874f0;">
-        <div class="shop-logo"><img src="https://www.flipkart.com/favicon.ico"></div>
-        <div class="shop-name" style="color: #2874f0;">Flipkart</div>
-        <div class="action-area">
-            <a href="https://fktr.in/V5wq6Bc" class="buy-now-btn">BUY</a>
-            <div class="price-text">₹14,490</div>
+    <div class="site-row" style="border-left: 5px solid #1428a0;">
+        <div class="site-logo"><img src="https://www.samsung.com/favicon.ico"></div>
+        <div class="site-name" style="color: #1428a0;">Samsung</div>
+        <div class="action-wrap">
+            <a href="https://www.samsung.com/in/offer/online-shopping-offers/" class="buy-link-btn">BUY</a>
+            <div class="price-value">₹14,500</div>
         </div>
     </div>
 
-    <div class="shop-row" style="border-left:
+    <div class="site-row" style="border-left: 5px solid #fe3f6c;">
+        <div class="site-logo"><img src="https://www.myntra.com/favicon.ico"></div>
+        <div class="site-name" style="color: #fe3f6c;">Myntra</div>
+        <div class="action-wrap">
+            <a href="https://myntr.it/CuqylqS" class="buy-link-btn">BUY</a>
+            <div class="price-value">₹14,700</div>
+        </div>
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #003087;">
+        <div class="site-logo"><img src="https://www.jiomart.com/favicon.ico"></div>
+        <div class="site-name" style="color: #003087;">JioMart</div>
+        <div class="action-wrap">
+            <a href="https://www.jiomart.com/" class="buy-link-btn">BUY</a>
+            <div class="price-value">₹14,650</div>
+        </div>
+    </div>
+
+    <div class="special-balloon-deal">
+        <div class="balloon-info">LOWEST PRICE FOUND<br><span style="font-size: 16px;">LOCAL SHOP DEAL</span></div>
+        <div class="price-value" style="font-size: 22px; color: #fff;">₹13,999</div>
+        <a href="#" class="buy-link-btn" style="background:#000; color:#00ff00; border:none;">VIEW</a>
+    </div>
+
+    <div class="additional-label">SHOP ON OTHER STORES</div>
+
+    <div class="site-row" style="border-left: 5px solid #da1c5c;">
+        <div class="site-logo"><img src="https://www.tatacliq.com/favicon.ico"></div>
+        <div class="site-name" style="color: #da1c5c;">Tata Cliq</div>
+        <div class="action-wrap"><a href="https://www.tatacliq.com/" class="buy-link-btn">BUY</a><div class="price-value">₹14,850</div></div>
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #9c27b0;">
+        <div class="site-logo"><img src="https://www.shopsy.in/favicon.ico"></div>
+        <div class="site-name" style="color: #9c27b0;">Shopsy</div>
+        <div class="action-wrap"><a href="https://bitli.in/03kNE3S" class="buy-link-btn">BUY</a><div class="price-value">₹14,400</div></div>
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #ed1c24;">
+        <div class="site-logo"><img src="https://www.reliancedigital.in/favicon.ico"></div>
+        <div class="site-name" style="color: #ed1c24;">Reliance</div>
+        <div class="action-wrap"><a href="https://www.reliancedigital.in/" class="buy-link-btn">BUY</a><div class="price-value">₹14,750</div></div>
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #00e9bf;">
+        <div class="site-logo"><img src="https://www.croma.com/favicon.ico"></div>
+        <div class="site-name" style="color: #00e9bf;">Croma</div>
+        <div class="action-wrap"><a href="https://www.croma.com/" class="buy-link-btn">BUY</a><div class="price-value">₹14,600</div></div>
+    </div>
+
+    <div class="site-row" style="border-left: 5px solid #fc2779;">
+        <div class="site-logo"><img src="https://www.nykaa.com/favicon.ico"></div>
+        <div class="site-name" style="color: #fc2779;">Nykaa</div>
+        <div class="action-wrap"><a href="https://www.nykaa.com/" class="buy-link-btn">BUY</a><div class="price-value">₹14,900</div></div>
+    </div>
+</div>
