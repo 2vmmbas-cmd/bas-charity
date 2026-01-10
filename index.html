@@ -1,200 +1,51 @@
- 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BAS Charity International</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; }
-        .header-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; padding-top: 10px; }
-        #logo-space { width: 100%; height: 350px; }
-        .brand-heading { text-align: center; margin-top: -30px; padding: 15px; }
-        
-        .hunger-message {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #FFD700; 
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
+ <div style="background: linear-gradient(145deg, #1a1a1a, #000); border: 2px solid #FFD700; border-radius: 20px; padding: 25px 15px; margin: 15px 10px; text-align: center; box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);">
+  
+  <h2 style="color: #FFD700; font-size: 20px; margin-bottom: 12px; font-weight: bold;">വിഷമിക്കേണ്ട, നിങ്ങൾക്കും സഹായിക്കാം!</h2>
+  
+  <p style="color: #ffffff; font-size: 15px; line-height: 1.7; margin-bottom: 20px; font-family: sans-serif;">
+    കയ്യിൽ പണമില്ലെന്നോ, ഇപ്പോൾ ഒന്നും വാങ്ങാനില്ലെന്നോ കരുതി നിങ്ങൾ ഒട്ടും വിഷമിക്കേണ്ട. 
+    ഈ ലിങ്ക് നിങ്ങളുടെ പ്രിയപ്പെട്ടവർക്കും ഗ്രൂപ്പുകൾക്കും ഷെയർ ചെയ്തുകൊണ്ട് നിങ്ങൾക്കും ഈ വലിയ നന്മയുടെ ഭാഗമാകാം. 
+    നിങ്ങളുടെ ഒരു ഷെയറിലൂടെ ലഭിക്കുന്ന വരുമാനം ഒരാളുടെ വിശപ്പടക്കാൻ സഹായിക്കുമ്പോൾ, 
+    ആ പുണ്യത്തിൽ <b>നിങ്ങളും നിങ്ങളുടെ മാതാപിതാക്കളും</b> പങ്കാളികളാവുകയാണ്.
+  </p>
 
-        .brand-heading h1 { 
-            font-size: clamp(30px, 8vw, 55px); 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-weight: 900; 
-            -webkit-text-stroke: 1.5px white;
-        }
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; justify-items: center; margin-bottom: 15px;">
+    
+    <a href="whatsapp://send?text=വിശക്കുന്നവന്റെ വയറു നിറയ്ക്കാൻ സഹായിക്കുന്ന ഈ സൈറ്റ് വഴി ഷോപ്പിംഗ് നടത്തൂ: YOUR_SITE_URL" style="text-decoration: none;">
+      <div style="background: #25D366; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">W</div>
+    </a>
 
-        /* സമർപ്പണം ഹെഡിംഗിന് താഴെ */
-        .dedication {
-            font-size: 13px;
-            color: #888;
-            font-style: italic;
-            margin: 15px auto;
-            text-align: center;
-            line-height: 1.6;
-            max-width: 85%;
-        }
+    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_SITE_URL" style="text-decoration: none;">
+      <div style="background: #1877F2; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">F</div>
+    </a>
 
-        /* ഭാഷാ ബട്ടണുകൾ സമർപ്പണത്തിന് താഴെ */
-        .lang-container {
-            margin: 20px 0;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-        }
+    <a href="https://telegram.me/share/url?url=YOUR_SITE_URL" style="text-decoration: none;">
+      <div style="background: #0088cc; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">T</div>
+    </a>
 
-        .lang-btn {
-            background: transparent;
-            color: #fff;
-            border: 1px solid #444;
-            padding: 4px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 10px;
-            transition: 0.3s;
-        }
+    <a href="https://www.instagram.com/" style="text-decoration: none;">
+      <div style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">I</div>
+    </a>
 
-        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
+    <a href="https://www.youtube.com/" style="text-decoration: none;">
+      <div style="background: #FF0000; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Y</div>
+    </a>
 
-        .impact-box {
-            margin: 20px auto;
-            max-width: 85%;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed #FFD700;
-            padding: 20px;
-            border-radius: 12px;
-        }
+    <a href="fb-messenger://share/?link=YOUR_SITE_URL" style="text-decoration: none;">
+      <div style="background: #0084FF; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">M</div>
+    </a>
 
-        #impact-text {
-            font-size: 17px;
-            color: #FFD700;
-            line-height: 1.7;
-            font-weight: 500;
-        }
+    <a href="https://twitter.com/intent/tweet?url=YOUR_SITE_URL" style="text-decoration: none;">
+      <div style="background: #000000; border: 1px solid #333; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">X</div>
+    </a>
 
-        .shop-container { margin-top: 25px; margin-bottom: 40px; }
+    <a href="#" onclick="navigator.clipboard.writeText('YOUR_SITE_URL'); alert('Link Copied!'); return false;" style="text-decoration: none;">
+      <div style="background: #607D8B; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">🔗</div>
+    </a>
 
-        .amazon-btn {
-            background: #FF9900;
-            color: #000;
-            text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-        }
-    </style>
-</head>
-<body>
+  </div>
 
-<div class="header-box">
-    <div id="logo-space"></div>
-    <div class="brand-heading">
-        <div id="hunger-text" class="hunger-message">YOUR PURCHASE SATISFIES A HUNGER</div>
-        <h1>BAS CHARITY INTERNATIONAL</h1>
-        
-        <div id="dedication-text" class="dedication">
-            "Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world."
-        </div>
-
-        <div class="lang-container">
-            <button class="lang-btn" onclick="updateLang('en')">English</button>
-            <button class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
-            <button class="lang-btn" onclick="updateLang('ml')">മലയാളം</button>
-        </div>
-
-        <div class="impact-box">
-            <div id="impact-text">
-                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
-            </div>
-        </div>
-
-        <div class="shop-container">
-            <a id="shop-btn" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="amazon-btn">
-                🛒 SHOP ON AMAZON
-            </a>
-        </div>
-    </div>
+  <div style="margin-top: 15px; color: #FFD700; font-size: 12px; font-weight: bold; letter-spacing: 1px; border-top: 1px solid #333; padding-top: 10px;">
+    YOUR PURCHASE SATISFIES A HUNGER
+  </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-    function updateLang(lang) {
-        const hText = document.getElementById('hunger-text');
-        const dText = document.getElementById('dedication-text');
-        const iText = document.getElementById('impact-text');
-        const sBtn = document.getElementById('shop-btn');
-
-        if(lang === 'ml') {
-            hText.innerText = "നിങ്ങളുടെ ഓരോ വാങ്ങലും ഒരാളുടെ വിശപ്പടക്കുന്നു";
-            iText.innerText = "\"ഒരു പൈസ പോലും അധികം ചിലവാക്കാതെ, അതേ വിലയിൽ, അതേ ഓഫറിൽ BAS Charity International വഴി പർച്ചേസ് ചെയ്യുന്നതിലൂടെ ലോകത്തിന്റെ ഏതെങ്കിലും ഒരു കോണിൽ ഒരാളുടെ വിശപ്പ് അടങ്ങിയാലോ...?\"";
-            dText.innerText = "\"ഈ ലോകത്തുള്ള നമ്മൾ ഓരോരുത്തരുടെയും മാതാപിതാക്കളുടെയും പൂർവ്വികരുടെയും പവിത്രമായ സ്മരണയ്ക്കായി സമർപ്പിക്കുന്നു.\"";
-            sBtn.innerHTML = "🛒 ആമസോണിൽ ഷോപ്പ് ചെയ്യൂ";
-        } else if(lang === 'hi') {
-            hText.innerText = "आपकी प्रत्येक खरीदारी किसी की भूख मिटाती है";
-            iText.innerHTML = `"बिना एक भी अतिरिक्त पैसा खर्च किए, उसी कीमत और उसी ऑफर पर BAS Charity International के माध्यम से आपकी खरीदारी दुनिया के किसी कोने में किसी की भूख मिटा दे तो...?"`;
-            dText.innerText = "\"इस दुनिया में हम में से प्रत्येक के माता-पिता और पूर्वजों की पवित्र स्मृति को समर्पित।\"";
-            sBtn.innerHTML = "🛒 अमेज़न पर खरीदारी करें";
-        } else {
-            hText.innerText = "YOUR PURCHASE SATISFIES A HUNGER";
-            iText.innerText = "\"Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?\"";
-            dText.innerText = "\"Dedicated to the sacred memory of the parents and ancestors of each and every one of us in this world.\"";
-            sBtn.innerHTML = "🛒 SHOP ON AMAZON";
-        }
-    }
-
-    // (ഗ്ലോബ് ലോജിക് മാറ്റമില്ലാതെ ഇവിടെയും തുടരുന്നു)
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 350);
-    document.getElementById('logo-space').appendChild(renderer.domElement);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
-    const pointLight = new THREE.PointLight(0xffffff, 2);
-    pointLight.position.set(10, 10, 10); scene.add(pointLight);
-    const loader = new THREE.TextureLoader();
-    const earthGroup = new THREE.Group();
-    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
-        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'),
-        metalness: 0.3, roughness: 0.7
-    }));
-    earthGroup.add(earth);
-    scene.add(earthGroup);
-    const canvas = document.createElement('canvas'); const context = canvas.getContext('2d');
-    canvas.width = 1024; canvas.height = 256;
-    context.fillStyle = "#FFFFFF"; context.font = "Bold 140px Arial"; context.textAlign = "center";
-    context.fillText("BAS", 256, 160); context.fillText("BAS", 768, 160);
-    const textTexture = new THREE.CanvasTexture(canvas);
-    const textGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.8, 64, 1, true);
-    const textMat = new THREE.MeshBasicMaterial({ map: textTexture, transparent: true, side: THREE.DoubleSide });
-    earthGroup.add(new THREE.Mesh(textGeo, textMat));
-    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
-    scene.add(moon);
-    camera.position.z = 8;
-    let angle = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        earthGroup.rotation.y += 0.005; 
-        angle -= 0.015; 
-        moon.position.x = Math.cos(angle) * 5; moon.position.z = Math.sin(angle) * 3; 
-        renderer.render(scene, camera);
-    }
-    animate();
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, 350);
-        camera.aspect = window.innerWidth / 350;
-        camera.updateProjectionMatrix();
-    });
-</script>
-
-</body>
-</html>
