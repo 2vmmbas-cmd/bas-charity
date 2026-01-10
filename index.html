@@ -1,233 +1,132 @@
- <style>
-    body { margin: 0; padding: 0; background: #000; overflow-x: hidden; }
-    
-    .bas-final-wrapper {
-        width: 100%;
-        background: #000;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-        color: #fff;
-        padding: 12px;
-        box-sizing: border-box;
-    }
+ <!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <title>BAS Charity International</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', Arial, sans-serif; overflow-x: hidden; text-align: center; }
+        #logo-space { width: 100%; height: 350px; }
+        .brand-heading h1 { font-size: clamp(30px, 8vw, 55px); letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: 900; -webkit-text-stroke: 1.5px white; }
+        
+        /* സമർപ്പണ സന്ദേശം - Deep Sky Blue & Small Size */
+        .dedication-box { margin: 8px auto; max-width: 85%; }
+        #dedication-text { font-style: italic; font-weight: bold; color: #0099ff; font-size: 14px; line-height: 1.5; letter-spacing: 0.3px; }
 
-    /* ആകർഷകമായ ഹെഡർ ബോക്സ് (No:5) */
-    .header-box-style {
-        background: linear-gradient(145deg, #111, #080808);
-        border: 1px solid #333;
-        border-radius: 22px;
-        padding: 22px;
-        margin-bottom: 25px;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    }
-    .header-box-style h2 {
-        color: #FFD700;
-        font-size: 22px;
-        margin: 0 0 18px 0;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 900;
-    }
-    .search-input-box {
-        width: 100%;
-        padding: 15px;
-        border-radius: 14px;
-        border: 1.5px solid #444;
-        background: #000;
-        color: #fff;
-        font-size: 16px;
-        box-sizing: border-box;
-        outline: none;
-    }
+        .lang-container { margin: 15px 0; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; align-items: center; }
+        .lang-btn { background: transparent; color: #fff; border: 1px solid #444; padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 11px; transition: 0.3s; }
+        .lang-btn:hover { border-color: #FFD700; color: #FFD700; }
 
-    /* ഐറ്റം റോ - ഐക്കൺ പകുതി വരെ (Centre) */
-    .big-deal-row {
-        display: flex;
-        align-items: center;
-        background: #0d0d0d;
-        margin-bottom: 12px;
-        border-radius: 20px;
-        border: 1px solid #1a1a1a;
-        overflow: hidden;
-        height: 85px;
-    }
+        /* Google Translate Widget ഒളിപ്പിച്ചു വെക്കാൻ */
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; } 
+        body { top: 0 !important; }
 
-    /* ഐക്കൺ സെക്ഷൻ - പകുതി വീതി */
-    .icon-half {
-        flex: 1; 
-        height: 100%;
-        background: #fff; 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-    }
-    .icon-half img {
-        max-width: 90%;
-        max-height: 75%;
-        object-fit: contain;
-    }
+        .container { padding: 15px; max-width: 480px; margin: 0 auto; }
+        
+        /* Impact Box - Golden Style */
+        .impact-box { margin: 20px auto; background: rgba(255, 215, 0, 0.05); border: 1.3px dashed #FFD700; padding: 20px; border-radius: 12px; }
+        #impact-text { font-size: 16px; color: #FFD700; line-height: 1.7; font-weight: 500; font-style: italic; }
 
-    /* വിവരങ്ങൾ ഉള്ള ഭാഗം */
-    .info-half {
-        flex: 1.2;
-        padding: 0 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .info-half span {
-        font-weight: 850;
-        font-size: 15px;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
+        .section-header { background: #FFD700; color: #000; padding: 12px; border-radius: 12px; font-weight: 900; font-size: 18px; margin: 20px 0 15px 0; text-transform: uppercase; }
+        
+        /* Shopping Cards */
+        #shop-list { display: flex; flex-direction: column; gap: 10px; }
+        .shop-card { background: #1a1a1a; border-radius: 12px; padding: 12px; display: flex; align-items: center; text-decoration: none; color: white; border: 1px solid #333; transition: 0.3s; }
+        .shop-card:hover { transform: scale(1.02); border-color: #FFD700; }
+        .logo { width: 35px; height: 35px; border-radius: 6px; margin-right: 15px; background: white; object-fit: contain; padding: 2px; }
+        .c-amz { border-left: 5px solid #FF9900; }
+        .c-fk { border-left: 5px solid #2874f0; }
+    </style>
+</head>
+<body>
 
-    /* ബട്ടണും വിലയും */
-    .action-price-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-    }
-    .btn-buy-style {
-        background: #FFD700;
-        color: #000;
-        padding: 8px 15px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 900;
-    }
-    .price-txt-style {
-        font-size: 17px;
-        font-weight: 900;
-        color: #fff;
-    }
+<div id="google_translate_element"></div>
 
-    .deal-balloon {
-        background: linear-gradient(135deg, #00ff00, #006400);
-        margin: 25px 0;
-        padding: 22px;
-        border-radius: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+<div id="logo-space"></div>
 
-    .footer-heading {
-        color: #FFD700;
-        font-size: 12px;
-        font-weight: bold;
-        text-align: center;
-        margin: 35px 0 15px;
-        text-transform: uppercase;
-    }
-</style>
+<div class="brand-heading">
+    <h1>BAS CHARITY INTERNATIONAL</h1>
 
-<div class="bas-final-wrapper">
-    <div class="header-box-style">
-        <h2>PRICE COMPARISON</h2>
-        <input type="text" class="search-input-box" placeholder="Search product name...">
+    <div class="dedication-box">
+        <p id="dedication-text">"ലോകത്തുള്ള നാം ഓരോരുത്തരുടേയും മാതാപിതാക്കളുടേയും അവരുടെ പൂർവീകരുടേയും പാവന സ്മരണക്കും നന്മക്കുമായി ഇത് സമർപ്പിക്കുന്നു."</p>
     </div>
 
-    <div class="big-deal-row" style="border-left: 6px solid #FF9900;">
-        <div class="icon-half"><img src="https://www.amazon.in/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #FF9900;">Amazon</span>
-            <div class="action-price-wrap">
-                <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" class="btn-buy-style">BUY</a>
-                <div class="price-txt-style">₹14,999</div>
+    <div class="lang-container">
+        <button class="lang-btn" onclick="translatePage('en')">English</button>
+        <button class="lang-btn" onclick="translatePage('hi')">हिन्दी</button>
+        <button class="lang-btn" onclick="translatePage('ml')">മലയാളം</button>
+        <button class="lang-btn" onclick="showAllLangs()">Other Languages</button>
+    </div>
+
+    <div class="container">
+        <div class="impact-box">
+            <div id="impact-text">
+                "Without spending an extra penny, with the same price and the same offers, what if a single purchase you make through BAS Charity International satisfies someone's hunger in some corner of the world...?"
             </div>
         </div>
-    </div>
 
-    <div class="big-deal-row" style="border-left: 6px solid #2874f0;">
-        <div class="icon-half"><img src="https://www.flipkart.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #2874f0;">Flipkart</span>
-            <div class="action-price-wrap">
-                <a href="https://fktr.in/V5wq6Bc" class="btn-buy-style">BUY</a>
-                <div class="price-txt-style">₹14,490</div>
+        <div class="section-header">Shop & Support</div>
+        <div id="shop-list">
+            <a href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank" class="shop-card c-amz"><img src="https://www.amazon.in/favicon.ico" class="logo"><div class="info"><h3>AMAZON</h3></div></a>
+            <a href="https://fktr.in/V5wq6Bc" target="_blank" class="shop-card c-fk"><img src="https://www.flipkart.com/favicon.ico" class="logo"><div class="info"><h3>FLIPKART</h3></div></a>
             </div>
-        </div>
     </div>
+</div>
 
-    <div class="big-deal-row" style="border-left: 6px solid #1428a0;">
-        <div class="icon-half"><img src="https://www.samsung.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #1428a0;">Samsung</span>
-            <div class="action-price-wrap">
-                <a href="https://www.samsung.com/in/offer/online-shopping-offers/" class="btn-buy-style">BUY</a>
-                <div class="price-txt-style">₹14,500</div>
-            </div>
-        </div>
-    </div>
+<script type="text/javascript">
+    // ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ഇൻബിൽറ്റ് ആയി വർക്ക് ചെയ്യാൻ
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ml',
+            includedLanguages: 'en,hi,ml,ta,te,kn,ar',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
 
-    <div class="big-deal-row" style="border-left: 6px solid #fe3f6c;">
-        <div class="icon-half"><img src="https://www.myntra.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #fe3f6c;">Myntra</span>
-            <div class="action-price-wrap">
-                <a href="https://myntr.it/CuqylqS" class="btn-buy-style">BUY</a>
-                <div class="price-txt-style">₹14,700</div>
-            </div>
-        </div>
-    </div>
+    function translatePage(langCode) {
+        var selectField = document.querySelector(".goog-te-combo");
+        if (selectField) {
+            selectField.value = langCode;
+            selectField.dispatchEvent(new Event('change'));
+        }
+    }
 
-    <div class="big-deal-row" style="border-left: 6px solid #003087;">
-        <div class="icon-half"><img src="https://www.jiomart.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #003087;">JioMart</span>
-            <div class="action-price-wrap">
-                <a href="https://www.jiomart.com/" class="btn-buy-style">BUY</a>
-                <div class="price-txt-style">₹14,650</div>
-            </div>
-        </div>
-    </div>
+    function showAllLangs() {
+        // മറ്റ് ഭാഷകൾക്കായി ഗൂഗിൾ ട്രാൻസ്ലേറ്റ് ലിങ്ക് ഉപയോഗിക്കാം, പക്ഷേ ബാർ വരാതിരിക്കാൻ ശ്രമിക്കാം
+        window.open('https://translate.google.com/translate?sl=auto&tl=en&u=' + window.location.href, '_blank');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <div class="deal-balloon">
-        <div style="color: #000; font-weight: 900; font-size: 14px;">LOWEST PRICE FOUND</div>
-        <div style="font-size: 22px; font-weight: 950; color: #fff;">₹13,999</div>
-        <a href="#" class="btn-buy-style" style="background:#000; color:#00ff00;">VIEW</a>
-    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Three.js Animation (Earth, Moon, BAS Text)
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 350, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, 350);
+    document.getElementById('logo-space').appendChild(renderer.domElement);
+    const loader = new THREE.TextureLoader();
+    const earth = new THREE.Mesh(new THREE.SphereGeometry(2, 64, 64), new THREE.MeshStandardMaterial({
+        map: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
+    }));
+    scene.add(earth);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2); scene.add(ambientLight);
+    const moon = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+    scene.add(moon);
+    camera.position.z = 8;
+    let a = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        earth.rotation.y += 0.005; 
+        a -= 0.015; 
+        moon.position.x = Math.cos(a) * 5; moon.position.z = Math.sin(a) * 3; 
+        renderer.render(scene, camera);
+    }
+    animate();
+</script>
 
-    <div class="footer-heading">SHOP ON 100s OF OTHER STORES</div>
-
-    <div class="big-deal-row" style="border-left: 6px solid #da1c5c;">
-        <div class="icon-half"><img src="https://www.tatacliq.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #da1c5c;">Tata Cliq</span>
-            <div class="action-price-wrap"><a href="https://www.tatacliq.com/" class="btn-buy-style">BUY</a><div class="price-txt-style">₹14,850</div></div>
-        </div>
-    </div>
-
-    <div class="big-deal-row" style="border-left: 6px solid #9c27b0;">
-        <div class="icon-half"><img src="https://www.shopsy.in/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #9c27b0;">Shopsy</span>
-            <div class="action-price-wrap"><a href="https://bitli.in/03kNE3S" class="btn-buy-style">BUY</a><div class="price-txt-style">₹14,400</div></div>
-        </div>
-    </div>
-
-    <div class="big-deal-row" style="border-left: 6px solid #ed1c24;">
-        <div class="icon-half"><img src="https://www.reliancedigital.in/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #ed1c24;">Reliance</span>
-            <div class="action-price-wrap"><a href="https://www.reliancedigital.in/" class="btn-buy-style">BUY</a><div class="price-txt-style">₹14,750</div></div>
-        </div>
-    </div>
-
-    <div class="big-deal-row" style="border-left: 6px solid #00e9bf;">
-        <div class="icon-half"><img src="https://www.croma.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #00e9bf;">Croma</span>
-            <div class="action-price-wrap"><a href="https://www.croma.com/" class="btn-buy-style">BUY</a><div class="price-txt-style">₹14,600</div></div>
-        </div>
-    </div>
-
-    <div class="big-deal-row" style="border-left: 6px solid #fc2779;">
-        <div class="icon-half"><img src="https://www.nykaa.com/favicon.ico"></div>
-        <div class="info-half">
-            <span style="color: #fc2779;">Nykaa</span>
-            <div class="action-price-wrap"><a href="https://www.nykaa.com/" class="btn-buy-style">BUY</a><div class="price
+</body>
+</html>
