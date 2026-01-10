@@ -1,87 +1,35 @@
- <!DOCTYPE html>
-<html lang="ml">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share & Support</title>
+ <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; justify-items: center; padding: 20px; background: #111; border-radius: 15px;">
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#fff;
-  text-align:center;
-}
+    <a href="whatsapp://send?text=YOUR_LINK_HERE" style="text-decoration: none;">
+        <div style="background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5); font-weight: bold;">W</div>
+    </a>
 
-.message-box{
-  background:#000;
-  color:#fff;
-  padding:18px;
-  font-size:18px;
-  line-height:1.6;
-  font-weight:600;
-}
+    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_LINK_HERE" style="text-decoration: none;">
+        <div style="background: #1877F2; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(24, 119, 242, 0.5); font-weight: bold;">F</div>
+    </a>
 
-.share-icons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:16px;
-  padding:20px;
-}
+    <a href="https://telegram.me/share/url?url=YOUR_LINK_HERE" style="text-decoration: none;">
+        <div style="background: #0088cc; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5); font-weight: bold;">T</div>
+    </a>
 
-.share-icons a{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,0.25);
-}
+    <a href="https://www.instagram.com/" style="text-decoration: none;">
+        <div style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(220, 39, 67, 0.5); font-weight: bold;">I</div>
+    </a>
 
-.share-icons img{
-  width:34px;
-  height:34px;
-}
-</style>
-</head>
+    <a href="https://www.youtube.com/" style="text-decoration: none;">
+        <div style="background: #FF0000; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); font-weight: bold;">YT</div>
+    </a>
 
-<body>
+    <a href="fb-messenger://share/?link=YOUR_LINK_HERE" style="text-decoration: none;">
+        <div style="background: linear-gradient(45deg, #00B2FF, #006AFF, #9D33FF); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(0, 132, 255, 0.5); font-weight: bold;">M</div>
+    </a>
 
-<div class="message-box">
-ഇപ്പോൾ വാങ്ങാൻ കഴിയുന്നില്ലെങ്കിൽ വിഷമിക്കേണ്ട.<br>
-ഈ ലിങ്ക് സുഹൃത്തുക്കൾക്കും ഗ്രൂപ്പുകൾക്കും ഷെയർ ചെയ്യൂ.<br>
-<strong>ഒരു ഷെയറിലൂടെ ഒരാളുടെ വിശപ്പടക്കാൻ കഴിയും.</strong>
+    <a href="https://twitter.com/intent/tweet?url=YOUR_LINK_HERE" style="text-decoration: none;">
+        <div style="background: #000; border: 1px solid #444; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); font-weight: bold;">X</div>
+    </a>
+
+    <a href="#" onclick="navigator.clipboard.writeText('YOUR_LINK_HERE'); alert('Link Copied!'); return false;" style="text-decoration: none;">
+        <div style="background: #607D8B; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(96, 125, 139, 0.5);">🔗</div>
+    </a>
+
 </div>
-
-<div class="share-icons">
-
-<!-- WhatsApp -->
-<a href="https://wa.me/?text=https://bas-cmd.github.io" target="_blank" style="background:#25D366;">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
-
-<!-- Telegram -->
-<a href="https://t.me/share/url?url=https://bas-cmd.github.io" target="_blank" style="background:#229ED9;">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
-</a>
-
-<!-- Facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://bas-cmd.github.io" target="_blank" style="background:#1877F2;">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-</a>
-
-<!-- Gmail -->
-<a href="mailto:?subject=Support a Hunger&body=https://bas-cmd.github.io" style="background:#EA4335;">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-</a>
-
-<!-- SMS (FIXED ICON) -->
-<a href="sms:?body=Support this cause https://bas-cmd.github.io" style="background:#4CAF50;">
-<img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png">
-</a>
-
-<!-- Twitter / X (FIXED ORIGINAL ICON) -->
-<a href="https
