@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Shopping Sites</title>
+<title>No Price Comparison</title>
 
 <style>
 body{
@@ -14,11 +13,34 @@ body{
   color:#fff;
 }
 
+/* ===== HEADER ===== */
+.header{
+  padding:14px 12px;
+  text-align:center;
+  background:#111;
+}
+.header h2{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+/* Search bar */
+.search-box{
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+}
+.search-box input{
+  width:100%;
+  padding:10px 14px;
+  border-radius:20px;
+  border:none;
+  font-size:14px;
+}
+
 /* ===== LIST ===== */
 .shop-list{
-  max-width:100%;
-  padding:10px;
-  box-sizing:border-box;
+  padding:12px;
 }
 
 /* ===== CARD ===== */
@@ -66,6 +88,7 @@ body{
   font-size:12px;
   font-weight:bold;
   cursor:pointer;
+  text-decoration:none;
 }
 
 /* ===== SITE COLOURS ===== */
@@ -80,12 +103,33 @@ body{
 
 .samsung{ background:#1428A0; }
 .samsung .buy-btn{ background:#fff; color:#1428A0; }
+
+/* ===== SPECIAL DEAL ===== */
+.special{
+  border:2px solid #00FF41;
+  box-shadow:0 0 10px #00FF41;
+}
+.special-tag{
+  font-size:11px;
+  color:#00FF41;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<div class="shop-list">
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h2>No Price Comparison</h2>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search shopping site..."
+           onkeyup="filterSites()">
+  </div>
+</div>
+
+<!-- ===== SHOP LIST ===== -->
+<div class="shop-list" id="shopList">
 
   <!-- AMAZON -->
   <div class="shop-card amazon">
@@ -123,19 +167,34 @@ body{
     </div>
   </div>
 
-  <!-- SAMSUNG -->
-  <div class="shop-card samsung">
+  <!-- SPECIAL DEAL -->
+  <div class="shop-card samsung special">
     <div class="shop-left">
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg">
-      <div class="shop-name">Samsung</div>
+      <div>
+        <div class="shop-name">Samsung Store</div>
+        <div class="special-tag">SPECIAL DEAL</div>
+      </div>
     </div>
     <div class="shop-right">
-      <div class="price">₹14,500</div>
+      <div class="price">₹14,299</div>
       <a class="buy-btn" href="https://www.samsung.com/in" target="_blank">BUY</a>
     </div>
   </div>
 
 </div>
+
+<script>
+function filterSites(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".shop-card");
+
+  cards.forEach(card=>{
+    const name = card.innerText.toLowerCase();
+    card.style.display = name.includes(input) ? "flex" : "none";
+  });
+}
+</script>
 
 </body>
 </html>
