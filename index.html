@@ -1,16 +1,16 @@
-<div style="font-family: Arial, sans-serif; width: 95%; max-width: 500px; margin: 10px auto; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #ffffff; border: 1px solid #ddd;">
+ <div style="font-family: Arial, sans-serif; width: 98%; max-width: 600px; margin: 10px auto; background: #ffffff; border: 1px solid #ddd; overflow-x: hidden;">
   
-  <div style="padding: 15px; text-align: center; background: #fafafa;">
-    <h2 style="margin: 0; font-size: 18px; color: #f39c12; letter-spacing: 2px;">FOUNDER</h2>
-    <h1 style="color: #222; margin: 5px 0; font-size: 22px; font-weight: bold;">Mohammed M. Basheer (BAS)</h1>
-    <p style="color: #666; margin: 0; font-size: 16px; font-weight: 600;">Retired Assistant Engineer, KSEB</p>
+  <div style="padding: 25px 10px; text-align: center; background: #fafafa; border-bottom: 3px solid #f39c12;">
+    <h2 style="margin: 0; font-size: 26px; color: #f39c12; font-weight: 900; letter-spacing: 2px;">FOUNDER</h2>
+    <h1 style="color: #000; margin: 15px 0 5px 0; font-size: 30px; font-weight: 900; line-height: 1.2;">Mohammed M. Basheer (BAS)</h1>
+    <p style="color: #444; margin: 0; font-size: 22px; font-weight: 700;">Retired Assistant Engineer, KSEB</p>
   </div>
 
-  <div style="width: 100%; text-align: center; background: #eee;">
-    <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: auto; display: block; transition: opacity 0.8s ease-in-out;">
+  <div style="width: 100%; background: #fff;">
+    <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: auto; display: block; border-bottom: 2px solid #eee; transition: opacity 0.8s ease-in-out;">
   </div>
 
-  <div style="padding: 15px; color: #333; line-height: 1.5; text-align: justify; font-size: 16px;">
+  <div style="padding: 30px 20px; color: #000; line-height: 1.7; text-align: justify; font-size: 22px; font-weight: 700;">
     
     <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
     
@@ -20,8 +20,8 @@
     
     <p>With a total of 40 years in social service, his life’s work has been defined by a commitment to helping the underprivileged. This project is the culmination of his lifelong mission to ensure that technology and commerce serve a greater purpose: satisfying hunger and bringing hope to those in need.</p>
     
-    <div style="background: #fff9f0; padding: 15px; border-radius: 8px; border: 1px solid #f39c12; margin-top: 15px; text-align: center;">
-      <p style="margin: 0; font-weight: bold; color: #d35400; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
+    <div style="background: #fff4e5; padding: 25px; border-radius: 12px; border: 3px solid #f39c12; margin-top: 30px; text-align: center; margin-bottom: 30px;">
+      <p style="margin: 0; font-weight: 900; color: #d35400; font-size: 26px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
   </div>
 
@@ -38,11 +38,10 @@
 
   setInterval(() => {
     index = (index + 1) % images.length;
-    imgElement.style.opacity = 0;
+    imgElement.style.opacity = 0; // ഫോട്ടോ മങ്ങുന്നു
     setTimeout(() => {
-      imgElement.src = images[index];
-      imgElement.style.opacity = 1;
-    }, 800);
-  }, 5000);
+      imgElement.src = images[index]; // ഫോട്ടോ മാറുന്നു
+      imgElement.style.opacity = 1; // പുതിയ ഫോട്ടോ തെളിയുന്നു
+    }, 800); // 0.8 സെക്കൻഡിൽ ഫോട്ടോ മാറുന്നു
+  }, 5000); // ഓരോ 5 സെക്കൻഡിലും ഫോട്ടോ മാറുന്നു
 </script>
- 
