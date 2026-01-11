@@ -1,31 +1,35 @@
- <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 100%; margin: 10px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #ffffff; border: 1px solid #eee;">
+ <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; max-width: 100%; margin: 10px; border-radius: 25px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.15); background: #ffffff; border: 1px solid #eee;">
   
-  <div style="padding: 25px 10px 10px 10px; text-align: center; background: #fafafa;">
-    <h2 style="color: #f39c12; margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">FOUNDER</h2>
-    <h1 style="color: #2c3e50; margin: 10px 0 5px 0; font-size: 22px; font-weight: 800; white-space: nowrap;">Mohammed M. Basheer (BAS)</h1>
-    <p style="color: #555; margin: 0; font-weight: 700; font-size: 15px; white-space: nowrap;">Retired Assistant Engineer, KSEB</p>
+  <div style="padding: 30px 10px 15px 10px; text-align: center; background: linear-gradient(180deg, #fffcf5 0%, #ffffff 100%);">
+    
+    <h2 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 4px; background: linear-gradient(90deg, #ff8c00, #f39c12, #ffcc33); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FOUNDER</h2>
+    
+    <h1 style="color: #1a2a3a; margin: 15px 0 8px 0; font-size: clamp(24px, 6vw, 32px); font-weight: 800; line-height: 1.2;">Mohammed M. Basheer (BAS)</h1>
+    
+    <p style="color: #444; margin: 0; font-weight: 700; font-size: clamp(16px, 4.5vw, 20px);">Retired Assistant Engineer, KSEB</p>
   </div>
 
-  <div style="padding: 15px; text-align: center; background: #fff;">
-    <div style="width: 85%; max-width: 280px; aspect-ratio: 3/4; margin: auto; overflow: hidden; border: 8px solid #fff; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+  <div style="padding: 10px; text-align: center;">
+    <div style="width: 85%; max-width: 320px; aspect-ratio: 3/4; margin: auto; overflow: hidden; border: 10px solid #fff; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
       <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out;">
     </div>
   </div>
 
-  <div style="padding: 20px 25px; color: #333; line-height: 1.6; text-align: justify; font-size: 17px; font-weight: 600;">
+  <div style="padding: 25px 25px; color: #222; line-height: 1.6; text-align: justify; font-size: 19px; font-weight: 700;">
     <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
+    
     <p>A Retired Assistant Engineer from KSEB, his career is marked by 20 years of exemplary service in the power sector.</p>
+    
     <p>He has dedicated more than 10 years as an active member of the <strong>Ideal Relief Wing (IRW)</strong>.</p>
     
-    <div style="background: #fff3e0; padding: 15px; border-radius: 12px; border: 2px solid #f39c12; margin-top: 20px; text-align: center;">
-      <p style="margin: 0; font-weight: 800; color: #e65100; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
+    <div style="background: #fff4e5; padding: 20px; border-radius: 15px; border: 3px solid #f39c12; margin-top: 25px; text-align: center; box-shadow: inset 0 0 10px rgba(243,156,18,0.1);">
+      <p style="margin: 0; font-weight: 900; color: #d35400; font-size: 21px; letter-spacing: 0.5px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
   </div>
 
 </div>
 
 <script>
-  // നീ തന്ന രണ്ട് ലിങ്കുകളും ഇവിടെ സെറ്റ് ചെയ്തിട്ടുണ്ട്
   const images = [
     "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000",
     "https://drive.google.com/thumbnail?id=1KdZnPqKlSOXAFY-Lu2FU41B1n7sWtt85&sz=w1000"
@@ -41,5 +45,5 @@
       imgElement.src = images[index];
       imgElement.style.opacity = 1;
     }, 800);
-  }, 4000);
+  }, 5000); // സമയം 5 സെക്കൻഡ് ആക്കി മാറ്റി
 </script>
