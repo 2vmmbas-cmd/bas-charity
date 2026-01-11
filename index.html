@@ -1,31 +1,48 @@
-<div style="text-align: center; font-family: Arial, sans-serif; padding: 20px; border: 2px solid #ffd700;">
+ <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 20px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); background: #ffffff; border: 1px solid #eee;">
+  
+  <div style="padding: 30px 20px 10px 20px; text-align: center; background: linear-gradient(to bottom, #fcfcfc, #ffffff);">
+    <h1 style="color: #2c3e50; margin: 0; font-size: 28px; letter-spacing: 1px;">Mohammed M. Basheer</h1>
+    <p style="color: #f39c12; margin: 5px 0; font-weight: 600; font-size: 18px; text-transform: uppercase;">Founder & Retired Assistant Engineer (KSEB)</p>
+  </div>
 
-    <div id="logo-section">
-        <h1 style="color: #ffd700; font-size: 50px; text-shadow: 2px 2px #000;">BAS</h1>
-        <p style="font-weight: bold;">YOUR PURCHASE SATISFIES A HUNGER</p>
+  <div style="padding: 10px; text-align: center;">
+    <div style="width: 300px; height: 380px; margin: auto; overflow: hidden; border: 10px solid #fff; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+      <img id="profile-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out;">
     </div>
+  </div>
 
-    <hr style="border: 1px solid #eee; margin: 30px 0;">
-
-    <div id="donation-section">
-        <h2 style="font-size: 40px; color: #d32f2f; text-transform: uppercase;">DONATION</h2>
-        <p style="font-size: 28px; font-weight: bold; line-height: 1.4;">
-            നിങ്ങൾ നൽകുന്ന സംഭാവനയുടെ 100% തുകയും ചാരിറ്റി പ്രവർത്തനങ്ങൾക്കായി നേരിട്ട് ഉപയോഗിക്കുന്നു.
-        </p>
-        <p style="font-size: 20px; color: #555;">
-            ഈ വെബ്സൈറ്റിന്റെ നടത്തിപ്പ് ചിലവുകൾ നമ്മൾ തന്നെ (Affiliate Marketing വഴി) കണ്ടെത്തുന്നു.
-        </p>
+  <div style="padding: 25px 35px; color: #444; line-height: 1.8; text-align: justify; font-size: 16px;">
+    <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
+    
+    <p>A Retired Assistant Engineer from KSEB, his career is marked by 20 years of exemplary service in the power sector. His professional journey also includes 5 years of international experience across various Arabian countries.</p>
+    
+    <p>He has dedicated more than 10 years as an active member of the <strong>Ideal Relief Wing (IRW)</strong>, a premier government-registered NGO known for disaster management.</p>
+    
+    <div style="background: #fff9f1; padding: 20px; border-radius: 10px; border-left: 5px solid #f39c12; margin-top: 25px; text-align: center;">
+      <p style="margin: 0; font-weight: bold; color: #d35400; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
-
-    <hr style="border: 1px solid #eee; margin: 30px 0;">
-
-    <div id="founder-section" style="background-color: #f9f9f9; padding: 20px;">
-        <h3 style="font-size: 30px;">ഫൗണ്ടർ (FOUNDER)</h3>
-        <p style="font-size: 22px; font-weight: bold; color: #333;">ബാസ് (BAS)</p>
-        <p style="font-size: 18px; color: #666;">
-            "വിശപ്പില്ലാത്ത ലോകം" എന്ന ലക്ഷ്യത്തോടെ ഈ പ്ലാറ്റ്‌ഫോമിന് നേതൃത്വം നൽകുന്നത് ബാസ് ആണ്. 
-            പൂർണ്ണമായ സുതാര്യതയും സേവനവുമാണ് ഈ സംരംഭത്തിന്റെ അടിസ്ഥാനം.
-        </p>
-    </div>
+  </div>
 
 </div>
+
+<script>
+  // ഫോട്ടോകൾ തനിയെ മാറാൻ വേണ്ടിയുള്ള ലിസ്റ്റും സ്ക്രിപ്റ്റും
+  const profileImages = [
+    "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000",
+    // ബാക്കി ഫോട്ടോകളുടെ ലിങ്കുകൾ ഇവിടെ ചേർക്കുക
+  ];
+
+  let currentImgIndex = 0;
+  const slideElement = document.getElementById('profile-slideshow');
+
+  if (profileImages.length > 1) {
+    setInterval(() => {
+      currentImgIndex = (currentImgIndex + 1) % profileImages.length;
+      slideElement.style.opacity = 0;
+      setTimeout(() => {
+        slideElement.src = profileImages[currentImgIndex];
+        slideElement.style.opacity = 1;
+      }, 800);
+    }, 4000);
+  }
+</script>
