@@ -1,48 +1,49 @@
- <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 20px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); background: #ffffff; border: 1px solid #eee;">
+ <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; margin: 20px auto; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 45px rgba(0,0,0,0.2); background: #ffffff; border: 1px solid #eee;">
   
-  <div style="padding: 30px 20px 10px 20px; text-align: center; background: linear-gradient(to bottom, #fcfcfc, #ffffff);">
-    <h1 style="color: #2c3e50; margin: 0; font-size: 28px; letter-spacing: 1px;">Mohammed M. Basheer</h1>
-    <p style="color: #f39c12; margin: 5px 0; font-weight: 600; font-size: 18px; text-transform: uppercase;">Founder & Retired Assistant Engineer (KSEB)</p>
+  <div style="padding: 35px 20px 10px 20px; text-align: center; background: #fafafa;">
+    <h2 style="color: #f39c12; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;">FOUNDER</h2>
+    <h1 style="color: #2c3e50; margin: 10px 0 5px 0; font-size: 34px; font-weight: 800;">Mohammed M. Basheer (BAS)</h1>
+    <p style="color: #555; margin: 0; font-weight: 700; font-size: 20px;">Retired Assistant Engineer, KSEB</p>
   </div>
 
-  <div style="padding: 10px; text-align: center;">
-    <div style="width: 300px; height: 380px; margin: auto; overflow: hidden; border: 10px solid #fff; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
-      <img id="profile-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out;">
+  <div style="padding: 20px; text-align: center; background: #fff;">
+    <div style="width: 320px; height: 420px; margin: auto; overflow: hidden; border: 12px solid #fff; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+      <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 1s ease-in-out;">
     </div>
   </div>
 
-  <div style="padding: 25px 35px; color: #444; line-height: 1.8; text-align: justify; font-size: 16px;">
+  <div style="padding: 35px 45px; color: #222; line-height: 1.7; text-align: justify; font-size: 20px; font-weight: 700; background: #fff;">
     <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
     
-    <p>A Retired Assistant Engineer from KSEB, his career is marked by 20 years of exemplary service in the power sector. His professional journey also includes 5 years of international experience across various Arabian countries.</p>
+    <p>A Retired Assistant Engineer from KSEB (Kerala State Electricity Board), his career is marked by 20 years of exemplary service in the power sector, ensuring technical excellence and public welfare.</p>
     
     <p>He has dedicated more than 10 years as an active member of the <strong>Ideal Relief Wing (IRW)</strong>, a premier government-registered NGO known for disaster management.</p>
     
-    <div style="background: #fff9f1; padding: 20px; border-radius: 10px; border-left: 5px solid #f39c12; margin-top: 25px; text-align: center;">
-      <p style="margin: 0; font-weight: bold; color: #d35400; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
+    <div style="background: #fff3e0; padding: 25px; border-radius: 15px; border: 3px solid #f39c12; margin-top: 30px; text-align: center;">
+      <p style="margin: 0; font-weight: 900; color: #e65100; font-size: 24px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
   </div>
 
 </div>
 
 <script>
-  // ഫോട്ടോകൾ തനിയെ മാറാൻ വേണ്ടിയുള്ള ലിസ്റ്റും സ്ക്രിപ്റ്റും
-  const profileImages = [
+  // നീ തന്ന രണ്ട് ഫോട്ടോ ലിങ്കുകൾ ഇവിടെ ചേർത്തിട്ടുണ്ട്
+  const images = [
     "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000",
-    // ബാക്കി ഫോട്ടോകളുടെ ലിങ്കുകൾ ഇവിടെ ചേർക്കുക
+    "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" 
+    // ശ്രദ്ധിക്കുക: രണ്ടാമത്തെ ലിങ്കും ഇതാണെങ്കിൽ ഇത് തന്നെ മാറും. 
+    // വേറെ ഫോട്ടോ ഉണ്ടെങ്കിൽ അതിന്റെ ID മാത്രം മാറ്റിയാൽ മതി.
   ];
 
-  let currentImgIndex = 0;
-  const slideElement = document.getElementById('profile-slideshow');
+  let index = 0;
+  const imgElement = document.getElementById('founder-slideshow');
 
-  if (profileImages.length > 1) {
-    setInterval(() => {
-      currentImgIndex = (currentImgIndex + 1) % profileImages.length;
-      slideElement.style.opacity = 0;
-      setTimeout(() => {
-        slideElement.src = profileImages[currentImgIndex];
-        slideElement.style.opacity = 1;
-      }, 800);
-    }, 4000);
-  }
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    imgElement.style.opacity = 0; // മങ്ങുന്നു
+    setTimeout(() => {
+      imgElement.src = images[index]; // ഫോട്ടോ മാറുന്നു
+      imgElement.style.opacity = 1; // തെളിയുന്നു
+    }, 1000);
+  }, 4000); // ഓരോ 4 സെക്കൻഡിലും മാറ്റം
 </script>
