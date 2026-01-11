@@ -1,85 +1,48 @@
- <div style="
-  font-family:'Segoe UI', Roboto, Arial, sans-serif;
-  width:100%;
-  margin:0;
-  background:#ffffff;
-  box-sizing:border-box;
-">
+<div style="font-family: Arial, sans-serif; width: 95%; max-width: 500px; margin: 10px auto; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #ffffff; border: 1px solid #ddd;">
+  
+  <div style="padding: 15px; text-align: center; background: #fafafa;">
+    <h2 style="margin: 0; font-size: 18px; color: #f39c12; letter-spacing: 2px;">FOUNDER</h2>
+    <h1 style="color: #222; margin: 5px 0; font-size: 22px; font-weight: bold;">Mohammed M. Basheer (BAS)</h1>
+    <p style="color: #666; margin: 0; font-size: 16px; font-weight: 600;">Retired Assistant Engineer, KSEB</p>
+  </div>
 
-  <!-- HEADER -->
-  <div style="
-    text-align:center;
-    padding:26px 14px;
-    background:#fafafa;
-  ">
-    <div style="
-      font-size:24px;
-      font-weight:900;
-      letter-spacing:4px;
-      color:#f39c12;
-    ">
-      FOUNDER
-    </div>
+  <div style="width: 100%; text-align: center; background: #eee;">
+    <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: auto; display: block; transition: opacity 0.8s ease-in-out;">
+  </div>
 
-    <div style="
-      margin-top:10px;
-      font-size:clamp(26px,7vw,34px);
-      font-weight:900;
-      color:#1a2a3a;
-      line-height:1.2;
-    ">
-      Mohammed M. Basheer (BAS)
-    </div>
-
-    <div style="
-      margin-top:6px;
-      font-size:clamp(18px,5vw,22px);
-      font-weight:700;
-      color:#555;
-    ">
-      Retired Assistant Engineer, KSEB
+  <div style="padding: 15px; color: #333; line-height: 1.5; text-align: justify; font-size: 16px;">
+    
+    <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
+    
+    <p>A Retired Assistant Engineer from KSEB (Kerala State Electricity Board), his career is marked by 20 years of exemplary service in the power sector, ensuring technical excellence and public welfare. His professional journey also includes 5 years of international experience working across various Arabian countries, which provided him with a global perspective on management and community service.</p>
+    
+    <p>Beyond his professional career, Mr. Basheer has been a pillar of social support for the community. He has dedicated more than 10 years as an active member of the Ideal Relief Wing (IRW), a premier government-recognized and registered NGO known for its disaster management and humanitarian aid.</p>
+    
+    <p>With a total of 40 years in social service, his life’s work has been defined by a commitment to helping the underprivileged. This project is the culmination of his lifelong mission to ensure that technology and commerce serve a greater purpose: satisfying hunger and bringing hope to those in need.</p>
+    
+    <div style="background: #fff9f0; padding: 15px; border-radius: 8px; border: 1px solid #f39c12; margin-top: 15px; text-align: center;">
+      <p style="margin: 0; font-weight: bold; color: #d35400; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
   </div>
 
-  <!-- PHOTO (SMALLER, SQUARE, CENTER) -->
-  <div style="
-    width:100%;
-    padding:14px;
-    box-sizing:border-box;
-    display:flex;
-    justify-content:center;
-  ">
-    <div style="
-      width:260px;
-      max-width:90%;
-      aspect-ratio:1 / 1;
-      overflow:hidden;
-      border-radius:16px;
-      box-shadow:0 8px 22px rgba(0,0,0,0.18);
-      background:#fff;
-    ">
-      <img id="founder-slideshow"
-        src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000"
-        style="
-          width:100%;
-          height:100%;
-          object-fit:cover;
-          transition:opacity .8s ease;
-        ">
-    </div>
-  </div>
+</div>
 
-  <!-- CONTENT -->
-  <div style="
-    padding:22px 18px;
-    font-size:clamp(18px,5vw,21px);
-    line-height:1.8;
-    color:#222;
-    font-weight:600;
-  ">
-    <p>
-      <b style="color:#e67e22;">Mohammed M. Basheer</b> is the visionary founder behind this project, dedicating his life to professional excellence and humanitarian service.
-    </p>
+<script>
+  const images = [
+    "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1KdZnPqKlSOXAFY-Lu2FU41B1n7sWtt85&sz=w1000"
+  ];
 
-    <p>
-      He served over <b style="color:#2980b
+  let index = 0;
+  const imgElement = document.getElementById('founder-slideshow');
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    imgElement.style.opacity = 0;
+    setTimeout(() => {
+      imgElement.src = images[index];
+      imgElement.style.opacity = 1;
+    }, 800);
+  }, 5000);
+</script>
+ 
