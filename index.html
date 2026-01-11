@@ -1,38 +1,34 @@
- <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 650px; margin: 20px auto; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 45px rgba(0,0,0,0.2); background: #ffffff; border: 1px solid #eee;">
+ <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 100%; margin: 10px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #ffffff; border: 1px solid #eee;">
   
-  <div style="padding: 35px 20px 10px 20px; text-align: center; background: #fafafa;">
-    <h2 style="color: #f39c12; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 3px; font-weight: 700;">FOUNDER</h2>
-    <h1 style="color: #2c3e50; margin: 10px 0 5px 0; font-size: 34px; font-weight: 800;">Mohammed M. Basheer (BAS)</h1>
-    <p style="color: #555; margin: 0; font-weight: 700; font-size: 20px;">Retired Assistant Engineer, KSEB</p>
+  <div style="padding: 25px 10px 10px 10px; text-align: center; background: #fafafa;">
+    <h2 style="color: #f39c12; margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">FOUNDER</h2>
+    <h1 style="color: #2c3e50; margin: 10px 0 5px 0; font-size: 22px; font-weight: 800; white-space: nowrap;">Mohammed M. Basheer (BAS)</h1>
+    <p style="color: #555; margin: 0; font-weight: 700; font-size: 15px; white-space: nowrap;">Retired Assistant Engineer, KSEB</p>
   </div>
 
-  <div style="padding: 20px; text-align: center; background: #fff;">
-    <div style="width: 320px; height: 420px; margin: auto; overflow: hidden; border: 12px solid #fff; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-      <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 1s ease-in-out;">
+  <div style="padding: 15px; text-align: center; background: #fff;">
+    <div style="width: 85%; max-width: 280px; aspect-ratio: 3/4; margin: auto; overflow: hidden; border: 8px solid #fff; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+      <img id="founder-slideshow" src="https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out;">
     </div>
   </div>
 
-  <div style="padding: 35px 45px; color: #222; line-height: 1.7; text-align: justify; font-size: 20px; font-weight: 700; background: #fff;">
+  <div style="padding: 20px 25px; color: #333; line-height: 1.6; text-align: justify; font-size: 17px; font-weight: 600;">
     <p style="margin-top: 0;">Mohammed M. Basheer is the visionary founder behind this project, bringing over four decades of dedicated professional and social expertise to the mission.</p>
+    <p>A Retired Assistant Engineer from KSEB, his career is marked by 20 years of exemplary service in the power sector.</p>
+    <p>He has dedicated more than 10 years as an active member of the <strong>Ideal Relief Wing (IRW)</strong>.</p>
     
-    <p>A Retired Assistant Engineer from KSEB (Kerala State Electricity Board), his career is marked by 20 years of exemplary service in the power sector, ensuring technical excellence and public welfare.</p>
-    
-    <p>He has dedicated more than 10 years as an active member of the <strong>Ideal Relief Wing (IRW)</strong>, a premier government-registered NGO known for disaster management.</p>
-    
-    <div style="background: #fff3e0; padding: 25px; border-radius: 15px; border: 3px solid #f39c12; margin-top: 30px; text-align: center;">
-      <p style="margin: 0; font-weight: 900; color: #e65100; font-size: 24px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
+    <div style="background: #fff3e0; padding: 15px; border-radius: 12px; border: 2px solid #f39c12; margin-top: 20px; text-align: center;">
+      <p style="margin: 0; font-weight: 800; color: #e65100; font-size: 18px;">"YOUR PURCHASE SATISFIES A HUNGER"</p>
     </div>
   </div>
 
 </div>
 
 <script>
-  // നീ തന്ന രണ്ട് ഫോട്ടോ ലിങ്കുകൾ ഇവിടെ ചേർത്തിട്ടുണ്ട്
+  // നീ തന്ന രണ്ട് ലിങ്കുകളും ഇവിടെ സെറ്റ് ചെയ്തിട്ടുണ്ട്
   const images = [
     "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000",
-    "https://drive.google.com/thumbnail?id=1keyWL0GF-HysweqAYntVaS-vB_fwZj_H&sz=w1000" 
-    // ശ്രദ്ധിക്കുക: രണ്ടാമത്തെ ലിങ്കും ഇതാണെങ്കിൽ ഇത് തന്നെ മാറും. 
-    // വേറെ ഫോട്ടോ ഉണ്ടെങ്കിൽ അതിന്റെ ID മാത്രം മാറ്റിയാൽ മതി.
+    "https://drive.google.com/thumbnail?id=1KdZnPqKlSOXAFY-Lu2FU41B1n7sWtt85&sz=w1000"
   ];
 
   let index = 0;
@@ -40,10 +36,10 @@
 
   setInterval(() => {
     index = (index + 1) % images.length;
-    imgElement.style.opacity = 0; // മങ്ങുന്നു
+    imgElement.style.opacity = 0;
     setTimeout(() => {
-      imgElement.src = images[index]; // ഫോട്ടോ മാറുന്നു
-      imgElement.style.opacity = 1; // തെളിയുന്നു
-    }, 1000);
-  }, 4000); // ഓരോ 4 സെക്കൻഡിലും മാറ്റം
+      imgElement.src = images[index];
+      imgElement.style.opacity = 1;
+    }, 800);
+  }, 4000);
 </script>
