@@ -1,4 +1,60 @@
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ <div class="container">
+<div class="header">Search Shops</div>
+<div id="shops">
+
+<a class="shop amz" data-name="amazon" href="https://www.amazon.in/?tag=Vmmbaslinks-21" target="_blank">
+<img class="logo" src="https://www.amazon.in/favicon.ico">
+<div class="info"><b>Amazon</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop fk" data-name="flipkart" href="https://fktr.in/V5wq6Bc" target="_blank">
+<img class="logo" src="https://www.flipkart.com/favicon.ico">
+<div class="info"><b>Flipkart</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop sam" data-name="samsung" href="https://www.samsung.com/in/offer/online-shopping-offers/" target="_blank">
+<img class="logo" src="https://www.samsung.com/favicon.ico">
+<div class="info"><b>Samsung</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop myn" data-name="myntra" href="https://myntr.it/CuqylqS" target="_blank">
+<img class="logo" src="https://www.myntra.com/favicon.ico">
+<div class="info"><b>Myntra</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop jio" data-name="jiomart" href="https://www.jiomart.com/" target="_blank">
+<img class="logo" src="https://www.jiomart.com/favicon.ico">
+<div class="info"><b>JioMart</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop tata" data-name="tatacliq" href="https://www.tatacliq.com/" target="_blank">
+<img class="logo" src="https://www.tatacliq.com/favicon.ico">
+<div class="info"><b>Tata CLiQ</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop rel" data-name="reliance" href="https://www.reliancedigital.in/" target="_blank">
+<img class="logo" src="https://www.reliancedigital.in/favicon.ico">
+<div class="info"><b>Reliance Digital</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop croma" data-name="croma" href="https://www.croma.com/" target="_blank">
+<img class="logo" src="https://www.croma.com/favicon.ico">
+<div class="info"><b>Croma</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop nyk" data-name="nykaa" href="https://www.nykaa.com/" target="_blank">
+<img class="logo" src="https://www.nykaa.com/favicon.ico">
+<div class="info"><b>Nykaa</b><span>Check today’s offer</span></div>
+</a>
+
+<a class="shop shp" data-name="shopsy" href="https://bitli.in/03kNE3S" target="_blank">
+<img class="logo" src="https://www.shopsy.in/favicon.ico">
+<div class="info"><b>Shopsy</b><span>Check today’s offer</span></div>
+</a>
+
+</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <div style="background: #000; border: 2px solid #FFD700; border-radius: 25px; padding: 30px 15px; margin: 20px 10px; text-align: center; box-shadow: 0 15px 35px rgba(255, 215, 0, 0.15);">
   
@@ -49,3 +105,21 @@
     YOUR PURCHASE SATISFIES A HUNGER
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Globe Animation & Translation Scripts
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / 380, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, 380);
+    document.getElementById('logo-space').appendChild(renderer.domElement);
+    
+    // ... (ബാക്കി എല്ലാ ആനിമേഷൻ സ്ക്രിപ്റ്റുകളും) ...
+
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({ pageLanguage:'ml', autoDisplay:false }, 'google_translate_element');
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
